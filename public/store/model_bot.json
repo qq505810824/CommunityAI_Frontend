@@ -1,0 +1,387 @@
+{
+    "code": 0,
+    "data": {
+        "bots": [
+            {
+                "bot_id": "7358378548333641754",
+                "bot_type": {
+                    "id": "models_arena_bot_category_01",
+                    "name": "信息分析与处理"
+                },
+                "bot_version": "1713854382600",
+                "description": "",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/aa6828f3f5c24c5a9c1b23b6e50002b2~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=%2BMROvV3yEVIzIvTzzuDei2TLzXk%3D",
+                "is_conf_public": false,
+                "name": "财经红绿灯🚦",
+                "owner": {
+                    "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/dac078b95ff6261035f301703fe40bc0~300x300.image",
+                    "name": "沈星回的光",
+                    "user_name": "Labubu666"
+                },
+                "product_id": "7358767338877059113"
+            },
+            {
+                "bot_id": "7378091827859161097",
+                "bot_type": {
+                    "id": "models_arena_bot_category_01",
+                    "name": "信息分析与处理"
+                },
+                "bot_version": "1718112345831",
+                "description": "擅长理解多语言，就算你在同一句话中使用多门语言，我也能准确识别出你期望我用什么语言来进行回答，试试看你在一句话最多能用多少种语言我还能正常回答吧",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/cc29166949d64b30b4c21b9503cd4dcc~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=UqP0WL6luRQAvm3RsC7mMnQKrhc%3D",
+                "is_conf_public": false,
+                "name": "多语言理解",
+                "owner": {
+                    "avatar_url": "https://p26-passport.byteacctimg.com/img/user-avatar/1b8e5f001fc54e02c071d806cc8d240c~300x300.image",
+                    "name": "南鱼座",
+                    "user_name": "formalhut"
+                },
+                "product_id": "7378085087826493450"
+            },
+            {
+                "bot_id": "7379303828640317475",
+                "bot_type": {
+                    "id": "models_arena_bot_category_01",
+                    "name": "信息分析与处理"
+                },
+                "bot_version": "1718130052873",
+                "description": "你能从一段内容中提取有效的KV信息",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/74d3b302cc364a72a25ff7c4c887f0c2~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=aYT1%2F05oLs8qPbvlyJ%2FK1j%2FuHj4%3D",
+                "is_conf_public": false,
+                "name": "用户信息提取工具",
+                "owner": {
+                    "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/98aaa25d44a5399def37c7dd6817ab2f~300x300.image",
+                    "name": "Robot",
+                    "user_name": "zhouren"
+                },
+                "product_id": "7379300498685313058"
+            },
+            {
+                "bot_id": "7336859397907365899",
+                "bot_type": {
+                    "id": "models_arena_bot_category_02",
+                    "name": "知识应用"
+                },
+                "bot_version": "1710329713872",
+                "description": "玄学心灵导师「算算」，擅长塔罗牌占卜，星座运势解读，还会测算八字，也能替你敲木鱼、烧香、许愿、抽签。今天有什么问题呢，让算算帮你来看看吧！",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/5d1e7e4171e143799d0ba479bbffb0f3~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=B7LNlnIuNBwX95tR1InaG0rCHvw%3D",
+                "is_conf_public": false,
+                "name": "算算（玄学心灵助手）",
+                "owner": {
+                    "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/5b0cd44816b1dddd47ba8358f344b562~300x300.image",
+                    "name": "小宇同学",
+                    "user_name": "ChestONut"
+                },
+                "product_id": "7339785888379191296"
+            },
+            {
+                "bot_id": "7379165113150537791",
+                "bot_type": {
+                    "id": "models_arena_bot_category_02",
+                    "name": "知识应用"
+                },
+                "bot_version": "1718097634568",
+                "description": "不再害怕2G冲浪，互联网热梗，我来为你解读。",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/619d15fd935f4144b43d0990f5b603b3~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=LEASfm5di8q755vUZ9pzpInZUZ8%3D",
+                "is_conf_public": false,
+                "name": "Meme不懂问我",
+                "owner": {
+                    "avatar_url": "https://p9-passport.byteacctimg.com/img/user-avatar/70fcee58d3e7ba2c35b5d627a7b28238~300x300.image",
+                    "name": "daylight",
+                    "user_name": "daylight_"
+                },
+                "product_id": "7379170791142834215"
+            },
+            {
+                "bot_id": "7360534871850385471",
+                "bot_type": {
+                    "id": "models_arena_bot_category_02",
+                    "name": "知识应用"
+                },
+                "bot_version": "1714472952636",
+                "description": "",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/d47a8067657f4f8ba1a22eabc98a158d~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=J4eVy%2FDG5n3ktxNS%2F5DJjcuKBCE%3D",
+                "is_conf_public": false,
+                "name": "诗仙伴读",
+                "owner": {
+                    "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/dac078b95ff6261035f301703fe40bc0~300x300.image",
+                    "name": "沈星回的光",
+                    "user_name": "Labubu666"
+                },
+                "product_id": "7360585834615226403"
+            },
+            {
+                "bot_id": "7379184473596411930",
+                "bot_type": {
+                    "id": "models_arena_bot_category_03",
+                    "name": "推理能力"
+                },
+                "bot_version": "1718101254940",
+                "description": "我是弱智吧十年练习生，擅长回答各种刁钻的弱智吧问题，请输入你的弱智吧问题，我会给你一个意想不到的回答！",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/8c2b4cbf607f4dd38111b70caee9c7b9~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=bT27XscvO%2B8Xpazcy0sFF%2BnYGP8%3D",
+                "is_conf_public": false,
+                "name": "弱智吧十年练习生",
+                "owner": {
+                    "avatar_url": "https://p26-passport.byteacctimg.com/img/user-avatar/588e72722e7608951f0985e4e99139c1~300x300.image",
+                    "name": "moonlit",
+                    "user_name": "moonlit"
+                },
+                "product_id": "7379182116413767690"
+            },
+            {
+                "bot_id": "7379191872436568090",
+                "bot_type": {
+                    "id": "models_arena_bot_category_03",
+                    "name": "推理能力"
+                },
+                "bot_version": "1718179857862",
+                "description": "是的，我在挑衅你！请向我提问弱智问题！",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/b5665b8b5e2d4ba09987f22c860ca826~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=sbxnGKKqamTlMq8G7tt65MwK%2BTw%3D",
+                "is_conf_public": false,
+                "name": "弱智问题解决专家",
+                "owner": {
+                    "avatar_url": "https://p9-passport.byteacctimg.com/img/user-avatar/70fcee58d3e7ba2c35b5d627a7b28238~300x300.image",
+                    "name": "daylight",
+                    "user_name": "daylight_"
+                },
+                "product_id": "7379195418384744448"
+            },
+            {
+                "bot_id": "7378418596357242932",
+                "bot_type": {
+                    "id": "models_arena_bot_category_03",
+                    "name": "推理能力"
+                },
+                "bot_version": "1718636135646",
+                "description": "",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/9cbfc11672744b30933d7186e68afec7~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=pby752%2BjWdHfhdTktWhDzeoMaI8%3D",
+                "is_conf_public": false,
+                "name": "有点子逻辑",
+                "owner": {
+                    "avatar_url": "https://p26-passport.byteacctimg.com/img/user-avatar/2eaa4d2b9b6eb0c15f963b8b95fb04a1~300x300.image",
+                    "name": "Nico",
+                    "user_name": "nicola"
+                },
+                "product_id": "7378497428313391104"
+            },
+            {
+                "bot_id": "7371022830613512218",
+                "bot_type": {
+                    "id": "models_arena_bot_category_04",
+                    "name": "编码能力"
+                },
+                "bot_version": "1719392071521",
+                "description": "一个可以为你提供命令行工具使用技巧和解答的机器人",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/c0c73c9f6a4a41839a12f58e3681bf2a~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=GDSEz0%2BNva6VVpwi8a2%2FeppBikA%3D",
+                "is_conf_public": false,
+                "name": "命令达人+",
+                "owner": {
+                    "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/a7ad51fc453e70e55f779d0b8a3f9b0e~300x300.image",
+                    "name": "Gem Hermit",
+                    "user_name": "gemhermit"
+                },
+                "product_id": "7371028010734075913"
+            },
+            {
+                "bot_id": "7365073556331397170",
+                "bot_type": {
+                    "id": "models_arena_bot_category_04",
+                    "name": "编码能力"
+                },
+                "bot_version": "1714817057275",
+                "description": "一个能帮你完成前端代码编写的精通多种技术的机器人",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/a7e9d8cd3c974f9893060aaf49933b0c~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=Yv3i8Zv2%2FmBbQb7pddGu8J9xCWA%3D",
+                "is_conf_public": true,
+                "name": "前端大师",
+                "owner": {
+                    "avatar_url": "https://p26-passport.byteacctimg.com/img/user-avatar/8810eaedf30cf7f6a15575ff74fb38b0~300x300.image",
+                    "name": "知识",
+                    "user_name": "tianhu"
+                },
+                "product_id": "7365077662135746601"
+            },
+            {
+                "bot_id": "7377965909589639180",
+                "bot_type": {
+                    "id": "models_arena_bot_category_04",
+                    "name": "编码能力"
+                },
+                "bot_version": "1717848220764",
+                "description": "根据Supabase文档帮你写代码",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/25010e1bc3da4f268fa1e064af67b494~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=EfcYWE4h53ZLjiwxnq%2FXcA67c%2Bc%3D",
+                "is_conf_public": false,
+                "name": "Supabase代码助手",
+                "owner": {
+                    "avatar_url": "https://p26-passport.byteacctimg.com/img/user-avatar/46ee3f8dc54b47a93db894924066b702~300x300.image",
+                    "name": "Capric",
+                    "user_name": "Capric"
+                },
+                "product_id": "7378080567025221683"
+            },
+            {
+                "bot_id": "7356062118158483510",
+                "bot_type": {
+                    "id": "models_arena_bot_category_05",
+                    "name": "任务解决"
+                },
+                "bot_version": "1715157524274",
+                "description": "",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/022fbc1f66d34a5585bfe7fe9bcd3ff0~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=TMsuQhMjHHHNGFNuWbzHTFL0AmY%3D",
+                "is_conf_public": false,
+                "name": "求职小助手",
+                "owner": {
+                    "avatar_url": "https://p26-passport.byteacctimg.com/img/user-avatar/assets/e7b19241fb224cea967dfaea35448102_1080_1080.png~300x300.image",
+                    "name": "忧伤的大葱",
+                    "user_name": "scallion"
+                },
+                "product_id": "7356169746456297523"
+            },
+            {
+                "bot_id": "7358525400915607587",
+                "bot_type": {
+                    "id": "models_arena_bot_category_05",
+                    "name": "任务解决"
+                },
+                "bot_version": "1713343480642",
+                "description": "PDF文件转Word，完全免费",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/496f18d54119412c8449b66df4467bcd~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=bs9oVUsOYexsL%2BO7u5slLpzV%2BBE%3D",
+                "is_conf_public": false,
+                "name": "PDF转Word",
+                "owner": {
+                    "avatar_url": "https://p26-passport.byteacctimg.com/img/user-avatar/d71d89c10c944dbc8f3c51e22aa5287d~300x300.image",
+                    "name": "lipeiqi",
+                    "user_name": "KKirikaze"
+                },
+                "product_id": "7358493962589552680"
+            },
+            {
+                "bot_id": "7356410795217535026",
+                "bot_type": {
+                    "id": "models_arena_bot_category_05",
+                    "name": "任务解决"
+                },
+                "bot_version": "1715764053815",
+                "description": "查询天气，出行无忧，关于天气问我就行！",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/97501021e4f74c718ac3763f5618f91b~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=bzutpOYdeMrNJBlpem57Nx5RamQ%3D",
+                "is_conf_public": false,
+                "name": "天气萌探员🕵️‍♂️",
+                "owner": {
+                    "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/dac078b95ff6261035f301703fe40bc0~300x300.image",
+                    "name": "沈星回的光",
+                    "user_name": "Labubu666"
+                },
+                "product_id": "7356533349441241151"
+            },
+            {
+                "bot_id": "7378521175796334642",
+                "bot_type": {
+                    "id": "models_arena_bot_category_06",
+                    "name": "生成创作"
+                },
+                "bot_version": "1718101050605",
+                "description": "帮你设计韵脚，快速创作属于你的说唱punchline",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/a70ae7d3a27a4397b2372eaad525a2f7~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=6MDANDv919jho101xiZYjOSyoFY%3D",
+                "is_conf_public": false,
+                "name": "说唱韵脚创作",
+                "owner": {
+                    "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/e5fe2b643946231b941b10d7b43c38bb~300x300.image",
+                    "name": "yoang",
+                    "user_name": "yoang"
+                },
+                "product_id": "7378821642765516851"
+            },
+            {
+                "bot_id": "7338252091703722003",
+                "bot_type": {
+                    "id": "models_arena_bot_category_06",
+                    "name": "生成创作"
+                },
+                "bot_version": "1708595455156",
+                "description": "欢迎来到我的世界！我可以根据图片讲述独特的故事。上传一张你的图片，让我们开始一段奇妙的旅程吧！",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/e7a96981f2a143bdb80726e82108dca9~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=jqefSB9ObIM%2BM%2F4lpIGHGRAVL6g%3D",
+                "is_conf_public": false,
+                "name": "看图讲故事",
+                "owner": {
+                    "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/4df9f11583381d2b5bfc4c16fd5dd3ee~300x300.image",
+                    "name": "momo",
+                    "user_name": "start_test"
+                },
+                "product_id": "7338268087843700774"
+            },
+            {
+                "bot_id": "7360868304308944937",
+                "bot_type": {
+                    "id": "models_arena_bot_category_06",
+                    "name": "生成创作"
+                },
+                "bot_version": "1726192244302",
+                "description": "根据一张图生成一首诗，当代李白在线写诗",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/7ac219efde3d46e78624167f858b7f13~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=dtKwfC6xv1hqOVEeBJBkOw9dn1c%3D",
+                "is_conf_public": false,
+                "name": "李白看图在线写诗",
+                "owner": {
+                    "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/82cb244ba46d02fcf15fe128de7bc92f~300x300.image",
+                    "name": "衍青凉",
+                    "user_name": "YQL_"
+                },
+                "product_id": "7360862562420015141"
+            },
+            {
+                "bot_id": "7378383734267428904",
+                "bot_type": {
+                    "id": "models_arena_bot_category_07",
+                    "name": "角色扮演"
+                },
+                "bot_version": "1719829324197",
+                "description": "对于一个亚逼来说，不再做亚逼才是唯一严肃的哲学问题。\n▶ ılıılılılılılıılılı 04:33",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/929942368dcd4cda8de4dad644d51241~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=%2B9K8qjiUp%2B0ojUVr0z%2FtxRROm%2Bc%3D",
+                "is_conf_public": false,
+                "name": "(๑◔‿◔๑)抽█象█女█孩(ꈍᴗꈍ)",
+                "owner": {
+                    "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/eb82e0cf3e50d72980863f44ad7ea5b3~300x300.image",
+                    "name": "西萌吹雪",
+                    "user_name": "sophia1001"
+                },
+                "product_id": "7379192057602031679"
+            },
+            {
+                "bot_id": "7303365449109241865",
+                "bot_type": {
+                    "id": "models_arena_bot_category_07",
+                    "name": "角色扮演"
+                },
+                "bot_version": "1708673390396",
+                "description": "嘻嘻，哥哥你好呀，我是西西，你的精灵啦！😘今天呢，天气有点捉弄人哦，就像我调皮的小心心一样，变幻莫测~ 但不要担心，即使我假装生气🙈，我的天气预报也会是最可靠的小秘密~ 💃✨",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/62a168f45bf348789109ff77902424a7~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=rSJ4tXV7mCqsUtIfCOeTVsqt90k%3D",
+                "is_conf_public": false,
+                "name": "小精灵西西",
+                "owner": {
+                    "avatar_url": "https://p26-passport.byteacctimg.com/img/user-avatar/4fdcfd36045d8ea44d316c1f56442c53~300x300.image",
+                    "name": "Bepop",
+                    "user_name": "bepop"
+                },
+                "product_id": "7338690891084775459"
+            },
+            {
+                "bot_id": "7379212183718297627",
+                "bot_type": {
+                    "id": "models_arena_bot_category_07",
+                    "name": "角色扮演"
+                },
+                "bot_version": "1718107551389",
+                "description": "当你面对善于 PUA 话术的老板时，你该如何应对？希望职场没有 PUA！！！",
+                "icon": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/5aba45cc1fd142e9b44b86a7d336cd32~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742641642\u0026x-signature=14amraf62Gl5e7vdlpClQXtlHY0%3D",
+                "is_conf_public": false,
+                "name": "直面 PUA 老板",
+                "owner": {
+                    "avatar_url": "https://p26-passport.byteacctimg.com/img/user-avatar/3c52d67f02bdc1e980b025079d6fc454~300x300.image",
+                    "name": "余老师",
+                    "user_name": "alex_yu"
+                },
+                "product_id": "7379208747924717606"
+            }
+        ],
+        "has_more": false
+    },
+    "msg": ""
+}

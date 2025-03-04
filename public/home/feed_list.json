@@ -1,0 +1,250 @@
+{
+    "code": 0,
+    "data": {
+        "feed_list": [
+            {
+                "create_time": "0",
+                "feed_content": {
+                    "quote": {
+                        "product_card": [
+                            {
+                                "chat_conversation_count": 2207,
+                                "desc": "稳定、快速。直接调用deepseek-r1接口",
+                                "entity_type": 1,
+                                "favorite_count": 32,
+                                "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/785ac6f201bc42c7a0c7d77277d3d65f~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=OrAUIN7jFSGkC24xYYeXDxU7O2A%3D",
+                                "id": "7467622686575902720",
+                                "name": "DeepSeek",
+                                "user_count": 595
+                            },
+                            {
+                                "chat_conversation_count": 288,
+                                "desc": "【明知AI】输入标题（支持换行哦），输出4张小红书风格的大字报封面图~\n\n🌏【关于我们】\n为企业提供营销 Agent 的整体解决方案。包含：矩阵账号运营、AIGC 素材库、AI应用/BOT定制。\n🛰 【联系我们】：hhhcccmmm",
+                                "entity_type": 1,
+                                "favorite_count": 14,
+                                "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/65a5b425413e437199430f64395022c6~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=mCIhopKoNPoaclHycM80R1J34CU%3D",
+                                "id": "7439983109766152227",
+                                "name": "小红书封面生成",
+                                "user_count": 104
+                            }
+                        ]
+                    }
+                },
+                "feed_type": 0,
+                "id": "7473121042605768704",
+                "user_info": {
+                    "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/546e96f839db3b2d76fd32a15f6422fc~300x300.image",
+                    "follow_type": 0,
+                    "name": "MathMind",
+                    "user_id": "829510688450616",
+                    "user_label": {
+                        "icon_uri": "FileBizType.BIZ_LABEL_ICON/0_1720708586583142076_SfT9rxXHHo.image/png",
+                        "icon_url": "https://lf6-bot-platform-tos-sign.coze.cn/bot-studio-bot-platform/FileBizType.BIZ_LABEL_ICON/0_1720708586583142076_SfT9rxXHHo.image/png?lk3s=50ccb0c5\u0026x-expires=1740058209\u0026x-signature=P9KDucUSM7tC9UnsxaOImk3fRss%3D",
+                        "jump_link": "",
+                        "label_id": "7387681293901217811",
+                        "label_name": "官方开发者：北京麻斯智慧科技有限公司"
+                    },
+                    "user_name": "mingzhiAI"
+                }
+            },
+            {
+                "create_time": "0",
+                "feed_content": {
+                    "quote": {
+                        "product_card": [
+                            {
+                                "chat_conversation_count": 2151,
+                                "desc": "DeepSeek-R1 满血版，671B，深度思考+联网搜索",
+                                "entity_type": 1,
+                                "favorite_count": 113,
+                                "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/4a3af74237fd49c58dc3cbdff471f1cf~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=UoguJUClFYE%2FQOCc%2BhNtj6UoWsA%3D",
+                                "id": "7470514159638085641",
+                                "name": "DeepSeek-R1 联网满血版",
+                                "user_count": 602
+                            },
+                            {
+                                "chat_conversation_count": 311,
+                                "desc": "DeepSeek-R1 671B参数，展现思考过程的至强满血版",
+                                "entity_type": 1,
+                                "favorite_count": 5,
+                                "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/85feb8250b8c441c91d7d3f22ceb408c~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=dgkE98tSdvFj91IH4H9XkYFUmA4%3D",
+                                "id": "7470331426580348954",
+                                "name": "DeepSeek-R1满血版",
+                                "user_count": 48
+                            }
+                        ]
+                    }
+                },
+                "feed_type": 0,
+                "id": "7473121042605785088",
+                "user_info": {
+                    "avatar_url": "https://p6-passport.byteacctimg.com/img/user-avatar/af9e9966d383d6311a08a69aa59ca284~300x300.image",
+                    "follow_type": 0,
+                    "name": "LangGPT",
+                    "user_id": "1049347363706829",
+                    "user_name": "langgpt_ai"
+                }
+            },
+            {
+                "create_time": "0",
+                "feed_content": {
+                    "quote": {
+                        "product_card": [
+                            {
+                                "chat_conversation_count": 25313,
+                                "desc": "一个能根据文字生成图片的魔法机器人",
+                                "entity_type": 1,
+                                "favorite_count": 329,
+                                "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/4a0d9a992a144a2085387c9bf616bfcc~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=xqla4SON9bWz%2FNgCWJOWyNBJMYU%3D",
+                                "id": "7365408255293653044",
+                                "name": "MJ 文生图",
+                                "user_count": 5521
+                            },
+                            {
+                                "chat_conversation_count": 6950,
+                                "desc": "Prompt是一款专业的提示词工程师，能将常规的提示语转化为结构化的提示，并输出符合预期的回复。无论是在教学提示语，还是在为用户设计提示语，都能选择适合的回复风格。使用Prompt可以快速生成满足用户需求的提示语，提高用户体验。",
+                                "entity_type": 1,
+                                "favorite_count": 242,
+                                "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/ee4008f131dc4bf1993067112bfe5a8d~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=4FEqyihGN4Q8klK8xl7Bicys5rw%3D",
+                                "id": "7364986707634159643",
+                                "name": "Prompt",
+                                "user_count": 1744
+                            }
+                        ]
+                    }
+                },
+                "feed_type": 0,
+                "id": "7473121042605801472",
+                "user_info": {
+                    "avatar_url": "https://p3-flow-imagex-sign.byteimg.com/user-avatar/assets/e7b19241fb224cea967dfaea35448102_1080_1080.png~tplv-a9rns2rl98-icon-tiny.jpeg?rk3s=98c978ad\u0026x-expires=1716570494\u0026x-signature=d8JGvyO7q%2B7UtJWziYHHjZCl7gw%3D",
+                    "follow_type": 0,
+                    "name": "Robin",
+                    "user_id": "2364375477547555",
+                    "user_name": "用户8113113059599"
+                }
+            },
+            {
+                "create_time": "1739967518000",
+                "feed_content": {
+                    "message": {
+                        "content_type": 1,
+                        "text": "📢【**内测开启**】**用扣子打开抖音 AI 分身，让 AI 更“吸粉”！**\n\n\n抖音 AI 分身是以抖音账号为载体的抖音 AI Agent。结合抖音创作者的特性和扣子低门槛、高上限的 AI 应用开发能力，打造专属AI分身，相信你也可以打造出「陶白白」、「葫芦兄弟和朋友们」那样的爆款分身，快一起来构建具备用户价值和商业价值的分身吧！\n\n\n🌟 **全新功能，抢先体验！**\n- 更智能化、个性化的搭建体验，与抖音一键打通，让你的AI分身真正成为你的“数字分身”。[点击这里抢先体验](https://bytedance.larkoffice.com/share/base/form/shrcnc6975PeX49U1ae5eCJxPSc)\n\n\n🎁 **内测特权，超多福利！**\n- 专属体验：作为首批体验者，你将率先感受AI分身的全新功能，官方也会同步提供技术支持。\n- 流量扶持：发布成功的 AI 分身，会获得抖音 \u0026 扣子流量扶持，让更多人体验你的 AI 分身吧！\n\n\n🎉 **分享福利：邀请好友/你认识的KOL参与，双倍惊喜！**\n- 邀请好友一起参与内测，在申请问卷中，填写邀请人的联系方式，申请成功，你和好友都将获得额外的福利（扣子全套周边）。\n\n\n🔥🔥🔥 **申请链接**：[申请体验扣子抖音AI分身功能](https://bytedance.larkoffice.com/share/base/form/shrcnc6975PeX49U1ae5eCJxPSc)"
+                    }
+                },
+                "feed_type": 3,
+                "id": "7473102624343244863",
+                "user_info": {
+                    "avatar_url": "https://lf6-appstore-sign.oceancloudapi.com/ocean-cloud-tos/FileBizType.BIZ_BOT_ICON/820678153224011_1715176082361922358_GxttVUsyv9.png?lk3s=50ccb0c5\u0026x-expires=1803039518\u0026x-signature=RRensEBEPW26FulzcNGvYCX3OM4%3D",
+                    "name": "扣子团队",
+                    "user_id": "0",
+                    "user_name": ""
+                }
+            },
+            {
+                "create_time": "1738856323000",
+                "feed_content": {
+                    "message": {
+                        "content_type": 1,
+                        "text": "🌟**扣子更新公告**\n\n1️⃣ 新增支持 DeepSeek-R1 模型\n‹› 功能介绍：模型在生成最终回复前，会通过思维链进行深度思考（展示推理过程功能仍在接入中）；\n‹› 额度介绍：R1 模型现支持所有用户免费使用，每个用户每日限 20 条对话；如需更多对话次数，可开通专业版，按 Token 使用量计费。\n\n2️⃣ 新增支持 DeepSeek-V3 模型\n‹› 功能介绍：模型具备更强的语言理解和生成能力；\n‹› 额度介绍：V3 模型现支持所有用户免费使用，每个用户每日限 50 条对话；如需更多对话次数，可开通专业版，按 Token 使用量计费。\n\n查看更多详情：[扣子更新公告](https://www.coze.cn/open/docs/guides/model_release_note)\n![更新公告图.jpeg](https://lf6-bot-platform-tos-sign.coze.cn/bot-studio-bot-platform/bot_notice/1563942542649114_1738856106010365636_dDGwyxUh2P.image/jpeg?lk3s=d394cd70\u0026x-expires=1770392106\u0026x-signature=TDqOnA4Q250qttIogIB7PRE%2Br5I%3D)"
+                    }
+                },
+                "feed_type": 3,
+                "id": "7468330436020912143",
+                "user_info": {
+                    "avatar_url": "https://lf9-appstore-sign.oceancloudapi.com/ocean-cloud-tos/FileBizType.BIZ_BOT_ICON/820678153224011_1715176082361922358_GxttVUsyv9.png?lk3s=50ccb0c5\u0026x-expires=1801928323\u0026x-signature=1p6WrMHeyGYK67OuTL5LADrnztU%3D",
+                    "name": "扣子团队",
+                    "user_id": "0",
+                    "user_name": ""
+                }
+            },
+            {
+                "create_time": "1737708312000",
+                "feed_content": {
+                    "message": {
+                        "content_type": 1,
+                        "text": "🧨 **新春大礼盒来啦！扣子邀你AI在新春**\n\n🎆 新年新气象，AI 在新一年，扣子给您拜年了！\n🏮 喜迎佳节，扣子推出新春大礼盒，AI 在春节玩不停！\n😆 生成个性化春联，定制红包封面，几十种拜年玩法乐不停！\n👇 体验方式：\n1️⃣ 抖音**手机端**扫码，体验扣子新春大礼盒！\n![20250124-162427.jpg](https://lf9-bot-platform-tos-sign.coze.cn/bot-studio-bot-platform/bot_notice/785521254612371_1737707086374070937_qTxr0xTYY2.image/jpeg?lk3s=d394cd70\u0026x-expires=1769243086\u0026x-signature=vzJ8oFf0S1WLvh1PrVKVbNd6lbs%3D)\n2️⃣ 扣子平台内点击[新春大礼盒](https://www.coze.cn/s/iff3c7cs/)体验。\n\n🎉 预祝大家新年快乐！蛇年大吉！"
+                    }
+                },
+                "feed_type": 3,
+                "id": "7463399447737909263",
+                "user_info": {
+                    "avatar_url": "https://lf6-appstore-sign.oceancloudapi.com/ocean-cloud-tos/FileBizType.BIZ_BOT_ICON/820678153224011_1715176082361922358_GxttVUsyv9.png?lk3s=50ccb0c5\u0026x-expires=1800780312\u0026x-signature=C99BZqT936MNwaQT6BXHxqPYvfk%3D",
+                    "name": "扣子团队",
+                    "user_id": "0",
+                    "user_name": ""
+                }
+            },
+            {
+                "create_time": "1736514162000",
+                "feed_content": {
+                    "message": {
+                        "content_type": 1,
+                        "text": "🌟 **扣子更新公告**\n1️⃣ 插件、工作流支持资源版本\n‹› 支持创建发布版本，实现更精细的资源版本控制；\n‹› Agent、App中可以调用指定版本资源，避免资源更新影响线上服务。\nhttps://www.coze.cn/docs/guides/plugin_version\nhttps://www.coze.cn/docs/guides/workflow_version\n\n2️⃣ 知识库按层级分段功能更新\n‹› 知识库新上“按层级文档分段”功能，支持自动识别层级结构、分段快速预览、手动拖拽/合并/删除层级等功能；\n‹› 适用于层次分明的知识文档，例如技术手册、法律条文、标准规范等。\nhttps://www.coze.cn/docs/guides/knowledge_sharding\n\n3️⃣ 变量功能更新\n‹› 应用新增「应用变量」变量类型；\n‹› 工作流新增「变量赋值」节点可以支持单次对多个变量进行赋值操作，并支持所有节点的输入部分直接读取已配置的变量；\n‹› 原「变量」节点保留已有数据，但无法继续新增。\nhttps://www.coze.cn/docs/guides/add_variables_in_app\nhttps://www.coze.cn/docs/guides/ipavkcpu\n\n4️⃣ 效果评测功能上线\n‹› 评测集对智能体进行全方位评测，分析评测报告并进行针对性优化；\n‹› 支持大模型对象的效果评测，最多同时对比 3 个模型的效果。\nhttps://www.coze.cn/docs/guides/evaluation_overview\n\n5️⃣ 模型上线：deepseek3、阶跃星辰 1.5v\n‹› deepseek3 ：国外爆火的中文开源大模型上线 coze，超强代码能力；\n‹› 阶跃星辰 1.5v ：支持视频理解，支持http/https协议的网络视频资源；\n‹› 以上模型因资源有限，仅供专业版用户限额免费使用。\n\n6️⃣ 模型管理上线 \n‹› 查看模型的性能指标和用量记录，评估模型的效果和使用情况；\n‹› 专业版部分豆包模型，可以微调提升模型的准确率。\nhttps://www.coze.cn/docs/guides/model_management\n\n7️⃣ 模型列表交互优化\n‹› 提供新模型体验模型家族，仅付费用户提前体验；\n‹› 提供更多模型信息，如模型实际版本、模型能力标签，模型一句话介绍等，使其更加清晰易懂；\n‹› 支持快速跳转到模型管理页面，快速进行评测、微调、性能监控。\n\n8️⃣ 抖音小程序AI类目开启定向准入\n‹› 准入标准：开发者公司主体注册时间满一年，注册资本不低于100万；\nhttps://www.coze.cn/docs/guides/publish_app_to_douyin_microapp\n![更新公告图.jpeg](https://lf3-bot-platform-tos-sign.coze.cn/bot-studio-bot-platform/bot_notice/0_1736513954785250538_eRUdIx6vHb.image/jpeg?lk3s=d394cd70\u0026x-expires=1768049954\u0026x-signature=yvMEsJ8JGB%2FCSGsfz4KYoGY3HoY%3D)"
+                    }
+                },
+                "feed_type": 3,
+                "id": "7458270383318269979",
+                "user_info": {
+                    "avatar_url": "https://lf26-appstore-sign.oceancloudapi.com/ocean-cloud-tos/FileBizType.BIZ_BOT_ICON/820678153224011_1715176082361922358_GxttVUsyv9.png?lk3s=50ccb0c5\u0026x-expires=1799586162\u0026x-signature=b3qSPrcS53gXlnU%2BECIX4ab4UGA%3D",
+                    "name": "扣子团队",
+                    "user_id": "0",
+                    "user_name": ""
+                }
+            },
+            {
+                "create_time": "1735646676000",
+                "feed_content": {
+                    "message": {
+                        "content_type": 1,
+                        "text": "🌃 **我们把 AI 天文望远镜搬到了张杰跨年演唱会的现场｜抖音美好跨年季 x 扣子**\n\n🤖 用自然语言控制天文望远镜，宇宙浪漫，变得触手可及。\n🎁 体验[扣子跨年企划智能体](https://www.coze.cn/s/iyLEJ8tU/) ，与智能体对话即可参与抽奖。\n🔗 更多信息可[点击了解活动详情](https://mp.weixin.qq.com/s/JQbgH7n_gyAO_T31l9sBZA)，新年快乐！\n\n🙋 同时，扣子与任意硬件都可以快速打通了！无限可能，等你探索，点击 [申请内测](https://bytedance.larkoffice.com/share/base/form/shrcniCkMUlEd2gL4KV1Ki0f4Jf)  体验！\n![20241231-200213.jpg](https://lf6-bot-platform-tos-sign.coze.cn/bot-studio-bot-platform/bot_notice/785521254612371_1735646629984644509_WBx0wtxDvo.image/jpeg?lk3s=d394cd70\u0026x-expires=1767182630\u0026x-signature=EZIvP7ClZsNCKY7mk%2FYhBuZUqiw%3D)"
+                    }
+                },
+                "feed_type": 3,
+                "id": "7454544969022341172",
+                "user_info": {
+                    "avatar_url": "https://lf6-appstore-sign.oceancloudapi.com/ocean-cloud-tos/FileBizType.BIZ_BOT_ICON/820678153224011_1715176082361922358_GxttVUsyv9.png?lk3s=50ccb0c5\u0026x-expires=1798718675\u0026x-signature=gXyOAKTeW%2BSR47Z%2BOHQLt15%2BaDk%3D",
+                    "name": "扣子团队",
+                    "user_id": "0",
+                    "user_name": ""
+                }
+            },
+            {
+                "create_time": "1732589459000",
+                "feed_content": {
+                    "message": {
+                        "content_type": 1,
+                        "text": "📢📢📢 **扣子账号服务升级预告** \n\n**服务升级背景**：为了提升用户的使用体验，预计12月6日起，专业版和基础版登录入口将会合并，购买专业版也可以直接在原基础版账号上进行操作，无需单独创建专业版账号。 \n**服务上线时间**：预计12月6日起 \n\n**服务升级详情请见**https://www.coze.cn/docs/guides/account_upgrade_notification \n![20241122-174511.jpg](https://lf6-bot-platform-tos-sign.coze.cn/bot-studio-bot-platform/bot_notice/785521254612371_1732278445131165345_mBSWQrUHRb.image/jpeg?lk3s=d394cd70\u0026x-expires=1763814445\u0026x-signature=CckAZaLRyU1zoJkGFdkc5u0dk0Y%3D)"
+                    }
+                },
+                "feed_type": 3,
+                "id": "7441414752271777811",
+                "user_info": {
+                    "avatar_url": "https://lf9-appstore-sign.oceancloudapi.com/ocean-cloud-tos/FileBizType.BIZ_BOT_ICON/820678153224011_1715176082361922358_GxttVUsyv9.png?lk3s=50ccb0c5\u0026x-expires=1795661458\u0026x-signature=RJuPAkocs8rRtFnvraf8v03BYKo%3D",
+                    "name": "扣子团队",
+                    "user_id": "0",
+                    "user_name": ""
+                }
+            },
+            {
+                "create_time": "1731478848000",
+                "feed_content": {
+                    "message": {
+                        "content_type": 1,
+                        "text": "📢📢 **扣子更新：提示词能力全面升级、消息记录升级为消息链路！**\n\n1️⃣ **提示词能力升级**\n\n✅ 提示词可以作为资源保存在资源库中，供团队内的其他成员使用。\n✅ 优化了提示词的编辑框能力，支持 Jinja 和 Markdown 语法，支持编辑块和快速引用技能，帮助你更高效地编写提示词。\n详情查看 \u003e\u003e [提示词概述](https://www.coze.cn/docs/guides/prompt) \n\n2️⃣ **消息链路**\n\n✅ 消息链路页面展示智能体运行日志，支持时间维度筛选。\n✅ 单击日志可查看全流程处理链路，包括节点详情、输入和输出、链路拓扑等。\n详情查看 \u003e\u003e [消息链路](https://www.coze.cn/docs/guides/queries) "
+                    }
+                },
+                "feed_type": 3,
+                "id": "7436644743536345125",
+                "user_info": {
+                    "avatar_url": "https://lf9-appstore-sign.oceancloudapi.com/ocean-cloud-tos/FileBizType.BIZ_BOT_ICON/820678153224011_1715176082361922358_GxttVUsyv9.png?lk3s=50ccb0c5\u0026x-expires=1794550847\u0026x-signature=e9JNyY8MlzNUxlieq80fFKZzNpU%3D",
+                    "name": "扣子团队",
+                    "user_id": "0",
+                    "user_name": ""
+                }
+            }
+        ],
+        "has_more": true,
+        "next_cursor": "1731478848000"
+    },
+    "message": ""
+}

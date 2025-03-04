@@ -1,0 +1,273 @@
+{
+    "code": 0,
+    "data": {
+        "has_more": true,
+        "products": [
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7331636528340418598",
+                        "index": 0,
+                        "name": "生活方式"
+                    },
+                    "description": "欢迎来到「觉醒电台」，这里有四位独具魅力的主播，陪你畅聊科技前沿、哲学思辨、星座运势和娱乐圈八卦，无论你是科技迷、哲学爱好者，还是星座控、吃瓜群众，都能找到属于自己的声音。你也可以随时生成任何话题的专属播客，无论是深夜思考人生，还是通勤路上打发时间，觉醒电台都能为你量身定制内容。四位AI主播不仅知识渊博，还幽默风趣，仿佛是你身边最懂你的朋友。\n\n让每一次聆听都成为一次「觉醒」！",
+                    "entity_id": "7464659337030811663",
+                    "entity_type": 6,
+                    "entity_version": "1739270624226",
+                    "favorite_count": 219,
+                    "heat": 5682,
+                    "icon_url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/3eb6d4705a0b4720b36cd8b0696a959b~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=uxkeiP%2Faj1TV15kmAwEDztJTp5Q%3D",
+                    "id": "7469354743849189414",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": false,
+                    "labels": [],
+                    "listed_at": "1739270690",
+                    "medium_icon_url": "",
+                    "name": "觉醒回声",
+                    "origin_icon_url": "",
+                    "readme": "",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=0jDsO6TehlTGxHNa8IMSNE0InRM%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=0jDsO6TehlTGxHNa8IMSNE0InRM%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                },
+                "project_extra": {
+                    "config": {
+                        "database_count": 2,
+                        "knowledge_count": 0,
+                        "plugin_count": 0,
+                        "workflow_count": 12
+                    },
+                    "duplicate_count": 0,
+                    "execute_count": 58312,
+                    "preview_types": [2],
+                    "publish_platforms": [],
+                    "template_project_id": "0",
+                    "template_project_version": "0",
+                    "user_count": 8105
+                }
+            },
+            {
+                "bot_extra": {
+                    "chat_conversation_count": "16384",
+                    "config": {
+                        "bot_voices": [
+                            {
+                                "id": "2286978315778",
+                                "is_support_voice_call": true,
+                                "language_code": "zh",
+                                "language_name": "中文",
+                                "name": "阳光青年",
+                                "style_id": "zh_male_ddly_wvae_bigtts"
+                            }
+                        ],
+                        "is_close_voice_call": true,
+                        "models": [],
+                        "total_knowledges_count": 0,
+                        "total_plugins_count": 0,
+                        "total_workflows_count": 1
+                    },
+                    "publish_mode": 2,
+                    "publish_platforms": [
+                        {
+                            "icon_url": "https://lf3-appstore-sign.oceancloudapi.com/ocean-cloud-tos/FileBizType.BIZ_BOT_ICON/372098624667275_1709197136277118085_xVJoSXq2vT.jpeg?lk3s=60aae199\u0026x-expires=1739975409\u0026x-signature=QqmMW6qZerHzP5KYNOkI1zkqr28%3D",
+                            "id": "10000117",
+                            "name": "掘金",
+                            "url": "https://juejin.cn/pin/club/7173895829281833012?robotId=7469310330032668707"
+                        }
+                    ],
+                    "user_count": 5353
+                },
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7331636528340451366",
+                        "index": 0,
+                        "name": "商业服务"
+                    },
+                    "description": "DeepSeek R1超级助手，具备联网搜索，代码运行等能力，是你身边最万能的伙伴，借助火山方舟我能为你提供高并发服务～\n\n【Deepseek R1 Pro】功能列表：\n- 联网功能，够实时获取最新的信息和数据;\n- URL及文档解析能力，可以让Deepseek协助分析网页和文档；\n- 代码运行功能，以便能辅助大模型对复杂函数运行结果进行判别;\n- 图片理解能力，可以对多模态数据进行理解和分析。\n\nDeepseek R1 Pro借助扣子的插件商店、工作流等功能，可以实现各种更高级的需求或批量执行离线任务。\n\n【Deepseek R1 Pro】能力边界（我无法做到的事情）：\n- 无法生成图像和识别，目前接入进度【0%】\n- 无法提供deepseek模型的think 【10%】\n- 无法对长度超过64k的文件进行处理【0%】\n---\nAgent对思考的定义:将用户的提问后模型的操作过程及结果呈现出来\nDS的原本思维链:在输出最终回答之前，模型会先输出一段思维链内容，以提升最终答案的准确性。",
+                    "entity_id": "7469310330032668707",
+                    "entity_type": 1,
+                    "entity_version": "1739888700280",
+                    "favorite_count": 641,
+                    "heat": 3391,
+                    "icon_url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/6c4b7758245f46dda92964a78740f63e~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=tNitWIVj%2BqtaYtHa8sP58gY9%2FZg%3D",
+                    "id": "7469408680379891723",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": false,
+                    "is_professional": false,
+                    "is_template": false,
+                    "labels": [
+                        {
+                            "name": "语音"
+                        }
+                    ],
+                    "listed_at": "1739888701",
+                    "medium_icon_url": "",
+                    "name": "DeepSeek R1超级助手",
+                    "origin_icon_url": "",
+                    "readme": "",
+                    "seller": {
+                        "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/390adf306a01b951ae58412bd21b8582~300x300.image",
+                        "id": "0",
+                        "name": "tensorbytes"
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/390adf306a01b951ae58412bd21b8582~300x300.image",
+                        "name": "shikanon",
+                        "user_id": "0",
+                        "user_name": "tensorbytes"
+                    }
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7331636528340549670",
+                        "index": 0,
+                        "name": "效率工具"
+                    },
+                    "description": "一键生成表情包！",
+                    "entity_id": "7443997277804969984",
+                    "entity_type": 6,
+                    "entity_version": "1733222090742",
+                    "favorite_count": 437,
+                    "heat": 205,
+                    "icon_url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/020a8ba1fff94565bafdc4a48c824061~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=3jbuy6Pc2oWqTtlJ3jPsb%2FSwDrw%3D",
+                    "id": "7444083905063567410",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": false,
+                    "is_professional": false,
+                    "is_template": false,
+                    "labels": [],
+                    "listed_at": "1733222095",
+                    "medium_icon_url": "",
+                    "name": "表情包生成器",
+                    "origin_icon_url": "",
+                    "readme": "",
+                    "seller": {
+                        "avatar_url": "https://p26-passport.byteacctimg.com/img/user-avatar/7ce15cee201eff5563cc9ce01b7cb555~300x300.image",
+                        "id": "0",
+                        "name": "vivi"
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-passport.byteacctimg.com/img/user-avatar/7ce15cee201eff5563cc9ce01b7cb555~300x300.image",
+                        "name": "尾尾",
+                        "user_id": "0",
+                        "user_name": "vivi"
+                    }
+                },
+                "project_extra": {
+                    "config": {
+                        "database_count": 0,
+                        "knowledge_count": 0,
+                        "plugin_count": 0,
+                        "workflow_count": 1
+                    },
+                    "duplicate_count": 0,
+                    "execute_count": 26814,
+                    "preview_types": [1],
+                    "publish_platforms": [],
+                    "template_project_id": "0",
+                    "template_project_version": "0",
+                    "user_count": 6163
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7331636528340385830",
+                        "index": 0,
+                        "name": "游戏"
+                    },
+                    "description": "0~100的数字，看你能猜对吗？\n同名模板可一键复制☞https://www.coze.cn/template/project/7459410930292523017",
+                    "entity_id": "7459069602908094474",
+                    "entity_type": 6,
+                    "entity_version": "1739961207403",
+                    "favorite_count": 3,
+                    "heat": 11,
+                    "icon_url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/dec41c1a5b06470eac49c81c7cebd4ad~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=DCMmOQZM1zhrDR6YDH5kdKJRbko%3D",
+                    "id": "7459409297756176434",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": false,
+                    "labels": [],
+                    "listed_at": "1739962630",
+                    "medium_icon_url": "",
+                    "name": "猜数字",
+                    "origin_icon_url": "",
+                    "readme": "",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=0jDsO6TehlTGxHNa8IMSNE0InRM%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1742563809\u0026x-signature=0jDsO6TehlTGxHNa8IMSNE0InRM%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                },
+                "project_extra": {
+                    "config": {
+                        "database_count": 1,
+                        "knowledge_count": 0,
+                        "plugin_count": 0,
+                        "workflow_count": 2
+                    },
+                    "duplicate_count": 0,
+                    "execute_count": 28,
+                    "preview_types": [2],
+                    "publish_platforms": [],
+                    "template_project_id": "0",
+                    "template_project_version": "0",
+                    "user_count": 13
+                }
+            }
+        ],
+        "total": 0
+    },
+    "message": ""
+}

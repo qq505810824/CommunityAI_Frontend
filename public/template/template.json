@@ -1,0 +1,1189 @@
+{
+    "code": 0,
+    "data": {
+        "has_more": true,
+        "products": [
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692594176",
+                        "index": 0,
+                        "name": "信息处理"
+                    },
+                    "covers": [
+                        {
+                            "uri": "a6e24d7150a048e3b5cb2076cdc6a39e",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/a6e24d7150a048e3b5cb2076cdc6a39e~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=3sNk2dRC3Zp%2BxSfIveK2gWlAc%2FQ%3D"
+                        }
+                    ],
+                    "description": "通过两个简单的应用案例，帮你快速上手扣子的应用搭建。",
+                    "entity_id": "7439262858401169418",
+                    "entity_type": 26,
+                    "entity_version": "1733102174318",
+                    "favorite_count": 0,
+                    "heat": 55177,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/de9fddcfca3d45ae89ee433d8c188cdf~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=13TXAMnLo0nLaHFHzvYg1zO8ADk%3D",
+                    "id": "7439261984903938074",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1739005763",
+                    "medium_icon_url": "",
+                    "name": "扣子应用搭建快速入门",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"通过两个简单的应用案例，帮你快速上手扣子的应用搭建。\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                },
+                "project_extra": {
+                    "duplicate_count": 55179,
+                    "execute_count": 31101,
+                    "preview_types": [1],
+                    "publish_platforms": [],
+                    "template_project_id": "7439254554325549092",
+                    "template_project_version": "1733102174318",
+                    "user_count": 14524
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692626944",
+                        "index": 0,
+                        "name": "智能客服"
+                    },
+                    "covers": [
+                        {
+                            "uri": "12ba507285b441caaf5b1c018e6eecfc",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/12ba507285b441caaf5b1c018e6eecfc~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=fBr6PyEfCk9kd28VEltHIOqvEdw%3D"
+                        }
+                    ],
+                    "description": "你好，我是扣子小助手，可以帮你解决在使用扣子过程中遇到的问题。",
+                    "entity_id": "7415868005865259060",
+                    "entity_type": 21,
+                    "entity_version": "1728561270871",
+                    "favorite_count": 0,
+                    "heat": 42083,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/2f31d92db0684ea6b7e75f0f86414465~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=G4HU3wOw7IOQKftmgn1BZuTUWMU%3D",
+                    "id": "7416353271499096116",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [
+                        {
+                            "name": "Prompt"
+                        }
+                    ],
+                    "listed_at": "1728561271",
+                    "medium_icon_url": "",
+                    "name": "智能客服助手",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"基于\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"扣子助手\"},{\"insert\":\" （页面右下角的互动助手）提炼而成的智能客服模板。服务于多行业的客服问答场景，帮助企业快速建立产品智能客服体系，提升用户体验和客服人效。\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"attributes\":{\"hyperlink\":\"{\\\"href\\\":\\\"https://www.coze.cn/docs/guides/template_customer_service\\\",\\\"linkId\\\":\\\"XOFbwRDr7k\\\"}\"},\"insert\":\"点击查看模板使用指南\"},{\"insert\":\"\\n\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"支持的功能有：\"},{\"insert\":\" \\n\"},{\"attributes\":{\"start\":\"1\",\"list\":\"number1\",\"ol-id\":\"DGTvmQlL\",\"lmkr\":\"1\",\"origin-start\":\"1\"},\"insert\":\"*\"},{\"insert\":\"面向产品用户侧\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet1\"},\"insert\":\"*\"},{\"insert\":\"准确理解客户问题意图\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet1\"},\"insert\":\"*\"},{\"insert\":\"根据企业知识库内容进行准确回答\\n\"},{\"attributes\":{\"ol-id\":\"DGTvmQlL\",\"start\":\"2\",\"list\":\"number1\",\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"面向客服管理员\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet1\"},\"insert\":\"*\"},{\"insert\":\"提供端到端的、可被复制的用户意图识别 -\u003e 知识库检索生成 -\u003e 大模型总结输出 -\u003e 对话记录落表打标 -\u003e 自动更新知识库 FAQ -\u003e 客服效果分析的解决方案\\n\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"如何快速使用：\"},{\"insert\":\" \\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet1\"},\"insert\":\"*\"},{\"insert\":\"编排模式：可直接复用\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet1\"},\"insert\":\"*\"},{\"insert\":\"客服问答：工作流中的意图识别判断、知识库、大模型 prompt 直接微改成实际业务产品的内容即可\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet1\"},\"insert\":\"*\"},{\"insert\":\"数据记录更新：建立自己的多维表格和飞书表格，多维表格插件替换飞书应用的 id、secret 和表格链接\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692577792",
+                        "index": 0,
+                        "name": "营销创作"
+                    },
+                    "covers": [
+                        {
+                            "uri": "d245e0d2e6c14faaab430be32358c62d",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/d245e0d2e6c14faaab430be32358c62d~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=3svJYcXbGxy8J4GqoxEKSAuGx6c%3D"
+                        }
+                    ],
+                    "description": "抖音链接+文本提取+小红书改写+发布飞书文档工作流",
+                    "entity_id": "7375173932527321123",
+                    "entity_type": 23,
+                    "entity_version": "7375179127130963978",
+                    "favorite_count": 0,
+                    "heat": 22837,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/3f95baaee7df4e84833fa5918fc91dc9~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=5YNksJN2cMJgENUTsI5bseasONM%3D",
+                    "id": "7375170277233442850",
+                    "is_favorited": false,
+                    "is_free": false,
+                    "is_official": false,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1740060578",
+                    "medium_icon_url": "",
+                    "name": "短视频链接转爆款文案",
+                    "origin_icon_url": "",
+                    "price": {
+                        "amount": "29900",
+                        "currency": "CNY",
+                        "decimal_num": 2
+                    },
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"主要功能：短视频链接+文本提取+文案改写+发布飞书文档工作流。\\n\"},{\"insert\":\"使用流程：提供链接（视频链接、网页链接）作为输入。\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"更新了 DeepSeek版本。效果不错哦 \\n\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"特色功能详解\"},{\"insert\":\"\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"number1\",\"start\":\"1\",\"origin-start\":\"1\",\"ol-id\":\"JXpsuilo\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"短视频链接+文本提取\"},{\"insert\":\"\\n\"},{\"insert\":\"我的工作流能够从短视频平台、pdf、网页等链接中提取文本内容，帮助您快速获取视频描述或其他相关文本信息。\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"number1\",\"start\":\"2\",\"origin-start\":\"2\",\"ol-id\":\"tzGRhESd\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"文案改写（可延展各大新媒体平台）\"},{\"insert\":\"\\n\"},{\"insert\":\"针对热门图文平台的内容，我的模板可以进行智能改写，确保内容的原创性和适应性，同时保持原有的信息和风格。\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"number1\",\"start\":\"3\",\"origin-start\":\"3\",\"ol-id\":\"SGoFrGID\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"发布飞书文档工作流\"},{\"insert\":\"\\n\"},{\"insert\":\"我的模板支持将处理后的内容发布到飞书文档，实现内容的自动化管理和分发。通过这一工作流，您可以轻松管理和发布内容，提高工作效率。\\n\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"可以延展方向：\"},{\"insert\":\"\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"number1\",\"start\":\"4\",\"origin-start\":\"4\",\"ol-id\":\"Qg3bZ4wv\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"社交媒体内容管理\"},{\"insert\":\"：\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet2\",\"start\":\"1\",\"origin-start\":\"1\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"内容策划\"},{\"insert\":\"：利用我的Bot的文本提取和改写功能，快速生成适合不同平台风格的内容。\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet2\",\"start\":\"1\",\"origin-start\":\"1\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"趋势分析\"},{\"insert\":\"：结合社交媒体趋势，自动生成热门话题的相关内容。\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"number1\",\"start\":\"5\",\"origin-start\":\"5\",\"ol-id\":\"05spwTej\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"内容创作与分发\"},{\"insert\":\"：\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet2\",\"start\":\"1\",\"origin-start\":\"1\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"内容创作辅助\"},{\"insert\":\"：为内容创作者提供创意灵感和文案改写服务。\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet2\",\"start\":\"1\",\"origin-start\":\"1\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"多平台分发\"},{\"insert\":\"：将内容自动发布到多个社交媒体平台，扩大影响力。\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"number1\",\"start\":\"6\",\"origin-start\":\"6\",\"ol-id\":\"0skqfWTV\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"市场调研与分析\"},{\"insert\":\"：\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet2\",\"start\":\"1\",\"origin-start\":\"1\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"竞品分析\"},{\"insert\":\"：提取竞品信息，进行比较分析，为市场策略提供数据支持。\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet2\",\"start\":\"1\",\"origin-start\":\"1\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"消费者行为分析\"},{\"insert\":\"：分析消费者在社交媒体上的行为，预测市场趋势。\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/2f5f197d9767f138e735359e3822661b~300x300.image",
+                        "id": "0",
+                        "name": "LUOWEN"
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/2f5f197d9767f138e735359e3822661b~300x300.image",
+                        "name": "罗文",
+                        "user_id": "0",
+                        "user_name": "LUOWEN"
+                    }
+                },
+                "workflow_extra": {
+                    "duplicate_count": 22837,
+                    "related_workflows": []
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692594176",
+                        "index": 0,
+                        "name": "信息处理"
+                    },
+                    "covers": [
+                        {
+                            "uri": "08864576d807471bab2c514726d57d87",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/08864576d807471bab2c514726d57d87~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=%2BsgSlju9WiA46hy%2BKDUynwC%2B%2BYA%3D"
+                        }
+                    ],
+                    "description": "用户输入一个命题，从互联网上检索信息，判断用户的命题是否正确。",
+                    "entity_id": "7418479746524233766",
+                    "entity_type": 23,
+                    "entity_version": "7421494694158909452",
+                    "favorite_count": 0,
+                    "heat": 21805,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/e4d7b4b1f218440a90d8069396c1ea01~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=7xzXdlhDg364uWjkzQXVmEtOMDo%3D",
+                    "id": "7421484735613911051",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1730815323",
+                    "medium_icon_url": "",
+                    "name": "深度搜索",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"通用搜索模板，支持输入命题，从互联网上检索信息，判断用户的命题是否正确。\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"如何使用：复制后，通过调整信息源（插件）和大模型节点的提示词，从而调整搜索效果。\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                },
+                "workflow_extra": {
+                    "duplicate_count": 21805,
+                    "related_workflows": []
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692577792",
+                        "index": 0,
+                        "name": "营销创作"
+                    },
+                    "covers": [
+                        {
+                            "uri": "5cb9927de8f84b89a465c0df9513a310",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/5cb9927de8f84b89a465c0df9513a310~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=Fb88ztFhOkgazuPaaY9spqqjLfU%3D"
+                        }
+                    ],
+                    "description": "厌倦了灵感枯竭的困扰？我们的自媒体图文创作助手为你提供一站式解决方案！只需输入创作要求，即可自动生成一篇引人注目的爆款文案，搭配三张精美配图和一张精心设计的封面图片。让你的创作过程变得轻松高效，再也不用为内容发愁！",
+                    "entity_id": "7416341729898414131",
+                    "entity_type": 23,
+                    "entity_version": "7418107548064235531",
+                    "favorite_count": 0,
+                    "heat": 19630,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/c2f3cfdd78054ce5b61dba15a74fe117~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=3GiEOpdpkcnGUugcgG%2B%2FObtE528%3D",
+                    "id": "7418104809603137574",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1730815336",
+                    "medium_icon_url": "",
+                    "name": "图文创作助手",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"厌倦了灵感枯竭的困扰？我们的自媒体图文创作助手为你提供一站式解决方案！只需输入创作要求，即可自动生成一篇引人注目的爆款文案，搭配三张精美配图和一张精心设计的封面图片。让你的创作过程变得轻松高效，再也不用为内容发愁！\\n\"},{\"attributes\":{\"hyperlink\":\"{\\\"href\\\":\\\"https://www.coze.cn/docs/guides/template_visual_content_creation\\\",\\\"linkId\\\":\\\"YvK9jNuNQ0\\\"}\"},\"insert\":\"点击查看模版使用指南\"},{\"insert\":\"\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                },
+                "workflow_extra": {
+                    "duplicate_count": 19630,
+                    "related_workflows": []
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692577792",
+                        "index": 0,
+                        "name": "营销创作"
+                    },
+                    "covers": [
+                        {
+                            "uri": "8efd3efc9cf045cb9bee0d7faa1b2406",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/8efd3efc9cf045cb9bee0d7faa1b2406~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=DoqyJFqF5j%2BxCdDr2W%2BMpeRw%2BiQ%3D"
+                        }
+                    ],
+                    "description": "一个能够创作5000至10000字长文本的工作流；\n当用户输入文本创作需求的时候，调用执行的工作流。",
+                    "entity_id": "7374710853368676362",
+                    "entity_type": 23,
+                    "entity_version": "7375045303361142823",
+                    "favorite_count": 0,
+                    "heat": 16717,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/001f9b4aec114d41aa840ad60712fae8~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=3yZ%2FuJ4Ys0hn4wuigiv%2F12LIFLg%3D",
+                    "id": "7375021643611095092",
+                    "is_favorited": false,
+                    "is_free": false,
+                    "is_official": false,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1731404146",
+                    "medium_icon_url": "",
+                    "name": "长文本写作",
+                    "origin_icon_url": "",
+                    "price": {
+                        "amount": "100",
+                        "currency": "CNY",
+                        "decimal_num": 2
+                    },
+                    "readme": "{\"0\":{\"ops\":[{\"attributes\":{\"bold\":\"true\"},\"insert\":\"介绍\"},{\"insert\":\"：\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"一个能够创作5000至10000字长文本的工作流；\\n\"},{\"insert\":\"当用户输入文本创作需求的时候，调用执行的工作流。\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"适用\"},{\"insert\":\"：\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"适合一切生成长文本场景的创作，工作流中清晰标注了节点的功能，支持替换修改prompt进行二创，快速定制自己需求的长文本生成智能体。\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/0f4262cf9b6c24e01ea59d0932675377~300x300.image",
+                        "id": "0",
+                        "name": "Meng_dreamfly"
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/0f4262cf9b6c24e01ea59d0932675377~300x300.image",
+                        "name": "孟小孟",
+                        "user_id": "0",
+                        "user_label": {
+                            "icon_uri": "FileBizType.BIZ_LABEL_ICON/0_1720708599737459383_xQWPUvsTW8.image/png",
+                            "icon_url": "https://lf3-bot-platform-tos-sign.coze.cn/bot-studio-bot-platform/FileBizType.BIZ_LABEL_ICON/0_1720708599737459383_xQWPUvsTW8.image/png?lk3s=50ccb0c5\u0026x-expires=1740661289\u0026x-signature=l7UttKTulTaX44mjbCDGNLdQ0zU%3D",
+                            "jump_link": "",
+                            "label_id": "7390386994880184335",
+                            "label_name": "潜力开发者"
+                        },
+                        "user_name": "Meng_dreamfly"
+                    }
+                },
+                "workflow_extra": {
+                    "duplicate_count": 16717,
+                    "related_workflows": []
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692577792",
+                        "index": 0,
+                        "name": "营销创作"
+                    },
+                    "covers": [
+                        {
+                            "uri": "bfea1a33c17744adb4a92636cf1b23d3",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/bfea1a33c17744adb4a92636cf1b23d3~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=4GZWNBgxwXzAI3R%2B4XfxTbJC9nE%3D"
+                        }
+                    ],
+                    "description": "使用提示词模板文生图，支持自然语言修改图片、一键变清晰。",
+                    "entity_id": "7441897224780709888",
+                    "entity_type": 26,
+                    "entity_version": "1733153847975",
+                    "favorite_count": 0,
+                    "heat": 16706,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/122f56f18e5d490894a4d2829d9afac5~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=yyEtYXCE5ppwzebNMmj%2FqnvHdFE%3D",
+                    "id": "7442540084944994344",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1733153853",
+                    "medium_icon_url": "",
+                    "name": "图像生成器",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"attributes\":{\"bold\":\"true\"},\"insert\":\"模板介绍\"},{\"insert\":\":\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"基础文生图模板，支持使用提示词模板文生图，支持自然语言修改图片、一键变清晰。\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"如何使用\"},{\"insert\":\"：\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"前端瀑布流组件可快速复用其他提示词模板生图场景，核心流程支持文生图、图生图、画质提升，可泛用在其他文生图场景中。\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                },
+                "project_extra": {
+                    "duplicate_count": 16706,
+                    "execute_count": 178973,
+                    "preview_types": [1],
+                    "publish_platforms": [],
+                    "template_project_id": "7442525882449166373",
+                    "template_project_version": "1733153847975",
+                    "user_count": 19854
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692610560",
+                        "index": 0,
+                        "name": "聊天陪伴"
+                    },
+                    "covers": [
+                        {
+                            "uri": "b07226dfc981479597ea5453b211d320",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/b07226dfc981479597ea5453b211d320~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=bAR5gPdc%2BJ68CMByE3WMyXv9FVQ%3D"
+                        }
+                    ],
+                    "description": "苏瑶，长发乌黑亮丽，有明亮眼睛和小酒窝",
+                    "entity_id": "7419214203561017380",
+                    "entity_type": 21,
+                    "entity_version": "1739451150577",
+                    "favorite_count": 0,
+                    "heat": 15322,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/add6744904fb4f71b3c811ca9226deb4~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zrYi0tGTximp80c%2BahGRKmCIJ%2FA%3D",
+                    "id": "7419218621307764770",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [
+                        {
+                            "name": "Prompt"
+                        }
+                    ],
+                    "listed_at": "1739451151",
+                    "medium_icon_url": "",
+                    "name": "苏瑶",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"角色陪伴模板，服务于 2C 虚拟角色、陪聊开发场景，满足开发者快速打造带亲密度判断和拆句的虚拟陪聊需求。\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"点击查看模板使用指南\",\"attributes\":{\"hyperlink\":\"{\\\"href\\\":\\\"https://www.coze.cn/docs/guides/template_ai_companion\\\",\\\"linkId\\\":\\\"zwdHEYrnEQ\\\"}\"}},{\"insert\":\"\\n\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"支持的功能有：\"},{\"insert\":\" \\n\"},{\"attributes\":{\"start\":\"1\",\"list\":\"number1\",\"ol-id\":\"i3LBqjGV\",\"origin-start\":\"1\",\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"对话风格高度拟人，遵循人物背景，有话题推进能力。\\n\"},{\"attributes\":{\"ol-id\":\"i3LBqjGV\",\"start\":\"2\",\"list\":\"number1\",\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"消息可拆分，部分回答拆分成多条信息。\\n\"},{\"attributes\":{\"ol-id\":\"i3LBqjGV\",\"start\":\"3\",\"list\":\"number1\",\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"具备长期记忆，记住用户对话关键信息。\\n\"},{\"attributes\":{\"ol-id\":\"i3LBqjGV\",\"start\":\"4\",\"list\":\"number1\",\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"可根据用户 query 发送离线生成照片或从知识库召回照片。\\n\"},{\"attributes\":{\"ol-id\":\"i3LBqjGV\",\"start\":\"5\",\"list\":\"number1\",\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"亲密度判断，通过对话累积亲密度，循序渐进建立情感联系。\\n\"},{\"attributes\":{\"ol-id\":\"i3LBqjGV\",\"start\":\"6\",\"list\":\"number1\",\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"支持语音对话，回复延时小于 2500ms，多种拟人音色。\\n\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"如何快速使用：\"},{\"insert\":\" \\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"根据业务情况调整亲密度判断方式、提示词等，配置变量、长期记忆等 bot 内容，选择合适的图片召回方式。\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692577792",
+                        "index": 0,
+                        "name": "营销创作"
+                    },
+                    "covers": [
+                        {
+                            "uri": "29d6e779bd1243269f3bf9330d17a183",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/29d6e779bd1243269f3bf9330d17a183~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=ljOJIuMN%2BMuTR7KX7UhpuJv27aY%3D"
+                        }
+                    ],
+                    "description": "修改选项，快速生成文章。",
+                    "entity_id": "7440630495001460771",
+                    "entity_type": 26,
+                    "entity_version": "1732899686481",
+                    "favorite_count": 0,
+                    "heat": 15073,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/bb9a9f0cd7e244379961cefc0bb650d6~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=sOQs8x5GaYXyGn7DprNaQ%2F3NHkc%3D",
+                    "id": "7441562802503991322",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1732899692",
+                    "medium_icon_url": "",
+                    "name": "文章写作助手",
+                    "origin_icon_url": "",
+                    "readme": "",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                },
+                "project_extra": {
+                    "duplicate_count": 15073,
+                    "execute_count": 9300,
+                    "preview_types": [1],
+                    "publish_platforms": [],
+                    "template_project_id": "7439986579558449161",
+                    "template_project_version": "1732899686481",
+                    "user_count": 4253
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692577792",
+                        "index": 0,
+                        "name": "营销创作"
+                    },
+                    "covers": [
+                        {
+                            "uri": "ea71997317d24900ac017ed40cc53c0d",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/ea71997317d24900ac017ed40cc53c0d~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=LbyXADzOEYqF1%2Bo8%2FcC01KYESVE%3D"
+                        }
+                    ],
+                    "description": "海报制作",
+                    "entity_id": "7420273112950521856",
+                    "entity_type": 25,
+                    "entity_version": "7423757774863532070",
+                    "favorite_count": 0,
+                    "heat": 13437,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/0372c132d0bd48c4bbeeec3037e989a7~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=8HWTO5MWN4NZo9QwqDiGfSLKbyY%3D",
+                    "id": "7423755760519217179",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": false,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1730815346",
+                    "medium_icon_url": "",
+                    "name": "海报设计",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"可用于企业常规海报设计、企业产品推广海报、节日海报等\\n\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"如何快速使用：\"},{\"insert\":\" \\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet1\"},\"insert\":\"*\"},{\"insert\":\"编排模式：可直接复用\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet1\"},\"insert\":\"*\"},{\"insert\":\"如对SD或者Midjourney图像提示词有一定的了解，将会使你在使用该图像流如鱼得水\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"注意事项：\",\"attributes\":{\"bold\":\"true\"}},{\"insert\":\" \\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet1\"},\"insert\":\"*\"},{\"insert\":\"使用的时候内容元素不要使用太杂乱，以简洁为主\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet1\"},\"insert\":\"*\"},{\"insert\":\"logo自动调用抠图功能，如果不需要，可手动去除\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"bullet1\"},\"insert\":\"*\"},{\"insert\":\"如果用于节日海报或者常规海报设计，可手动将画板中关于产品图的模版删除，具体步骤参考一下社区中的第一个帖子\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/58cf88782a1c8032b311ed9218a4038a~300x300.image",
+                        "id": "0",
+                        "name": "ama_huangama"
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/58cf88782a1c8032b311ed9218a4038a~300x300.image",
+                        "name": "黄啊码",
+                        "user_id": "0",
+                        "user_name": "ama_huangama"
+                    }
+                },
+                "workflow_extra": {
+                    "duplicate_count": 13437,
+                    "related_workflows": []
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692643328",
+                        "index": 0,
+                        "name": "学习教育"
+                    },
+                    "covers": [
+                        {
+                            "uri": "9fa1e35e946c4a9fbc18aace55270999",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/9fa1e35e946c4a9fbc18aace55270999~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=4qW0cAVo14rf9phPM8L%2BZjMi7mg%3D"
+                        }
+                    ],
+                    "description": "雅思保7冲8，认准雅思口语专家。",
+                    "entity_id": "7389302636815679514",
+                    "entity_type": 21,
+                    "entity_version": "1727966405266",
+                    "favorite_count": 553,
+                    "heat": 12383,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/b2b09b4b748d466eabc253b66961feca~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=8am0SkrL3LONeWOXpX241uyajWo%3D",
+                    "id": "7389299390185209892",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [
+                        {
+                            "name": "多Agents"
+                        },
+                        {
+                            "name": "语音"
+                        },
+                        {
+                            "name": "Prompt"
+                        }
+                    ],
+                    "listed_at": "1730815377",
+                    "medium_icon_url": "",
+                    "name": "雅思口语专家",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"雅思口语专家，尝试跟他进行雅思备考的练习吧。\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"在这里，你可以拥有：\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"blockquote\":\"true\"},\"insert\":\"*\"},{\"insert\":\"🧑‍🏫 10 年教龄雅思老师的实时教学反馈\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"blockquote\":\"true\"},\"insert\":\"*\"},{\"insert\":\"🤖 AI 辅助口语素材整理\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"blockquote\":\"true\"},\"insert\":\"*\"},{\"insert\":\"🚀 难题重点突破，训练进度管理\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"blockquote\":\"true\"},\"insert\":\"*\"},{\"insert\":\"🔥 在线模拟考试，直面考场压力\\n\"},{\"insert\":\"\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"如何快速使用\"},{\"insert\":\" ：\\n\"},{\"attributes\":{\"start\":\"1\",\"list\":\"number1\",\"ol-id\":\"d6OXDypW\",\"origin-start\":\"1\",\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"复制后，通过修改Multi Agent的跳转逻辑，修改不同agent之间跳转的效果。\\n\"},{\"attributes\":{\"start\":\"2\",\"lmkr\":\"1\",\"list\":\"number1\",\"ol-id\":\"d6OXDypW\"},\"insert\":\"*\"},{\"insert\":\"修改提示词中的题库，替换想要练习的题库内容。\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692577792",
+                        "index": 0,
+                        "name": "营销创作"
+                    },
+                    "covers": [
+                        {
+                            "uri": "a23491562790405898e3358fbdc7cc76",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/a23491562790405898e3358fbdc7cc76~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=dhyUZPoRT9DU4yhWHOFWGBC6t4k%3D"
+                        }
+                    ],
+                    "description": "营销海报生成，支持添加提示词快速生成，保存历史记录，添加二维码导出等功能。",
+                    "entity_id": "7444519610784808999",
+                    "entity_type": 26,
+                    "entity_version": "1733797426833",
+                    "favorite_count": 0,
+                    "heat": 11875,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/cda89668fa164fb5a82d2dd43939bbc9~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=01bJr2V3K5upxVmt1JFSACF%2Bzcw%3D",
+                    "id": "7444859400503902217",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1733831272",
+                    "medium_icon_url": "",
+                    "name": "营销海报生成",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                },
+                "project_extra": {
+                    "duplicate_count": 11875,
+                    "execute_count": 106864,
+                    "preview_types": [1],
+                    "publish_platforms": [],
+                    "template_project_id": "7444856336577298459",
+                    "template_project_version": "1733797426833",
+                    "user_count": 12881
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692594176",
+                        "index": 0,
+                        "name": "信息处理"
+                    },
+                    "covers": [
+                        {
+                            "uri": "c924176ba2bc4440a0daaed952df07c9",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/c924176ba2bc4440a0daaed952df07c9~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=ca2PGqc3eXHYBq0RHMqqCq6jd%2FI%3D"
+                        }
+                    ],
+                    "description": "根据用户需求生成量身定制的旅游规划方案",
+                    "entity_id": "7421547612907536399",
+                    "entity_type": 23,
+                    "entity_version": "7421551137583841320",
+                    "favorite_count": 0,
+                    "heat": 10835,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/77231cc590be417786ba0c080e7c2039~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zSzR%2BaSMKiztnrf2xQTH%2B08QV8M%3D",
+                    "id": "7421516171234607119",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1731048344",
+                    "medium_icon_url": "",
+                    "name": "旅行规划助手",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"支持输入目的地、出发地、天数、人数、出发日期、旅游主题，生成量身定制的旅游规划方案。\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"如何快速使用\"},{\"insert\":\"：\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"通过替换使用的搜索引擎的插件，大模型节点的提示词，即可迅速调整旅游方案的生成效果。 \\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                },
+                "workflow_extra": {
+                    "duplicate_count": 10835,
+                    "related_workflows": []
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692577792",
+                        "index": 0,
+                        "name": "营销创作"
+                    },
+                    "covers": [
+                        {
+                            "uri": "9a70c658f04c417a9018d909f81b2bc5",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/9a70c658f04c417a9018d909f81b2bc5~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zYN7vdNTlVsKopnLVnYjKdpHeXs%3D"
+                        }
+                    ],
+                    "description": "将微信文章转换成播客节目",
+                    "entity_id": "7422926545524686888",
+                    "entity_type": 23,
+                    "entity_version": "7423279993750798348",
+                    "favorite_count": 0,
+                    "heat": 10579,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/fe6f2f2bfd284f5ca8e85e4d2f806d57~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=yDN%2BwvT%2FozEAnMaKkR9UlDva8ZA%3D",
+                    "id": "7423278423801348108",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1730815367",
+                    "medium_icon_url": "",
+                    "name": "文章转播客",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"高度还原 NotebookLM，一键将文章转化成3分钟生动的中文音频双人对谈播客。\\n\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"支持的功能有：\"},{\"insert\":\" 生成播客语音\u0026播客封面图。\\n\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"如何快速使用：\"},{\"insert\":\" \\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"number1\",\"start\":\"1\",\"origin-start\":\"1\",\"ol-id\":\"x4ZlLpwI\"},\"insert\":\"*\"},{\"insert\":\"复制后，替换语音生成插件，可生成不同的播客音色；\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"number1\",\"start\":\"2\",\"origin-start\":\"2\",\"ol-id\":\"x4ZlLpwI\"},\"insert\":\"*\"},{\"insert\":\"修改子图像流画板节点的样式，替换生成结果的版面风格。\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                },
+                "workflow_extra": {
+                    "duplicate_count": 10579,
+                    "related_workflows": []
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692577792",
+                        "index": 0,
+                        "name": "营销创作"
+                    },
+                    "covers": [
+                        {
+                            "uri": "3d2f157f9610469591e9066bd6b8e4d4",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/3d2f157f9610469591e9066bd6b8e4d4~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=H6w5PG5CVq%2Fy1XESnNJs2ZQ5WQU%3D"
+                        }
+                    ],
+                    "description": "一键生成内容大纲，选择PPT模板，直接生成PPT。",
+                    "entity_id": "7441892964890181642",
+                    "entity_type": 26,
+                    "entity_version": "1734191781408",
+                    "favorite_count": 0,
+                    "heat": 10488,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/7ac75adcdb174f8580e30c76478ed4b4~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=VFrldT%2BFWmw77Cu8EoeClXiKtnE%3D",
+                    "id": "7442652749113622568",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1740136136",
+                    "medium_icon_url": "",
+                    "name": "PPT生成助手",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"attributes\":{\"bold\":\"true\"},\"insert\":\"模板简介\"},{\"insert\":\"：AI 生成 PPT\\n\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"如何使用\"},{\"insert\":\"：\\n\"},{\"attributes\":{\"start\":\"1\",\"list\":\"number1\",\"ol-id\":\"yvJvq08T\",\"lmkr\":\"1\",\"origin-start\":\"1\"},\"insert\":\"*\"},{\"insert\":\"生成大纲：输入关键词，帮你生成层级清晰的PPT大纲\\n\"},{\"attributes\":{\"ol-id\":\"yvJvq08T\",\"start\":\"2\",\"list\":\"number1\",\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"选择主题：选择与你的PPT主题相关的主题样式\\n\"},{\"attributes\":{\"ol-id\":\"yvJvq08T\",\"start\":\"3\",\"list\":\"number1\",\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"生成PPT：支持实时预览，满意后可下载文件，轻松打造专属 PPT，快来体验呀！\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                },
+                "project_extra": {
+                    "duplicate_count": 10488,
+                    "execute_count": 77733,
+                    "preview_types": [1],
+                    "publish_platforms": [],
+                    "template_project_id": "7442634364523397170",
+                    "template_project_version": "1734191781408",
+                    "user_count": 15896
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692594176",
+                        "index": 0,
+                        "name": "信息处理"
+                    },
+                    "covers": [
+                        {
+                            "uri": "476feb9ff1664e42820362422783a965",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/476feb9ff1664e42820362422783a965~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=fPMBDLD4MSxwaA0zwEE8T2emZ%2Fg%3D"
+                        }
+                    ],
+                    "description": "当用户提供行业需要进行深度研究分析时，调用这个tool。工具需要提供行业名称。",
+                    "entity_id": "7434435299693150271",
+                    "entity_type": 23,
+                    "entity_version": "7435221560060903433",
+                    "favorite_count": 0,
+                    "heat": 9352,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/a66d242391e2440ba3bf42fced733a50~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=iU%2BhbXHgfsdW%2F4toEvRO3uGmbkA%3D",
+                    "id": "7435217150274617371",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": false,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1740042591",
+                    "medium_icon_url": "",
+                    "name": "5分钟深度行业研究",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"‼️用前须知‼️\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"由于生成的调研报告超级长，这个工作流会用到飞书文档。\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"试运行前，务必先阅读以下文档后再使用该模板（非常重要，请勿跳过）\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"attributes\":{\"hyperlink\":\"{\\\"href\\\":\\\"https://bytedance.larkoffice.com/docx/RASvdfg82ox1MSxB0M8cIo35nCg\\\",\\\"linkId\\\":\\\"J1HzHYTURO\\\"}\"},\"insert\":\"飞书插件授权指南\"},{\"insert\":\"\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"---\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"主要功能：对用户提供的行业进行深度分析，输出保存到飞书文档中。\\n\"},{\"insert\":\"使用流程：提供待分析研究的行业作为输入。\\n\"},{\"insert\":\"特色功能详解\\n\"},{\"insert\":\"1.专业的行业研究策略\\n\"},{\"insert\":\"工作流从行业概览、4P 分析、行业特征分析、行业竞争分析四个维度对用户提供的行业进行深度分析。\\n\"},{\"insert\":\"2.细致的检索机制\\n\"},{\"insert\":\"每一轮信息查询，都使用大模型对用户的行业进行关键词重组，使用每个阶段重组的关键词，进行多轮次循环检索。\\n\"},{\"insert\":\"3. 大模型 JSON mode 最佳实践\\n\"},{\"insert\":\"JSON 模式的正确使用，可以省去代码节点的复杂学习过程。\\n\"},{\"insert\":\"4. 写入飞书文档插件的最佳实践\\n\"},{\"insert\":\"工作流把飞书文档授权前置，省时、优化用户体验。\\n\"},{\"insert\":\"5. 工作流拆分的策略分享\\n\"},{\"insert\":\"过去大部分工作流都是粗放式搜索+调用大模型，我的工作流在所有搜索前增加了大模型做关键词拆分和丰富，以数组的形式进行循环搜索—\u003e大模型分析，这样大幅提高了搜索+大模型产出内容的质量。\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/9454f42119850122fed04b41970be1f0~300x300.image",
+                        "id": "0",
+                        "name": "zhj_Agents"
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/9454f42119850122fed04b41970be1f0~300x300.image",
+                        "name": "zhj_Agents",
+                        "user_id": "0",
+                        "user_name": "zhj_Agents"
+                    }
+                },
+                "workflow_extra": {
+                    "duplicate_count": 9352,
+                    "related_workflows": []
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692610560",
+                        "index": 0,
+                        "name": "聊天陪伴"
+                    },
+                    "covers": [
+                        {
+                            "uri": "4a408b15f3ab4482943ae26d1de486b9",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/4a408b15f3ab4482943ae26d1de486b9~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=EdGEcGzUcHrQk8x29OKNTj0Qf24%3D"
+                        }
+                    ],
+                    "description": "“映我”是一个数智分身养成模板，快速对接您的私有数智资产，逐步养成专属于您的数智分身。在您繁忙时，它可以替您陪伴家人、结交朋友，并持续助力您的自我成长，让关怀与支持时刻在线。",
+                    "entity_id": "7434467165602332709",
+                    "entity_type": 21,
+                    "entity_version": "1732070552666",
+                    "favorite_count": 0,
+                    "heat": 8182,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/290ccb8e2dab4899ac97b4611e765fce~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=wruaK2S9j%2FfHVoO5bpQWsCpC10w%3D",
+                    "id": "7434544579531063337",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": false,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [
+                        {
+                            "name": "语音"
+                        },
+                        {
+                            "name": "Prompt"
+                        }
+                    ],
+                    "listed_at": "1732085532",
+                    "medium_icon_url": "",
+                    "name": "映我·你的数智分身",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"支持的功能\\n\"},{\"insert\":\"- 个性化陪伴：映我数智分身能根据您的数智资产，模仿您的沟通风格和生活习惯，替您在繁忙时陪伴家人，增进家庭互动。\\n\"},{\"insert\":\"- 实时健康同步：支持健康数据（如心率、步数、睡眠等）的实时同步，帮助分身在与家人互动中提供健康关怀与支持。\\n\"},{\"insert\":\"- 社交助力：在您不便时，映我数智分身可以与您的朋友互动，以您的语气交流，扩展社交圈，让他人感受到您的存在。\\n\"},{\"insert\":\"- 自我成长支持：根据日常数据反馈，分身提供个性化建议，辅助用户实现自我成长与管理目标。\\n\"},{\"insert\":\"如何快速使用\\n\"},{\"insert\":\"- 数据对接：首次使用时，连接您的健康数据及日常信息库，以便分身根据您的习惯、偏好生成个性化模型。\\n\"},{\"insert\":\"- 定制设置：通过简单的设置，选择分身的互动风格、关注重点（如家人、朋友、健康等），确保分身的表现符合您的预期。\\n\"},{\"insert\":\"- 开始互动：在家人或朋友添加您的分身后，数智分身将自动根据您的个性数据与他们互动，无需复杂操作，随时随地保持联结。\\n\"},{\"insert\":\"模板二创方向建议\\n\"},{\"insert\":\"- 情感陪伴升级：增强分身的情感互动能力，如添加生日、纪念日等重要日期的提示和情感表达，让分身更具温度。\\n\"},{\"insert\":\"- 生活助理功能扩展：将分身的能力拓展至生活助理领域，如自动提醒家人健康检查、规划日常活动等，让分身更好地服务家庭生活。\\n\"},{\"insert\":\"- 深度自我成长模块：增加个性化目标设定和习惯追踪，打造一套完整的自我提升方案，使分身成为用户的长期成长伙伴。\\n\"},{\"insert\":\"- 社交反馈优化：增强分身在社交互动中的反馈能力，根据互动反馈调整分身的表现，更贴合用户的社交风格。\\n\"},{\"insert\":\"“映我·你的数智分身”模板介绍：\"},{\"attributes\":{\"hyperlink\":\"{\\\"href\\\":\\\"https://myjoyoful.feishu.cn/wiki/UrMTwbLxqik1s7kkWoEct4RRnee?from=from_copylink\\\",\\\"linkId\\\":\\\"7RRU1EhiB4\\\"}\"},\"insert\":\"模板说明文档\"},{\"insert\":\"\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p9-passport.byteacctimg.com/img/user-avatar/assets/e7b19241fb224cea967dfaea35448102_1080_1080.png~300x300.image",
+                        "id": "0",
+                        "name": "BaoXD"
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p9-passport.byteacctimg.com/img/user-avatar/assets/e7b19241fb224cea967dfaea35448102_1080_1080.png~300x300.image",
+                        "name": "BaoXD",
+                        "user_id": "0",
+                        "user_name": "BaoXD"
+                    }
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692594176",
+                        "index": 0,
+                        "name": "信息处理"
+                    },
+                    "covers": [
+                        {
+                            "uri": "915ca022ec4440a3b56fd73f216bf38b",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/915ca022ec4440a3b56fd73f216bf38b~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=1xpCf%2FLOiyNTFMTAtJMJ%2Fbx9PkU%3D"
+                        }
+                    ],
+                    "description": "利用必应搜索插件和大模型，智能总结互联网信息。",
+                    "entity_id": "7441651036063989786",
+                    "entity_type": 26,
+                    "entity_version": "1732762656549",
+                    "favorite_count": 0,
+                    "heat": 7202,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/caec50dc248a496c8523186cdc76006f~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=ZY180DS8f5k9WlaD0b8MBfzqA8o%3D",
+                    "id": "7442076831253037097",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1732762667",
+                    "medium_icon_url": "",
+                    "name": "智能搜索",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"attributes\":{\"bold\":\"true\"},\"insert\":\"模板简介\"},{\"insert\":\"：利用必应搜索插件和大模型，智能总结互联网信息。\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"如何使用\"},{\"insert\":\"：\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"整体页面框架为搜索入口-搜索结果页，页面可高度复用于常见搜索场景。\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"复制后，通过修改大模型节点的提示词，即可迅速调整生成结果。能够通过添加更完整字段的数据库，从而实现历史记录的完整展示和存储。\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                },
+                "project_extra": {
+                    "duplicate_count": 7202,
+                    "execute_count": 85956,
+                    "preview_types": [1],
+                    "publish_platforms": [],
+                    "template_project_id": "7441811442237964326",
+                    "template_project_version": "1732762656549",
+                    "user_count": 13728
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692643328",
+                        "index": 0,
+                        "name": "学习教育"
+                    },
+                    "covers": [
+                        {
+                            "uri": "ed38268762ce493d8de05151b89905b5",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/ed38268762ce493d8de05151b89905b5~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=tLty9htMKZpMvuraKjbq%2Fhj7TCI%3D"
+                        }
+                    ],
+                    "description": "哈喽，生成课件/教案、辅助批阅作业请找我，我是历史老师的好帮手！\n\n",
+                    "entity_id": "7418102445748125733",
+                    "entity_type": 21,
+                    "entity_version": "1740140069674",
+                    "favorite_count": 1,
+                    "heat": 7014,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/25c5036e08ce45b2b684c66034917c9c~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=RmsJaHeIjSllcRz2mSCgS2cmf5I%3D",
+                    "id": "7418160152504827942",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": true,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [
+                        {
+                            "name": "语音"
+                        },
+                        {
+                            "name": "Prompt"
+                        }
+                    ],
+                    "listed_at": "1740140070",
+                    "medium_icon_url": "",
+                    "name": "智能助教（作业批改）",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"历史作业批改助手模板，服务于智能助教场景，助力历史老师轻松备课与高效批阅作业，减轻教学压力。\\n\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"支持的功能有\"},{\"insert\":\"：\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"number1\",\"start\":\"1\",\"origin-start\":\"1\",\"ol-id\":\"UH1jIDNp\"},\"insert\":\"*\"},{\"insert\":\"支持命题或导入文件，AI生成大纲并写作教案/课件，并支持二次确认\u0026反复修改；\\n\"},{\"attributes\":{\"lmkr\":\"1\",\"list\":\"number1\",\"start\":\"2\",\"origin-start\":\"2\",\"ol-id\":\"UH1jIDNp\"},\"insert\":\"*\"},{\"insert\":\"支持批量导入题目和学生回答，AI 辅助批阅历史主观题。\\n\"},{\"attributes\":{\"bold\":\"true\"},\"insert\":\"如何快速使用\"},{\"insert\":\"：\\n\"},{\"attributes\":{\"lmkr\":\"1\"},\"insert\":\"*\"},{\"insert\":\"复制后，通过修改内部工作流大模型节点的提示词，调整模型批阅分数、写作教案的标准，从而调整输出的效果。\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "id": "0",
+                        "name": ""
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p26-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/78f519713ce46901120fb7695f257c9a.png~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zHTF%2FDnLy0TONYnZWUpdvBv9PQk%3D",
+                        "name": "扣子官方",
+                        "user_id": "0",
+                        "user_name": ""
+                    }
+                }
+            },
+            {
+                "commercial_setting": {
+                    "commercial_type": 0
+                },
+                "meta_info": {
+                    "category": {
+                        "active_icon_url": "",
+                        "count": 0,
+                        "icon_url": "",
+                        "id": "7420259113692594176",
+                        "index": 0,
+                        "name": "信息处理"
+                    },
+                    "covers": [
+                        {
+                            "uri": "f4261874b8b44f5e998a8899d430908d",
+                            "url": "https://p6-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/f4261874b8b44f5e998a8899d430908d~tplv-13w3uml6bg-resize:800:320.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=3WZ2Ud3gW6lQcnPVotSFUwzvJgc%3D"
+                        }
+                    ],
+                    "description": "ppt一键生成，输入主题和受众，输出思路和大纲，以及PPT模板的下载链接",
+                    "entity_id": "7423320694781870117",
+                    "entity_type": 23,
+                    "entity_version": "7424139346863964196",
+                    "favorite_count": 0,
+                    "heat": 6734,
+                    "icon_url": "https://p3-flow-product-sign.byteimg.com/tos-cn-i-13w3uml6bg/89960596fcd049c0b7ec5172637f3a03~tplv-13w3uml6bg-resize:128:128.image?rk3s=2e2596fd\u0026x-expires=1743166889\u0026x-signature=zKx18omnuLhZMM8ztw13VimIk5Y%3D",
+                    "id": "7424137851450753043",
+                    "is_favorited": false,
+                    "is_free": true,
+                    "is_official": false,
+                    "is_professional": false,
+                    "is_template": true,
+                    "labels": [],
+                    "listed_at": "1730815415",
+                    "medium_icon_url": "",
+                    "name": "PPT大纲生成",
+                    "origin_icon_url": "",
+                    "readme": "{\"0\":{\"ops\":[{\"insert\":\"ppt生成模板来啦，输入主题和受众，输出思路和大纲，以及PPT模板的下载链接。\\n\"}],\"zoneId\":\"0\",\"zoneType\":\"Z\"}}",
+                    "seller": {
+                        "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/4df9f11583381d2b5bfc4c16fd5dd3ee~300x300.image",
+                        "id": "0",
+                        "name": "start_test"
+                    },
+                    "status": 1,
+                    "user_info": {
+                        "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/4df9f11583381d2b5bfc4c16fd5dd3ee~300x300.image",
+                        "name": "momo",
+                        "user_id": "0",
+                        "user_name": "start_test"
+                    }
+                },
+                "workflow_extra": {
+                    "duplicate_count": 6734,
+                    "related_workflows": []
+                }
+            }
+        ],
+        "total": 0
+    },
+    "message": ""
+}

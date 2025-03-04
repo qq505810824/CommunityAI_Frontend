@@ -1,0 +1,95 @@
+{
+    "code": 0,
+    "data": {
+        "has_more": false,
+        "intelligences": [
+            {
+                "basic_info": {
+                    "create_time": "1740649118",
+                    "description": "🏮上元佳夜，华灯璀璨，火树银花映照着人间团圆。猜灯谜之雅事，自古便是佳节盛景，于谜中藏乾坤万象，待诸君破局解谜。\n该模板可用于猜灯谜游戏，适逢元宵佳节，复制后发布可与朋友一起体验，或部署到业务产品上，让用户也一起体验猜灯谜的乐趣。",
+                    "icon_uri": "FileBizType.BIZ_BOT_ICON/4101640348253736_1738811099074529913.jpeg",
+                    "icon_url": "https://lf9-appstore-sign.oceancloudapi.com/ocean-cloud-tos/FileBizType.BIZ_BOT_ICON/4101640348253736_1738811099074529913.jpeg?lk3s=ca44e09c\u0026x-expires=1740735434\u0026x-signature=qq1ZESFmwOB8Kg5EBPCb6HlwxI4%3D",
+                    "id": "7476015607671259171",
+                    "name": "元宵猜灯谜(副本)",
+                    "owner_id": "1678288933882452",
+                    "publish_time": "",
+                    "space_id": "7372809542008176675",
+                    "status": 1,
+                    "update_time": "1740649120"
+                },
+                "favorite_info": {},
+                "latest_audit_info": {},
+                "other_info": {
+                    "recently_open_time": ""
+                },
+                "owner_info": {
+                    "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/assets/e7b19241fb224cea967dfaea35448102_1080_1080.png~300x300.image",
+                    "nickname": "feiteng",
+                    "user_id": "1678288933882452",
+                    "user_label": {},
+                    "user_unique_name": "feiteng"
+                },
+                "permission_info": {
+                    "can_delete": true,
+                    "can_view": true,
+                    "in_collaboration": false
+                },
+                "publish_info": {
+                    "connectors": [],
+                    "has_published": true,
+                    "publish_time": "1740650075"
+                },
+                "type": 2
+            },
+            {
+                "basic_info": {
+                    "create_time": "1728691468",
+                    "description": "",
+                    "icon_uri": "FileBizType.BIZ_BOT_ICON/default_bot_icon3.png",
+                    "icon_url": "https://lf26-appstore-sign.oceancloudapi.com/ocean-cloud-tos/FileBizType.BIZ_BOT_ICON/default_bot_icon3.png?lk3s=ca44e09c\u0026x-expires=1740736314\u0026x-signature=GHNrDU10ALuevaIeHLfwL%2FCvXto%3D",
+                    "id": "7424670584040669234",
+                    "name": "AI Chatbot",
+                    "owner_id": "1678288933882452",
+                    "publish_time": "",
+                    "space_id": "7372809542008176675",
+                    "status": 1,
+                    "update_time": "1737559506"
+                },
+                "favorite_info": {},
+                "latest_audit_info": {},
+                "other_info": {
+                    "recently_open_time": ""
+                },
+                "owner_info": {
+                    "avatar_url": "https://p3-passport.byteacctimg.com/img/user-avatar/assets/e7b19241fb224cea967dfaea35448102_1080_1080.png~300x300.image",
+                    "nickname": "feiteng",
+                    "user_id": "1678288933882452",
+                    "user_label": {},
+                    "user_unique_name": "feiteng"
+                },
+                "permission_info": {
+                    "can_delete": true,
+                    "can_view": true,
+                    "in_collaboration": false
+                },
+                "publish_info": {
+                    "connectors": [
+                        {
+                            "connector_status": 0,
+                            "icon": "https://lf3-appstore-sign.oceancloudapi.com/ocean-cloud-tos/FileBizType.BIZ_BOT_ICON/372098624667275_1712460031268408175_9WGvWvI0pp.jpeg?lk3s=60aae199\u0026x-expires=1740659185\u0026x-signature=wc8Fr0%2Ba1ksfw9pK2W0QQCtKzt8%3D",
+                            "id": "10000122",
+                            "name": "扣子商店",
+                            "share_link": "https://www.coze.cn/store/agent/7424670584040669234?bot_id=true"
+                        }
+                    ],
+                    "has_published": true,
+                    "publish_time": "1735221179"
+                },
+                "type": 1
+            }
+        ],
+        "next_cursor_id": "Uacgbya_8qT4LFg1If4",
+        "total": 2
+    },
+    "msg": ""
+}
