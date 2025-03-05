@@ -10,7 +10,7 @@ export default function TemplateCard(props: ViewProps) {
     const handleClick = () => {
         window.open(
             'https://www.coze.cn/store/model/detail?mode=choose_bot&product_id=' +
-            product?.product_id,
+                product?.product_id,
             '_blank'
         );
     };

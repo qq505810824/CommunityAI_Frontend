@@ -20,7 +20,7 @@ function HomeContainer() {
 
     useEffect(() => {
         getProducts();
-        return () => { };
+        return () => {};
     }, [router]);
 
     const getProducts = async () => {
@@ -34,7 +34,8 @@ function HomeContainer() {
             {...{
                 data,
                 products
-            }} />
+            }}
+        />
     );
 }
 

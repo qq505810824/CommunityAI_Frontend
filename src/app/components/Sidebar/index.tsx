@@ -79,7 +79,7 @@ export default function Sidebar() {
                 flexDirection: 'column',
                 gap: 2,
                 // borderRight: '1px solid',
-                backgroundColor: '#282A2D',
+                backgroundColor: '#282A2D'
             }}
         >
             <GlobalStyles
@@ -111,10 +111,12 @@ export default function Sidebar() {
                 }}
                 onClick={() => closeSidebar()}
             />
-            <div className=' flex flex-row items-center space-x-2 cursor-pointer'
+            <div
+                className=" flex flex-row items-center space-x-2 cursor-pointer"
                 onClick={() => {
-                    router.push('/home')
-                }}>
+                    router.push('/home');
+                }}
+            >
                 <IconButton variant="soft" color="primary" size="sm">
                     <BrightnessAutoRoundedIcon />
                 </IconButton>
@@ -130,7 +132,7 @@ export default function Sidebar() {
                     {'AI 工具导航'}
                 </Typography>
             </div>
-            <div className=' overflow-y-auto'>
+            <div className=" overflow-y-auto">
                 <AgentList />
             </div>
         </Sheet>

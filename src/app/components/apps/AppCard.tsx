@@ -1,8 +1,4 @@
-import {
-    HeartIcon,
-    PlayCircleIcon,
-    UserIcon
-} from '@heroicons/react/24/outline';
+import { HeartIcon, PlayCircleIcon, UserIcon } from '@heroicons/react/24/outline';
 import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
 import { Divider, Typography } from '@mui/joy';
 import { useRouter } from 'next/navigation';
@@ -15,9 +11,8 @@ export default function AppCard(props: ViewProps) {
     const router = useRouter();
 
     const handleClick = () => {
-        console.log('Clicked!'); // 添加调试信息 
+        console.log('Clicked!'); // 添加调试信息
         window.open(data?.data_url);
-
     };
     return (
         <>
@@ -65,8 +60,6 @@ export default function AppCard(props: ViewProps) {
                 <Divider />
                 <div className="flex flex-row   mt-2 justify-between items-center">
                     <div className="flex flex-row space-x-4  ">
-
-
                         <Typography
                             startDecorator={<UserIcon className="w-3" />}
                             sx={{
@@ -100,9 +93,7 @@ export default function AppCard(props: ViewProps) {
                             color: 'gray',
                             fontSize: 12
                         }}
-                    >
-
-                    </Typography>
+                    ></Typography>
                 </div>
             </div>
         </>

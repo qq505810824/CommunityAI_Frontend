@@ -70,8 +70,10 @@ function AppView(props: ViewProps) {
                             </button>
                         </div>
                     </div>
-                    <div className='w-full my-4'>
-                        <p className='text-xl text-black font-semibold border-l-4 pl-2 border-l-indigo-500'>{product?.name}</p>
+                    <div className="w-full my-4">
+                        <p className="text-xl text-black font-semibold border-l-4 pl-2 border-l-indigo-500">
+                            {product?.name}
+                        </p>
                     </div>
                     <div className="flex-row   grid   sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full">
                         {product?.datas?.map((data: any, index: number) => (

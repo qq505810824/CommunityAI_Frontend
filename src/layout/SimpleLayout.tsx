@@ -8,7 +8,6 @@ import Box from '@mui/joy/Box';
 import CssBaseline from '@mui/joy/CssBaseline';
 import { CssVarsProvider } from '@mui/joy/styles';
 
-
 function SimpleLayout(props: { children: React.ReactNode }) {
     return (
         <CssVarsProvider disableTransitionOnChange>

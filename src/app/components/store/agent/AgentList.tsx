@@ -9,7 +9,7 @@ import {
     School as SchoolIcon,
     Search as SearchIcon,
     VideoCameraFront as VideoCameraFrontIcon
-} from '@mui/icons-material'; // 从 Material-UI 导入图标 
+} from '@mui/icons-material'; // 从 Material-UI 导入图标
 import GroupsIcon from '@mui/icons-material/Groups';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Box, Typography } from '@mui/joy';
@@ -118,11 +118,10 @@ export default function AgentList() {
             href: '?type=Prompt指令',
             icon: <ListAltIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
             items: []
-        },
+        }
     ];
     return (
         <>
-
             <List
                 size="sm"
                 sx={{
@@ -151,7 +150,13 @@ export default function AgentList() {
                                 >
                                     <span className="icon mr-2">{menu?.icon}</span>
                                     <ListItemContent>
-                                        <Typography className="text" level="title-sm" sx={{ color: '#eeeeee', }}>{menu?.name}</Typography>
+                                        <Typography
+                                            className="text"
+                                            level="title-sm"
+                                            sx={{ color: '#eeeeee' }}
+                                        >
+                                            {menu?.name}
+                                        </Typography>
                                     </ListItemContent>
                                     {menu?.items && menu?.items.length > 0 && (
                                         <KeyboardArrowDownIcon

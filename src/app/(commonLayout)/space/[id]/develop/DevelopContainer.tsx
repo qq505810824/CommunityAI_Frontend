@@ -20,7 +20,7 @@ function DevelopContainer() {
 
     useEffect(() => {
         getProducts();
-        return () => { };
+        return () => {};
     }, [router]);
 
     const getProducts = async () => {

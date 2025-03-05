@@ -15,22 +15,20 @@ function AppContainer() {
     const { setAlert } = useAlert();
     const { setLoad } = useLoad();
     const router = useRouter();
-    const searchParams = useSearchParams()
+    const searchParams = useSearchParams();
 
     const [product, setProduct] = useState<any[]>([]);
-    const [category, setCategory] = useState<any>(null)
+    const [category, setCategory] = useState<any>(null);
 
     useEffect(() => {
-        setCategory(searchParams.get("type") || null)
-        if (!searchParams.get("type")) {
+        setCategory(searchParams.get('type') || null);
+        if (!searchParams.get('type')) {
             getProducts('home');
         }
-
     }, [router, searchParams]);
 
     useEffect(() => {
-        if (category != null)
-            getProducts(category);
+        if (category != null) getProducts(category);
     }, [category]);
 
     const getProducts = async (category: string) => {
@@ -38,9 +36,9 @@ function AppContainer() {
         // console.log('res', res.data.apps[0]);
         // console.log('category', category);
 
-        const apps = res.data.apps
+        const apps = res.data.apps;
         if (category) {
-            const product = apps.find((app: any) => app.name == category)
+            const product = apps.find((app: any) => app.name == category);
             // console.log('product', product);
             if (product) {
                 setProduct(product);
@@ -50,7 +48,6 @@ function AppContainer() {
         } else {
             setProduct(res.data.apps[0]);
         }
-
     };
 
     return (
