@@ -6,7 +6,7 @@ import useLoad from '@/hooks/useLoad';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import HomeView from './HomeView';
+import AppView from '../apps/AppView';
 
 const apiSetting = new Api();
 
@@ -18,33 +18,23 @@ function HomeContainer() {
 
     const [products, setProducts] = useState<any[]>([]);
 
-    const [feed_list, setFeedList] = useState<any[]>([]);
-
     useEffect(() => {
         getProducts();
-        getFeedList();
-        return () => {};
+        return () => { };
     }, [router]);
 
     const getProducts = async () => {
-        const res = await axios.get('./home/products.json');
-        setProducts(res.data.data.products);
-    };
-
-    const getFeedList = async () => {
-        const res = await axios.get('./home/feed_list.json');
-        console.log('res', res.data.data);
-        setFeedList(res.data.data.feed_list);
+        const res = await axios.get('./home/tools.json');
+        setProducts(res.data.apps[0]['datas']);
     };
 
     return (
-        <HomeView
+        <AppView
+            product={undefined}
             {...{
                 data,
-                feed_list,
                 products
-            }}
-        />
+            }} />
     );
 }
 

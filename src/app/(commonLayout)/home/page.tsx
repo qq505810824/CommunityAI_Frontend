@@ -1,5 +1,5 @@
 import SimpleLayout from '../../../layout/SimpleLayout';
 import withLayout from '../../../layout/withLayout';
-import Container from './HomeContainer';
+import Container from '../apps/AppContainer';
 
 export default withLayout(Container, SimpleLayout);

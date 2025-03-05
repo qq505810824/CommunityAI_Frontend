@@ -75,3 +75,30 @@ export const removeHtmlTags = (text: string) => {
 export const formatK = (value: number) => {
     return value > 1000 ? (value / 1000).toFixed(1) + 'k' : value;
 };
+
+
+export async function extractInfoFromHTML(htmlContent: any) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlContent, 'text/html');
+    const results: any = [];
+
+    const cards = doc.querySelectorAll('.url-card');
+    cards.forEach(card => {
+        const titleElement = card.querySelector('strong');
+        const descriptionElement = card.querySelector('p');
+        const imgElement = card.querySelector('img');
+        const linkElement = card.querySelector('a');
+
+        if (titleElement && descriptionElement && imgElement && linkElement && titleElement.textContent && descriptionElement.textContent) {
+            results.push({
+                title: titleElement.textContent.trim(),
+                description: descriptionElement.textContent.trim(),
+                img_src: imgElement.src,
+                data_url: linkElement.dataset.url,
+                url: linkElement.href
+            });
+        }
+    });
+
+    return results;
+}

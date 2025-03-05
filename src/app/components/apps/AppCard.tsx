@@ -1,0 +1,110 @@
+import {
+    HeartIcon,
+    PlayCircleIcon,
+    UserIcon
+} from '@heroicons/react/24/outline';
+import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
+import { Divider, Typography } from '@mui/joy';
+import { useRouter } from 'next/navigation';
+interface ViewProps {
+    data: any;
+}
+
+export default function AppCard(props: ViewProps) {
+    const { data } = props;
+    const router = useRouter();
+
+    const handleClick = () => {
+        console.log('Clicked!'); // 添加调试信息 
+        window.open(data?.data_url);
+
+    };
+    return (
+        <>
+            <div
+                className=" border rounded-md  hover:shadow-lg cursor-pointer p-4 bg-white"
+                onClick={handleClick}
+            >
+                <div className="flex flex-row space-x-2 mb-6">
+                    <div className="w-[70px]  min-w-[70px]">
+                        <img
+                            src={data?.img_src}
+                            className="w-full h-[70px] object-cover rounded-md"
+                        />
+                    </div>
+                    <div className="w-full overflow-hidden space-y-1 ">
+                        <div className="flex flex-row items-start justify-between">
+                            <h1
+                                style={{
+                                    whiteSpace: 'nowrap', // 不换行
+                                    overflow: 'hidden', // 超出部分隐藏
+                                    textOverflow: 'ellipsis' // 显示省略号
+                                }}
+                            >
+                                {data?.title}
+                            </h1>
+                            <div className="hidden flex-shrink-0 bg-indigo-100 px-2 py-1 text-indigo-600 cursor-pointer text-sm rounded-md flex flex-row items-center">
+                                <RateReviewOutlinedIcon sx={{ color: '#6366f1', fontSize: 14 }} />
+                                <label className="ml-1 text-xs">应用</label>
+                            </div>
+                        </div>
+                        <p
+                            className="text-sm text-gray-600"
+                            style={{
+                                display: '-webkit-box',
+                                WebkitBoxOrient: 'vertical',
+                                overflow: 'hidden',
+                                WebkitLineClamp: 3,
+                                height: '4.5em' // 根据行高设置最大高度
+                            }}
+                        >
+                            {data?.description}
+                        </p>
+                    </div>
+                </div>
+                <Divider />
+                <div className="flex flex-row   mt-2 justify-between items-center">
+                    <div className="flex flex-row space-x-4  ">
+
+
+                        <Typography
+                            startDecorator={<UserIcon className="w-3" />}
+                            sx={{
+                                color: 'gray',
+                                fontSize: 12
+                            }}
+                        >
+                            {0}
+                        </Typography>
+                        <Typography
+                            startDecorator={<PlayCircleIcon className="w-3" />}
+                            sx={{
+                                color: 'gray',
+                                fontSize: 12
+                            }}
+                        >
+                            0
+                        </Typography>
+                        <Typography
+                            startDecorator={<HeartIcon className="w-3" />}
+                            sx={{
+                                color: 'gray',
+                                fontSize: 12
+                            }}
+                        >
+                            {0}
+                        </Typography>
+                    </div>
+                    <Typography
+                        sx={{
+                            color: 'gray',
+                            fontSize: 12
+                        }}
+                    >
+
+                    </Typography>
+                </div>
+            </div>
+        </>
+    );
+}

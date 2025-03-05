@@ -1,6 +1,6 @@
 import { Search } from '@mui/icons-material';
 import { Button, Input } from '@mui/joy';
-interface ViewProps {}
+interface ViewProps { }
 
 function StoreSearchView(props: ViewProps) {
     return (
