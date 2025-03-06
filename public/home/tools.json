@@ -975,6 +975,78 @@
             "url": "https://www.aig123.com/sites/102.html",
             "data_url": "https://lib.kalos.art",
             "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://lib.kalos.art"
+        },
+        {
+            "title": "KonnecAI",
+            "category": "DocAI网站",
+            "description": "KonnecAI 有 schema、 知识库、 报告",
+            "url": "https://www.aig123.com/sites/102.html",
+            "data_url": "https://schema-frontend.docai.net",
+            "img_src": "./logo/docai.png"
+        },
+        {
+            "title": "AI English",
+            "category": "DocAI网站",
+            "description": "AI English 改作文、造句子、阅读理解、情景对话、 ",
+            "url": "https://www.aig123.com/sites/102.html",
+            "data_url": "https://aienglish.docai.net/",
+            "img_src": "./logo/docai.png"
+        },
+        {
+            "title": "AI English ( Dev )",
+            "category": "DocAI网站",
+            "description": "deveploment 版 AI English 改作文、造句子、阅读理解、情景对话、 ",
+            "url": "https://www.aig123.com/sites/102.html",
+            "data_url": "https://essay-checker.docai.net/",
+            "img_src": "./logo/docai.png"
+        },
+        {
+            "title": "AI Admin ( old )",
+            "category": "DocAI网站",
+            "description": "旧版AI Admin",
+            "url": "https://www.aig123.com/sites/102.html",
+            "data_url": "https://aiadmin.docai.net/",
+            "img_src": "./logo/docai.png"
+        },
+        {
+            "title": "AI Admin ( dify )",
+            "category": "DocAI网站",
+            "description": "dify 版 AI Admin",
+            "url": "https://www.aig123.com/sites/102.html",
+            "data_url": "https://admin.docai.net/",
+            "img_src": "./logo/docai.png"
+        },
+        {
+            "title": "AI Admin ( AI English )",
+            "category": "DocAI网站",
+            "description": "AI English 网站用的 AI Admin",
+            "url": "https://www.aig123.com/sites/102.html",
+            "data_url": "https://aienglish-dify.docai.net/",
+            "img_src": "./logo/docai.png"
+        },
+        {
+            "title": "Cursor + MCP",
+            "category": "YouTuBe网站",
+            "description": "Cursor + MCP = 王炸！彻底颠覆我的Cursor工作流，效率直接起飞",
+            "url": "https://www.aig123.com/sites/102.html",
+            "data_url": "https://www.youtube.com/watch?v=jaFkRMy76h0",
+            "img_src": "./logo/youtube.png"
+        },
+        {
+            "title": "Cursor + Claude ",
+            "category": "YouTuBe网站",
+            "description": "Cursor + Claude 3.7的绝技：从原型到产品，两步完成app开发！",
+            "url": "https://www.aig123.com/sites/102.html",
+            "data_url": "https://www.youtube.com/watch?v=P8uT6McIaZc",
+            "img_src": "./logo/youtube.png"
+        },
+        {
+            "title": "OCR大模型olmOCR",
+            "category": "YouTuBe网站",
+            "description": "本地部署最强OCR大模型olmOCR！支持结构化精准提取复杂PDF文件内容！完美识别中英文文档、模糊扫描件与复杂表格！本地部署与实际测试全过程！医疗法律行业必备！轻松应对企业级PDF批量转换需求",
+            "url": "https://www.aig123.com/sites/102.html",
+            "data_url": "https://www.youtube.com/watch?v=XF3Q_ZjwfaI",
+            "img_src": "./logo/youtube.png"
         }
     ]
 }

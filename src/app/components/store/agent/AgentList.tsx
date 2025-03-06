@@ -12,6 +12,7 @@ import {
 } from '@mui/icons-material'; // 从 Material-UI 导入图标
 import GroupsIcon from '@mui/icons-material/Groups';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import LanguageIcon from '@mui/icons-material/Language';
 import { Box, Typography } from '@mui/joy';
 import List from '@mui/joy/List';
 import ListItem from '@mui/joy/ListItem';
@@ -56,7 +57,7 @@ export default function AgentList() {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
-    useEffect(() => {}, [pathname, router]);
+    useEffect(() => { }, [pathname, router]);
     const meuns = [
         {
             name: 'AI 搜索引擎',
@@ -123,6 +124,18 @@ export default function AgentList() {
             href: '?type=Prompt指令',
             icon: <ListAltIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
             items: []
+        },
+        {
+            name: 'DocAI网站',
+            href: '?type=DocAI网站',
+            icon: <LanguageIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
+            items: []
+        },
+        {
+            name: 'YouTuBe网站',
+            href: '?type=YouTuBe网站',
+            icon: <LanguageIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
+            items: []
         }
     ];
     return (
@@ -150,7 +163,7 @@ export default function AgentList() {
                                     sx={{
                                         backgroundColor:
                                             `${pathname}?type=${searchParams.get('type')}` ===
-                                            `/home${menu?.href}`
+                                                `/home${menu?.href}`
                                                 ? '#6366f1 !important'
                                                 : 'transparent', // 如果 URL 匹配，设置背景颜色
                                         '&:hover': {
