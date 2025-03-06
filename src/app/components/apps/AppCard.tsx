@@ -10,12 +10,12 @@ interface ViewProps {
 export default function AppCard(props: ViewProps) {
     const { data } = props;
     const router = useRouter();
-    const searchParams = useSearchParams()
-    const [keyword, setKeyword] = useState('')
+    const searchParams = useSearchParams();
+    const [keyword, setKeyword] = useState('');
 
     useEffect(() => {
-        setKeyword(searchParams.get('s') || '')
-    }, [searchParams])
+        setKeyword(searchParams.get('s') || '');
+    }, [searchParams]);
     const handleClick = () => {
         // console.log('Clicked!'); // 添加调试信息
         window.open(data?.data_url);
@@ -42,13 +42,17 @@ export default function AppCard(props: ViewProps) {
                                     textOverflow: 'ellipsis' // 显示省略号
                                 }}
                             >
-                                {data?.title.split(new RegExp(`(${keyword})`, 'gi')).map((part: any, index: number) =>
-                                    part.toLowerCase() === keyword.toLowerCase() ? (
-                                        <span key={index} style={{ color: 'red' }}>{part}</span>
-                                    ) : (
-                                        part
-                                    )
-                                )}
+                                {data?.title
+                                    .split(new RegExp(`(${keyword})`, 'gi'))
+                                    .map((part: any, index: number) =>
+                                        part.toLowerCase() === keyword.toLowerCase() ? (
+                                            <span key={index} style={{ color: 'red' }}>
+                                                {part}
+                                            </span>
+                                        ) : (
+                                            part
+                                        )
+                                    )}
                             </h1>
                             <div className="hidden flex-shrink-0 bg-indigo-100 px-2 py-1 text-indigo-600 cursor-pointer text-sm rounded-md flex flex-row items-center">
                                 <RateReviewOutlinedIcon sx={{ color: '#6366f1', fontSize: 14 }} />
@@ -65,13 +69,17 @@ export default function AppCard(props: ViewProps) {
                                 height: '4.5em' // 根据行高设置最大高度
                             }}
                         >
-                            {data?.description.split(new RegExp(`(${keyword})`, 'gi')).map((part: any, index: number) =>
-                                part.toLowerCase() === keyword.toLowerCase() ? (
-                                    <span key={index} style={{ color: 'red' }}>{part}</span>
-                                ) : (
-                                    part
-                                )
-                            )}
+                            {data?.description
+                                .split(new RegExp(`(${keyword})`, 'gi'))
+                                .map((part: any, index: number) =>
+                                    part.toLowerCase() === keyword.toLowerCase() ? (
+                                        <span key={index} style={{ color: 'red' }}>
+                                            {part}
+                                        </span>
+                                    ) : (
+                                        part
+                                    )
+                                )}
                         </p>
                     </div>
                 </div>
