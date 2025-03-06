@@ -17,7 +17,8 @@ import List from '@mui/joy/List';
 import ListItem from '@mui/joy/ListItem';
 import ListItemButton from '@mui/joy/ListItemButton';
 import ListItemContent from '@mui/joy/ListItemContent';
-import React from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import React, { useEffect } from 'react';
 
 function Toggler({
     defaultExpanded = false,
@@ -52,6 +53,13 @@ function Toggler({
 }
 
 export default function AgentList() {
+    const router = useRouter()
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
+    useEffect(() => {
+        console.log(pathname, router);
+
+    }, [pathname, router])
     const meuns = [
         {
             name: 'AI 搜索引擎',
@@ -139,10 +147,11 @@ export default function AgentList() {
                                         if (!menu.href) {
                                             setOpen(!open);
                                         } else {
-                                            window.location.href = menu.href;
+                                            router.push('/home' + menu.href);
                                         }
                                     }}
                                     sx={{
+                                        backgroundColor: `${pathname}?type=${searchParams.get('type')}` === `/home${menu?.href}` ? '#6366f1 !important' : 'transparent', // 如果 URL 匹配，设置背景颜色
                                         '&:hover': {
                                             backgroundColor: '#6366f1 !important' // 使用 !important 确保样式生效
                                         }
@@ -186,7 +195,9 @@ export default function AgentList() {
                                                     backgroundColor: '#6366f1 !important' // 使用 !important 确保样式生效
                                                 }
                                             }}
-                                            href={sub_menu?.href + '?type=' + sub_menu.name}
+                                            onClick={() => {
+                                                router.push(sub_menu?.href + '?type=' + sub_menu.name);
+                                            }}
                                         >
                                             {sub_menu?.name}
                                         </ListItemButton>
