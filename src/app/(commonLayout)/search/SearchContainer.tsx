@@ -38,7 +38,7 @@ function SearchContainer() {
 
         const apps = res.data.apps;
         if (keyword) {
-            const datas = apps.filter((app: any) => new RegExp(keyword, 'i').test(app.title));
+            const datas = apps.filter((app: any) => new RegExp(keyword, 'i').test(app.title) || new RegExp(keyword, 'i').test(app.description));
             // console.log('product', datas);
             setData({
                 keyword,

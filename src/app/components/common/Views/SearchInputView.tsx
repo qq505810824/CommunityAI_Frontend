@@ -1,6 +1,5 @@
 import useAlert from '@/hooks/useAlert';
 import SearchIcon from '@mui/icons-material/Search';
-import SendIcon from '@mui/icons-material/Send';
 import { CircularProgress, IconButton, Input, Sheet } from '@mui/joy';
 import { useRef, useState } from 'react';
 interface ViewProps {
@@ -60,10 +59,10 @@ export default function SearchInputView(props: ViewProps) {
                         verify();
                     }}
                     sx={{
-                        display: { xs: 'flex', sm: 'none' }
+                        display: { xs: 'none', sm: 'none' }
                     }}
                 >
-                    <SendIcon />
+                    <SearchIcon />
                 </IconButton>
             </Sheet>
         </>
