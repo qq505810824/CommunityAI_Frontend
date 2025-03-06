@@ -6,13 +6,13 @@ import useLoad from '@/hooks/useLoad';
 import axios from 'axios';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import AppView from './AppView';
+import SearchView from './SearchView';
 
 const apiSetting = new Api();
 
-function AppContainer() {
+function SearchContainer() {
     const [data, setData] = React.useState({
-        category: '',
+        keyword: '',
         apps: []
     });
     const { setAlert } = useAlert();
@@ -21,32 +21,30 @@ function AppContainer() {
     const searchParams = useSearchParams();
 
     const [product, setProduct] = useState<any[]>([]);
-    const [category, setCategory] = useState<any>(null);
+    const [keyword, setKeyword] = useState<any>(null);
 
     useEffect(() => {
-        setCategory(searchParams.get('type') || null);
-        if (!searchParams.get('type')) {
-            getProducts('AI 搜索引擎');
+        setKeyword(searchParams.get('s') || null);
+        if (searchParams.get('s')) {
+            getProducts(searchParams.get('s') || '');
+            // console.log('s', searchParams.get('s'));
         }
     }, [router, searchParams]);
 
-    useEffect(() => {
-        if (category != null) getProducts(category);
-    }, [category]);
-
-    const getProducts = async (category: string) => {
+    const getProducts = async (keyword: string) => {
         const res = await axios.get('./home/tools.json');
         // console.log('res', res.data.apps[0]);
-        // console.log('category', category);
+        // console.log('keyword', keyword);
 
         const apps = res.data.apps;
-        if (category) {
-            const datas = apps.filter((app: any) => app.category.includes(category));
+        if (keyword) {
+            const datas = apps.filter((app: any) => new RegExp(keyword, 'i').test(app.title));
             // console.log('product', datas);
             setData({
-                category,
+                keyword,
                 apps: datas
             });
+        } else {
         }
     };
 
@@ -55,7 +53,7 @@ function AppContainer() {
     };
 
     return (
-        <AppView
+        <SearchView
             {...{
                 data,
                 onSearch: handleSearch
@@ -64,4 +62,4 @@ function AppContainer() {
     );
 }
 
-export default AppContainer;
+export default SearchContainer;

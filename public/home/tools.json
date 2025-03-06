@@ -1,1081 +1,980 @@
 {
     "apps": [
         {
-            "name": "AI 搜索引擎",
-            "datas": [
-                {
-                    "title": "秘塔AI搜索",
-                    "description": "秘塔AI搜索，没有广告，直达结果。",
-                    "url": "https://www.aig123.com/sites/2125.html",
-                    "data_url": "https://metaso.cn/?ref=aig123.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/4c235-metaso.cn.png"
-                },
-                {
-                    "title": "Perplexity",
-                    "description": "Perplexity是一个ChatGPT和谷歌结合的超级工具，可以让你在浏览互联网时提出问题或获得即时摘要。",
-                    "url": "https://www.aig123.com/sites/79.html",
-                    "data_url": "https://www.perplexity.ai",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.perplexity.ai"
-                },
-                {
-                    "title": "Coze",
-                    "description": "字节跳动旗下AI智能体平台，已接入DeepSeek最新模型。",
-                    "url": "https://www.aig123.com/sites/2107.html",
-                    "data_url": "http://dis.csqixiang.cn/unpo/cozeaig123.html",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/02/coze.png"
-                },
-                {
-                    "title": "豆包",
-                    "description": "豆包是你的多功能AI助手，为你的生活、学习、工作提供全面帮助。",
-                    "url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
-                    "data_url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
-                    "img_src": "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/static/image/OnboardingAvatar.bb1504ee.webp"
-                },
-                {
-                    "title": "AskManyAI",
-                    "description": "AskManyAI是个一站式AI聚合平台，集成了国内外多个主流顶尖AI大模型。",
-                    "url": "https://www.aig123.com/sites/3161.html",
-                    "data_url": "https://www.askmanyai.cn/login?i=2b7ec33f",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/07/askmanyai.png"
-                },
-                {
-                    "title": "New Bing",
-                    "description": "微软new必应，集成GPT4模型的新一代搜索引擎，New Bing不仅提供了快速、准确、全面的搜索结果，还可以与用户进行自然、有趣、有用的对话，为用户提供更多的信息和服务。",
-                    "url": "https://www.aig123.com/sites/43.html",
-                    "data_url": "https://www.bing.com/chat",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.bing.com/chat"
-                },
-                {
-                    "title": "YOU.com",
-                    "description": "私人定制的AI搜索引擎。",
-                    "url": "https://www.aig123.com/sites/44.html",
-                    "data_url": "https://you.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://you.com"
-                },
-                {
-                    "title": "SearchGPT",
-                    "description": "OpenAI最新推出的AI搜索引擎。",
-                    "url": "https://www.aig123.com/sites/3176.html",
-                    "data_url": "https://chatgpt.com/search",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://chatgpt.com/search"
-                },
-                {
-                    "title": "通义千问",
-                    "description": "阿里巴巴推出的全能AI助手。",
-                    "url": "https://www.aig123.com/sites/1520.html",
-                    "data_url": "https://kimi.moonshot.cn",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/28768-kimi.moonshot.cn.png"
-                },
-                {
-                    "title": "纳米搜索",
-                    "description": "纳米搜索：360推出的新一代AI搜索引擎。",
-                    "url": "https://www.aig123.com/sites/3682.html",
-                    "data_url": "https://n.cn",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/11/namisou.png"
-                },
-                {
-                    "title": "Genspark",
-                    "description": "Genspark 是一款创新的 AI 搜索引擎，致力于提供比传统搜索引擎更高效、准确和无偏见的信息获取方式。",
-                    "url": "https://www.aig123.com/sites/2948.html",
-                    "data_url": "https://www.genspark.ai",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/genspark.png"
-                },
-                {
-                    "title": "Consensus",
-                    "description": "一个新型搜索引擎，利用AI在科学研究中为你找到答案。",
-                    "url": "https://www.aig123.com/sites/1731.html",
-                    "data_url": "https://consensus.app",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://consensus.app"
-                },
-                {
-                    "title": "百度搜索AI探索版",
-                    "description": "百度搜索AI探索版，新一代AI搜索引擎。",
-                    "url": "https://www.aig123.com/sites/3650.html",
-                    "data_url": "https://think.baidu.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/11/baidu.png"
-                },
-                {
-                    "title": "知乎直答",
-                    "description": "知乎直答是知乎推出的一款AI搜索引擎产品。",
-                    "url": "https://www.aig123.com/sites/3030.html",
-                    "data_url": "https://zhida.zhihu.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/zhida.png"
-                },
-                {
-                    "title": "跃问",
-                    "description": "跃问是由阶跃星辰开发的免费AI智能问答助手，随时帮你智能搜索、高效阅读、识图理解、和你畅聊感兴趣的话题。",
-                    "url": "https://www.aig123.com/sites/2189.html",
-                    "data_url": "https://stepchat.cn/chats/new",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/yuewen.svg"
-                },
-                {
-                    "title": "Globe Explorer",
-                    "description": "Globe Explorer是一款全新的AI搜索引擎，致力于提供个性化搜索体验和高质量搜索结果。",
-                    "url": "https://www.aig123.com/sites/2151.html",
-                    "data_url": "https://explorer.globe.engineer",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://explorer.globe.engineer"
-                },
-                {
-                    "title": "Aoyo.ai",
-                    "description": "Aoyo.ai 是一个使用先进的AI技术实现的智能搜索引擎，它可以深度理解用户的搜索意图，并提供精准的搜索结果。",
-                    "url": "https://www.aig123.com/sites/2145.html",
-                    "data_url": "https://aoyo.ai",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://aoyo.ai"
-                }
-            ]
+            "title": "秘塔AI搜索",
+            "category": "AI 搜索引擎",
+            "description": "秘塔AI搜索，没有广告，直达结果。",
+            "url": "https://www.aig123.com/sites/2125.html",
+            "data_url": "https://metaso.cn/?ref=aig123.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/4c235-metaso.cn.png"
         },
         {
-            "name": "AI 聊天问答",
-            "datas": [
-                {
-                    "title": "ChatGPT",
-                    "description": "最最强大的AI聊天机器人程序，ChatGPT不单是聊天机器人，还能进行撰写邮件、视频脚本、文案、翻译、代码等任务。",
-                    "url": "https://www.aig123.com/sites/65.html",
-                    "data_url": "https://chatgpt.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2023/06/18acd-chat.openai.com.png"
-                },
-                {
-                    "title": "GPT-4o",
-                    "description": "OpenAI 最新发布的旗舰生成式AI模型，可以实时进行音频、视觉和文本推理",
-                    "url": "https://www.aig123.com/sites/2679.html",
-                    "data_url": "https://openai.com/index/hello-gpt-4o",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://openai.com/index/hello-gpt-4o"
-                },
-                {
-                    "title": "Gemini",
-                    "description": "Google 推出的AI对话聊天机器人，传说中的ChatGPT 杀手",
-                    "url": "https://www.aig123.com/sites/185.html",
-                    "data_url": "https://gemini.google.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://gemini.google.com"
-                },
-                {
-                    "title": "Perplexity",
-                    "description": "Perplexity是一个ChatGPT和谷歌结合的超级工具，可以让你在浏览互联网时提出问题或获得即时摘要",
-                    "url": "https://www.aig123.com/sites/79.html",
-                    "data_url": "https://www.perplexity.ai",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.perplexity.ai"
-                },
-                {
-                    "title": "Coze",
-                    "description": "字节跳动旗下AI智能体平台，已接入DeepSeek最新模型",
-                    "url": "http://dis.csqixiang.cn/unpo/cozeaig123.html",
-                    "data_url": "http://dis.csqixiang.cn/unpo/cozeaig123.html",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/02/coze.png"
-                },
-                {
-                    "title": "豆包",
-                    "description": "豆包是你的多功能AI助手，为你的生活、学习、工作提供全面帮助。",
-                    "url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
-                    "data_url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
-                    "img_src": "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/static/image/OnboardingAvatar.bb1504ee.webp"
-                },
-                {
-                    "title": "AskManyAI",
-                    "description": "AskManyAI是个一站式AI聚合平台，集成了国内外多个主流顶尖AI大模型",
-                    "url": "https://www.aig123.com/sites/3161.html",
-                    "data_url": "https://www.askmanyai.cn/login?i=2b7ec33f",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/07/askmanyai.png"
-                },
-                {
-                    "title": "Meta AI",
-                    "description": "Meta推出的AI智能助理，提供信息检索、知识学习、内容创造、图像生成等功能",
-                    "url": "https://www.aig123.com/sites/2481.html",
-                    "data_url": "https://www.meta.ai",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/9aa95-www.meta.ai.png"
-                },
-                {
-                    "title": "Poe",
-                    "description": "Quora旗下的对话机器人聚合工具",
-                    "url": "https://www.aig123.com/sites/68.html",
-                    "data_url": "https://poe.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://poe.com"
-                },
-                {
-                    "title": "Claude",
-                    "description": "Anthropic发布的与ChatGPT竞争的聊天机器人",
-                    "url": "https://www.aig123.com/sites/190.html",
-                    "data_url": "https://claude.ai",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://claude.ai"
-                },
-                {
-                    "title": "扣子Coze",
-                    "description": "字节跳动旗下AI智能体平台，支持调用DeepSeek",
-                    "url": "http://dis.csqixiang.cn/unpo/cozeaig123.html",
-                    "data_url": "http://dis.csqixiang.cn/unpo/cozeaig123.html",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/02/coze.png"
-                },
-                {
-                    "title": "Qwen",
-                    "description": "阿里巴巴推出的一系列AI大语言模型和多模态模型",
-                    "url": "https://www.aig123.com/sites/4082.html",
-                    "data_url": "https://www.qwen.ai",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/01/qwen.png"
-                },
-                {
-                    "title": "PopAi",
-                    "description": "一站式个人AI助理、个人工作站，集成AI聊天、文档阅读、文案写作、内容创作等工作需求。",
-                    "url": "https://www.aig123.com/sites/2188.html",
-                    "data_url": "https://popai.saaslink.net/zcvRjY",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/favicon.png"
-                },
-                {
-                    "title": "天工AI",
-                    "description": "昆仑万维推出的国内首款融入大语言模型的AI对话问答、AI搜索引擎，知识从这里开始。",
-                    "url": "https://www.aig123.com/sites/1971.html",
-                    "data_url": "https://www.tiangong.cn",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/cd035-www.tiangong.cn.png"
-                }
-            ]
+            "title": "Perplexity",
+            "category": "AI 搜索引擎,AI 聊天问答",
+            "description": "Perplexity是一个ChatGPT和谷歌结合的超级工具，可以让你在浏览互联网时提出问题或获得即时摘要。",
+            "url": "https://www.aig123.com/sites/79.html",
+            "data_url": "https://www.perplexity.ai",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.perplexity.ai"
         },
         {
-            "name": "Agent智能体",
-            "datas": [
-                {
-                    "title": "AI Agent（智能体）是什么？",
-                    "description": "AI Agent是指能够感知环境、进行决策和执行动作的智能软件实体",
-                    "url": "https://www.aig123.com/sites/2472.html",
-                    "data_url": "https://www.aig123.com/favorites/ai-agent",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.aig123.com/favorites/ai-agent"
-                },
-                {
-                    "title": "GPT-4o",
-                    "description": "OpenAI 最新发布的旗舰生成式AI模型，可以实时进行音频、视觉和文本推理",
-                    "url": "https://www.aig123.com/sites/2679.html",
-                    "data_url": "https://openai.com/index/hello-gpt-4o",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://openai.com/index/hello-gpt-4o"
-                },
-                {
-                    "title": "Devin",
-                    "description": "世界上第一位AI软件工程师，可以独立完成各种开发任务。",
-                    "url": "https://www.aig123.com/sites/2109.html",
-                    "data_url": "https://preview.devin.ai",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/devin.png"
-                },
-                {
-                    "title": "Figure 01",
-                    "description": "Figure 01 是世界上第一个人形AI机器人",
-                    "url": "https://www.aig123.com/sites/2430.html",
-                    "data_url": "https://www.figure.ai",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/a780e-www.figure.ai.png"
-                },
-                {
-                    "title": "Coze",
-                    "description": "字节跳动旗下AI智能体平台，已接入DeepSeek最新模型",
-                    "url": "http://dis.csqixiang.cn/unpo/cozeaig123.html",
-                    "data_url": "http://dis.csqixiang.cn/unpo/cozeaig123.html",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/02/coze.png"
-                },
-                {
-                    "title": "豆包",
-                    "description": "豆包是你的多功能AI助手，为你的生活、学习、工作提供全面帮助。",
-                    "url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
-                    "data_url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
-                    "img_src": "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/static/image/OnboardingAvatar.bb1504ee.webp"
-                },
-                {
-                    "title": "AskManyAI",
-                    "description": "AskManyAI是个一站式AI聚合平台，集成了国内外多个主流顶尖AI大模型",
-                    "url": "https://www.aig123.com/sites/3161.html",
-                    "data_url": "https://www.askmanyai.cn/login?i=2b7ec33f",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/07/askmanyai.png"
-                },
-                {
-                    "title": "360智脑",
-                    "description": "360旗下ChatGPT类产品",
-                    "url": "https://www.aig123.com/sites/1559.html",
-                    "data_url": "https://ai.360.cn",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/90321-ai.360.cn.png"
-                },
-                {
-                    "title": "Character.AI",
-                    "description": "可以创建虚拟机器人并且进行对话",
-                    "url": "https://www.aig123.com/sites/188.html",
-                    "data_url": "https://beta.character.ai",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://beta.character.ai"
-                },
-                {
-                    "title": "文小言",
-                    "description": "百度旗下新搜索智能助手，有问题，问小言。",
-                    "url": "https://www.aig123.com/sites/3744.html",
-                    "data_url": "https://wenxiaoyan.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://wenxiaoyan.com"
-                },
-                {
-                    "title": "Zapier Agents",
-                    "description": "Zapier推出的Agents智能体，集成7000+应用程序",
-                    "url": "https://www.aig123.com/sites/4246.html",
-                    "data_url": "https://zapier.com/agents",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/02/zaiper_agents.svg"
-                }
-            ]
+            "title": "Coze",
+            "category": "AI 搜索引擎,AI 聊天问答,Agent智能体",
+            "description": "字节跳动旗下AI智能体平台，已接入DeepSeek最新模型。",
+            "url": "https://www.aig123.com/sites/2107.html",
+            "data_url": "http://dis.csqixiang.cn/unpo/cozeaig123.html",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2025/02/coze.png"
         },
         {
-            "name": "AI 文本写作",
-            "datas": [
-                {
-                    "title": "ChatGPT",
-                    "description": "最最强大的AI聊天机器人程序，ChatGPT不单是聊天机器人，还能进行撰写邮件、视频脚本、文案、翻译、代码等任务。",
-                    "url": "https://www.aig123.com/sites/65.html",
-                    "data_url": "https://chatgpt.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2023/06/18acd-chat.openai.com.png"
-                },
-                {
-                    "title": "Notion AI",
-                    "description": "Notion是一款集成了笔记、知识库、数据表格、看板、日历等多种能力于一体的应用程序，它既可供个人使用，也可以与他人进行跨平台协作。",
-                    "url": "https://www.aig123.com/sites/48.html",
-                    "data_url": "https://www.notion.so",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.notion.so"
-                },
-                {
-                    "title": "百度文库AI创作平台",
-                    "description": "百度文库 - 一站式AI内容获取和创作平台",
-                    "url": "https://wenku.baidu.com/ndlaunch/browse/chat?fr=dist_wk_aiasis&dist_source=kfpt-WD&utm_account=dist&keyword=PPT&searchFr=1&third_id=wkds_c93c033043323968011c92c9_400000336",
-                    "data_url": "https://wenku.baidu.com/ndlaunch/browse/chat?fr=dist_wk_aiasis&dist_source=kfpt-WD&utm_account=dist&keyword=PPT&searchFr=1&third_id=wkds_c93c033043323968011c92c9_400000336",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/12/wenku.png"
-                },
-                {
-                    "title": "AskManyAI",
-                    "description": "AskManyAI是个一站式AI聚合平台，集成了国内外多个主流顶尖AI大模型",
-                    "url": "https://www.aig123.com/sites/3161.html",
-                    "data_url": "https://www.askmanyai.cn/login?i=2b7ec33f",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/07/askmanyai.png"
-                },
-                {
-                    "title": "Rytr写作助手",
-                    "description": "Rytr 是一款AI内容生成和写作助手，可帮助您在短短几秒钟内以极低的成本创建高质量的内容！",
-                    "url": "https://www.aig123.com/sites/234.html",
-                    "data_url": "https://rytr.me/?via=loony",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/d6483-rytr.me.png"
-                },
-                {
-                    "title": "66论文",
-                    "description": "66论文-高质量论文写作",
-                    "url": "https://www.aig123.com/sites/3465.html",
-                    "data_url": "https://www.66paper.cn/AI_A2B8A04",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/09/66lunwen2.png"
-                },
-                {
-                    "title": "Claude",
-                    "description": "Anthropic发布的与ChatGPT竞争的聊天机器人",
-                    "url": "https://www.aig123.com/sites/190.html",
-                    "data_url": "https://claude.ai",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://claude.ai"
-                },
-                {
-                    "title": "讯飞文书",
-                    "description": "讯飞文书：轻松写材料，办公有诀窍",
-                    "url": "https://www.aig123.com/sites/2028.html",
-                    "data_url": "https://gw.iflydocs.com/?from=AIjihe10",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/01/xfws.png"
-                },
-                {
-                    "title": "万彩AI",
-                    "description": "多功能AI创作工具合集，支持AI写作、AI换脸、AI数字人等",
-                    "url": "https://www.aig123.com/sites/4272.html",
-                    "data_url": "https://ai.kezhan365.com/?utm_code=aig123-zjc-dhl-047",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/02/wancaiai00.png"
-                },
-                {
-                    "title": "小鱼AI写作",
-                    "description": "满足自媒体人和办公人写作创作的在线智能AI写作平台，可以用AI自动生成高质量原创内容。",
-                    "url": "https://www.aig123.com/sites/1924.html",
-                    "data_url": "https://www.xiaoyuxiezuo.com/AI_A2B8A04",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/09/xiaoyuxz.png"
-                }
-            ]
+            "title": "豆包",
+            "category": "AI 搜索引擎,AI 聊天问答,Agent智能体,AI 绘画作图,AI 办公学习,AI 编程开发",
+            "description": "豆包是你的多功能AI助手，为你的生活、学习、工作提供全面帮助。",
+            "url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
+            "data_url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
+            "img_src": "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/static/image/OnboardingAvatar.bb1504ee.webp"
         },
         {
-            "name": "AI 绘画作图",
-            "datas": [
-                {
-                    "title": "Stable Diffusion",
-                    "description": "目前最强的开源AI绘画工具",
-                    "url": "https://www.aig123.com/sites/91.html",
-                    "data_url": "https://stability.ai",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://stability.ai"
-                },
-                {
-                    "title": "Midjourney",
-                    "description": "当前最火的AI绘图生成工具，可以根据文本提示生成华丽的视觉图片。",
-                    "url": "https://www.aig123.com/sites/69.html",
-                    "data_url": "https://www.midjourney.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.midjourney.com"
-                },
-                {
-                    "title": "DALL·E 2",
-                    "description": "OpenAI基于GPT-3模型开发的AI绘图生成工具，可以根据自然语言的描述创建逼真的图像和艺术。",
-                    "url": "https://www.aig123.com/sites/70.html",
-                    "data_url": "https://openai.com/product/dall-e-2",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://openai.com/product/dall-e-2"
-                },
-                {
-                    "title": "Leonardo.ai",
-                    "description": "一个免费的AI绘画生成平台，专注于视频游戏图片素材的制作。",
-                    "url": "https://www.aig123.com/sites/1037.html",
-                    "data_url": "https://leonardo.ai",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/5f600-leonardo.ai.png"
-                },
-                {
-                    "title": "Adobe Firefly",
-                    "description": "Adobe最新推出的AI图像生成和编辑工具",
-                    "url": "https://www.aig123.com/sites/402.html",
-                    "data_url": "https://firefly.adobe.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://firefly.adobe.com"
-                },
-                {
-                    "title": "HoloPix AI",
-                    "description": "HoloPix AI 创作平台，游戏动漫设计的创意助推器",
-                    "url": "https://www.aig123.com/sites/3510.html",
-                    "data_url": "https://www.aig123.com/linkto/holopix_3510.html",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/10/holopix.png"
-                },
-                {
-                    "title": "豆包",
-                    "description": "豆包是你的多功能AI助手，为你的生活、学习、工作提供全面帮助。",
-                    "url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
-                    "data_url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
-                    "img_src": "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/static/image/OnboardingAvatar.bb1504ee.webp"
-                },
-                {
-                    "title": "Getimg.ai",
-                    "description": "getimg.ai是一套神奇的ai工具。生成大规模的原始图像",
-                    "url": "https://www.aig123.com/sites/430.html",
-                    "data_url": "https://getimg.ai/?via=loony",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://getimg.ai/?via=loony"
-                },
-                {
-                    "title": "NNiji·Journey",
-                    "description": "二次元风格绘画生成器，由 Spellbrush 与 Midjourney 共同设计开发",
-                    "url": "https://www.aig123.com/sites/405.html",
-                    "data_url": "https://nijijourney.com/zh",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://nijijourney.com/zh"
-                },
-                {
-                    "title": "WOMBO",
-                    "description": "使用AI创作美丽的艺术品",
-                    "url": "https://www.aig123.com/sites/406.html",
-                    "data_url": "https://www.wombo.ai",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.wombo.ai"
-                },
-                {
-                    "title": "Playground",
-                    "description": "Playground 是一个AI绘画创作和图片编辑平台，每天可以免费创建100张各种类型的艺术图片，还提供背景消除、局部更换等图片编辑工具",
-                    "url": "https://www.aig123.com/sites/2196.html",
-                    "data_url": "https://playground.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/b3a1d-playground.com.png"
-                },
-                {
-                    "title": "可灵AI",
-                    "description": "可灵AI：新一代AI创意生产力平台",
-                    "url": "https://www.aig123.com/sites/3345.html",
-                    "data_url": "https://klingai.kuaishou.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/keling.png"
-                },
-                {
-                    "title": "Ideogram",
-                    "description": "Ideogram是一个全新的文本转图像AI绘画生成平台，擅长于生成带有文本的图像，如LOGO上的字母、数字等。",
-                    "url": "https://www.aig123.com/sites/2258.html",
-                    "data_url": "https://ideogram.ai",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/7fed9-ideogram.ai.png"
-                },
-                {
-                    "title": "Dreamina",
-                    "description": "字节跳动推出的AI绘画工具，用简单的文案创作精美的图片",
-                    "url": "https://www.aig123.com/sites/2091.html",
-                    "data_url": "https://jimeng.jianying.com/s/iDkpVYAo",
-                    "img_src": "https://lf16-web-buz.capcut.com/obj/capcut-web-buz-us/common/images/dreamina-v1.ico"
-                },
-                {
-                    "title": "Promethean AI",
-                    "description": "艺术家与AI一起构建虚拟世界",
-                    "url": "https://www.aig123.com/sites/1038.html",
-                    "data_url": "https://www.prometheanai.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.prometheanai.com"
-                }
-            ]
+            "title": "AskManyAI",
+            "category": "AI 搜索引擎,AI 聊天问答,Agent智能体,AI 文本写作",
+            "description": "AskManyAI是个一站式AI聚合平台，集成了国内外多个主流顶尖AI大模型。",
+            "url": "https://www.aig123.com/sites/3161.html",
+            "data_url": "https://www.askmanyai.cn/login?i=2b7ec33f",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/07/askmanyai.png"
         },
         {
-            "name": "AI 设计工具",
-            "datas": [
-                {
-                    "title": "Stable Diffusion",
-                    "description": "目前最强的开源AI绘画工具",
-                    "url": "https://www.aig123.com/sites/91.html",
-                    "data_url": "https://stability.ai",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://stability.ai"
-                },
-                {
-                    "title": "Midjourney",
-                    "description": "当前最火的AI绘图生成工具，可以根据文本提示生成华丽的视觉图片。",
-                    "url": "https://www.aig123.com/sites/69.html",
-                    "data_url": "https://www.midjourney.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.midjourney.com"
-                },
-                {
-                    "title": "DALL·E 2",
-                    "description": "OpenAI基于GPT-3模型开发的AI绘图生成工具，可以根据自然语言的描述创建逼真的图像和艺术。",
-                    "url": "https://www.aig123.com/sites/70.html",
-                    "data_url": "https://openai.com/product/dall-e-2",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://openai.com/product/dall-e-2"
-                },
-                {
-                    "title": "BrandCrowd",
-                    "description": "一个在线Logo免费设计生成器",
-                    "url": "https://www.aig123.com/sites/503.html",
-                    "data_url": "https://www.brandcrowd.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.brandcrowd.com"
-                },
-                {
-                    "title": "Adobe Firefly",
-                    "description": "Adobe最新推出的AI图像生成和编辑工具",
-                    "url": "https://www.aig123.com/sites/402.html",
-                    "data_url": "https://firefly.adobe.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://firefly.adobe.com"
-                },
-                {
-                    "title": "吐司AI",
-                    "description": "超多功能的免费在线生图网站！拥有全网更齐全的模型库，0门槛使用！",
-                    "url": "https://www.aig123.com/sites/3187.html",
-                    "data_url": "https://tusiart.com/?utm_source=aig123&source_id=aig123",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/08/tusiart.png"
-                },
-                {
-                    "title": "Creatie",
-                    "description": "Creatie AI是一款专为UI/UX设计师打造的AI增强设计工具，致力于通过AI优化设计流程",
-                    "url": "https://www.aig123.com/sites/2216.html",
-                    "data_url": "https://creatie.ai",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/6a9a3-creatie.ai.png"
-                },
-                {
-                    "title": "Fotor",
-                    "description": "Fotor 在线照片编辑器",
-                    "url": "https://www.aig123.com/sites/569.html",
-                    "data_url": "https://www.fotor.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.fotor.com"
-                },
-                {
-                    "title": "Looka",
-                    "description": "AI辅助Logo和品牌设计工具",
-                    "url": "https://www.aig123.com/sites/492.html",
-                    "data_url": "https://looka.com/?coupon=loony",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://looka.com"
-                },
-                {
-                    "title": "Picsart",
-                    "description": "Picsart是全球最大的数字创作平台。",
-                    "url": "https://www.aig123.com/sites/494.html",
-                    "data_url": "https://picsart.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://picsart.com"
-                },
-                {
-                    "title": "Canva",
-                    "description": "使用Canva可画，轻松创建专业设计",
-                    "url": "https://www.aig123.com/sites/574.html",
-                    "data_url": "https://www.canva.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/10/canva.png"
-                },
-                {
-                    "title": "稿定AI设计",
-                    "description": "AI自动去水印、背景消除、批量抠人像工具",
-                    "url": "https://www.aig123.com/sites/2765.html",
-                    "data_url": "https://www.gaoding.com/utms/cd13051cbd2e4438b87495e944931de2",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/10/gaoding.png"
-                },
-                {
-                    "title": "暗壳AI",
-                    "description": "Ark.art 包罗万象的艺术方舟，友好高效的设计助手",
-                    "url": "https://www.aig123.com/sites/3403.html",
-                    "data_url": "https://www.ark.art",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/09/anke.png"
-                }
-            ]
+            "title": "New Bing",
+            "category": "AI 搜索引擎",
+            "description": "微软new必应，集成GPT4模型的新一代搜索引擎，New Bing不仅提供了快速、准确、全面的搜索结果，还可以与用户进行自然、有趣、有用的对话，为用户提供更多的信息和服务。",
+            "url": "https://www.aig123.com/sites/43.html",
+            "data_url": "https://www.bing.com/chat",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.bing.com/chat"
         },
         {
-            "name": "AI 视频创作",
-            "datas": [
-                {
-                    "title": "Sora",
-                    "description": "Sora是OpenAI发布的一种文生视频AI大模型，可以根据文本指令创建现实和富有想象力的场景。",
-                    "url": "https://www.aig123.com/sites/2076.html",
-                    "data_url": "https://openai.com/sora",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://openai.com/sora"
-                },
-                {
-                    "title": "绘蛙",
-                    "description": "绘蛙是一款功能强大，简洁好用的智能图片、文案创作平台",
-                    "url": "https://www.aig123.com/sites/3651.html",
-                    "data_url": "https://www.ihuiwa.com/invite?huiwaInviteCode=EUJTEL",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/11/huiwa.png"
-                },
-                {
-                    "title": "Runway",
-                    "description": "Runway是一个AI创意工具平台，它提供了一系列强大的功能，旨在帮助用户在视觉内容创作、设计和开发过程中提高效率和创新能力。",
-                    "url": "https://www.aig123.com/sites/2085.html",
-                    "data_url": "https://runwayml.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/08/runway.png"
-                },
-                {
-                    "title": "万彩AI",
-                    "description": "多功能AI创作工具合集，支持AI写作、AI换脸、AI数字人等",
-                    "url": "https://www.aig123.com/sites/4272.html",
-                    "data_url": "https://ai.kezhan365.com/?utm_code=aig123-zjc-dhl-047",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/02/wancaiai00.png"
-                },
-                {
-                    "title": "讯飞绘镜",
-                    "description": "讯飞绘镜：AI短视频创作平台，支持AI短剧、MV创作",
-                    "url": "https://www.aig123.com/sites/3973.html",
-                    "data_url": "https://typemovie.art/?utm_source=nt-ai11#/dashboard",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/01/xfhj.png"
-                },
-                {
-                    "title": "海螺视频",
-                    "description": "海螺AI推出的AI视频生成工具，可以生成高质量的视频内容。",
-                    "url": "https://www.aig123.com/sites/3343.html",
-                    "data_url": "https://www.hunyuan.tencent.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/12/hailuo_video.png"
-                },
-                {
-                    "title": "白日梦AI",
-                    "description": "白日梦AI是一款全新的文生视频类AIGC创作平台。",
-                    "url": "https://www.aig123.com/sites/3134.html",
-                    "data_url": "https://aibrm.com/?code=fx_cdi",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/07/bairimeng.png"
-                },
-                {
-                    "title": "PixVerse",
-                    "description": "PixVerse是一款强大的AI视频生成工具，可以轻松地将多种输入转化为令人惊叹的视频。",
-                    "url": "https://www.aig123.com/sites/2095.html",
-                    "data_url": "https://www.stablevideo.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/10/pixverse.svg"
-                },
-                {
-                    "title": "Morph Studio",
-                    "description": "Morph Studio是一款领先的文字转视频AI平台，可以将用户输入的文字转化为精美视频。",
-                    "url": "https://www.aig123.com/sites/2100.html",
-                    "data_url": "https://www.morphstudio.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.morphstudio.com"
-                },
-                {
-                    "title": "Kreado AI",
-                    "description": "Kreado AI是一个多语言AI视频创作平台，只需输入文本或关键词，即可创作真实/虚拟人物的多语言口播视频。",
-                    "url": "https://www.aig123.com/sites/1896.html",
-                    "data_url": "https://www.kreadoai.com/?inviteCode=20708325",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.kreadoai.com/?inviteCode=20708325"
-                }
-            ]
+            "title": "YOU.com",
+            "category": "AI 搜索引擎",
+            "description": "私人定制的AI搜索引擎。",
+            "url": "https://www.aig123.com/sites/44.html",
+            "data_url": "https://you.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://you.com"
         },
         {
-            "name": "AI 音频制作",
-            "datas": [
-                {
-                    "title": "ChatTTS",
-                    "description": "ChatTTS是一个开源的TTS文本转语音生成模型，专为对话场景设计。",
-                    "url": "https://www.aig123.com/sites/2821.html",
-                    "data_url": "https://chattts.com/zh",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/chattts.png"
-                },
-                {
-                    "title": "海螺语音",
-                    "description": "海螺AI推出的AI语音生成工具，支持多种语种、情绪和效果。",
-                    "url": "https://www.aig123.com/sites/4031.html",
-                    "data_url": "https://hailuoai.com/audio",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/01/hailuo_audio.png"
-                },
-                {
-                    "title": "讯飞智作",
-                    "description": "科大讯飞旗下一站式AI音视频创作平台",
-                    "url": "https://www.aig123.com/sites/3788.html",
-                    "data_url": "https://peiyin.xunfei.cn/?ftype=13",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/12/xunfei.png"
-                },
-                {
-                    "title": "FineVoice",
-                    "description": "FineVoice是一种AI数字语音解决方案，可以帮助用户增强声音，并配有实时变声器。",
-                    "url": "https://www.aig123.com/sites/993.html",
-                    "data_url": "https://www.fineshare.com/finevoice/?ref=aig123",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/09/finevoice.svg"
-                },
-                {
-                    "title": "SoundView",
-                    "description": "专为跨境电商设计的AI视频翻译、配音和创作工具",
-                    "url": "https://www.aig123.com/sites/3845.html",
-                    "data_url": "https://soundviewai.com/invitation?inviteCode=H62CMSnqJ&from=aig123",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/12/soundview.svg"
-                },
-                {
-                    "title": "叮当好记",
-                    "description": "AI音视频转录与总结，内容学习效率 x10！",
-                    "url": "https://www.aig123.com/sites/3786.html",
-                    "data_url": "https://readlecture.cn/zh?utm_source=aig123&utm_medium=referral",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/12/dingdanghj.png"
-                },
-                {
-                    "title": "FineVoice语音克隆",
-                    "description": "免费在线语音克隆，1 分钟克隆你的声音，保留口音和所有细微差别。",
-                    "url": "https://www.aig123.com/sites/3454.html",
-                    "data_url": "https://www.fineshare.com/ai-voice-cloning/?ref=aig123",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/09/finevoice.svg"
-                },
-                {
-                    "title": "闪念贝壳",
-                    "description": "闪念贝壳是一款AI 驱动的智能语音笔记，随时随地用语音记录你的每一个想法。",
-                    "url": "https://www.aig123.com/sites/3199.html",
-                    "data_url": "https://www.ihuiwa.com/workspace/ai-video/from-image?huiwaInviteCode=EUJTEL",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/08/snbk.png"
-                },
-                {
-                    "title": "音剪",
-                    "description": "喜马拉雅旗下的一站式AI音频创作平台，强大的在线剪辑能力，帮你轻松创作优秀的音频作品",
-                    "url": "https://www.aig123.com/sites/2778.html",
-                    "data_url": "https://audioeditor.ximalaya.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/yinjian.png"
-                },
-                {
-                    "title": "Kits AI",
-                    "description": "Kits.ai 是一个为音乐家提供一站式AI音乐创作解决方案的网站，提供AI语音生成和免费AI语音训练",
-                    "url": "https://www.aig123.com/sites/2164.html",
-                    "data_url": "https://www.kits.ai",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.kits.ai"
-                },
-                {
-                    "title": "Moshi Chat",
-                    "description": "法国AI实验室Kyutai推出的端到端实时多模态AI语音模型，具备听、说、看的能力，不仅可以实时收听，还能进行自然对话。",
-                    "url": "https://www.aig123.com/sites/3068.html",
-                    "data_url": "https://moshi.chat",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/07/kyutai.png"
-                }
-            ]
+            "title": "SearchGPT",
+            "category": "AI 搜索引擎",
+            "description": "OpenAI最新推出的AI搜索引擎。",
+            "url": "https://www.aig123.com/sites/3176.html",
+            "data_url": "https://chatgpt.com/search",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://chatgpt.com/search"
         },
         {
-            "name": "AI 办公学习",
-            "datas": [
-                {
-                    "title": "AiPPT",
-                    "description": "AI一键免费生成PPT，输入主题，3分钟完成PPT制作！",
-                    "url": "https://www.aig123.com/sites/2821.html",
-                    "data_url": "https://www.aippt.cn/?utm_type=Navweb&utm_source=aigjdh&utm_page=aippt&utm_plan=ppt&utm_unit=AIPPT&utm_keyword=40471002",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/01/aippt.png"
-                },
-                {
-                    "title": "Notion AI",
-                    "description": "Notion是一款集成了笔记、知识库、数据表格、看板、日历等多种能力于一体的应用程序，它既可供个人使用，也可以与他人进行跨平台协作。",
-                    "url": "https://www.aig123.com/sites/48.html",
-                    "data_url": "https://www.notion.so",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.notion.so"
-                },
-                {
-                    "title": "豆包",
-                    "description": "豆包是你的多功能AI助手，为你的生活、学习、工作提供全面帮助。",
-                    "url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
-                    "data_url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
-                    "img_src": "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/static/image/OnboardingAvatar.bb1504ee.webp"
-                },
-                {
-                    "title": "百度文库AI创作平台",
-                    "description": "百度文库 - 一站式AI内容获取和创作平台",
-                    "url": "https://www.aig123.com/sites/3763.html",
-                    "data_url": "https://wenku.baidu.com/ndlaunch/browse/chat?fr=dist_wk_aiasis&dist_source=kfpt-WD&utm_account=dist&keyword=PPT&searchFr=1&third_id=wkds_c93c033043323968011c92c9_400000336",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/12/wenku.png"
-                },
-                {
-                    "title": "PDFlux",
-                    "description": "PDF内容提取+智能问答神器，结合了科研级精准的非结构化文档解析能力，以及ChatGPT的智能问答能力。",
-                    "url": "https://www.aig123.com/sites/1225.html",
-                    "data_url": "https://pdflux.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://pdflux.com"
-                },
-                {
-                    "title": "万能小in",
-                    "description": "AI写作长文专家-万能小in，AI一键论文，3分钟4万字，130+应用，只需标题，快速生成文献综述、开题报告、PPT、工作总结等！",
-                    "url": "https://www.aig123.com/sites/3087.html",
-                    "data_url": "https://xiaoin.cn/home/index?sharerUserId=1811660052478615554",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/07/xiaoin.png"
-                },
-                {
-                    "title": "比格AIPPT",
-                    "description": "比格AIPPT-AI一键智能排版，快速生成PPT",
-                    "url": "https://www.aig123.com/sites/2918.html",
-                    "data_url": "https://www.bigppt.cn/?hmmd=AI123",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/bgsj.png"
-                },
-                {
-                    "title": "MyMap AI",
-                    "description": "使用AI将想法转化为图表",
-                    "url": "https://www.aig123.com/sites/3600.html",
-                    "data_url": "https://www.mymap.ai/?via=aig123",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/10/mymap.png"
-                },
-                {
-                    "title": "Julius AI",
-                    "description": "Julius AI是一款功能强大的AI数据分析工具，可以快速分析和可视化复杂数据。",
-                    "url": "https://www.aig123.com/sites/3245.html",
-                    "data_url": "https://julius.ai?via=aig123",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/08/julius.png"
-                },
-                {
-                    "title": "腾讯元宝",
-                    "description": "腾讯混元平台推出的AI助手",
-                    "url": "https://www.aig123.com/sites/2822.html",
-                    "data_url": "https://yuanbao.tencent.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/yuanbao.png"
-                },
-                {
-                    "title": "Taskade",
-                    "description": "高颜值AI大纲和思维导图生成，为你的团队建立第二个大脑。",
-                    "url": "https://www.aig123.com/sites/1258.html",
-                    "data_url": "https://www.taskade.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.taskade.com"
-                },
-                {
-                    "title": "Whimsical",
-                    "description": "Whimsical推出的AI思维导图工具",
-                    "url": "https://www.aig123.com/sites/1259.html",
-                    "data_url": "https://whimsical.com/ai-mind-maps",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://whimsical.com/ai-mind-maps"
-                },
-                {
-                    "title": "Glimmer Ai",
-                    "description": "基于GPT-3和DALL·E2的PPT制作工具",
-                    "url": "https://www.aig123.com/sites/1242.html",
-                    "data_url": "https://glimmerai.tech",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://glimmerai.tech"
-                },
-                {
-                    "title": "ChatDOC",
-                    "description": "ChatDOC是一款基于chatgpt的文件阅读助手，可以快速从pdf中提取、定位和总结信息",
-                    "url": "https://www.aig123.com/sites/1223.html",
-                    "data_url": "https://chatdoc.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://chatdoc.com"
-                },
-                {
-                    "title": "Figma Slides",
-                    "description": "Figma Slides 是 Figma 发布的PPT制作和演示文稿生成工具，可以帮助创建、设计、定制和分享演示文稿",
-                    "url": "https://www.aig123.com/sites/3015.html",
-                    "data_url": "https://www.figma.com/slides",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/figma0.png"
-                },
-                {
-                    "title": "Mapify",
-                    "description": "Mapify是由Xmind推出的AI思维导图生成工具，原名ChatMind",
-                    "url": "https://www.aig123.com/sites/2871.html",
-                    "data_url": "https://mapify.so/cn",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/mapify.png"
-                },
-                {
-                    "title": "PopAi",
-                    "description": "一站式个人AI助理、个人工作站，集成AI聊天、文档阅读、文案写作、内容创作等工作需求。",
-                    "url": "https://www.aig123.com/sites/2188.html",
-                    "data_url": "https://popai.saaslink.net/zcvRjY",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/favicon.png"
-                }
-            ]
+            "title": "通义千问",
+            "category": "AI 搜索引擎",
+            "description": "阿里巴巴推出的全能AI助手。",
+            "url": "https://www.aig123.com/sites/1520.html",
+            "data_url": "https://kimi.moonshot.cn",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/28768-kimi.moonshot.cn.png"
         },
         {
-            "name": "AI 编程开发",
-            "datas": [
-                {
-                    "title": "Devin",
-                    "description": "世界上第一位AI软件工程师，可以独立完成各种开发任务。",
-                    "url": "https://www.aig123.com/sites/2109.html",
-                    "data_url": "https://preview.devin.ai",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/devin.png"
-                },
-                {
-                    "title": "Cursor",
-                    "description": "一个新的IDE，使用AI来帮助您重构、理解、调试和编写代码。",
-                    "url": "https://www.aig123.com/sites/1117.html",
-                    "data_url": "https://www.cursor.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.cursor.com"
-                },
-                {
-                    "title": "豆包MarsCode",
-                    "description": "豆包旗下AI编程助手，支持满血版DeepSeek",
-                    "url": "https://www.aig123.com/sites/3311.html",
-                    "data_url": "https://www.marscode.cn/?utm_source=advertising&utm_medium=aig123.com_ug_cpa&utm_term=hw_marscode_aig123&utm_content=home",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/marscode.png"
-                },
-                {
-                    "title": "豆包",
-                    "description": "豆包是你的多功能AI助手，为你的生活、学习、工作提供全面帮助。",
-                    "url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
-                    "data_url": "http://dis.csqixiang.cn/unpo/dbcodingaig123.html",
-                    "img_src": "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/static/image/OnboardingAvatar.bb1504ee.webp"
-                },
-                {
-                    "title": "千帆AppBuilder",
-                    "description": "百度推出的一站式的AI原生应用开发资源和工具平台，致力于实现人人都能开发自己的AI原生应用。",
-                    "url": "https://www.aig123.com/sites/2438.html",
-                    "data_url": "https://cloud.baidu.com/product/AppBuilder",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/79a34-cloud.baidu.com.png"
-                },
-                {
-                    "title": "通义灵码",
-                    "description": "阿里云出品的一款基于通义大模型的智能编码辅助工具，提供代码智能生成、研发智能问答能力。",
-                    "url": "https://www.aig123.com/sites/2300.html",
-                    "data_url": "https://tongyi.aliyun.com/lingma",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/ea024-tongyi.aliyun.com.png"
-                },
-                {
-                    "title": "Adrenaline",
-                    "description": "软件调试助手，识别和修复代码中错误。",
-                    "url": "https://www.aig123.com/sites/1148.html",
-                    "data_url": "https://useadrenaline.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://useadrenaline.com"
-                },
-                {
-                    "title": "Ghostwriter",
-                    "description": "Replit推出的AI编程助手，一个强大的IDE，编译器和解释器。",
-                    "url": "https://www.aig123.com/sites/1118.html",
-                    "data_url": "https://replit.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://replit.com"
-                },
-                {
-                    "title": "Cursor Directory",
-                    "description": "专为Cursor设计的开源资源库、提示词库。",
-                    "url": "https://www.aig123.com/sites/3537.html",
-                    "data_url": "https://cursor.directory.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/10/cursor.directory.png"
-                },
-                {
-                    "title": "文心快码",
-                    "description": "文心快码（Comate）是百度推出的一款AI辅助编程工具。",
-                    "url": "https://www.aig123.com/sites/3035.html",
-                    "data_url": "https://peiyin.xunfei.cn/?ftype=13",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/wxkm.png"
-                },
-                {
-                    "title": "Project IDX",
-                    "description": "Google推出的一个实验性的AI辅助开发平台。",
-                    "url": "https://www.aig123.com/sites/2750.html",
-                    "data_url": "https://vondy.com/?via=loony",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/project idx.png"
-                },
-                {
-                    "title": "腾讯云AI代码助手",
-                    "description": "基于混元代码大模型的AI辅助编码工具。",
-                    "url": "https://www.aig123.com/sites/2770.html",
-                    "data_url": "https://cloud.baidu.com/product/acc",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/aidmzs.png"
-                },
-                {
-                    "title": "CodeGeeX",
-                    "description": "智谱AI发布的AI编程辅助工具插件，可以实现自动代码生成、代码翻译、自动编写注释以及智能问答等功能。",
-                    "url": "https://www.aig123.com/sites/2686.html",
-                    "data_url": "https://codegeex.cn",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/codegeex.png"
-                }
-            ]
+            "title": "纳米搜索",
+            "category": "AI 搜索引擎",
+            "description": "纳米搜索：360推出的新一代AI搜索引擎。",
+            "url": "https://www.aig123.com/sites/3682.html",
+            "data_url": "https://n.cn",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/11/namisou.png"
         },
         {
-            "name": "Prompt指令",
-            "datas": [
-                {
-                    "title": "Lexica",
-                    "description": "一个搜索 AI 生成图片的网站，可以上传图片或prompts搜索图片。",
-                    "url": "https://www.aig123.com/sites/410.html",
-                    "data_url": "https://lexica.art",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://lexica.art"
-                },
-                {
-                    "title": "Prompt Base",
-                    "description": "助您找到最好的提示词，节省API成本。",
-                    "url": "https://www.aig123.com/sites/81.html",
-                    "data_url": "https://promptbase.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://promptbase.com"
-                },
-                {
-                    "title": "Playground",
-                    "description": "Playground 是一个AI绘画创作和图片编辑平台，每天可以免费创建100张各种类型的艺术图片，还提供背景消除、局部更换等图片编辑工具。",
-                    "url": "https://www.aig123.com/sites/2196.html",
-                    "data_url": "https://playground.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/b3a1d-playground.com.png"
-                },
-                {
-                    "title": "promptoMANIA",
-                    "description": "Prompt 提示生成器，AI艺术社区与在线提示建设者。",
-                    "url": "https://www.aig123.com/sites/85.html",
-                    "data_url": "https://promptomania.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://promptomania.com"
-                },
-                {
-                    "title": "Noonshot",
-                    "description": "创造优美的midjourney指令。",
-                    "url": "https://www.aig123.com/sites/83.html",
-                    "data_url": "https://www.noonshot.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.noonshot.com"
-                },
-                {
-                    "title": "DeepSeek提示库（官方）",
-                    "description": "DeepSeek官方提示词库样例。",
-                    "url": "https://www.aig123.com/sites/4304.html",
-                    "data_url": "https://api-docs.deepseek.com/zh-cn/prompt-library",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/03/deepseek_prompts.png"
-                },
-                {
-                    "title": "Learning Prompt",
-                    "description": "免费的ChatGPT提示词中文教程。",
-                    "url": "https://www.aig123.com/sites/100.html",
-                    "data_url": "https://learningprompt.wiki",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://learningprompt.wiki"
-                },
-                {
-                    "title": "FlowGPT",
-                    "description": "很受欢迎的AI提示词网站。",
-                    "url": "https://www.aig123.com/sites/99.html",
-                    "data_url": "https://flowgpt.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/09/flowgpt.png"
-                },
-                {
-                    "title": "Midjourney Prompt Helper",
-                    "description": "帮助制作各类Midjourney文字提示。",
-                    "url": "https://www.aig123.com/sites/84.html",
-                    "data_url": "https://midjourney-prompt-helper.netlify.app",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://midjourney-prompt-helper.netlify.app"
-                },
-                {
-                    "title": "文小言创作者平台",
-                    "description": "Prompt创作创建、调试、发布的一站式创作平台。",
-                    "url": "https://www.aig123.com/sites/3920.html",
-                    "data_url": "http://prompt.baidu.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2025/01/miaoda.png"
-                },
-                {
-                    "title": "OpenGPT",
-                    "description": "一个多元化、一体化的第三方的GPTs应用聚合平台，旨在帮助用户发现、分享、出售分享各类GPTs、Prompts工具。",
-                    "url": "https://www.aig123.com/sites/2805.html",
-                    "data_url": "https://opengpt.com",
-                    "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/opengpt.png"
-                },
-                {
-                    "title": "PromptPort",
-                    "description": "ChatGPT提示词创作、优化、分享平台。",
-                    "url": "https://www.aig123.com/sites/1976.html",
-                    "data_url": "https://promptport.ai",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://promptport.ai"
-                },
-                {
-                    "title": "Dallelist",
-                    "description": "Dall-E 2提示词助手。",
-                    "url": "https://www.aig123.com/sites/179.html",
-                    "data_url": "https://www.dallelist.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.dallelist.com"
-                },
-                {
-                    "title": "SaaS Prompts",
-                    "description": "为您的SaaS产品发现可操作和现成的Prompts，帮助您发展SaaS业务。",
-                    "url": "https://www.aig123.com/sites/141.html",
-                    "data_url": "https://saasprompts.com",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://saasprompts.com"
-                },
-                {
-                    "title": "LIB.KALOS.ART",
-                    "description": "你的终极AI艺术风格库。",
-                    "url": "https://www.aig123.com/sites/102.html",
-                    "data_url": "https://lib.kalos.art",
-                    "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://lib.kalos.art"
-                }
-            ]
+            "title": "Genspark",
+            "category": "AI 搜索引擎",
+            "description": "Genspark 是一款创新的 AI 搜索引擎，致力于提供比传统搜索引擎更高效、准确和无偏见的信息获取方式。",
+            "url": "https://www.aig123.com/sites/2948.html",
+            "data_url": "https://www.genspark.ai",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/genspark.png"
+        },
+        {
+            "title": "Consensus",
+            "category": "AI 搜索引擎",
+            "description": "一个新型搜索引擎，利用AI在科学研究中为你找到答案。",
+            "url": "https://www.aig123.com/sites/1731.html",
+            "data_url": "https://consensus.app",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://consensus.app"
+        },
+        {
+            "title": "百度搜索AI探索版",
+            "category": "AI 搜索引擎",
+            "description": "百度搜索AI探索版，新一代AI搜索引擎。",
+            "url": "https://www.aig123.com/sites/3650.html",
+            "data_url": "https://think.baidu.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/11/baidu.png"
+        },
+        {
+            "title": "知乎直答",
+            "category": "AI 搜索引擎",
+            "description": "知乎直答是知乎推出的一款AI搜索引擎产品。",
+            "url": "https://www.aig123.com/sites/3030.html",
+            "data_url": "https://zhida.zhihu.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/zhida.png"
+        },
+        {
+            "title": "跃问",
+            "category": "AI 搜索引擎",
+            "description": "跃问是由阶跃星辰开发的免费AI智能问答助手，随时帮你智能搜索、高效阅读、识图理解、和你畅聊感兴趣的话题。",
+            "url": "https://www.aig123.com/sites/2189.html",
+            "data_url": "https://stepchat.cn/chats/new",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/yuewen.svg"
+        },
+        {
+            "title": "Globe Explorer",
+            "category": "AI 搜索引擎",
+            "description": "Globe Explorer是一款全新的AI搜索引擎，致力于提供个性化搜索体验和高质量搜索结果。",
+            "url": "https://www.aig123.com/sites/2151.html",
+            "data_url": "https://explorer.globe.engineer",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://explorer.globe.engineer"
+        },
+        {
+            "title": "Aoyo.ai",
+            "category": "AI 搜索引擎",
+            "description": "Aoyo.ai 是一个使用先进的AI技术实现的智能搜索引擎，它可以深度理解用户的搜索意图，并提供精准的搜索结果。",
+            "url": "https://www.aig123.com/sites/2145.html",
+            "data_url": "https://aoyo.ai",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://aoyo.ai"
+        },
+        {
+            "title": "ChatGPT",
+            "category": "AI 聊天问答,AI 文本写作",
+            "description": "最最强大的AI聊天机器人程序，ChatGPT不单是聊天机器人，还能进行撰写邮件、视频脚本、文案、翻译、代码等任务。",
+            "url": "https://www.aig123.com/sites/65.html",
+            "data_url": "https://chatgpt.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2023/06/18acd-chat.openai.com.png"
+        },
+        {
+            "title": "GPT-4o",
+            "category": "AI 聊天问答,Agent智能体",
+            "description": "OpenAI 最新发布的旗舰生成式AI模型，可以实时进行音频、视觉和文本推理",
+            "url": "https://www.aig123.com/sites/2679.html",
+            "data_url": "https://openai.com/index/hello-gpt-4o",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://openai.com/index/hello-gpt-4o"
+        },
+        {
+            "title": "Gemini",
+            "category": "AI 聊天问答",
+            "description": "Google 推出的AI对话聊天机器人，传说中的ChatGPT 杀手",
+            "url": "https://www.aig123.com/sites/185.html",
+            "data_url": "https://gemini.google.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://gemini.google.com"
+        },
+        {
+            "title": "Meta AI",
+            "category": "AI 聊天问答",
+            "description": "Meta推出的AI智能助理，提供信息检索、知识学习、内容创造、图像生成等功能",
+            "url": "https://www.aig123.com/sites/2481.html",
+            "data_url": "https://www.meta.ai",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/9aa95-www.meta.ai.png"
+        },
+        {
+            "title": "Poe",
+            "category": "AI 聊天问答",
+            "description": "Quora旗下的对话机器人聚合工具",
+            "url": "https://www.aig123.com/sites/68.html",
+            "data_url": "https://poe.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://poe.com"
+        },
+        {
+            "title": "Claude",
+            "category": "AI 聊天问答,AI 文本写作",
+            "description": "Anthropic发布的与ChatGPT竞争的聊天机器人",
+            "url": "https://www.aig123.com/sites/190.html",
+            "data_url": "https://claude.ai",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://claude.ai"
+        },
+        {
+            "title": "扣子Coze",
+            "category": "AI 聊天问答",
+            "description": "字节跳动旗下AI智能体平台，支持调用DeepSeek",
+            "url": "http://dis.csqixiang.cn/unpo/cozeaig123.html",
+            "data_url": "http://dis.csqixiang.cn/unpo/cozeaig123.html",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2025/02/coze.png"
+        },
+        {
+            "title": "Qwen",
+            "category": "AI 聊天问答",
+            "description": "阿里巴巴推出的一系列AI大语言模型和多模态模型",
+            "url": "https://www.aig123.com/sites/4082.html",
+            "data_url": "https://www.qwen.ai",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2025/01/qwen.png"
+        },
+        {
+            "title": "PopAi",
+            "category": "AI 聊天问答,AI 办公学习",
+            "description": "一站式个人AI助理、个人工作站，集成AI聊天、文档阅读、文案写作、内容创作等工作需求。",
+            "url": "https://www.aig123.com/sites/2188.html",
+            "data_url": "https://popai.saaslink.net/zcvRjY",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/favicon.png"
+        },
+        {
+            "title": "天工AI",
+            "category": "AI 聊天问答",
+            "description": "昆仑万维推出的国内首款融入大语言模型的AI对话问答、AI搜索引擎，知识从这里开始。",
+            "url": "https://www.aig123.com/sites/1971.html",
+            "data_url": "https://www.tiangong.cn",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/cd035-www.tiangong.cn.png"
+        },
+        {
+            "title": "AI Agent（智能体）是什么？",
+            "category": "Agent智能体",
+            "description": "AI Agent是指能够感知环境、进行决策和执行动作的智能软件实体",
+            "url": "https://www.aig123.com/sites/2472.html",
+            "data_url": "https://www.aig123.com/favorites/ai-agent",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.aig123.com/favorites/ai-agent"
+        },
+        {
+            "title": "Devin",
+            "category": "Agent智能体",
+            "description": "世界上第一位AI软件工程师，可以独立完成各种开发任务。",
+            "url": "https://www.aig123.com/sites/2109.html",
+            "data_url": "https://preview.devin.ai",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/devin.png"
+        },
+        {
+            "title": "Figure 01",
+            "category": "Agent智能体",
+            "description": "Figure 01 是世界上第一个人形AI机器人",
+            "url": "https://www.aig123.com/sites/2430.html",
+            "data_url": "https://www.figure.ai",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/a780e-www.figure.ai.png"
+        },
+        {
+            "title": "360智脑",
+            "category": "Agent智能体",
+            "description": "360旗下ChatGPT类产品",
+            "url": "https://www.aig123.com/sites/1559.html",
+            "data_url": "https://ai.360.cn",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/90321-ai.360.cn.png"
+        },
+        {
+            "title": "Character.AI",
+            "category": "Agent智能体",
+            "description": "可以创建虚拟机器人并且进行对话",
+            "url": "https://www.aig123.com/sites/188.html",
+            "data_url": "https://beta.character.ai",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://beta.character.ai"
+        },
+        {
+            "title": "文小言",
+            "category": "Agent智能体",
+            "description": "百度旗下新搜索智能助手，有问题，问小言。",
+            "url": "https://www.aig123.com/sites/3744.html",
+            "data_url": "https://wenxiaoyan.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://wenxiaoyan.com"
+        },
+        {
+            "title": "Zapier Agents",
+            "category": "Agent智能体",
+            "description": "Zapier推出的Agents智能体，集成7000+应用程序",
+            "url": "https://www.aig123.com/sites/4246.html",
+            "data_url": "https://zapier.com/agents",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2025/02/zaiper_agents.svg"
+        },
+        {
+            "title": "Notion AI",
+            "category": "AI 文本写作,AI 办公学习",
+            "description": "Notion是一款集成了笔记、知识库、数据表格、看板、日历等多种能力于一体的应用程序，它既可供个人使用，也可以与他人进行跨平台协作。",
+            "url": "https://www.aig123.com/sites/48.html",
+            "data_url": "https://www.notion.so",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.notion.so"
+        },
+        {
+            "title": "百度文库AI创作平台",
+            "category": "AI 文本写作,AI 办公学习",
+            "description": "百度文库 - 一站式AI内容获取和创作平台",
+            "url": "https://wenku.baidu.com/ndlaunch/browse/chat?fr=dist_wk_aiasis&dist_source=kfpt-WD&utm_account=dist&keyword=PPT&searchFr=1&third_id=wkds_c93c033043323968011c92c9_400000336",
+            "data_url": "https://wenku.baidu.com/ndlaunch/browse/chat?fr=dist_wk_aiasis&dist_source=kfpt-WD&utm_account=dist&keyword=PPT&searchFr=1&third_id=wkds_c93c033043323968011c92c9_400000336",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/12/wenku.png"
+        },
+        {
+            "title": "Rytr写作助手",
+            "category": "AI 文本写作",
+            "description": "Rytr 是一款AI内容生成和写作助手，可帮助您在短短几秒钟内以极低的成本创建高质量的内容！",
+            "url": "https://www.aig123.com/sites/234.html",
+            "data_url": "https://rytr.me/?via=loony",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/d6483-rytr.me.png"
+        },
+        {
+            "title": "66论文",
+            "category": "AI 文本写作",
+            "description": "66论文-高质量论文写作",
+            "url": "https://www.aig123.com/sites/3465.html",
+            "data_url": "https://www.66paper.cn/AI_A2B8A04",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/09/66lunwen2.png"
+        },
+        {
+            "title": "讯飞文书",
+            "category": "AI 文本写作",
+            "description": "讯飞文书：轻松写材料，办公有诀窍",
+            "url": "https://www.aig123.com/sites/2028.html",
+            "data_url": "https://gw.iflydocs.com/?from=AIjihe10",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2025/01/xfws.png"
+        },
+        {
+            "title": "万彩AI",
+            "category": "AI 文本写作,AI 视频创作",
+            "description": "多功能AI创作工具合集，支持AI写作、AI换脸、AI数字人等",
+            "url": "https://www.aig123.com/sites/4272.html",
+            "data_url": "https://ai.kezhan365.com/?utm_code=aig123-zjc-dhl-047",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2025/02/wancaiai00.png"
+        },
+        {
+            "title": "小鱼AI写作",
+            "category": "AI 文本写作",
+            "description": "满足自媒体人和办公人写作创作的在线智能AI写作平台，可以用AI自动生成高质量原创内容。",
+            "url": "https://www.aig123.com/sites/1924.html",
+            "data_url": "https://www.xiaoyuxiezuo.com/AI_A2B8A04",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/09/xiaoyuxz.png"
+        },
+        {
+            "title": "Stable Diffusion",
+            "category": "AI 绘画作图,AI 设计工具",
+            "description": "目前最强的开源AI绘画工具",
+            "url": "https://www.aig123.com/sites/91.html",
+            "data_url": "https://stability.ai",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://stability.ai"
+        },
+        {
+            "title": "Midjourney",
+            "category": "AI 绘画作图,Prompt指令,AI 设计工具",
+            "description": "当前最火的AI绘图生成工具，可以根据文本提示生成华丽的视觉图片。",
+            "url": "https://www.aig123.com/sites/69.html",
+            "data_url": "https://www.midjourney.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.midjourney.com"
+        },
+        {
+            "title": "DALL·E 2",
+            "category": "AI 绘画作图,AI 设计工具",
+            "description": "OpenAI基于GPT-3模型开发的AI绘图生成工具，可以根据自然语言的描述创建逼真的图像和艺术。",
+            "url": "https://www.aig123.com/sites/70.html",
+            "data_url": "https://openai.com/product/dall-e-2",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://openai.com/product/dall-e-2"
+        },
+        {
+            "title": "Leonardo.ai",
+            "category": "AI 绘画作图",
+            "description": "一个免费的AI绘画生成平台，专注于视频游戏图片素材的制作。",
+            "url": "https://www.aig123.com/sites/1037.html",
+            "data_url": "https://leonardo.ai",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/5f600-leonardo.ai.png"
+        },
+        {
+            "title": "Adobe Firefly",
+            "category": "AI 绘画作图,AI 设计工具",
+            "description": "Adobe最新推出的AI图像生成和编辑工具",
+            "url": "https://www.aig123.com/sites/402.html",
+            "data_url": "https://firefly.adobe.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://firefly.adobe.com"
+        },
+        {
+            "title": "HoloPix AI",
+            "category": "AI 绘画作图",
+            "description": "HoloPix AI 创作平台，游戏动漫设计的创意助推器",
+            "url": "https://www.aig123.com/sites/3510.html",
+            "data_url": "https://www.aig123.com/linkto/holopix_3510.html",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/10/holopix.png"
+        },
+        {
+            "title": "Getimg.ai",
+            "category": "AI 绘画作图",
+            "description": "getimg.ai是一套神奇的ai工具。生成大规模的原始图像",
+            "url": "https://www.aig123.com/sites/430.html",
+            "data_url": "https://getimg.ai/?via=loony",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://getimg.ai/?via=loony"
+        },
+        {
+            "title": "NNiji·Journey",
+            "category": "AI 绘画作图",
+            "description": "二次元风格绘画生成器，由 Spellbrush 与 Midjourney 共同设计开发",
+            "url": "https://www.aig123.com/sites/405.html",
+            "data_url": "https://nijijourney.com/zh",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://nijijourney.com/zh"
+        },
+        {
+            "title": "WOMBO",
+            "category": "AI 绘画作图",
+            "description": "使用AI创作美丽的艺术品",
+            "url": "https://www.aig123.com/sites/406.html",
+            "data_url": "https://www.wombo.ai",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.wombo.ai"
+        },
+        {
+            "title": "Playground",
+            "category": "AI 绘画作图,Prompt指令",
+            "description": "Playground 是一个AI绘画创作和图片编辑平台，每天可以免费创建100张各种类型的艺术图片，还提供背景消除、局部更换等图片编辑工具",
+            "url": "https://www.aig123.com/sites/2196.html",
+            "data_url": "https://playground.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/b3a1d-playground.com.png"
+        },
+        {
+            "title": "可灵AI",
+            "category": "AI 绘画作图",
+            "description": "可灵AI：新一代AI创意生产力平台",
+            "url": "https://www.aig123.com/sites/3345.html",
+            "data_url": "https://klingai.kuaishou.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/keling.png"
+        },
+        {
+            "title": "Ideogram",
+            "category": "AI 绘画作图",
+            "description": "Ideogram是一个全新的文本转图像AI绘画生成平台，擅长于生成带有文本的图像，如LOGO上的字母、数字等。",
+            "url": "https://www.aig123.com/sites/2258.html",
+            "data_url": "https://ideogram.ai",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/7fed9-ideogram.ai.png"
+        },
+        {
+            "title": "Dreamina",
+            "category": "AI 绘画作图",
+            "description": "字节跳动推出的AI绘画工具，用简单的文案创作精美的图片",
+            "url": "https://www.aig123.com/sites/2091.html",
+            "data_url": "https://jimeng.jianying.com/s/iDkpVYAo",
+            "img_src": "https://lf16-web-buz.capcut.com/obj/capcut-web-buz-us/common/images/dreamina-v1.ico"
+        },
+        {
+            "title": "Promethean AI",
+            "category": "AI 绘画作图",
+            "description": "艺术家与AI一起构建虚拟世界",
+            "url": "https://www.aig123.com/sites/1038.html",
+            "data_url": "https://www.prometheanai.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.prometheanai.com"
+        },
+        {
+            "title": "BrandCrowd",
+            "category": "AI 设计工具",
+            "description": "一个在线Logo免费设计生成器",
+            "url": "https://www.aig123.com/sites/503.html",
+            "data_url": "https://www.brandcrowd.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.brandcrowd.com"
+        },
+        {
+            "title": "吐司AI",
+            "category": "AI 设计工具",
+            "description": "超多功能的免费在线生图网站！拥有全网更齐全的模型库，0门槛使用！",
+            "url": "https://www.aig123.com/sites/3187.html",
+            "data_url": "https://tusiart.com/?utm_source=aig123&source_id=aig123",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/08/tusiart.png"
+        },
+        {
+            "title": "Creatie",
+            "category": "AI 设计工具",
+            "description": "Creatie AI是一款专为UI/UX设计师打造的AI增强设计工具，致力于通过AI优化设计流程",
+            "url": "https://www.aig123.com/sites/2216.html",
+            "data_url": "https://creatie.ai",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/6a9a3-creatie.ai.png"
+        },
+        {
+            "title": "Fotor",
+            "category": "AI 设计工具",
+            "description": "Fotor 在线照片编辑器",
+            "url": "https://www.aig123.com/sites/569.html",
+            "data_url": "https://www.fotor.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.fotor.com"
+        },
+        {
+            "title": "Looka",
+            "category": "AI 设计工具",
+            "description": "AI辅助Logo和品牌设计工具",
+            "url": "https://www.aig123.com/sites/492.html",
+            "data_url": "https://looka.com/?coupon=loony",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://looka.com"
+        },
+        {
+            "title": "Picsart",
+            "category": "AI 设计工具",
+            "description": "Picsart是全球最大的数字创作平台。",
+            "url": "https://www.aig123.com/sites/494.html",
+            "data_url": "https://picsart.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://picsart.com"
+        },
+        {
+            "title": "Canva",
+            "category": "AI 设计工具",
+            "description": "使用Canva可画，轻松创建专业设计",
+            "url": "https://www.aig123.com/sites/574.html",
+            "data_url": "https://www.canva.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/10/canva.png"
+        },
+        {
+            "title": "稿定AI设计",
+            "category": "AI 设计工具",
+            "description": "AI自动去水印、背景消除、批量抠人像工具",
+            "url": "https://www.aig123.com/sites/2765.html",
+            "data_url": "https://www.gaoding.com/utms/cd13051cbd2e4438b87495e944931de2",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/10/gaoding.png"
+        },
+        {
+            "title": "暗壳AI",
+            "category": "AI 设计工具",
+            "description": "Ark.art 包罗万象的艺术方舟，友好高效的设计助手",
+            "url": "https://www.aig123.com/sites/3403.html",
+            "data_url": "https://www.ark.art",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/09/anke.png"
+        },
+        {
+            "title": "Sora",
+            "category": "AI 视频创作",
+            "description": "Sora是OpenAI发布的一种文生视频AI大模型，可以根据文本指令创建现实和富有想象力的场景。",
+            "url": "https://www.aig123.com/sites/2076.html",
+            "data_url": "https://openai.com/sora",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://openai.com/sora"
+        },
+        {
+            "title": "绘蛙",
+            "category": "AI 视频创作",
+            "description": "绘蛙是一款功能强大，简洁好用的智能图片、文案创作平台",
+            "url": "https://www.aig123.com/sites/3651.html",
+            "data_url": "https://www.ihuiwa.com/invite?huiwaInviteCode=EUJTEL",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/11/huiwa.png"
+        },
+        {
+            "title": "Runway",
+            "category": "AI 视频创作",
+            "description": "Runway是一个AI创意工具平台，它提供了一系列强大的功能，旨在帮助用户在视觉内容创作、设计和开发过程中提高效率和创新能力。",
+            "url": "https://www.aig123.com/sites/2085.html",
+            "data_url": "https://runwayml.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/08/runway.png"
+        },
+        {
+            "title": "讯飞绘镜",
+            "category": "AI 视频创作",
+            "description": "讯飞绘镜：AI短视频创作平台，支持AI短剧、MV创作",
+            "url": "https://www.aig123.com/sites/3973.html",
+            "data_url": "https://typemovie.art/?utm_source=nt-ai11#/dashboard",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2025/01/xfhj.png"
+        },
+        {
+            "title": "海螺视频",
+            "category": "AI 视频创作",
+            "description": "海螺AI推出的AI视频生成工具，可以生成高质量的视频内容。",
+            "url": "https://www.aig123.com/sites/3343.html",
+            "data_url": "https://www.hunyuan.tencent.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/12/hailuo_video.png"
+        },
+        {
+            "title": "白日梦AI",
+            "category": "AI 视频创作",
+            "description": "白日梦AI是一款全新的文生视频类AIGC创作平台。",
+            "url": "https://www.aig123.com/sites/3134.html",
+            "data_url": "https://aibrm.com/?code=fx_cdi",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/07/bairimeng.png"
+        },
+        {
+            "title": "PixVerse",
+            "category": "AI 视频创作",
+            "description": "PixVerse是一款强大的AI视频生成工具，可以轻松地将多种输入转化为令人惊叹的视频。",
+            "url": "https://www.aig123.com/sites/2095.html",
+            "data_url": "https://www.stablevideo.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/10/pixverse.svg"
+        },
+        {
+            "title": "Morph Studio",
+            "category": "AI 视频创作",
+            "description": "Morph Studio是一款领先的文字转视频AI平台，可以将用户输入的文字转化为精美视频。",
+            "url": "https://www.aig123.com/sites/2100.html",
+            "data_url": "https://www.morphstudio.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.morphstudio.com"
+        },
+        {
+            "title": "Kreado AI",
+            "category": "AI 视频创作",
+            "description": "Kreado AI是一个多语言AI视频创作平台，只需输入文本或关键词，即可创作真实/虚拟人物的多语言口播视频。",
+            "url": "https://www.aig123.com/sites/1896.html",
+            "data_url": "https://www.kreadoai.com/?inviteCode=20708325",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.kreadoai.com/?inviteCode=20708325"
+        },
+        {
+            "title": "ChatTTS",
+            "category": "AI 音频制作",
+            "description": "ChatTTS是一个开源的TTS文本转语音生成模型，专为对话场景设计。",
+            "url": "https://www.aig123.com/sites/2821.html",
+            "data_url": "https://chattts.com/zh",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/chattts.png"
+        },
+        {
+            "title": "海螺语音",
+            "category": "AI 音频制作",
+            "description": "海螺AI推出的AI语音生成工具，支持多种语种、情绪和效果。",
+            "url": "https://www.aig123.com/sites/4031.html",
+            "data_url": "https://hailuoai.com/audio",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2025/01/hailuo_audio.png"
+        },
+        {
+            "title": "讯飞智作",
+            "category": "AI 音频制作",
+            "description": "科大讯飞旗下一站式AI音视频创作平台",
+            "url": "https://www.aig123.com/sites/3788.html",
+            "data_url": "https://peiyin.xunfei.cn/?ftype=13",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/12/xunfei.png"
+        },
+        {
+            "title": "FineVoice",
+            "category": "AI 音频制作",
+            "description": "FineVoice是一种AI数字语音解决方案，可以帮助用户增强声音，并配有实时变声器。",
+            "url": "https://www.aig123.com/sites/993.html",
+            "data_url": "https://www.fineshare.com/finevoice/?ref=aig123",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/09/finevoice.svg"
+        },
+        {
+            "title": "SoundView",
+            "category": "AI 音频制作",
+            "description": "专为跨境电商设计的AI视频翻译、配音和创作工具",
+            "url": "https://www.aig123.com/sites/3845.html",
+            "data_url": "https://soundviewai.com/invitation?inviteCode=H62CMSnqJ&from=aig123",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/12/soundview.svg"
+        },
+        {
+            "title": "叮当好记",
+            "category": "AI 音频制作",
+            "description": "AI音视频转录与总结，内容学习效率 x10！",
+            "url": "https://www.aig123.com/sites/3786.html",
+            "data_url": "https://readlecture.cn/zh?utm_source=aig123&utm_medium=referral",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/12/dingdanghj.png"
+        },
+        {
+            "title": "FineVoice语音克隆",
+            "category": "AI 音频制作",
+            "description": "免费在线语音克隆，1 分钟克隆你的声音，保留口音和所有细微差别。",
+            "url": "https://www.aig123.com/sites/3454.html",
+            "data_url": "https://www.fineshare.com/ai-voice-cloning/?ref=aig123",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/09/finevoice.svg"
+        },
+        {
+            "title": "闪念贝壳",
+            "category": "AI 音频制作",
+            "description": "闪念贝壳是一款AI 驱动的智能语音笔记，随时随地用语音记录你的每一个想法。",
+            "url": "https://www.aig123.com/sites/3199.html",
+            "data_url": "https://www.ihuiwa.com/workspace/ai-video/from-image?huiwaInviteCode=EUJTEL",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/08/snbk.png"
+        },
+        {
+            "title": "音剪",
+            "category": "AI 音频制作",
+            "description": "喜马拉雅旗下的一站式AI音频创作平台，强大的在线剪辑能力，帮你轻松创作优秀的音频作品",
+            "url": "https://www.aig123.com/sites/2778.html",
+            "data_url": "https://audioeditor.ximalaya.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/yinjian.png"
+        },
+        {
+            "title": "Kits AI",
+            "category": "AI 音频制作",
+            "description": "Kits.ai 是一个为音乐家提供一站式AI音乐创作解决方案的网站，提供AI语音生成和免费AI语音训练",
+            "url": "https://www.aig123.com/sites/2164.html",
+            "data_url": "https://www.kits.ai",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.kits.ai"
+        },
+        {
+            "title": "Moshi Chat",
+            "category": "AI 音频制作",
+            "description": "法国AI实验室Kyutai推出的端到端实时多模态AI语音模型，具备听、说、看的能力，不仅可以实时收听，还能进行自然对话。",
+            "url": "https://www.aig123.com/sites/3068.html",
+            "data_url": "https://moshi.chat",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/07/kyutai.png"
+        },
+        {
+            "title": "AiPPT",
+            "category": "AI 办公学习",
+            "description": "AI一键免费生成PPT，输入主题，3分钟完成PPT制作！",
+            "url": "https://www.aig123.com/sites/2821.html",
+            "data_url": "https://www.aippt.cn/?utm_type=Navweb&utm_source=aigjdh&utm_page=aippt&utm_plan=ppt&utm_unit=AIPPT&utm_keyword=40471002",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2025/01/aippt.png"
+        },
+        {
+            "title": "PDFlux",
+            "category": "AI 办公学习",
+            "description": "PDF内容提取+智能问答神器，结合了科研级精准的非结构化文档解析能力，以及ChatGPT的智能问答能力。",
+            "url": "https://www.aig123.com/sites/1225.html",
+            "data_url": "https://pdflux.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://pdflux.com"
+        },
+        {
+            "title": "万能小in",
+            "category": "AI 办公学习",
+            "description": "AI写作长文专家-万能小in，AI一键论文，3分钟4万字，130+应用，只需标题，快速生成文献综述、开题报告、PPT、工作总结等！",
+            "url": "https://www.aig123.com/sites/3087.html",
+            "data_url": "https://xiaoin.cn/home/index?sharerUserId=1811660052478615554",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/07/xiaoin.png"
+        },
+        {
+            "title": "比格AIPPT",
+            "category": "AI 办公学习",
+            "description": "比格AIPPT-AI一键智能排版，快速生成PPT",
+            "url": "https://www.aig123.com/sites/2918.html",
+            "data_url": "https://www.bigppt.cn/?hmmd=AI123",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/bgsj.png"
+        },
+        {
+            "title": "MyMap AI",
+            "category": "AI 办公学习",
+            "description": "使用AI将想法转化为图表",
+            "url": "https://www.aig123.com/sites/3600.html",
+            "data_url": "https://www.mymap.ai/?via=aig123",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/10/mymap.png"
+        },
+        {
+            "title": "Julius AI",
+            "category": "AI 办公学习",
+            "description": "Julius AI是一款功能强大的AI数据分析工具，可以快速分析和可视化复杂数据。",
+            "url": "https://www.aig123.com/sites/3245.html",
+            "data_url": "https://julius.ai?via=aig123",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/08/julius.png"
+        },
+        {
+            "title": "腾讯元宝",
+            "category": "AI 办公学习",
+            "description": "腾讯混元平台推出的AI助手",
+            "url": "https://www.aig123.com/sites/2822.html",
+            "data_url": "https://yuanbao.tencent.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/yuanbao.png"
+        },
+        {
+            "title": "Taskade",
+            "category": "AI 办公学习",
+            "description": "高颜值AI大纲和思维导图生成，为你的团队建立第二个大脑。",
+            "url": "https://www.aig123.com/sites/1258.html",
+            "data_url": "https://www.taskade.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.taskade.com"
+        },
+        {
+            "title": "Whimsical",
+            "category": "AI 办公学习",
+            "description": "Whimsical推出的AI思维导图工具",
+            "url": "https://www.aig123.com/sites/1259.html",
+            "data_url": "https://whimsical.com/ai-mind-maps",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://whimsical.com/ai-mind-maps"
+        },
+        {
+            "title": "Glimmer Ai",
+            "category": "AI 办公学习",
+            "description": "基于GPT-3和DALL·E2的PPT制作工具",
+            "url": "https://www.aig123.com/sites/1242.html",
+            "data_url": "https://glimmerai.tech",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://glimmerai.tech"
+        },
+        {
+            "title": "ChatDOC",
+            "category": "AI 办公学习",
+            "description": "ChatDOC是一款基于chatgpt的文件阅读助手，可以快速从pdf中提取、定位和总结信息",
+            "url": "https://www.aig123.com/sites/1223.html",
+            "data_url": "https://chatdoc.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://chatdoc.com"
+        },
+        {
+            "title": "Figma Slides",
+            "category": "AI 办公学习",
+            "description": "Figma Slides 是 Figma 发布的PPT制作和演示文稿生成工具，可以帮助创建、设计、定制和分享演示文稿",
+            "url": "https://www.aig123.com/sites/3015.html",
+            "data_url": "https://www.figma.com/slides",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/figma0.png"
+        },
+        {
+            "title": "Mapify",
+            "category": "AI 办公学习",
+            "description": "Mapify是由Xmind推出的AI思维导图生成工具，原名ChatMind",
+            "url": "https://www.aig123.com/sites/2871.html",
+            "data_url": "https://mapify.so/cn",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/mapify.png"
+        },
+        {
+            "title": "Devin",
+            "category": "AI 编程开发",
+            "description": "世界上第一位AI软件工程师，可以独立完成各种开发任务。",
+            "url": "https://www.aig123.com/sites/2109.html",
+            "data_url": "https://preview.devin.ai",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/03/devin.png"
+        },
+        {
+            "title": "Cursor",
+            "category": "AI 编程开发",
+            "description": "一个新的IDE，使用AI来帮助您重构、理解、调试和编写代码。",
+            "url": "https://www.aig123.com/sites/1117.html",
+            "data_url": "https://www.cursor.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.cursor.com"
+        },
+        {
+            "title": "豆包MarsCode",
+            "category": "AI 编程开发",
+            "description": "豆包旗下AI编程助手，支持满血版DeepSeek",
+            "url": "https://www.aig123.com/sites/3311.html",
+            "data_url": "https://www.marscode.cn/?utm_source=advertising&utm_medium=aig123.com_ug_cpa&utm_term=hw_marscode_aig123&utm_content=home",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/marscode.png"
+        },
+        {
+            "title": "千帆AppBuilder",
+            "category": "AI 编程开发",
+            "description": "百度推出的一站式的AI原生应用开发资源和工具平台，致力于实现人人都能开发自己的AI原生应用。",
+            "url": "https://www.aig123.com/sites/2438.html",
+            "data_url": "https://cloud.baidu.com/product/AppBuilder",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/79a34-cloud.baidu.com.png"
+        },
+        {
+            "title": "通义灵码",
+            "category": "AI 编程开发",
+            "description": "阿里云出品的一款基于通义大模型的智能编码辅助工具，提供代码智能生成、研发智能问答能力。",
+            "url": "https://www.aig123.com/sites/2300.html",
+            "data_url": "https://tongyi.aliyun.com/lingma",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/04/ea024-tongyi.aliyun.com.png"
+        },
+        {
+            "title": "Adrenaline",
+            "category": "AI 编程开发",
+            "description": "软件调试助手，识别和修复代码中错误。",
+            "url": "https://www.aig123.com/sites/1148.html",
+            "data_url": "https://useadrenaline.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://useadrenaline.com"
+        },
+        {
+            "title": "Ghostwriter",
+            "category": "AI 编程开发",
+            "description": "Replit推出的AI编程助手，一个强大的IDE，编译器和解释器。",
+            "url": "https://www.aig123.com/sites/1118.html",
+            "data_url": "https://replit.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://replit.com"
+        },
+        {
+            "title": "Cursor Directory",
+            "category": "AI 编程开发",
+            "description": "专为Cursor设计的开源资源库、提示词库。",
+            "url": "https://www.aig123.com/sites/3537.html",
+            "data_url": "https://cursor.directory.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/10/cursor.directory.png"
+        },
+        {
+            "title": "文心快码",
+            "category": "AI 编程开发",
+            "description": "文心快码（Comate）是百度推出的一款AI辅助编程工具。",
+            "url": "https://www.aig123.com/sites/3035.html",
+            "data_url": "https://peiyin.xunfei.cn/?ftype=13",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/06/wxkm.png"
+        },
+        {
+            "title": "Project IDX",
+            "category": "AI 编程开发",
+            "description": "Google推出的一个实验性的AI辅助开发平台。",
+            "url": "https://www.aig123.com/sites/2750.html",
+            "data_url": "https://vondy.com/?via=loony",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/project idx.png"
+        },
+        {
+            "title": "腾讯云AI代码助手",
+            "category": "AI 编程开发",
+            "description": "基于混元代码大模型的AI辅助编码工具。",
+            "url": "https://www.aig123.com/sites/2770.html",
+            "data_url": "https://cloud.baidu.com/product/acc",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/aidmzs.png"
+        },
+        {
+            "title": "CodeGeeX",
+            "category": "AI 编程开发",
+            "description": "智谱AI发布的AI编程辅助工具插件，可以实现自动代码生成、代码翻译、自动编写注释以及智能问答等功能。",
+            "url": "https://www.aig123.com/sites/2686.html",
+            "data_url": "https://codegeex.cn",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/codegeex.png"
+        },
+        {
+            "title": "Lexica",
+            "category": "Prompt指令",
+            "description": "一个搜索 AI 生成图片的网站，可以上传图片或prompts搜索图片。",
+            "url": "https://www.aig123.com/sites/410.html",
+            "data_url": "https://lexica.art",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://lexica.art"
+        },
+        {
+            "title": "Prompt Base",
+            "category": "Prompt指令",
+            "description": "助您找到最好的提示词，节省API成本。",
+            "url": "https://www.aig123.com/sites/81.html",
+            "data_url": "https://promptbase.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://promptbase.com"
+        },
+        {
+            "title": "promptoMANIA",
+            "category": "Prompt指令",
+            "description": "Prompt 提示生成器，AI艺术社区与在线提示建设者。",
+            "url": "https://www.aig123.com/sites/85.html",
+            "data_url": "https://promptomania.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://promptomania.com"
+        },
+        {
+            "title": "Noonshot",
+            "category": "Prompt指令",
+            "description": "创造优美的midjourney指令。",
+            "url": "https://www.aig123.com/sites/83.html",
+            "data_url": "https://www.noonshot.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.noonshot.com"
+        },
+        {
+            "title": "DeepSeek提示库（官方）",
+            "category": "Prompt指令",
+            "description": "DeepSeek官方提示词库样例。",
+            "url": "https://www.aig123.com/sites/4304.html",
+            "data_url": "https://api-docs.deepseek.com/zh-cn/prompt-library",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2025/03/deepseek_prompts.png"
+        },
+        {
+            "title": "Learning Prompt",
+            "category": "Prompt指令",
+            "description": "免费的ChatGPT提示词中文教程。",
+            "url": "https://www.aig123.com/sites/100.html",
+            "data_url": "https://learningprompt.wiki",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://learningprompt.wiki"
+        },
+        {
+            "title": "FlowGPT",
+            "category": "Prompt指令",
+            "description": "很受欢迎的AI提示词网站。",
+            "url": "https://www.aig123.com/sites/99.html",
+            "data_url": "https://flowgpt.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/09/flowgpt.png"
+        },
+        {
+            "title": "文小言创作者平台",
+            "category": "Prompt指令",
+            "description": "Prompt创作创建、调试、发布的一站式创作平台。",
+            "url": "https://www.aig123.com/sites/3920.html",
+            "data_url": "http://prompt.baidu.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2025/01/miaoda.png"
+        },
+        {
+            "title": "OpenGPT",
+            "category": "Prompt指令",
+            "description": "一个多元化、一体化的第三方的GPTs应用聚合平台，旨在帮助用户发现、分享、出售分享各类GPTs、Prompts工具。",
+            "url": "https://www.aig123.com/sites/2805.html",
+            "data_url": "https://opengpt.com",
+            "img_src": "https://www.aig123.com/wp-content/uploads/2024/05/opengpt.png"
+        },
+        {
+            "title": "PromptPort",
+            "category": "Prompt指令",
+            "description": "ChatGPT提示词创作、优化、分享平台。",
+            "url": "https://www.aig123.com/sites/1976.html",
+            "data_url": "https://promptport.ai",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://promptport.ai"
+        },
+        {
+            "title": "Dallelist",
+            "category": "Prompt指令",
+            "description": "Dall-E 2提示词助手。",
+            "url": "https://www.aig123.com/sites/179.html",
+            "data_url": "https://www.dallelist.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://www.dallelist.com"
+        },
+        {
+            "title": "SaaS Prompts",
+            "category": "Prompt指令",
+            "description": "为您的SaaS产品发现可操作和现成的Prompts，帮助您发展SaaS业务。",
+            "url": "https://www.aig123.com/sites/141.html",
+            "data_url": "https://saasprompts.com",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://saasprompts.com"
+        },
+        {
+            "title": "LIB.KALOS.ART",
+            "category": "Prompt指令",
+            "description": "你的终极AI艺术风格库。",
+            "url": "https://www.aig123.com/sites/102.html",
+            "data_url": "https://lib.kalos.art",
+            "img_src": "https://t1.gstatic.cn/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&size=128&url=https://lib.kalos.art"
         }
     ]
 }

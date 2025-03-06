@@ -3,16 +3,23 @@ import AppSearchView from '@/app/components/apps/AppSearchView';
 import { Box, Typography } from '@mui/joy';
 interface ViewProps {
     data: any;
-    product: any;
+    onSearch?: any;
 }
 
 function AppView(props: ViewProps) {
-    const { product } = props;
+    const { data, onSearch } = props;
     return (
         <>
             <div className="flex flex-row px-2 sm:px-8">
-                <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-                    <AppSearchView />
+                <Box
+                    sx={{
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        flexDirection: 'column'
+                    }}
+                >
+                    <AppSearchView onSearch={onSearch} />
                     <div className="w-full hidden flex  py-6 px-4  flex-row-reverse flex-wrap ">
                         <div
                             className="h-[270px] w-[480px] overflow-hidden rounded-xl relative cursor-pointer"
@@ -72,11 +79,11 @@ function AppView(props: ViewProps) {
                     </div>
                     <div className="w-full my-4">
                         <p className="text-xl text-black font-semibold border-l-4 pl-2 border-l-indigo-500">
-                            {product?.name}
+                            {data?.category}
                         </p>
                     </div>
                     <div className="flex-row   grid   sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full">
-                        {product?.datas?.map((data: any, index: number) => (
+                        {data?.apps?.map((data: any, index: number) => (
                             <AppCard data={data} key={index} />
                         ))}
                     </div>

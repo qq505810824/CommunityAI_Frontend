@@ -23,7 +23,7 @@ export default function SearchInputView(props: ViewProps) {
         // } else {
         //     handleSearch(content);
         // }
-        handleSearch(text);
+        handleSearch(content);
     };
     const onKeyUp = (e: any) => {
         if (e.keyCode === 13) {

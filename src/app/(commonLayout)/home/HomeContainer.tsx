@@ -20,7 +20,7 @@ function HomeContainer() {
 
     useEffect(() => {
         getProducts();
-        return () => {};
+        return () => { };
     }, [router]);
 
     const getProducts = async () => {
@@ -30,12 +30,10 @@ function HomeContainer() {
 
     return (
         <AppView
-            product={undefined}
-            {...{
+            onSearch={undefined} {...{
                 data,
                 products
-            }}
-        />
+            }} />
     );
 }
 
