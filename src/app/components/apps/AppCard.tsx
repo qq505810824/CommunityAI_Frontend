@@ -2,20 +2,25 @@ import { HeartIcon, PlayCircleIcon, UserIcon } from '@heroicons/react/24/outline
 import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
 import { Divider, Typography } from '@mui/joy';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 interface ViewProps {
     data: any;
+    keyword?: string
 }
 
 export default function AppCard(props: ViewProps) {
-    const { data } = props;
+    const { data, keyword } = props;
     const router = useRouter();
     const searchParams = useSearchParams();
-    const [keyword, setKeyword] = useState('');
+    // const [keyword, setKeyword] = useState('');
 
     useEffect(() => {
-        setKeyword(searchParams.get('s') || '');
-    }, [searchParams]);
+        console.log(keyword);
+
+    }, [keyword])
+    // useEffect(() => {
+    //     setKeyword(searchParams.get('s') || '');
+    // }, [searchParams]);
     const handleClick = () => {
         // console.log('Clicked!'); // 添加调试信息
         window.open(data?.data_url);
@@ -45,7 +50,7 @@ export default function AppCard(props: ViewProps) {
                                 {data?.title
                                     .split(new RegExp(`(${keyword})`, 'gi'))
                                     .map((part: any, index: number) =>
-                                        part.toLowerCase() === keyword.toLowerCase() ? (
+                                        part.toLowerCase() === keyword?.toLowerCase() ? (
                                             <span key={index} style={{ color: 'red' }}>
                                                 {part}
                                             </span>
@@ -72,7 +77,7 @@ export default function AppCard(props: ViewProps) {
                             {data?.description
                                 .split(new RegExp(`(${keyword})`, 'gi'))
                                 .map((part: any, index: number) =>
-                                    part.toLowerCase() === keyword.toLowerCase() ? (
+                                    part.toLowerCase() === keyword?.toLowerCase() ? (
                                         <span key={index} style={{ color: 'red' }}>
                                             {part}
                                         </span>

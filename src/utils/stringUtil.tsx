@@ -109,7 +109,6 @@ export async function extractInfoFromHTML(htmlContent: any) {
     return results;
 }
 
-
 export default function HotTags() {
     const colorPalette = [
         { bg: 'bg-blue-100', text: 'text-blue-800', hover: 'hover:bg-blue-200' },
@@ -117,30 +116,30 @@ export default function HotTags() {
         { bg: 'bg-yellow-100', text: 'text-yellow-800', hover: 'hover:bg-yellow-200' },
         { bg: 'bg-purple-100', text: 'text-purple-800', hover: 'hover:bg-purple-200' },
         { bg: 'bg-pink-100', text: 'text-pink-800', hover: 'hover:bg-pink-200' },
-        { bg: 'bg-indigo-100', text: 'text-indigo-800', hover: 'hover:bg-indigo-200' },
+        { bg: 'bg-indigo-100', text: 'text-indigo-800', hover: 'hover:bg-indigo-200' }
     ];
 
     const tags = [
-        { name: "AI对话", count: 65 },
-        { name: "AI助手", count: 60 },
-        { name: "AI搜索", count: 56 },
-        { name: "人工智能图书", count: 56 },
-        { name: "AI聊天", count: 55 },
-        { name: "AI问答", count: 53 },
-        { name: "AI工具集", count: 49 },
-        { name: "AI工具目录", count: 48 },
-        { name: "AI工具库", count: 48 },
-        { name: "AI工具箱", count: 47 },
-        { name: "AI绘画", count: 42 },
-        { name: "AI聊天机器人", count: 41 },
-        { name: "AI写作", count: 38 },
-        { name: "文本转视频", count: 36 },
-        { name: "AI视频", count: 32 },
-        { name: "AI检索", count: 28 },
-        { name: "AI视频创作", count: 27 },
-        { name: "ChatGPT", count: 27 },
-        { name: "AI写作助手", count: 27 },
-        { name: "图片转视频", count: 27 },
+        { name: 'AI对话', count: 65 },
+        { name: 'AI助手', count: 60 },
+        { name: 'AI搜索', count: 56 },
+        { name: '人工智能图书', count: 56 },
+        { name: 'AI聊天', count: 55 },
+        { name: 'AI问答', count: 53 },
+        { name: 'AI工具集', count: 49 },
+        { name: 'AI工具目录', count: 48 },
+        { name: 'AI工具库', count: 48 },
+        { name: 'AI工具箱', count: 47 },
+        { name: 'AI绘画', count: 42 },
+        { name: 'AI聊天机器人', count: 41 },
+        { name: 'AI写作', count: 38 },
+        { name: '文本转视频', count: 36 },
+        { name: 'AI视频', count: 32 },
+        { name: 'AI检索', count: 28 },
+        { name: 'AI视频创作', count: 27 },
+        { name: 'ChatGPT', count: 27 },
+        { name: 'AI写作助手', count: 27 },
+        { name: '图片转视频', count: 27 }
     ];
 
     return (

@@ -1,8 +1,9 @@
 'use client';
 
 import I18n from '@/context/i18n';
+import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import BrightnessAutoRoundedIcon from '@mui/icons-material/BrightnessAutoRounded';
-import { Typography } from '@mui/joy';
+import { List, ListItemButton, ListItemContent, Typography } from '@mui/joy';
 import Box from '@mui/joy/Box';
 import GlobalStyles from '@mui/joy/GlobalStyles';
 import IconButton from '@mui/joy/IconButton';
@@ -13,7 +14,7 @@ import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useContext } from 'use-context-selector';
 import { closeSidebar } from '../../../utils/utils';
-import AgentList from '../store/agent/AgentList';
+import AppMenuList from '../apps/AppMenuList';
 
 function Toggler({
     defaultExpanded = false,
@@ -87,7 +88,7 @@ export default function Sidebar() {
                     ':root': {
                         '--Sidebar-width': '200px',
                         [theme.breakpoints.up('lg')]: {
-                            '--Sidebar-width': '220px'
+                            '--Sidebar-width': '200px'
                         }
                     }
                 })}
@@ -111,29 +112,64 @@ export default function Sidebar() {
                 }}
                 onClick={() => closeSidebar()}
             />
-            <div
-                className=" flex flex-row items-center space-x-2 cursor-pointer"
-                onClick={() => {
-                    router.push('/home');
-                }}
-            >
-                <IconButton variant="soft" color="primary" size="sm">
-                    <BrightnessAutoRoundedIcon />
-                </IconButton>
-                <Typography
-                    level="title-lg"
-                    sx={{
-                        background: 'linear-gradient(90deg, #ff007a, #ffb600)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        fontSize: 24
+            <div className='flex flex-col h-full'>
+                <div
+                    className=" flex flex-row items-center space-x-2 cursor-pointer"
+                    onClick={() => {
+                        router.push('/home');
                     }}
                 >
-                    {'AI 工具导航'}
-                </Typography>
-            </div>
-            <div className=" overflow-y-auto">
-                <AgentList />
+                    <IconButton variant="soft" color="primary" size="sm">
+                        <BrightnessAutoRoundedIcon />
+                    </IconButton>
+                    <Typography
+                        level="title-lg"
+                        sx={{
+                            background: 'linear-gradient(90deg, #ff007a, #ffb600)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            fontSize: 24
+                        }}
+                    >
+                        {'AI 工具导航'}
+                    </Typography>
+                </div>
+                <div className="flex-1 overflow-y-auto">
+                    <AppMenuList />
+                </div>
+                <div
+                    className=" flex flex-0  flex-row items-center space-x-2 cursor-pointer"
+                >
+                    <List
+                        size="sm"
+                        sx={{
+                            gap: 1,
+                            '--List-nestedInsetStart': '30px',
+                            '--ListItem-radius': (theme) => theme.vars.radius.sm
+                        }}>
+                        <ListItemButton
+                            onClick={() => {
+                                router.push('/apps/submit')
+                            }}
+                            sx={{
+                                '&:hover': {
+                                    backgroundColor: '#6366f1 !important' // 使用 !important 确保样式生效
+                                }
+                            }}
+                        >
+                            <PlusCircleIcon className='w-6 text-[#eeeeee]' />
+                            <ListItemContent>
+                                <Typography
+                                    className="text"
+                                    level="title-sm"
+                                    sx={{ color: '#eeeeee' }}
+                                >
+                                    {'提交 AI 工具'}
+                                </Typography>
+                            </ListItemContent>
+                        </ListItemButton>
+                    </List>
+                </div>
             </div>
         </Sheet>
     );

@@ -83,8 +83,8 @@ function AppView(props: ViewProps) {
                         </p>
                     </div>
                     <div className="flex-row   grid   sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full">
-                        {data?.apps?.map((data: any, index: number) => (
-                            <AppCard data={data} key={index} />
+                        {data?.apps?.map((item: any, index: number) => (
+                            <AppCard data={item} key={index} keyword={data?.keyword} />
                         ))}
                     </div>
                 </Box>

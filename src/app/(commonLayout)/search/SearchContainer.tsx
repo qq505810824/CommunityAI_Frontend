@@ -45,7 +45,7 @@ function SearchContainer() {
             );
             // console.log('product', datas);
             setData({
-                keyword,
+                keyword: keyword,
                 apps: datas
             });
         } else {
@@ -53,7 +53,7 @@ function SearchContainer() {
     };
 
     const handleSearch = (content: string) => {
-        router.push('/search?s=' + content);
+        getProducts(content)
     };
 
     return (

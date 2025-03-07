@@ -10,6 +10,14 @@ import AppView from './AppView';
 
 const apiSetting = new Api();
 
+export type AppModel = {
+    title: string,
+    category: string,
+    description: string,
+    data_url: string,
+    img_src: string
+}
+
 function AppContainer() {
     const [data, setData] = React.useState({
         category: '',
@@ -38,6 +46,7 @@ function AppContainer() {
         const res = await axios.get('./home/tools.json');
         // console.log('res', res.data.apps[0]);
         // console.log('category', category);
+
 
         const apps = res.data.apps;
         if (category) {
