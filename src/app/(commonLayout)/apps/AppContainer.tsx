@@ -25,7 +25,7 @@ function AppContainer() {
     // 创建一个 ref 来跟踪 apps 是否已被处理
     const processedAppsRef = useRef(false);
 
-    const { apps, isLoading: categoryLoading, isError } = useAppsByCategory(category);
+    const { apps, isLoading: categoryLoading, isError } = useAppsByCategory(category || 'AI 搜索引擎');
     // 添加一个状态来跟踪 getProducts 是否已执行完成
     const [productsLoaded, setProductsLoaded] = useState(false);
 
