@@ -46,7 +46,8 @@ export default function AppCard(props: ViewProps) {
                                     textOverflow: 'ellipsis' // 显示省略号
                                 }}
                             >
-                                {data?.title?.split(new RegExp(`(${keyword})`, 'gi'))
+                                {data?.title
+                                    ?.split(new RegExp(`(${keyword})`, 'gi'))
                                     .map((part: any, index: number) =>
                                         part.toLowerCase() === keyword?.toLowerCase() ? (
                                             <span key={index} style={{ color: 'red' }}>
@@ -72,7 +73,8 @@ export default function AppCard(props: ViewProps) {
                                 height: '4.5em' // 根据行高设置最大高度
                             }}
                         >
-                            {data?.description?.split(new RegExp(`(${keyword})`, 'gi'))
+                            {data?.description
+                                ?.split(new RegExp(`(${keyword})`, 'gi'))
                                 .map((part: any, index: number) =>
                                     part.toLowerCase() === keyword?.toLowerCase() ? (
                                         <span key={index} style={{ color: 'red' }}>

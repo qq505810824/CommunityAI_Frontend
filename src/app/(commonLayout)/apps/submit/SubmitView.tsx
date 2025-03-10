@@ -1,7 +1,7 @@
 import { AppModel } from '@/hooks/useAppsData';
 import { AppFormData } from '@/utils/constant';
 import { Button } from '@mui/joy';
-import { useForm } from 'react-hook-form'; // 导入 useForm 
+import { useForm } from 'react-hook-form'; // 导入 useForm
 
 interface ViewProps {
     data: AppModel | undefined;
@@ -118,7 +118,9 @@ function SubmitView(props: ViewProps) {
                                     type="submit"
                                     loading={submitting}
                                     className="bg-blue-500 text-white px-4 py-2 hover:bg-blue-700 rounded-md"
-                                >提交</Button>
+                                >
+                                    提交
+                                </Button>
                             </div>
                         </form>
                     </div>

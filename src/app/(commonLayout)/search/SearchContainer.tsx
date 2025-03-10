@@ -11,7 +11,6 @@ import SearchView from './SearchView';
 
 const apiSetting = new Api();
 
-
 function SearchContainer() {
     const [displayData, setDisplayData] = React.useState({
         keyword: '',
@@ -29,6 +28,8 @@ function SearchContainer() {
 
     const processedAppsRef = useRef(false);
 
+    // 添加一个状态来跟踪 getProducts 是否已执行完成
+    const [productsLoaded, setProductsLoaded] = useState(false);
 
     useEffect(() => {
         console.log('搜索关键词:', keyword);
@@ -36,7 +37,7 @@ function SearchContainer() {
     }, [keyword, apps]);
 
     useEffect(() => {
-        const s = searchParams.get('s')
+        const s = searchParams.get('s');
         setKeyword(s || null);
         if (s) {
             getProducts(s || '');
@@ -44,9 +45,8 @@ function SearchContainer() {
         }
     }, [router, searchParams]);
 
-
     useEffect(() => {
-        if (apps && apps.length > 0 && !processedAppsRef.current) {
+        if (apps && apps.length > 0 && !processedAppsRef.current && productsLoaded) {
             console.log('apps by category:', apps);
 
             setDisplayData((prevData) => ({
@@ -55,18 +55,18 @@ function SearchContainer() {
             }));
             processedAppsRef.current = true;
         }
-    }, [router, apps, keyword]);
+    }, [router, apps, keyword, productsLoaded]);
 
     // 当 category 变化时重置处理标记
     useEffect(() => {
         processedAppsRef.current = false;
+        setProductsLoaded(false);
     }, [keyword]);
-
 
     const getProducts = async (keyword: string) => {
         const res = await axios.get('./home/tools.json');
         // console.log('res', res.data.apps[0]);
-        // console.log('keyword', keyword); 
+        // console.log('keyword', keyword);
         if (keyword) {
             const apps: any = res.data.apps;
             const datas = apps.filter(
@@ -80,11 +80,13 @@ function SearchContainer() {
                 apps: datas
             });
 
+            // 标记 getProducts 已完成
+            setProductsLoaded(true);
         }
     };
 
     const handleSearch = (content: string) => {
-        setKeyword(content)
+        setKeyword(content);
         getProducts(content);
     };
 

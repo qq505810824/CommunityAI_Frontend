@@ -10,11 +10,10 @@ import AppView from './AppView';
 
 interface DisplayData {
     category: string;
-    apps: AppModel[]
+    apps: AppModel[];
 }
 
 function AppContainer() {
-
     const [displayData, setDisplayData] = useState<DisplayData>();
 
     const { setAlert } = useAlert();
@@ -27,6 +26,8 @@ function AppContainer() {
     const processedAppsRef = useRef(false);
 
     const { apps, isLoading: categoryLoading, isError } = useAppsByCategory(category);
+    // 添加一个状态来跟踪 getProducts 是否已执行完成
+    const [productsLoaded, setProductsLoaded] = useState(false);
 
     useEffect(() => {
         setCategory(searchParams.get('type') || null);
@@ -40,7 +41,7 @@ function AppContainer() {
     }, [category]);
 
     useEffect(() => {
-        if (apps && apps.length > 0 && !processedAppsRef.current) {
+        if (apps && apps.length > 0 && !processedAppsRef.current && productsLoaded) {
             console.log('apps by category:', apps);
 
             setDisplayData((prevData: DisplayData | undefined) => {
@@ -57,11 +58,12 @@ function AppContainer() {
             });
             processedAppsRef.current = true;
         }
-    }, [router, apps, category]);
+    }, [router, apps, category, productsLoaded]);
 
     // 当 category 变化时重置处理标记
     useEffect(() => {
         processedAppsRef.current = false;
+        setProductsLoaded(false);
     }, [category]);
 
     const getProducts = async (category: string) => {
@@ -78,9 +80,10 @@ function AppContainer() {
                     category,
                     apps: datas
                 });
+                // 标记 getProducts 已完成
+                setProductsLoaded(true);
             }
         }
-
     };
 
     const handleSearch = (content: string) => {

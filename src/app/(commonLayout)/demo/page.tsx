@@ -16,9 +16,12 @@ const Sidebar = () => (
                 { name: 'Categories', icon: '📑' },
                 { name: 'Stores', icon: '🏪' },
                 { name: 'Finances', icon: '💰' },
-                { name: 'Settings', icon: '⚙️' },
+                { name: 'Settings', icon: '⚙️' }
             ].map((item) => (
-                <div key={item.name} className="flex items-center gap-3 p-3 hover:bg-white/10 rounded-lg cursor-pointer mb-2">
+                <div
+                    key={item.name}
+                    className="flex items-center gap-3 p-3 hover:bg-white/10 rounded-lg cursor-pointer mb-2"
+                >
                     <span>{item.icon}</span>
                     <span>{item.name}</span>
                 </div>
@@ -43,9 +46,7 @@ const ActivityCard = ({ quantity, label }: { quantity: number; label: string }) 
         <Typography level="h2" className="text-center text-3xl font-bold">
             {quantity}
         </Typography>
-        <Typography className="text-center text-gray-600">
-            {label}
-        </Typography>
+        <Typography className="text-center text-gray-600">{label}</Typography>
         <Typography level="body-sm" className="text-center">
             Qty
         </Typography>
@@ -79,7 +80,9 @@ export default function Dashboard() {
                 </div>
 
                 {/* 最近活动 */}
-                <Typography level="h4" className="mb-4">Recent activity</Typography>
+                <Typography level="h4" className="mb-4">
+                    Recent activity
+                </Typography>
                 <div className="grid grid-cols-5 gap-4 mb-8">
                     <ActivityCard quantity={activityData.NEW_ITEMS} label="NEW ITEMS" />
                     <ActivityCard quantity={activityData.NEW_ORDERS} label="NEW ORDERS" />
@@ -91,11 +94,13 @@ export default function Dashboard() {
                 {/* 销售图表和商品类别 */}
                 <div className="grid grid-cols-3 gap-6 mb-8">
                     <Card className="col-span-2">
-                        <Typography level="h4" className="mb-4">Sales</Typography>
+                        <Typography level="h4" className="mb-4">
+                            Sales
+                        </Typography>
                         <BarChart
-                            series={[{ data: salesData.map(d => d.value) }]}
+                            series={[{ data: salesData.map((d) => d.value) }]}
                             height={200}
-                            xAxis={[{ data: salesData.map(d => d.name), scaleType: 'band' }]}
+                            xAxis={[{ data: salesData.map((d) => d.name), scaleType: 'band' }]}
                         />
                     </Card>
                     <Card>
@@ -119,7 +124,9 @@ export default function Dashboard() {
                 {/* 库存和店铺列表 */}
                 <div className="grid grid-cols-2 gap-6">
                     <Card>
-                        <Typography level="h4" className="mb-4">Stock numbers</Typography>
+                        <Typography level="h4" className="mb-4">
+                            Stock numbers
+                        </Typography>
                         <div className="space-y-4">
                             <div className="flex justify-between">
                                 <Typography color="primary">Low stock items</Typography>
@@ -144,7 +151,10 @@ export default function Dashboard() {
                         </div>
                         <div className="space-y-4">
                             {storesData.map((store) => (
-                                <div key={store.location} className="flex justify-between items-center">
+                                <div
+                                    key={store.location}
+                                    className="flex justify-between items-center"
+                                >
                                     <div>
                                         <Typography>{store.location}</Typography>
                                         <Typography level="body-sm" className="text-gray-600">
@@ -165,4 +175,4 @@ export default function Dashboard() {
             </main>
         </div>
     );
-} 
+}

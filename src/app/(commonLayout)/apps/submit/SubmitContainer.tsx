@@ -14,33 +14,32 @@ function SubmitContainer() {
     const { setAlert } = useAlert();
     const router = useRouter();
     const { addNewApp } = useCreateApp();
-    const [submitting, setSubmitting] = useState(false)
-    useEffect(() => { }, []);
+    const [submitting, setSubmitting] = useState(false);
+    useEffect(() => {}, []);
 
     const handleSubmit = async (formData: AppModel) => {
-        setSubmitting(true)
+        setSubmitting(true);
         try {
             const { data, error } = await addNewApp(formData);
             if (error) {
                 setAlert({
                     title: '应用创建失败！',
-                    type: 'error',
+                    type: 'error'
                 });
             } else {
                 setAlert({
                     title: '应用创建成功！',
-                    type: 'success',
+                    type: 'success'
                 });
             }
-
         } catch (error) {
             setAlert({
                 title: '应用创建失败！',
-                type: 'error',
+                type: 'error'
             });
             console.error('创建应用错误:', error);
         } finally {
-            setSubmitting(false)
+            setSubmitting(false);
         }
     };
     return (

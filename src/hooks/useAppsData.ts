@@ -1,5 +1,5 @@
-import { createApp, getAllApps } from "@/service/apps_server";
-import useSWR from "swr";
+import { createApp, getAllApps } from '@/service/apps_server';
+import useSWR from 'swr';
 
 // 定义应用数据类型
 export interface AppModel {
@@ -21,7 +21,7 @@ const appsFetcher = async () => {
 
 // 自定义 hook 使用 SWR 获取所有应用
 export const useAppsData = (options = {}) => {
-    const { data, error, isLoading, mutate } = useSWR("all-apps", appsFetcher, {
+    const { data, error, isLoading, mutate } = useSWR('all-apps', appsFetcher, {
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
         dedupingInterval: 60000, // 1分钟内不重复请求
@@ -40,9 +40,8 @@ export const useAppsData = (options = {}) => {
 export const useAppsByCategory = (category: string) => {
     const { apps, isLoading, isError, mutate } = useAppsData();
 
-    const filteredApps = apps && category
-        ? apps.filter(app => app.category === category)
-        : apps || [];
+    const filteredApps =
+        apps && category ? apps.filter((app) => app.category === category) : apps || [];
 
     return {
         apps: filteredApps as AppModel[],
@@ -56,12 +55,14 @@ export const useAppsByCategory = (category: string) => {
 export const useSearchApps = (keyword: string) => {
     const { apps, isLoading, isError, mutate } = useAppsData();
 
-    const searchedApps = apps && keyword
-        ? apps.filter(app =>
-            app.title?.toLowerCase().includes(keyword.toLowerCase()) ||
-            app.description?.toLowerCase().includes(keyword.toLowerCase())
-        )
-        : [];
+    const searchedApps =
+        apps && keyword
+            ? apps.filter(
+                  (app) =>
+                      app.title?.toLowerCase().includes(keyword.toLowerCase()) ||
+                      app.description?.toLowerCase().includes(keyword.toLowerCase())
+              )
+            : [];
 
     return {
         apps: searchedApps as AppModel[],
