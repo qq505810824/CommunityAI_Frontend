@@ -112,7 +112,7 @@ export default function Sidebar() {
                 }}
                 onClick={() => closeSidebar()}
             />
-            <div className='flex flex-col h-full'>
+            <div className="flex flex-col h-full">
                 <div
                     className=" flex flex-row items-center space-x-2 cursor-pointer"
                     onClick={() => {
@@ -137,19 +137,18 @@ export default function Sidebar() {
                 <div className="flex-1 overflow-y-auto">
                     <AppMenuList />
                 </div>
-                <div
-                    className=" flex flex-0  flex-row items-center space-x-2 cursor-pointer"
-                >
+                <div className=" flex flex-0  flex-row items-center space-x-2 cursor-pointer">
                     <List
                         size="sm"
                         sx={{
                             gap: 1,
                             '--List-nestedInsetStart': '30px',
                             '--ListItem-radius': (theme) => theme.vars.radius.sm
-                        }}>
+                        }}
+                    >
                         <ListItemButton
                             onClick={() => {
-                                router.push('/apps/submit')
+                                router.push('/apps/submit');
                             }}
                             sx={{
                                 '&:hover': {
@@ -157,7 +156,7 @@ export default function Sidebar() {
                                 }
                             }}
                         >
-                            <PlusCircleIcon className='w-6 text-[#eeeeee]' />
+                            <PlusCircleIcon className="w-6 text-[#eeeeee]" />
                             <ListItemContent>
                                 <Typography
                                     className="text"

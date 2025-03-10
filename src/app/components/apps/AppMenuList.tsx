@@ -44,7 +44,7 @@ export default function AppMenuList() {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
-    useEffect(() => { }, [pathname, router]);
+    useEffect(() => {}, [pathname, router]);
 
     return (
         <>
@@ -71,7 +71,7 @@ export default function AppMenuList() {
                                     sx={{
                                         backgroundColor:
                                             `${pathname}?type=${searchParams.get('type')}` ===
-                                                `/home${menu?.href}`
+                                            `/home${menu?.href}`
                                                 ? '#6366f1 !important'
                                                 : 'transparent', // 如果 URL 匹配，设置背景颜色
                                         '&:hover': {

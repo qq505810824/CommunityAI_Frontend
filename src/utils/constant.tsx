@@ -164,7 +164,10 @@ export const AppFormData = {
     },
     uiSchema: {
         title: { 'ui:widget': 'text' },
-        category: { 'ui:widget': 'select', 'ui:options': { enumOptions: AppMeuns.map(menu => menu.name) } },
+        category: {
+            'ui:widget': 'select',
+            'ui:options': { enumOptions: AppMeuns.map((menu) => menu.name) }
+        },
         description: { 'ui:widget': 'textarea' },
         data_url: { 'ui:widget': 'text' },
         img_src: { 'ui:widget': 'text' }
