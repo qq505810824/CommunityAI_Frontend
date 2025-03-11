@@ -160,7 +160,7 @@ export const AppFormData = {
         category: { type: 'string', title: '分类', required: true },
         description: { type: 'string', title: '描述', required: true },
         data_url: { type: 'string', title: '网址链接', required: true },
-        img_src: { type: 'string', title: 'Logo图片链接', required: true }
+        img_src: { type: 'string', title: 'Logo图片链接', required: false }
     },
     uiSchema: {
         title: { 'ui:widget': 'text' },

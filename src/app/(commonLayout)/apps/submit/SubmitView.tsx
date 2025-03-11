@@ -107,13 +107,6 @@ function SubmitView(props: ViewProps) {
                                 );
                             })}
                             <div className="flex justify-end">
-                                <button
-                                    type="submit"
-                                    disabled={submitting}
-                                    className="bg-blue-500 text-white px-4 py-2 hover:bg-blue-700 rounded-md"
-                                >
-                                    提交
-                                </button>
                                 <Button
                                     type="submit"
                                     loading={submitting}

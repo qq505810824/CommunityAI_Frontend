@@ -33,7 +33,7 @@ export default function AppCard(props: ViewProps) {
                 <div className="flex flex-row space-x-2 mb-6">
                     <div className="w-[70px]  min-w-[70px]">
                         <img
-                            src={data?.img_src}
+                            src={data?.img_src || './logo/docai.png'}
                             className="w-full h-[70px] object-cover rounded-md"
                         />
                     </div>
