@@ -14,7 +14,7 @@ interface ViewProps {
 function SubmitView(props: ViewProps) {
     const { data, submitting, onSubmit, fetchWebsiteMetadata } = props;
     const formData = AppFormData;
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
     const { register, reset, handleSubmit, setValue, getValues } = useForm<AppModel>(); // 初始化 useForm
     const submit = (formData: AppModel) => {
         // 处理表单提交
@@ -24,7 +24,6 @@ function SubmitView(props: ViewProps) {
         }
         reset(); // 提交后清空表单
     };
-
 
     const renderField = (key: string, field: any, uiSchema: any) => {
         switch (uiSchema['ui:widget']) {
@@ -78,19 +77,19 @@ function SubmitView(props: ViewProps) {
                                 onClick={async () => {
                                     const url = getValues(key as keyof AppModel); // 获取当前input的值
                                     if (url && fetchWebsiteMetadata) {
-                                        setLoading(true)
+                                        setLoading(true);
                                         const res = await fetchWebsiteMetadata(url);
-                                        setLoading(false)
+                                        setLoading(false);
                                         if (res && res.status) {
                                             if (!res.data.title) {
-                                                alert('获取网站信息失败，请手动填写')
-                                                return
+                                                alert('获取网站信息失败，请手动填写');
+                                                return;
                                             }
-                                            // console.log('data', res.data);
+                                            console.log('data', res.data);
                                             setValue('title', res.data.title); // 设置标题
                                             setValue('description', res.data.description); // 设置描述
+                                            setValue('img_src', res.data.img_src); // 设置标题
                                         }
-
                                     }
                                 }}
                             >
@@ -148,20 +147,32 @@ function SubmitView(props: ViewProps) {
                                     </div>
                                 );
                             })}
-                            <div className='flex flex-row items-center space-x-2'>
+                            <div className="flex flex-row items-center space-x-2">
                                 <span>选择Logo: </span>
-                                <img src='../logo/docai.png' className='w-8 rounded-full' alt='docai.png'
+                                <img
+                                    src="../logo/docai.png"
+                                    className="w-8 rounded-full"
+                                    alt="docai.png"
                                     onClick={() => {
-                                        setValue('img_src', './logo/docai.png')
-                                    }} />
-                                <img src='../logo/youtube.png' className='w-8 rounded-full' alt='youtube.png'
+                                        setValue('img_src', './logo/docai.png');
+                                    }}
+                                />
+                                <img
+                                    src="../logo/youtube.png"
+                                    className="w-8 rounded-full"
+                                    alt="youtube.png"
                                     onClick={() => {
-                                        setValue('img_src', './logo/youtube.png')
-                                    }} />
-                                <img src='../logo/other.png' className='w-8 rounded-full' alt='other.png'
+                                        setValue('img_src', './logo/youtube.png');
+                                    }}
+                                />
+                                <img
+                                    src="../logo/other.png"
+                                    className="w-8 rounded-full"
+                                    alt="other.png"
                                     onClick={() => {
-                                        setValue('img_src', './logo/other.png')
-                                    }} />
+                                        setValue('img_src', './logo/other.png');
+                                    }}
+                                />
                             </div>
                             <div className="flex justify-end">
                                 <Button

@@ -15,8 +15,7 @@ function SubmitContainer() {
     const router = useRouter();
     const { addNewApp } = useCreateApp();
     const [submitting, setSubmitting] = useState(false);
-    useEffect(() => {
-    }, []);
+    useEffect(() => {}, []);
 
     const handleSubmit = async (formData: AppModel) => {
         setSubmitting(true);
@@ -50,9 +49,9 @@ function SubmitContainer() {
             const response = await fetch('/api/fetch-metadata', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ url }),
+                body: JSON.stringify({ url })
             });
 
             if (!response.ok) {
@@ -64,14 +63,14 @@ function SubmitContainer() {
             return {
                 status: true,
                 data: data
-            }
+            };
         } catch (error) {
             console.error('获取网站信息出错:', error);
             alert('获取网站信息失败，请手动填写');
             return {
                 status: false,
                 error: '获取网站信息出错'
-            }
+            };
         }
     };
 

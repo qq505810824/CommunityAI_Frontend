@@ -31,12 +31,12 @@ export default function AppCard(props: ViewProps) {
                 onClick={handleClick}
             >
                 {/* 悬浮提示框 */}
-                <div className="absolute left-0 top-full z-10 w-full bg-black border rounded-md p-3 shadow-lg 
+                <div
+                    className="absolute left-0 top-full z-10 w-full bg-black border rounded-md p-3 shadow-lg 
                     opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                    transition-all duration-200 mt-2">
-                    <p className="text-sm text-white">
-                        {data?.description}
-                    </p>
+                    transition-all duration-200 mt-2"
+                >
+                    <p className="text-sm text-white">{data?.description}</p>
                 </div>
                 <div className="flex flex-row space-x-2 mb-6">
                     <div className="w-[70px]  min-w-[70px]">
