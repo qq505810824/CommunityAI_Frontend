@@ -16,7 +16,7 @@ export default function SignIn() {
         try {
             const { error } = await supabase.auth.signInWithPassword({
                 email,
-                password,
+                password
             });
 
             if (error) {
@@ -34,11 +34,7 @@ export default function SignIn() {
         <div className="flex min-h-screen items-center justify-center">
             <div className="w-full max-w-md space-y-8 rounded-lg p-8 shadow-md">
                 <h2 className="text-center text-3xl font-bold">登录</h2>
-                {error && (
-                    <div className="rounded-md bg-red-50 p-4 text-red-500">
-                        {error}
-                    </div>
-                )}
+                {error && <div className="rounded-md bg-red-50 p-4 text-red-500">{error}</div>}
                 <form onSubmit={handleSignIn} className="space-y-6">
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium">

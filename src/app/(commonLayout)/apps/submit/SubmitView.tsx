@@ -1,18 +1,21 @@
 import { AppModel } from '@/hooks/useAppsData';
 import { AppFormData } from '@/utils/constant';
-import { Button } from '@mui/joy';
+import { Button, Input } from '@mui/joy';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form'; // 导入 useForm
 
 interface ViewProps {
     data: AppModel | undefined;
     submitting?: boolean;
     onSubmit?: any;
+    fetchWebsiteMetadata?: any;
 }
 
 function SubmitView(props: ViewProps) {
-    const { data, submitting, onSubmit } = props;
+    const { data, submitting, onSubmit, fetchWebsiteMetadata } = props;
     const formData = AppFormData;
-    const { register, reset, handleSubmit } = useForm<AppModel>(); // 初始化 useForm
+    const [loading, setLoading] = useState(false)
+    const { register, reset, handleSubmit, setValue, getValues } = useForm<AppModel>(); // 初始化 useForm
     const submit = (formData: AppModel) => {
         // 处理表单提交
         console.log(formData);
@@ -21,6 +24,7 @@ function SubmitView(props: ViewProps) {
         }
         reset(); // 提交后清空表单
     };
+
 
     const renderField = (key: string, field: any, uiSchema: any) => {
         switch (uiSchema['ui:widget']) {
@@ -40,7 +44,7 @@ function SubmitView(props: ViewProps) {
                         {...register(key as keyof AppModel)}
                         required={field.required}
                         placeholder={field.title}
-                        className="border p-2 w-full rounded-md"
+                        className="border p-2 w-full rounded-md min-h-[100px]"
                     />
                 );
             case 'select':
@@ -56,6 +60,44 @@ function SubmitView(props: ViewProps) {
                             </option>
                         ))}
                     </select>
+                );
+            case 'link':
+                return (
+                    <Input
+                        // sx={{ '--Input-decoratorChildHeight': '45px' }}
+                        {...register(key as keyof AppModel)}
+                        required={field.required}
+                        placeholder={field.title}
+                        // className="border p-2 w-full rounded-md"
+                        endDecorator={
+                            <Button
+                                variant="solid"
+                                color="primary"
+                                loading={loading}
+                                sx={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
+                                onClick={async () => {
+                                    const url = getValues(key as keyof AppModel); // 获取当前input的值
+                                    if (url && fetchWebsiteMetadata) {
+                                        setLoading(true)
+                                        const res = await fetchWebsiteMetadata(url);
+                                        setLoading(false)
+                                        if (res && res.status) {
+                                            if (!res.data.title) {
+                                                alert('获取网站信息失败，请手动填写')
+                                                return
+                                            }
+                                            // console.log('data', res.data);
+                                            setValue('title', res.data.title); // 设置标题
+                                            setValue('description', res.data.description); // 设置描述
+                                        }
+
+                                    }
+                                }}
+                            >
+                                一键填写
+                            </Button>
+                        }
+                    />
                 );
             default:
                 return null;
@@ -106,6 +148,21 @@ function SubmitView(props: ViewProps) {
                                     </div>
                                 );
                             })}
+                            <div className='flex flex-row items-center space-x-2'>
+                                <span>选择Logo: </span>
+                                <img src='../logo/docai.png' className='w-8 rounded-full' alt='docai.png'
+                                    onClick={() => {
+                                        setValue('img_src', './logo/docai.png')
+                                    }} />
+                                <img src='../logo/youtube.png' className='w-8 rounded-full' alt='youtube.png'
+                                    onClick={() => {
+                                        setValue('img_src', './logo/youtube.png')
+                                    }} />
+                                <img src='../logo/other.png' className='w-8 rounded-full' alt='other.png'
+                                    onClick={() => {
+                                        setValue('img_src', './logo/other.png')
+                                    }} />
+                            </div>
                             <div className="flex justify-end">
                                 <Button
                                     type="submit"

@@ -22,7 +22,9 @@ export default function Profile() {
     async function getProfile() {
         try {
             setLoading(false);
-            const { data: { user } } = await supabase.auth.getUser();
+            const {
+                data: { user }
+            } = await supabase.auth.getUser();
 
             if (!user) throw new Error('未找到用户');
 
@@ -54,17 +56,17 @@ export default function Profile() {
     async function updateProfile() {
         try {
             setLoading(true);
-            const { data: { user } } = await supabase.auth.getUser();
+            const {
+                data: { user }
+            } = await supabase.auth.getUser();
 
             if (!user) throw new Error('未找到用户');
 
-            const { error } = await supabase
-                .from('profiles')
-                .upsert({
-                    id: user.id,
-                    ...profile,
-                    updated_at: new Date().toISOString(),
-                });
+            const { error } = await supabase.from('profiles').upsert({
+                id: user.id,
+                ...profile,
+                updated_at: new Date().toISOString()
+            });
 
             if (error) throw error;
             alert('个人资料已更新！');
@@ -82,7 +84,9 @@ export default function Profile() {
             const file = event.target.files?.[0];
             if (!file) return;
 
-            const { data: { user } } = await supabase.auth.getUser();
+            const {
+                data: { user }
+            } = await supabase.auth.getUser();
             if (!user) throw new Error('未找到用户');
 
             // 生成唯一的文件名
@@ -94,9 +98,7 @@ export default function Profile() {
             if (profile.avatar) {
                 const oldPath = profile.avatar.split('/').pop();
                 if (oldPath) {
-                    await supabase.storage
-                        .from('avatars')
-                        .remove([`${user.id}/${oldPath}`]);
+                    await supabase.storage.from('avatars').remove([`${user.id}/${oldPath}`]);
                 }
             }
 
@@ -134,9 +136,9 @@ export default function Profile() {
         if (!path) return '/default-avatar.png';
         if (path.startsWith('http')) return path;
 
-        const { data: { publicUrl } } = supabase.storage
-            .from('avatars')
-            .getPublicUrl(path);
+        const {
+            data: { publicUrl }
+        } = supabase.storage.from('avatars').getPublicUrl(path);
 
         return publicUrl;
     };
@@ -144,10 +146,13 @@ export default function Profile() {
     return (
         <div className="max-w-2xl mx-auto p-4">
             <h1 className="text-2xl font-bold mb-6">个人资料</h1>
-            <form onSubmit={(e) => {
-                e.preventDefault();
-                updateProfile();
-            }} className="space-y-4">
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    updateProfile();
+                }}
+                className="space-y-4"
+            >
                 <div className="mb-6">
                     <label className="block mb-2">头像</label>
                     <div className="flex items-center space-x-4">

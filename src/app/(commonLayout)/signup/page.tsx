@@ -20,7 +20,10 @@ export default function SignUp() {
 
         try {
             // 1. 进行认证注册
-            const { data: { user }, error: signUpError } = await supabase.auth.signUp({
+            const {
+                data: { user },
+                error: signUpError
+            } = await supabase.auth.signUp({
                 email,
                 password,
                 options: {
@@ -42,7 +45,7 @@ export default function SignUp() {
                     .insert([
                         {
                             id: user.id,
-                            email: email,
+                            email: email
                         }
                     ])
                     .select()
@@ -90,7 +93,10 @@ export default function SignUp() {
                     </div>
 
                     <div>
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                        <label
+                            htmlFor="password"
+                            className="block text-sm font-medium text-gray-700"
+                        >
                             密码
                         </label>
                         <input

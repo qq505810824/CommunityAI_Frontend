@@ -46,7 +46,7 @@ function AppContainer() {
 
     useEffect(() => {
         if (apps && apps.length > 0 && !processedAppsRef.current && productsLoaded) {
-            console.log('apps by category:', apps);
+            // console.log('apps by category:', apps);
 
             setDisplayData((prevData: DisplayData | undefined) => {
                 if (prevData) {

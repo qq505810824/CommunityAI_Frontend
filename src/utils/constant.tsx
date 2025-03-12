@@ -10,68 +10,10 @@ import {
     Search as SearchIcon,
     VideoCameraFront as VideoCameraFrontIcon
 } from '@mui/icons-material'; // 从 Material-UI 导入图标
+import AirplayOutlinedIcon from '@mui/icons-material/AirplayOutlined';
 import GroupsIcon from '@mui/icons-material/Groups';
 import LanguageIcon from '@mui/icons-material/Language';
-
-export const Chatbot_Features = [
-    {
-        name: '智能任务',
-        value: 'intelligent_mission'
-    },
-    {
-        name: '智能回答',
-        value: 'chatting'
-    },
-    {
-        name: '超智能回答',
-        value: 'chatting_plus'
-    },
-    {
-        name: '閱讀理解',
-        value: 'reading_comprehension'
-    },
-    {
-        name: '智能數據',
-        value: 'smart_extract_schema'
-    }
-];
-
-export const ModelTypes = {
-    none: [
-        {
-            name: 'gpt-3.5-turbo-16k',
-            value: 'gpt-3.5-turbo-16k'
-        },
-        {
-            name: 'gpt-3.5-turbo',
-            value: 'gpt-3.5-turbo'
-        },
-        {
-            name: 'gpt-4',
-            value: 'gpt-4'
-        },
-        {
-            name: 'gpt-4-32k',
-            value: 'gpt-4-32k'
-        }
-    ],
-    schema: [
-        {
-            name: '統計',
-            value: 'statistics'
-        },
-        {
-            name: '圖表',
-            value: 'chart'
-        }
-    ],
-    documents: [
-        {
-            name: 'QA',
-            value: 'qa'
-        }
-    ]
-};
+import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 
 export const AppMeuns = [
     {
@@ -135,6 +77,12 @@ export const AppMeuns = [
         items: []
     },
     {
+        name: 'AI 网址导航',
+        href: '?type=AI 网址导航',
+        icon: <SendOutlinedIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
+        items: []
+    },
+    {
         name: 'Prompt指令',
         href: '?type=Prompt指令',
         icon: <ListAltIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
@@ -151,15 +99,21 @@ export const AppMeuns = [
         href: '?type=YouTuBe网站',
         icon: <LanguageIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
         items: []
+    },
+    {
+        name: '其他网站',
+        href: '?type=其他网站',
+        icon: <AirplayOutlinedIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
+        items: []
     }
 ];
 
 export const AppFormData = {
     fieldSchema: {
-        title: { type: 'string', title: '名称', required: true },
         category: { type: 'string', title: '分类', required: true },
-        description: { type: 'string', title: '描述', required: true },
         data_url: { type: 'string', title: '网址链接', required: true },
+        title: { type: 'string', title: '名称', required: true },
+        description: { type: 'string', title: '描述', required: true },
         img_src: { type: 'string', title: 'Logo图片链接', required: false }
     },
     uiSchema: {
@@ -169,7 +123,7 @@ export const AppFormData = {
             'ui:options': { enumOptions: AppMeuns.map((menu) => menu.name) }
         },
         description: { 'ui:widget': 'textarea' },
-        data_url: { 'ui:widget': 'text' },
+        data_url: { 'ui:widget': 'link' },
         img_src: { 'ui:widget': 'text' }
     }
 };
