@@ -43,6 +43,10 @@ export default function AppCard(props: ViewProps) {
                         <img
                             src={data?.img_src || './logo/docai.png'}
                             className="w-full h-[70px] object-cover rounded-md"
+                            alt=''
+                            onError={(e) => {
+                                e.currentTarget.src = './logo/docai.png'; // 如果加载失败，使用默认图像
+                            }}
                         />
                     </div>
                     <div className="w-full overflow-hidden space-y-1 ">

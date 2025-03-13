@@ -15,7 +15,7 @@ function SubmitContainer() {
     const router = useRouter();
     const { addNewApp } = useCreateApp();
     const [submitting, setSubmitting] = useState(false);
-    useEffect(() => {}, []);
+    useEffect(() => { }, []);
 
     const handleSubmit = async (formData: AppModel) => {
         setSubmitting(true);

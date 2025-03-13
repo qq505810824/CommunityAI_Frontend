@@ -37,9 +37,7 @@ export async function POST(request: Request) {
             new URL('/favicon.ico', url).href;
 
         // 如果图标URL是相对路径，转换为绝对路径
-        const absoluteFavicon = favicon.startsWith('http')
-            ? favicon
-            : new URL(favicon, url).href;
+        const absoluteFavicon = favicon.startsWith('http') ? favicon : new URL(favicon, url).href;
 
         return NextResponse.json({
             title: title?.trim(),

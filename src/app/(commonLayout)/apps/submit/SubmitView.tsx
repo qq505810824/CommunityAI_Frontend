@@ -1,6 +1,6 @@
 import { AppModel } from '@/hooks/useAppsData';
-import { AppFormData } from '@/utils/constant';
-import { Button, Input } from '@mui/joy';
+import { AppFormData } from '@/utils/formData';
+import { Box, Button, Chip, Input, Option, Select } from '@mui/joy';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form'; // 导入 useForm
 
@@ -48,17 +48,48 @@ function SubmitView(props: ViewProps) {
                 );
             case 'select':
                 return (
-                    <select
+                    <Select
                         {...register(key as keyof AppModel)}
                         required={field.required}
-                        className="border p-2 w-full rounded-md"
+                        multiple
+                        defaultValue={[uiSchema['ui:options']?.enumOptions && uiSchema['ui:options']?.enumOptions[0]]}
+                        onChange={(event, value) => {
+                            // 处理选择变化
+                            setValue(key as keyof AppModel, value.toString());
+                        }}
+                        renderValue={(selected) => (
+                            <Box sx={{ display: 'flex', gap: '0.25rem' }}>
+                                {selected.map((selectedOption, index: number) => (
+                                    <Chip key={index} variant="soft" color="primary">
+                                        {selectedOption.label}
+                                    </Chip>
+                                ))}
+                            </Box>
+                        )}
+                        sx={{ minWidth: '15rem' }}
+                        slotProps={{
+                            listbox: {
+                                sx: {
+                                    width: '100%',
+                                },
+                            },
+                        }}
                     >
                         {uiSchema['ui:options']?.enumOptions?.map((option: string) => (
-                            <option key={option} value={option}>
-                                {option}
-                            </option>
+                            <Option key={option} value={option}>{option}</Option>
                         ))}
-                    </select>
+                    </Select>
+                    // <select
+                    //     {...register(key as keyof AppModel)}
+                    //     required={field.required}
+                    //     className="border p-2 w-full rounded-md"
+                    // >
+                    //     {uiSchema['ui:options']?.enumOptions?.map((option: string) => (
+                    //         <option key={option} value={option}>
+                    //             {option}
+                    //         </option>
+                    //     ))}
+                    // </select>
                 );
             case 'link':
                 return (

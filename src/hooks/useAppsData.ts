@@ -41,7 +41,7 @@ export const useAppsByCategory = (category: string) => {
     const { apps, isLoading, isError, mutate } = useAppsData();
 
     const filteredApps =
-        apps && category ? apps.filter((app) => app.category === category) : apps || [];
+        apps && category ? apps.filter((app) => app.category.includes(category)) : apps || [];
 
     return {
         apps: filteredApps as AppModel[],
@@ -58,10 +58,10 @@ export const useSearchApps = (keyword: string) => {
     const searchedApps =
         apps && keyword
             ? apps.filter(
-                  (app) =>
-                      app.title?.toLowerCase().includes(keyword.toLowerCase()) ||
-                      app.description?.toLowerCase().includes(keyword.toLowerCase())
-              )
+                (app) =>
+                    app.title?.toLowerCase().includes(keyword.toLowerCase()) ||
+                    app.description?.toLowerCase().includes(keyword.toLowerCase())
+            )
             : [];
 
     return {
