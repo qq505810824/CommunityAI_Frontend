@@ -1,3 +1,5 @@
+'use client';
+
 import { Card, Typography } from '@mui/joy';
 import Head from 'next/head';
 import Footer from '../Footer';

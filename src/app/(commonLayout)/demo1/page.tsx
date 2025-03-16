@@ -41,8 +41,8 @@ const HomePage = () => {
                 {/* 添加 pt-16 以避免内容被 AppBar 遮挡 */}
                 <img
                     src="https://www.hkjsse.org/_next/image?url=%2Fassets%2Fimages%2Fcover.jpg&w=3840&q=75&dpl=dpl_CeyNzWBVywSzJcxQzS7MouXLZhDp"
-                    alt="科技背景" 
-                    className=' object-contain'
+                    alt="科技背景"
+                    className=" object-contain"
                 />
                 <div className="w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
                     <Fade in={true} timeout={1000}>
