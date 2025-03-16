@@ -8,22 +8,16 @@ import CreateArticleView from './CreateArticleView';
 
 function CreateArticleContainer() {
     const router = useRouter();
-    const [articles, setArticles] = useState<ArticleModel[]>([])
+    const [articles, setArticles] = useState<ArticleModel[]>([]);
     const [submitting, setSubmitting] = useState(false);
     const { setAlert } = useAlert();
     const { addArticle, mutate } = useArticleOperations();
-    const {
-        data,
-        isLoading: categoryLoading,
-        isError
-    } = useArticleData();
+    const { data, isLoading: categoryLoading, isError } = useArticleData();
 
     useEffect(() => {
         console.log('apps', data);
         if (data) {
-
         }
-
     }, [data]);
 
     const handleSubmit = async (formData: ArticleModel) => {
@@ -37,8 +31,8 @@ function CreateArticleContainer() {
                     type: 'error'
                 });
             } else {
-                mutate()
-                router.push('/articles')
+                mutate();
+                router.push('/articles');
                 setAlert({
                     title: '文章创建成功！',
                     type: 'success'
@@ -53,7 +47,7 @@ function CreateArticleContainer() {
         } finally {
             setSubmitting(false);
         }
-    }
+    };
 
     return (
         <CreateArticleView
@@ -65,4 +59,4 @@ function CreateArticleContainer() {
     );
 }
 
-export default CreateArticleContainer
+export default CreateArticleContainer;

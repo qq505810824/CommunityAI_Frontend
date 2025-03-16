@@ -1,29 +1,27 @@
-import BackView from "@/app/components/base/back/BackView";
-import { ArticleModel } from "@/hooks/useArticleData";
-import { ArticleFormData } from "@/utils/formData";
-import { Button } from "@mui/joy";
+import BackView from '@/app/components/base/back/BackView';
+import { ArticleModel } from '@/hooks/useArticleData';
+import { ArticleFormData } from '@/utils/formData';
+import { Button } from '@mui/joy';
 import { Editor } from '@tinymce/tinymce-react';
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 
 interface ViewProps {
-    data: ArticleModel | undefined
+    data: ArticleModel | undefined;
     submitting?: boolean;
     onSubmit: any;
 }
 
-
 function EditArticleView(props: ViewProps) {
     const { data, submitting, onSubmit } = props;
     const formData = ArticleFormData;
-    const { register, reset, handleSubmit, setValue, getValues } = useForm<ArticleModel>(); // 初始化 useForm 
+    const { register, reset, handleSubmit, setValue, getValues } = useForm<ArticleModel>(); // 初始化 useForm
     useEffect(() => {
         if (data) {
             reset(data);
         } else {
-
         }
-    }, [data])
+    }, [data]);
 
     const submit = (formData: ArticleModel) => {
         // 处理表单提交
@@ -90,7 +88,8 @@ function EditArticleView(props: ViewProps) {
                                     'bold italic forecolor | alignleft aligncenter ' +
                                     'alignright alignjustify | bullist numlist outdent indent | ' +
                                     'removeformat',
-                                content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                                content_style:
+                                    'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                             }}
                             onEditorChange={(a: any, editor: any) => {
                                 setValue(key as keyof ArticleModel, a); // 设置表单值
@@ -106,17 +105,14 @@ function EditArticleView(props: ViewProps) {
     return (
         <div className="w-full justify-center flex flex-col items-center">
             <div className=" w-[680px] my-2">
-                <BackView
-                    title="返回" />
+                <BackView title="返回" />
             </div>
             <form onSubmit={handleSubmit(submit)} className="w-[680px]">
                 {' '}
                 {/* 添加 onSubmit 处理 */}
                 {Object.keys(formData.fieldSchema).map((key) => {
-                    const field =
-                        formData.fieldSchema[key as keyof typeof formData.fieldSchema];
-                    const uiSchema =
-                        formData.uiSchema[key as keyof typeof formData.uiSchema];
+                    const field = formData.fieldSchema[key as keyof typeof formData.fieldSchema];
+                    const uiSchema = formData.uiSchema[key as keyof typeof formData.uiSchema];
                     return (
                         <div key={key} className="mb-4">
                             <label>{field.title}</label>
@@ -138,4 +134,4 @@ function EditArticleView(props: ViewProps) {
     );
 }
 
-export default EditArticleView
+export default EditArticleView;

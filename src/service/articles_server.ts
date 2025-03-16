@@ -53,11 +53,7 @@ export const createApp = async (appData: Omit<ArticleModel, 'id'>) => {
 
 export const updateApp = async (id: number, appData: Partial<ArticleModel>) => {
     try {
-        const { data, error } = await supabase
-            .from(db)
-            .update(appData)
-            .eq('id', id)
-            .select();
+        const { data, error } = await supabase.from(db).update(appData).eq('id', id).select();
 
         if (error) {
             throw error;
@@ -72,10 +68,7 @@ export const updateApp = async (id: number, appData: Partial<ArticleModel>) => {
 
 export const deleteApp = async (id: number) => {
     try {
-        const { error } = await supabase
-            .from(db)
-            .delete()
-            .eq('id', id);
+        const { error } = await supabase.from(db).delete().eq('id', id);
 
         if (error) {
             throw error;

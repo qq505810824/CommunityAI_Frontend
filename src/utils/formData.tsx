@@ -1,4 +1,4 @@
-import { AppMeuns } from "./constant";
+import { AppMeuns } from './constant';
 
 export const AppFormData = {
     fieldSchema: {
@@ -20,14 +20,13 @@ export const AppFormData = {
     }
 };
 
-
 export const ArticleFormData = {
     fieldSchema: {
         title: { type: 'string', title: '标题', required: true },
-        description: { type: 'string', title: '描述', required: true },
+        description: { type: 'string', title: '描述', required: true }
     },
     uiSchema: {
         title: { 'ui:widget': 'text' },
-        description: { 'ui:widget': 'textarea' },
+        description: { 'ui:widget': 'textarea' }
     }
 };

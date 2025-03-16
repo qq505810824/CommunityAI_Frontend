@@ -8,8 +8,8 @@ import DetailArticleView from './DetailArticleView';
 
 function DetailArticleContainer() {
     const router = useRouter();
-    const params = useParams()
-    const [article, setArticle] = useState<ArticleModel>()
+    const params = useParams();
+    const [article, setArticle] = useState<ArticleModel>();
 
     const {
         data,
@@ -23,9 +23,8 @@ function DetailArticleContainer() {
             setArticle({
                 ...data,
                 created_at: moment(data.created_at).format('YYYY-MM-DD HH:mm')
-            })
+            });
         }
-
     }, [data]);
 
     return (
@@ -38,4 +37,4 @@ function DetailArticleContainer() {
     );
 }
 
-export default DetailArticleContainer
+export default DetailArticleContainer;

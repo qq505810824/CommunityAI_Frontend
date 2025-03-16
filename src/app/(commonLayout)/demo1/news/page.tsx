@@ -1,4 +1,3 @@
-
 import { Typography } from '@mui/joy';
 import Head from 'next/head';
 import Footer from '../Footer';
@@ -13,10 +12,10 @@ const NewsPage = () => {
             </Head>
             {/* 使用独立的 Header 组件 */}
             <Header />
-            <div className='w-full flex justify-center text-center py-10'>
-                <div className='max-w-7xl'>
+            <div className="w-full flex justify-center text-center py-10">
+                <div className="max-w-7xl">
                     <div className="w-full mx-auto py-16 px-4">
-                        <div className='w-full text-center'>
+                        <div className="w-full text-center">
                             <Typography level="h3" className="mb-4 sm:text-base md:text-lg">
                                 最新消息
                             </Typography>
@@ -26,9 +25,15 @@ const NewsPage = () => {
                         </div>
                         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-4">
                             <div className="rounded-lg text-left transform transition-all duration-300 hover:scale-105 space-y-4">
-                                <img src='https://www.hkjsse.org/_next/image?url=%2Fassets%2Fblog%2Fhku-principal-summit%2Fcover.jpg&w=3840&q=75&dpl=dpl_CeyNzWBVywSzJcxQzS7MouXLZhDp'
-                                    className='rounded-md w-full object-contain' alt='' />
-                                <Typography level="h4" className=" sm:text-sm md:text-base hover:underline cursor-pointer">
+                                <img
+                                    src="https://www.hkjsse.org/_next/image?url=%2Fassets%2Fblog%2Fhku-principal-summit%2Fcover.jpg&w=3840&q=75&dpl=dpl_CeyNzWBVywSzJcxQzS7MouXLZhDp"
+                                    className="rounded-md w-full object-contain"
+                                    alt=""
+                                />
+                                <Typography
+                                    level="h4"
+                                    className=" sm:text-sm md:text-base hover:underline cursor-pointer"
+                                >
                                     港大成功舉辦港澳校長高峰午宴 共譜教育合作新篇章
                                 </Typography>
                                 <Typography level="title-md" className=" sm:text-sm md:text-base">
@@ -39,9 +44,15 @@ const NewsPage = () => {
                                 </Typography>
                             </div>
                             <div className="rounded-lg text-left transform transition-all duration-300 hover:scale-105 space-y-4">
-                                <img src='https://www.hkjsse.org/_next/image?url=%2Fassets%2Fblog%2Faild-competition-2024%2Fcover.png&w=3840&q=75&dpl=dpl_CeyNzWBVywSzJcxQzS7MouXLZhDp'
-                                    className='rounded-md w-full object-contain' alt='' />
-                                <Typography level="h4" className=" sm:text-sm md:text-base hover:underline cursor-pointer">
+                                <img
+                                    src="https://www.hkjsse.org/_next/image?url=%2Fassets%2Fblog%2Faild-competition-2024%2Fcover.png&w=3840&q=75&dpl=dpl_CeyNzWBVywSzJcxQzS7MouXLZhDp"
+                                    className="rounded-md w-full object-contain"
+                                    alt=""
+                                />
+                                <Typography
+                                    level="h4"
+                                    className=" sm:text-sm md:text-base hover:underline cursor-pointer"
+                                >
                                     港大成功舉辦港澳校長高峰午宴 共譜教育合作新篇章
                                 </Typography>
                                 <Typography level="title-md" className=" sm:text-sm md:text-base">
@@ -52,9 +63,15 @@ const NewsPage = () => {
                                 </Typography>
                             </div>
                             <div className="rounded-lg text-left transform transition-all duration-300 hover:scale-105 space-y-4">
-                                <img src='https://www.hkjsse.org/_next/image?url=%2Fassets%2Fblog%2Fhku-macau-info-day%2Fcover.jpg&w=3840&q=75&dpl=dpl_CeyNzWBVywSzJcxQzS7MouXLZhDp'
-                                    className='rounded-md w-full object-contain' alt='' />
-                                <Typography level="h4" className=" sm:text-sm md:text-base hover:underline cursor-pointer">
+                                <img
+                                    src="https://www.hkjsse.org/_next/image?url=%2Fassets%2Fblog%2Fhku-macau-info-day%2Fcover.jpg&w=3840&q=75&dpl=dpl_CeyNzWBVywSzJcxQzS7MouXLZhDp"
+                                    className="rounded-md w-full object-contain"
+                                    alt=""
+                                />
+                                <Typography
+                                    level="h4"
+                                    className=" sm:text-sm md:text-base hover:underline cursor-pointer"
+                                >
                                     港大成功舉辦港澳校長高峰午宴 共譜教育合作新篇章
                                 </Typography>
                                 <Typography level="title-md" className=" sm:text-sm md:text-base">

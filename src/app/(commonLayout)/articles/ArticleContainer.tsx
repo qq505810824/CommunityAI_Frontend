@@ -8,15 +8,11 @@ import ArticleView from './ArticleView';
 
 function ArticleContainer() {
     const router = useRouter();
-    const [articles, setArticles] = useState<ArticleModel[]>([])
+    const [articles, setArticles] = useState<ArticleModel[]>([]);
 
-    const {
-        data,
-        isLoading: categoryLoading,
-        isError
-    } = useArticleData();
+    const { data, isLoading: categoryLoading, isError } = useArticleData();
 
-    const { deleteArticle } = useArticleOperations()
+    const { deleteArticle } = useArticleOperations();
 
     useEffect(() => {
         console.log('apps', data);
@@ -25,11 +21,10 @@ function ArticleContainer() {
                 return {
                     ...item,
                     created_at: moment(item.created_at).format('YYYY-MM-DD')
-                }
-            })
-            setArticles(newData)
+                };
+            });
+            setArticles(newData);
         }
-
     }, [data]);
 
     return (
@@ -42,4 +37,4 @@ function ArticleContainer() {
     );
 }
 
-export default ArticleContainer
+export default ArticleContainer;

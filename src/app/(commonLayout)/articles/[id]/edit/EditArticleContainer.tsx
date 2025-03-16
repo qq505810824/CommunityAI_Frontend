@@ -11,21 +11,20 @@ function EditArticleContainer() {
     const [submitting, setSubmitting] = useState(false);
     const { setAlert } = useAlert();
     const { updateArticle, mutate } = useArticleOperations();
-    const params = useParams()
-    const [article, setArticle] = useState<ArticleModel>()
+    const params = useParams();
+    const [article, setArticle] = useState<ArticleModel>();
 
     const {
         data,
         isLoading: categoryLoading,
-        isError,
+        isError
     } = useArticleDetailData(Number(params['id']));
 
     useEffect(() => {
         // console.log('apps', data);
         if (data) {
-            setArticle(data)
+            setArticle(data);
         }
-
     }, [data]);
 
     const handleSubmit = async (formData: ArticleModel) => {
@@ -39,8 +38,8 @@ function EditArticleContainer() {
                     type: 'error'
                 });
             } else {
-                mutate()
-                router.push('/articles')
+                mutate();
+                router.push('/articles');
                 setAlert({
                     title: '文章更新成功！',
                     type: 'success'
@@ -55,7 +54,7 @@ function EditArticleContainer() {
         } finally {
             setSubmitting(false);
         }
-    }
+    };
 
     return (
         <EditArticleView
@@ -68,4 +67,4 @@ function EditArticleContainer() {
     );
 }
 
-export default EditArticleContainer
+export default EditArticleContainer;

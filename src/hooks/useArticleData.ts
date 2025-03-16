@@ -1,4 +1,10 @@
-import { createApp, deleteApp, getAllApps, getArticleDetail, updateApp } from '@/service/articles_server';
+import {
+    createApp,
+    deleteApp,
+    getAllApps,
+    getArticleDetail,
+    updateApp
+} from '@/service/articles_server';
 import useSWR from 'swr';
 
 // 定义应用数据类型
@@ -8,7 +14,7 @@ export interface ArticleModel {
     description: string;
     status: number;
     created_at: string;
-    updated_at: string
+    updated_at: string;
 }
 
 // 应用数据 fetcher 函数
@@ -17,9 +23,6 @@ const appsFetcher = async () => {
     if (error) throw error;
     return data || [];
 };
-
-
-
 
 // 自定义 hook 使用 SWR 获取所有应用
 export const useArticleData = (options = {}) => {
@@ -45,12 +48,16 @@ const appDetailFetcher = async (id: number) => {
 };
 
 export const useArticleDetailData = (id: number, options = {}) => {
-    const { data, error, isLoading, mutate } = useSWR("detail_article_" + id, () => appDetailFetcher(id), {
-        revalidateOnFocus: false,
-        revalidateOnReconnect: false,
-        dedupingInterval: 20000, // 1分钟内不重复请求
-        ...options
-    });
+    const { data, error, isLoading, mutate } = useSWR(
+        'detail_article_' + id,
+        () => appDetailFetcher(id),
+        {
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false,
+            dedupingInterval: 20000, // 1分钟内不重复请求
+            ...options
+        }
+    );
     return {
         data: data as ArticleModel | undefined,
         isLoading,

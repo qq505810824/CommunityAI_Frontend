@@ -58,10 +58,10 @@ export const useSearchApps = (keyword: string) => {
     const searchedApps =
         apps && keyword
             ? apps.filter(
-                (app) =>
-                    app.title?.toLowerCase().includes(keyword.toLowerCase()) ||
-                    app.description?.toLowerCase().includes(keyword.toLowerCase())
-            )
+                  (app) =>
+                      app.title?.toLowerCase().includes(keyword.toLowerCase()) ||
+                      app.description?.toLowerCase().includes(keyword.toLowerCase())
+              )
             : [];
 
     return {

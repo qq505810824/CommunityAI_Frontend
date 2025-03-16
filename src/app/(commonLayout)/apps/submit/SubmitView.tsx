@@ -52,7 +52,10 @@ function SubmitView(props: ViewProps) {
                         {...register(key as keyof AppModel)}
                         required={field.required}
                         multiple
-                        defaultValue={[uiSchema['ui:options']?.enumOptions && uiSchema['ui:options']?.enumOptions[0]]}
+                        defaultValue={[
+                            uiSchema['ui:options']?.enumOptions &&
+                                uiSchema['ui:options']?.enumOptions[0]
+                        ]}
                         onChange={(event, value) => {
                             // 处理选择变化
                             setValue(key as keyof AppModel, value.toString());
@@ -70,13 +73,15 @@ function SubmitView(props: ViewProps) {
                         slotProps={{
                             listbox: {
                                 sx: {
-                                    width: '100%',
-                                },
-                            },
+                                    width: '100%'
+                                }
+                            }
                         }}
                     >
                         {uiSchema['ui:options']?.enumOptions?.map((option: string) => (
-                            <Option key={option} value={option}>{option}</Option>
+                            <Option key={option} value={option}>
+                                {option}
+                            </Option>
                         ))}
                     </Select>
                     // <select

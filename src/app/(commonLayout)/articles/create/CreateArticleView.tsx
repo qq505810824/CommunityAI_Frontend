@@ -1,19 +1,18 @@
-import { ArticleModel } from "@/hooks/useArticleData";
-import { ArticleFormData } from "@/utils/formData";
-import { Button } from "@mui/joy";
+import { ArticleModel } from '@/hooks/useArticleData';
+import { ArticleFormData } from '@/utils/formData';
+import { Button } from '@mui/joy';
 import { Editor } from '@tinymce/tinymce-react';
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
 
 interface ViewProps {
     submitting?: boolean;
     onSubmit: any;
 }
 
-
 function CreateArticleView(props: ViewProps) {
     const { submitting, onSubmit } = props;
     const formData = ArticleFormData;
-    const { register, reset, handleSubmit, setValue, getValues } = useForm<ArticleModel>(); // 初始化 useForm 
+    const { register, reset, handleSubmit, setValue, getValues } = useForm<ArticleModel>(); // 初始化 useForm
     const submit = (formData: ArticleModel) => {
         // 处理表单提交
         // console.log(formData);
@@ -79,7 +78,8 @@ function CreateArticleView(props: ViewProps) {
                                     'bold italic forecolor | alignleft aligncenter ' +
                                     'alignright alignjustify | bullist numlist outdent indent | ' +
                                     'removeformat',
-                                content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                                content_style:
+                                    'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                             }}
                             onEditorChange={(a: any, editor: any) => {
                                 setValue(key as keyof ArticleModel, a); // 设置表单值
@@ -98,10 +98,8 @@ function CreateArticleView(props: ViewProps) {
                 {' '}
                 {/* 添加 onSubmit 处理 */}
                 {Object.keys(formData.fieldSchema).map((key) => {
-                    const field =
-                        formData.fieldSchema[key as keyof typeof formData.fieldSchema];
-                    const uiSchema =
-                        formData.uiSchema[key as keyof typeof formData.uiSchema];
+                    const field = formData.fieldSchema[key as keyof typeof formData.fieldSchema];
+                    const uiSchema = formData.uiSchema[key as keyof typeof formData.uiSchema];
                     return (
                         <div key={key} className="mb-4">
                             <label>{field.title}</label>
@@ -123,4 +121,4 @@ function CreateArticleView(props: ViewProps) {
     );
 }
 
-export default CreateArticleView
+export default CreateArticleView;

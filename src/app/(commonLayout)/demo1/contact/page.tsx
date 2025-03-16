@@ -1,4 +1,12 @@
-import { Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
+import {
+    Button,
+    FormControl,
+    InputLabel,
+    MenuItem,
+    Select,
+    TextField,
+    Typography
+} from '@mui/material';
 import Head from 'next/head';
 import Header from '../Header';
 import Footer from '../Footer';
@@ -33,24 +41,9 @@ const ContactPage = () => {
                         在线咨询
                     </Typography>
                     <form>
-                        <TextField
-                            label="姓名"
-                            variant="outlined"
-                            fullWidth
-                            className="mb-4"
-                        />
-                        <TextField
-                            label="邮箱"
-                            variant="outlined"
-                            fullWidth
-                            className="mb-4"
-                        />
-                        <TextField
-                            label="电话"
-                            variant="outlined"
-                            fullWidth
-                            className="mb-4"
-                        />
+                        <TextField label="姓名" variant="outlined" fullWidth className="mb-4" />
+                        <TextField label="邮箱" variant="outlined" fullWidth className="mb-4" />
+                        <TextField label="电话" variant="outlined" fullWidth className="mb-4" />
                         <FormControl variant="outlined" fullWidth className="mb-4">
                             <InputLabel>咨询类型</InputLabel>
                             <Select label="咨询类型">
@@ -73,8 +66,8 @@ const ContactPage = () => {
                     </form>
                 </div>
             </div>
-             {/* 使用独立的 Footer 组件 */}
-             <Footer />
+            {/* 使用独立的 Footer 组件 */}
+            <Footer />
         </div>
     );
 };
