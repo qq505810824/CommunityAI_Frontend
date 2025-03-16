@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: false,
+    images: {
+        domains: ['inews.gtimg.com'],
+      },
     experimental: {
         missingSuspenseWithCSRBailout: false,
     },
