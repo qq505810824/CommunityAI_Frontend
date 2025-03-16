@@ -1,7 +1,9 @@
+'use client';
+
 import { Typography } from '@mui/material';
 import Head from 'next/head';
-import Header from '../Header';
 import Footer from '../Footer';
+import Header from '../Header';
 
 const ProductsPage = () => {
     return (
