@@ -41,7 +41,7 @@ export default function SignUp() {
             if (user) {
                 // 2. 使用 supabase client 创建 profile
                 const { error: profileError } = await supabase
-                    .from('profiles')
+                    .from('account')
                     .insert([
                         {
                             id: user.id,

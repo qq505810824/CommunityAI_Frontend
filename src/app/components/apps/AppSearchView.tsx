@@ -11,7 +11,7 @@ function AppSearchView(props: ViewProps) {
                 <div className="flex-shrink-0">
                     <h1 className=" font-medium text-xl">AI 工具</h1>
                 </div>
-                <div className="flex-1 w-fll items-center flex justify-end">
+                <div className=" items-center flex justify-end">
                     <SearchInputView handleSearch={onSearch} />
                 </div>
                 {/* <div className="flex-shrink-0 hidden">

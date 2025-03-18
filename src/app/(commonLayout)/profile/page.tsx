@@ -29,7 +29,7 @@ export default function Profile() {
             if (!user) throw new Error('未找到用户');
 
             const { data, error } = await supabase
-                .from('profiles')
+                .from('account')
                 .select('*')
                 .eq('id', user.id)
                 .single();
@@ -62,7 +62,7 @@ export default function Profile() {
 
             if (!user) throw new Error('未找到用户');
 
-            const { error } = await supabase.from('profiles').upsert({
+            const { error } = await supabase.from('account').upsert({
                 id: user.id,
                 ...profile,
                 updated_at: new Date().toISOString()
@@ -114,7 +114,7 @@ export default function Profile() {
 
             // 更新个人资料中的头像路径（只存储相对路径）
             const { error: updateError } = await supabase
-                .from('profiles')
+                .from('account')
                 .update({ avatar: filePath })
                 .eq('id', user.id);
 

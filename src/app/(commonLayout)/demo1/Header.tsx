@@ -44,15 +44,16 @@ const Header = () => {
 
     return (
         <AppBar position="fixed" className="bg-white shadow-md" style={{ height: appBarHeight }}>
-            <Toolbar className='w-full justify-between'>
+            <Toolbar className="w-full justify-between">
                 <IconButton
                     edge="start"
                     color="inherit"
                     aria-label="menu"
-                    onClick={() => router.push('/demo1')}>
-                <Typography variant="h6" className="flex-grow">
-                    科技公司
-                </Typography>
+                    onClick={() => router.push('/demo1')}
+                >
+                    <Typography variant="h6" className="flex-grow">
+                        科技公司
+                    </Typography>
                 </IconButton>
                 <div className="hidden md:block">
                     {menuItems.map((item) => (
