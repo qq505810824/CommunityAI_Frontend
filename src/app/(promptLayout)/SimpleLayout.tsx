@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 
-import Header from '@/app/components/Header';
 import Box from '@mui/joy/Box';
 import CssBaseline from '@mui/joy/CssBaseline';
 import { CssVarsProvider } from '@mui/joy/styles';
@@ -12,7 +11,7 @@ function SimpleLayout(props: { children: React.ReactNode }) {
         <CssVarsProvider disableTransitionOnChange>
             <CssBaseline />
             <Box sx={{ display: 'flex', height: '100dvh' }}>
-                <Header />
+                {/* <Header /> */}
                 {/* <AgentList /> */}
                 <Box
                     component="main"

@@ -45,7 +45,7 @@ export default function CreatePromptModal({ onClose }: CreatePromptModalProps) {
         const newFormData = {
             ...formData,
             user: localStorage?.getItem('user_id') || ''
-        }
+        };
         setSubmitting(true);
         try {
             const { data, error } = await addPrompt(newFormData);
@@ -103,7 +103,7 @@ export default function CreatePromptModal({ onClose }: CreatePromptModalProps) {
                         multiple
                         defaultValue={[
                             uiSchema['ui:options']?.enumOptions &&
-                            uiSchema['ui:options']?.enumOptions[0]
+                                uiSchema['ui:options']?.enumOptions[0]
                         ]}
                         onChange={(event, value) => {
                             // 处理选择变化
@@ -133,7 +133,7 @@ export default function CreatePromptModal({ onClose }: CreatePromptModalProps) {
                             </Option>
                         ))}
                     </Select>
-                )
+                );
             case 'tag':
                 return (
                     <Select
@@ -142,7 +142,7 @@ export default function CreatePromptModal({ onClose }: CreatePromptModalProps) {
                         multiple
                         defaultValue={[
                             uiSchema['ui:options']?.enumOptions &&
-                            uiSchema['ui:options']?.enumOptions[0]
+                                uiSchema['ui:options']?.enumOptions[0]
                         ]}
                         onChange={(event, value) => {
                             // 处理选择变化
@@ -172,12 +172,11 @@ export default function CreatePromptModal({ onClose }: CreatePromptModalProps) {
                             </Option>
                         ))}
                     </Select>
-                )
+                );
             default:
                 return null;
         }
     };
-
 
     return (
         <React.Fragment>
@@ -199,21 +198,30 @@ export default function CreatePromptModal({ onClose }: CreatePromptModalProps) {
                 New project
             </Chip>
 
-            <Modal open={open} onClose={() => { setOpen(false); onClose(); }} sx={{}}>
+            <Modal
+                open={open}
+                onClose={() => {
+                    setOpen(false);
+                    onClose();
+                }}
+                sx={{}}
+            >
                 <ModalDialog size="md">
                     <ModalClose />
                     <DialogTitle>Create new Prompt</DialogTitle>
                     {/* <DialogContent>Fill in the information of the projectFill </DialogContent> */}
-                    <form onSubmit={handleSubmit(submit)} className=' overflow-auto'>
+                    <form onSubmit={handleSubmit(submit)} className=" overflow-auto">
                         {' '}
                         {/* 添加 onSubmit 处理 */}
                         {Object.keys(formData.fieldSchema).map((key) => {
-                            const field = formData.fieldSchema[key as keyof typeof formData.fieldSchema];
-                            const uiSchema = formData.uiSchema[key as keyof typeof formData.uiSchema];
+                            const field =
+                                formData.fieldSchema[key as keyof typeof formData.fieldSchema];
+                            const uiSchema =
+                                formData.uiSchema[key as keyof typeof formData.uiSchema];
                             return (
                                 <div key={key} className="mb-4">
-                                    <label className=' font-medium text-sm'>{field.title}</label>
-                                    <p className='text-sm text-gray-400'>{field.tip}</p>
+                                    <label className=" font-medium text-sm">{field.title}</label>
+                                    <p className="text-sm text-gray-400">{field.tip}</p>
                                     {renderField(key, field, uiSchema)}
                                 </div>
                             );

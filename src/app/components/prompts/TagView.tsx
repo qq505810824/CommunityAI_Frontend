@@ -1,18 +1,14 @@
-import { Circle } from "@mui/icons-material";
-import { Chip, ChipDelete } from "@mui/joy";
+import { Circle } from '@mui/icons-material';
+import { Chip, ChipDelete } from '@mui/joy';
 
 interface ViewProps {
     tag?: any;
-    onSelect?: any
-    onDelete?: any
+    onSelect?: any;
+    onDelete?: any;
 }
 
 export default function TagView(props: ViewProps) {
-    const {
-        tag,
-        onSelect,
-        onDelete
-    } = props
+    const { tag, onSelect, onDelete } = props;
 
     return (
         <>
@@ -60,5 +56,5 @@ export default function TagView(props: ViewProps) {
                 onClick={onSelect} // 添加 onClick 事件
             >{tag?.name}</Typography> */}
         </>
-    )
+    );
 }

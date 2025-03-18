@@ -1,19 +1,20 @@
-import { AccountModel } from "@/models/Account";
-import { Typography } from "@mui/joy";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { AccountModel } from '@/models/Account';
+import { Typography } from '@mui/joy';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import classNames from 'classnames';
 
 interface ViewProps {
     user?: AccountModel;
+    imgClassName?: any;
+    textClassName?: any;
 }
 
 export default function UserView(props: ViewProps) {
-    const {
-        user
-    } = props
+    const { user, imgClassName, textClassName } = props;
     const supabase = createClientComponentClient();
 
     const getImageUrl = (path: string | null) => {
-        if (!path) return '/default-avatar.png';
+        if (!path) return '../avatar.webp';
         if (path.startsWith('http')) return path;
 
         const {
@@ -22,25 +23,40 @@ export default function UserView(props: ViewProps) {
 
         return publicUrl;
     };
-
+    // <img
+    //     alt="avatar"
+    //     src={getImageUrl(user?.avatar || '')}
+    //     className={classNames(`rounded-full mr-1`, imgClassName)}
+    // />
     return (
         <>
+
             <Typography
                 className="text-xs text-gray-500 flex flex-row items-center"
                 startDecorator={
+                    // <Avatar
+                    //     alt="avatar"
+                    //     src={getImageUrl(user?.avatar || '')}
+                    //     sx={{
+                    //         width: 18,
+                    //         height: 18,
+                    //         ...imgClassName
+                    //     }}
+                    // />
                     <img
                         alt="avatar"
                         src={getImageUrl(user?.avatar || '')}
-                        className=" rounded-full w-4 min-w-4 mr-1"
+                        className={classNames(`rounded-full mr-1`, imgClassName)}
                     />
                 }
                 sx={{
                     color: '#000',
-                    fontSize: 14
+                    fontSize: 14,
+                    ...textClassName
                 }}
             >
-                {user?.name}
+                {user?.name || '游客'}
             </Typography>
         </>
-    )
+    );
 }

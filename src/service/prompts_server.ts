@@ -24,7 +24,11 @@ export const getAllApps = async () => {
 
 export const getAppDetail = async (id: number) => {
     try {
-        const { data, error } = await supabase.from(db).select('*, account(id,name,email,avatar)').eq('id', id).single();
+        const { data, error } = await supabase
+            .from(db)
+            .select('*, account(id,name,email,avatar)')
+            .eq('id', id)
+            .single();
         if (error) {
             throw error;
         }
@@ -86,7 +90,9 @@ export const searchApp = async (key: string) => {
         const { data, error } = await supabase
             .from(db)
             .select('*')
-            .or(`title.ilike.%${key}%,description.ilike.%${key}%,prompt.ilike.%${key}%,tags.ilike.%${key}%`);
+            .or(
+                `title.ilike.%${key}%,description.ilike.%${key}%,prompt.ilike.%${key}%,tags.ilike.%${key}%`
+            );
 
         if (error) {
             throw error;

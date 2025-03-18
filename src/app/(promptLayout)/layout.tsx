@@ -33,10 +33,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
 
 export const metadata = {
     title: 'Prompt文案',
-    keywords:
-        'prompt,Prompt,AI prompt,,AI Prompt,文案, AI 文案, prompt 文案',
-    description:
-        'Prompt文案'
+    keywords: 'prompt,Prompt,AI prompt,,AI Prompt,文案, AI 文案, prompt 文案',
+    description: 'Prompt文案'
 };
 
 export default Layout;

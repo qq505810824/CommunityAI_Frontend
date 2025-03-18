@@ -20,10 +20,10 @@ export interface PromptModel {
     copy?: number;
     focus?: number;
     share?: number;
-    view?: number
-    collect?: number
+    view?: number;
+    collect?: number;
     user?: string;
-    account?: AccountModel
+    account?: AccountModel;
     created_at: string;
     updated_at: string;
 }

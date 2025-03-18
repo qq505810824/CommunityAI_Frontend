@@ -6,7 +6,7 @@ interface ViewProps {
     handleSearch: any;
     loading?: boolean;
     className?: any;
-    sx?: any
+    sx?: any;
     placeholder?: string;
 }
 
@@ -45,7 +45,7 @@ export default function SearchInputView(props: ViewProps) {
             <Input
                 ref={textInputRef}
                 size="md"
-                placeholder={placeholder || "Search"}
+                placeholder={placeholder || 'Search'}
                 type={'search'}
                 className={className}
                 startDecorator={<SearchIcon />}

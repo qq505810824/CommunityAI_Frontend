@@ -37,16 +37,21 @@ export const PromptFormData = {
         type: { type: 'string', title: '类型', required: true, tip: '' },
         tags: { type: 'string', title: '标签', required: true, tip: '' },
         description: { type: 'string', title: '描述', required: true, tip: '' },
-        prompt: { type: 'string', title: 'Prompt', required: true, tip: 'Use this field to create your actual prompt template. Press to create placeholder tags so users can customize the inputs for your template.' },
+        prompt: {
+            type: 'string',
+            title: 'Prompt',
+            required: true,
+            tip: 'Use this field to create your actual prompt template. Press to create placeholder tags so users can customize the inputs for your template.'
+        }
     },
     uiSchema: {
         title: { 'ui:widget': 'text' },
         type: { 'ui:widget': 'select', 'ui:options': { enumOptions: ['Text', 'Video'] } },
         tags: {
-            'ui:widget': 'tag', 'ui:options': { enumOptions: [...PromptTags] }
+            'ui:widget': 'tag',
+            'ui:options': { enumOptions: [...PromptTags] }
         },
         description: { 'ui:widget': 'textarea' },
-        prompt: { 'ui:widget': 'textarea' },
+        prompt: { 'ui:widget': 'textarea' }
     }
-
-}
+};

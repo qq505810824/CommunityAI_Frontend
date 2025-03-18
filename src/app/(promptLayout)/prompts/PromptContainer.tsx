@@ -15,10 +15,10 @@ function PromptContainer() {
     const router = useRouter();
 
     const [prompts, setPrompts] = useState<any[]>([]);
-    const { searchPrompt } = usePromptOperations()
-    const [searching, setSearching] = useState(false)
+    const { searchPrompt } = usePromptOperations();
+    const [searching, setSearching] = useState(false);
 
-    const { data, isLoading: categoryLoading, isError, mutate } = usePromptData();
+    const { data, isLoading: promptsLoading, isError, mutate } = usePromptData();
 
     useEffect(() => {
         if (data) {
@@ -31,18 +31,18 @@ function PromptContainer() {
                     share: formatK(item.share || 0),
                     copy: formatK(item.copy || 0),
                     created_at: moment(item.created_at).fromNow()
-                }
-            })
-            setPrompts(newData)
+                };
+            });
+            setPrompts(newData);
         }
         return () => { };
     }, [router, data]);
 
     const handleSearch = async (value: string) => {
         console.log('search value', value);
-        setSearching(true)
-        const res: any = await searchPrompt(value)
-        setSearching(false)
+        setSearching(true);
+        const res: any = await searchPrompt(value);
+        setSearching(false);
         if (res.data) {
             const newData = res.data.map((item: PromptModel) => {
                 return {
@@ -53,18 +53,17 @@ function PromptContainer() {
                     share: formatK(item.share || 0),
                     copy: formatK(item.copy || 0),
                     created_at: moment(item.created_at).fromNow()
-                }
-            })
-            setPrompts(newData)
+                };
+            });
+            setPrompts(newData);
         }
-
-
-    }
+    };
 
     return (
         <PromptView
             {...{
                 data,
+                isLoading: promptsLoading,
                 prompts,
                 onClose: mutate,
                 handleSearch,

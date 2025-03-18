@@ -110,269 +110,267 @@ export const AppMeuns = [
 
 export const PromptFatherTags = [
     {
-        name: "Develop"
+        name: 'Develop'
     },
     {
-        name: "Office"
+        name: 'Office'
     },
     {
-        name: "Article"
+        name: 'Article'
     },
     {
-        name: "Draw"
+        name: 'Draw'
     },
     {
-        name: "Marketing"
+        name: 'Marketing'
     },
     {
-        name: "AI"
+        name: 'AI'
     },
     {
-        name: "Eduction"
+        name: 'Eduction'
     },
     {
-        name: "Other"
+        name: 'Other'
     }
-]
+];
 
 export const PromptTags = [
     {
-        father: "Develop",
-        name: "学术",
-        color: "#6FD025"
+        father: 'Develop',
+        name: '学术',
+        color: '#6FD025'
     },
     {
-        father: "Develop",
-        name: "代码",
-        color: "#96C1CF"
+        father: 'Develop',
+        name: '代码',
+        color: '#96C1CF'
     },
     {
-        father: "Develop",
-        name: "编码",
-        color: "#FF5733"
+        father: 'Develop',
+        name: '编码',
+        color: '#FF5733'
     },
     {
-        father: "Develop",
-        name: "数据",
-        color: "#33FF57"
+        father: 'Develop',
+        name: '数据',
+        color: '#33FF57'
     },
     {
-        father: "Develop",
-        name: "发展",
-        color: "#3357FF"
+        father: 'Develop',
+        name: '发展',
+        color: '#3357FF'
     },
     {
-        father: "Develop",
-        name: "DevOps",
-        color: "#F1C40F"
-    },
-
-
-    {
-        father: "Office",
-        name: "商业",
-        color: "#E74C3C"
-    },
-    {
-        father: "Office",
-        name: "商业创意",
-        color: "#8E44AD"
-    },
-    {
-        father: "Office",
-        name: "商业计划",
-        color: "#3498DB"
-    },
-    {
-        father: "Office",
-        name: "职业",
-        color: "#2ECC71"
-    },
-    {
-        father: "Office",
-        name: "创业",
-        color: "#1ABC9C"
-    },
-    {
-        father: "Office",
-        name: "金融",
-        color: "#F39C12"
-    },
-    {
-        father: "Office",
-        name: "投资",
-        color: "#D35400"
+        father: 'Develop',
+        name: 'DevOps',
+        color: '#F1C40F'
     },
 
     {
-        father: "Article",
-        name: "文章",
-        color: "#C0392B"
+        father: 'Office',
+        name: '商业',
+        color: '#E74C3C'
     },
     {
-        father: "Article",
-        name: "博客",
-        color: "#2980B9"
+        father: 'Office',
+        name: '商业创意',
+        color: '#8E44AD'
     },
     {
-        father: "Article",
-        name: "博客文章",
-        color: "#8E44AD"
+        father: 'Office',
+        name: '商业计划',
+        color: '#3498DB'
     },
     {
-        father: "Article",
-        name: "书籍",
-        color: "#27AE60"
+        father: 'Office',
+        name: '职业',
+        color: '#2ECC71'
     },
     {
-        father: "Article",
-        name: "文档",
-        color: "#F1C40F"
+        father: 'Office',
+        name: '创业',
+        color: '#1ABC9C'
     },
     {
-        father: "Article",
-        name: "新闻",
-        color: "#E67E22"
+        father: 'Office',
+        name: '金融',
+        color: '#F39C12'
     },
     {
-        father: "Article",
-        name: "写作",
-        color: "#2C3E50"
-    },
-
-    {
-        father: "Draw",
-        name: "动画",
-        color: "#D35400"
-    },
-    {
-        father: "Draw",
-        name: "艺术",
-        color: "#C0392B"
-    },
-    {
-        father: "Draw",
-        name: "设计",
-        color: "#2980B9"
-    },
-    {
-        father: "Draw",
-        name: "图片",
-        color: "#27AE60"
-    },
-    {
-        father: "Draw",
-        name: "摄影",
-        color: "#8E44AD"
+        father: 'Office',
+        name: '投资',
+        color: '#D35400'
     },
 
     {
-        father: "Marketing",
-        name: "广告",
-        color: "#F39C12"
+        father: 'Article',
+        name: '文章',
+        color: '#C0392B'
     },
     {
-        father: "Marketing",
-        name: "品牌营销",
-        color: "#E67E22"
+        father: 'Article',
+        name: '博客',
+        color: '#2980B9'
     },
     {
-        father: "Marketing",
-        name: "电子邮件",
-        color: "#2C3E50"
+        father: 'Article',
+        name: '博客文章',
+        color: '#8E44AD'
     },
     {
-        father: "Marketing",
-        name: "Instagram",
-        color: "#9B59B6"
+        father: 'Article',
+        name: '书籍',
+        color: '#27AE60'
     },
     {
-        father: "Marketing",
-        name: "SEO",
-        color: "#34495E"
-    },
-
-    {
-        father: "AI",
-        name: "人工智能",
-        color: "#16A085"
+        father: 'Article',
+        name: '文档',
+        color: '#F1C40F'
     },
     {
-        father: "AI",
-        name: "聊天人工智能",
-        color: "#F39C12"
+        father: 'Article',
+        name: '新闻',
+        color: '#E67E22'
     },
     {
-        father: "AI",
-        name: "图像生成器",
-        color: "#E74C3C"
-    },
-    {
-        father: "AI",
-        name: "文本生成器",
-        color: "#8E44AD"
-    },
-
-
-    {
-        father: "Eduction",
-        name: "分析",
-        color: "#3498DB"
-    },
-    {
-        father: "Eduction",
-        name: "大学",
-        color: "#2ECC71"
-    },
-    {
-        father: "Eduction",
-        name: "沟通",
-        color: "#1ABC9C"
-    },
-    {
-        father: "Eduction",
-        name: "语言",
-        color: "#F1C40F"
-    },
-    {
-        father: "Eduction",
-        name: "学习",
-        color: "#E67E22"
+        father: 'Article',
+        name: '写作',
+        color: '#2C3E50'
     },
 
     {
-        father: "Other",
-        name: "头脑风暴",
-        color: "#C0392B"
+        father: 'Draw',
+        name: '动画',
+        color: '#D35400'
     },
     {
-        father: "Other",
-        name: "角色",
-        color: "#2980B9"
+        father: 'Draw',
+        name: '艺术',
+        color: '#C0392B'
     },
     {
-        father: "Other",
-        name: "喜剧",
-        color: "#27AE60"
+        father: 'Draw',
+        name: '设计',
+        color: '#2980B9'
     },
     {
-        father: "Other",
-        name: "文化",
-        color: "#8E44AD"
+        father: 'Draw',
+        name: '图片',
+        color: '#27AE60'
     },
     {
-        father: "Other",
-        name: "约会",
-        color: "#F39C12"
+        father: 'Draw',
+        name: '摄影',
+        color: '#8E44AD'
+    },
+
+    {
+        father: 'Marketing',
+        name: '广告',
+        color: '#F39C12'
     },
     {
-        father: "Other",
-        name: "食物",
-        color: "#D35400"
+        father: 'Marketing',
+        name: '品牌营销',
+        color: '#E67E22'
     },
     {
-        father: "Other",
-        name: "幽默",
-        color: "#C0392B"
+        father: 'Marketing',
+        name: '电子邮件',
+        color: '#2C3E50'
+    },
+    {
+        father: 'Marketing',
+        name: 'Instagram',
+        color: '#9B59B6'
+    },
+    {
+        father: 'Marketing',
+        name: 'SEO',
+        color: '#34495E'
+    },
+
+    {
+        father: 'AI',
+        name: '人工智能',
+        color: '#16A085'
+    },
+    {
+        father: 'AI',
+        name: '聊天人工智能',
+        color: '#F39C12'
+    },
+    {
+        father: 'AI',
+        name: '图像生成器',
+        color: '#E74C3C'
+    },
+    {
+        father: 'AI',
+        name: '文本生成器',
+        color: '#8E44AD'
+    },
+
+    {
+        father: 'Eduction',
+        name: '分析',
+        color: '#3498DB'
+    },
+    {
+        father: 'Eduction',
+        name: '大学',
+        color: '#2ECC71'
+    },
+    {
+        father: 'Eduction',
+        name: '沟通',
+        color: '#1ABC9C'
+    },
+    {
+        father: 'Eduction',
+        name: '语言',
+        color: '#F1C40F'
+    },
+    {
+        father: 'Eduction',
+        name: '学习',
+        color: '#E67E22'
+    },
+
+    {
+        father: 'Other',
+        name: '头脑风暴',
+        color: '#C0392B'
+    },
+    {
+        father: 'Other',
+        name: '角色',
+        color: '#2980B9'
+    },
+    {
+        father: 'Other',
+        name: '喜剧',
+        color: '#27AE60'
+    },
+    {
+        father: 'Other',
+        name: '文化',
+        color: '#8E44AD'
+    },
+    {
+        father: 'Other',
+        name: '约会',
+        color: '#F39C12'
+    },
+    {
+        father: 'Other',
+        name: '食物',
+        color: '#D35400'
+    },
+    {
+        father: 'Other',
+        name: '幽默',
+        color: '#C0392B'
     }
-] 
+];
