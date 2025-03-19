@@ -7,7 +7,7 @@ import type { Viewport } from 'next';
 import './styles/globals.css';
 
 export const metadata = {
-    title: 'DocAI'
+    title: 'AI Apps'
 };
 
 export const viewport: Viewport = {

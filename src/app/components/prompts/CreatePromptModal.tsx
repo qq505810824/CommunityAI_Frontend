@@ -30,10 +30,16 @@ export default function CreatePromptModal({ onClose }: CreatePromptModalProps) {
         // 初始化时设置默认值
         Object.keys(formData.fieldSchema).forEach((key) => {
             const uiSchema = formData.uiSchema[key as keyof typeof formData.uiSchema];
-            if (uiSchema['ui:widget'] === 'select' || uiSchema['ui:widget'] === 'tag') {
+            if (uiSchema['ui:widget'] === 'select') {
                 // 类型保护，确保 uiSchema 具有 ui:options 属性
                 if ('ui:options' in uiSchema && uiSchema['ui:options']?.enumOptions) {
                     setValue(key as keyof PromptModel, uiSchema['ui:options'].enumOptions[0]);
+                }
+            }
+            if (uiSchema['ui:widget'] === 'tag') {
+                // 类型保护，确保 uiSchema 具有 ui:options 属性
+                if ('ui:options' in uiSchema && uiSchema['ui:options']?.enumOptions) {
+                    setValue(key as keyof PromptModel, [uiSchema['ui:options'].enumOptions[0]]);
                 }
             }
         });
@@ -44,7 +50,7 @@ export default function CreatePromptModal({ onClose }: CreatePromptModalProps) {
         console.log(formData);
         const newFormData = {
             ...formData,
-            user: localStorage?.getItem('user_id') || ''
+            user: localStorage?.getItem('user_id') || null
         };
         setSubmitting(true);
         try {
@@ -103,7 +109,7 @@ export default function CreatePromptModal({ onClose }: CreatePromptModalProps) {
                         multiple
                         defaultValue={[
                             uiSchema['ui:options']?.enumOptions &&
-                                uiSchema['ui:options']?.enumOptions[0]
+                            uiSchema['ui:options']?.enumOptions[0]
                         ]}
                         onChange={(event, value) => {
                             // 处理选择变化
@@ -142,7 +148,7 @@ export default function CreatePromptModal({ onClose }: CreatePromptModalProps) {
                         multiple
                         defaultValue={[
                             uiSchema['ui:options']?.enumOptions &&
-                                uiSchema['ui:options']?.enumOptions[0]
+                            uiSchema['ui:options']?.enumOptions[0]
                         ]}
                         onChange={(event, value) => {
                             // 处理选择变化

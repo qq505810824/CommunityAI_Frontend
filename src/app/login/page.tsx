@@ -1,18 +1,28 @@
 'use client';
 
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export default function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
+    const searchParams = useSearchParams()
     const supabase = createClientComponentClient();
+    const [loading, setLoading] = useState(false)
+    const [redirect, setRedirect] = useState('')
+
+    useEffect(() => {
+        if (searchParams) {
+            setRedirect(searchParams.get('url') || '')
+        }
+    }, [router, searchParams])
 
     const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setLoading(true)
         try {
             const { data, error } = await supabase.auth.signInWithPassword({
                 email,
@@ -25,7 +35,7 @@ export default function SignIn() {
             if (error) {
                 setError(error.message);
             } else {
-                router.push('/home'); // 登录成功后跳转到仪表板页面
+                router.push(redirect || '/'); // 登录成功后跳转到仪表板页面
                 router.refresh();
             }
         } catch (error) {
@@ -67,9 +77,10 @@ export default function SignIn() {
                     </div>
                     <button
                         type="submit"
+                        disabled={loading}
                         className="w-full rounded-md bg-blue-500 py-2 text-white hover:bg-blue-600"
                     >
-                        登录
+                        {loading ? '登录中...' : '登录'}
                     </button>
                 </form>
             </div>

@@ -22,7 +22,7 @@ export interface PromptModel {
     share?: number;
     view?: number;
     collect?: number;
-    user?: string;
+    user?: string | null;
     account?: AccountModel;
     created_at: string;
     updated_at: string;

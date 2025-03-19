@@ -6,14 +6,23 @@ import { Box, Divider, Dropdown, Menu, MenuButton, MenuItem, Typography } from '
 import GlobalStyles from '@mui/joy/GlobalStyles';
 import IconButton from '@mui/joy/IconButton';
 import Sheet from '@mui/joy/Sheet';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { toggleSidebar } from '../../../utils/utils';
 
 export default function HeaderView() {
     const { userProfile } = useAppContext();
+    const supabase = createClientComponentClient();
+    useEffect(() => { }, []);
+    const router = useRouter();
 
-    useEffect(() => {}, []);
+    const logout = async () => {
+        localStorage.setItem('account', "")
+        localStorage?.setItem('user_id', "");
+        const res = await supabase.auth.signOut()
+        router.push('/login?=prompts')
+    }
 
     function AvatarMenu(props?: any) {
         const router = useRouter();
@@ -25,24 +34,37 @@ export default function HeaderView() {
                 >
                     <img
                         alt="avatar"
-                        src={userProfile?.avatar}
-                        className={` border rounded-full w-8 h-8 mr-1`}
+                        src={userProfile?.avatar || '/avatar.webp'}
+                        className={`rounded-full w-8 h-8 mr-1`}
                     />
                 </MenuButton>
                 <Menu size="sm" sx={{ minWidth: 140 }}>
                     <MenuItem
                         onClick={() => {
-                            router.push(`/profile`);
+                            if (userProfile.id == '') {
+                                router.push('/login?url=prompts')
+                            } else {
+                                router.push(`/profile`);
+                            }
                         }}
                     >
                         <PermIdentityIcon />
                         Profile
                     </MenuItem>
-                    <Divider />
-                    <MenuItem color="danger" onClick={() => {}}>
-                        <LogoutIcon />
-                        Logout
-                    </MenuItem>
+                    {userProfile.id != '' && <>
+                        <Divider />
+                        <MenuItem color="danger" onClick={() => {
+                            if (userProfile.id == '') {
+                                router.push('/login?url=prompts')
+                            } else {
+                                logout()
+                            }
+                        }}>
+                            <LogoutIcon />
+                            Logout
+                        </MenuItem>
+                    </>
+                    }
                 </Menu>
             </Dropdown>
         );
@@ -76,7 +98,7 @@ export default function HeaderView() {
                 />
                 <div className="w-full sm:max-w-7xl flex justify-between ">
                     <div className="flex flex-row items-center gap-2">
-                        <img alt="" src="/logo/logo_p.png" className="w-8 rounded-full" />
+                        <img alt="" src="/logo/logo_p.png" className="w-12 h-8" />
                         <Typography level={'h4'}>Prompt 知识库</Typography>
                     </div>
 
@@ -84,7 +106,7 @@ export default function HeaderView() {
                         {AvatarMenu()}
                         <Box
                             sx={{
-                                display: { xs: 'flex', sm: 'none' }
+                                display: { xs: 'none', sm: 'none' }
                             }}
                         >
                             <IconButton
