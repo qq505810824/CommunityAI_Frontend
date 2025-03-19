@@ -112,10 +112,13 @@ export default function Profile() {
 
             if (uploadError) throw uploadError;
 
-            // 更新个人资料中的头像路径（只存储相对路径）
+            // 获取完整的公共 URL
+            const avatarUrl = getImageUrl(filePath);
+
+            // 更新个人资料中的头像路径（存储绝对路径）
             const { error: updateError } = await supabase
                 .from('account')
-                .update({ avatar: filePath })
+                .update({ avatar: avatarUrl })
                 .eq('id', user.id);
 
             if (updateError) throw updateError;
@@ -156,11 +159,11 @@ export default function Profile() {
                 <div className="mb-6">
                     <label className="block mb-2">头像</label>
                     <div className="flex items-center space-x-4">
-                        <div className="w-24 h-24 relative">
+                        <div className="w-24 h-24">
                             <img
-                                src={getImageUrl(profile.avatar)}
+                                src={profile.avatar || '/avatar.webp'}
                                 alt="头像"
-                                className="w-full h-full object-cover rounded-full"
+                                className=" object-contain "
                             />
                         </div>
                         <input

@@ -30,7 +30,6 @@ export default function UserView(props: ViewProps) {
     // />
     return (
         <>
-
             <Typography
                 className="text-xs text-gray-500 flex flex-row items-center"
                 startDecorator={

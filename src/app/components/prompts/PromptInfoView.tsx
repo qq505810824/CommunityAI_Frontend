@@ -1,6 +1,5 @@
-
 interface ViewProps {
-    prompt: string
+    prompt: string;
 }
 
 export default function PromptInfoView(props: ViewProps) {

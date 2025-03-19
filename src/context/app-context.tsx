@@ -1,15 +1,17 @@
 'use client';
 
 import Loading from '@/app/components/base/loading';
-import type { LangGeniusVersionResponse, UserProfileResponse } from '@/models/common';
+import { AccountModel } from '@/models/Account';
+import type { LangGeniusVersionResponse } from '@/models/common';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 import type { FC, ReactNode } from 'react';
-import { createRef, useRef, useState } from 'react';
+import { createRef, useEffect, useRef, useState } from 'react';
 import { createContext, useContext, useContextSelector } from 'use-context-selector';
 
 export type AppContextValue = {
     tags?: any;
-    userProfile: UserProfileResponse;
+    userProfile: AccountModel;
     pageContainerRef: React.RefObject<HTMLDivElement>;
     langeniusVersionInfo?: LangGeniusVersionResponse;
     useSelector: typeof useSelector;
@@ -32,7 +34,6 @@ const AppContext = createContext<AppContextValue>({
         name: '',
         email: '',
         avatar: '',
-        is_password_set: false
     },
     pageContainerRef: createRef(),
     langeniusVersionInfo: initialLangeniusVersionInfo,
@@ -48,55 +49,65 @@ export type AppContextProviderProps = {
 };
 
 export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) => {
+    const supabase = createClientComponentClient();
+
     const pageContainerRef = useRef<HTMLDivElement>(null);
-    const [userProfile] = useState({
-        id: '',
-        name: '',
-        email: '',
-        avatar: '',
-        is_password_set: false
-    });
+    const [userProfile, setUserProfile] = useState<AccountModel>();
 
-    // const { data: tags, mutate: mutateApps } = useSWR(
-    //     { url: '/api/v1/tags', params: { page: 1, limit: 30, name: '' } },
-    //     getTags
-    // );
-    // const { data: userProfileResponse, mutate: mutateUserProfile } = useSWR({ url: '/account/profile', params: {} }, fetchUserProfile)
-    // const { data: currentWorkspaceResponse, mutate: mutateCurrentWorkspace } = useSWR({ url: '/workspaces/current', params: {} }, fetchCurrentWorkspace)
+    useEffect(() => {
+        // 从本地存储中获取用户信息
+        const storedAccount = localStorage.getItem('account');
+        let account = null
+        if (storedAccount) {
+            account = JSON.parse(storedAccount)
+            setUserProfile(account);
+        } else {
+            supabase.auth.getUser().then(async ({ data: { user } }) => {
+                if (user) {
+                    const { data: accountData, error } = await supabase
+                        .from('account')
+                        .select('*')
+                        .eq('id', user.id)
+                        .single();
 
-    // const [userProfile, setUserProfile] = useState<UserProfileResponse>()
-    // const [langeniusVersionInfo, setLangeniusVersionInfo] = useState<LangGeniusVersionResponse>(
-    //     initialLangeniusVersionInfo
-    // );
-    // const [currentWorkspace, setCurrentWorkspace] = useState<ICurrentWorkspace>(initialWorkspaceInfo)
-    // const isCurrentWorkspaceManager = useMemo(() => ['owner', 'admin'].includes(currentWorkspace.role), [currentWorkspace.role])
-    // const isCurrentWorkspaceOwner = useMemo(() => currentWorkspace.role === 'owner', [currentWorkspace.role])
-    // const updateUserProfileAndVersion = useCallback(async () => {
-    //     if (userProfileResponse && !userProfileResponse.bodyUsed) {
-    //         const result = await userProfileResponse.json()
-    //         setUserProfile(result)
-    //         localStorage.setItem('user_id', result.id)
-    //         const current_version = userProfileResponse.headers.get('x-version')
-    //         const current_env = process.env.NODE_ENV === 'development' ? 'DEVELOPMENT' : userProfileResponse.headers.get('x-env')
-    //         const versionData = await fetchLanggeniusVersion({ url: '/version', params: { current_version } })
-    //         setLangeniusVersionInfo({ ...versionData, current_version, latest_version: versionData.version, current_env })
-    //     }
-    // }, [userProfileResponse])
+                    if (error) {
+                        console.error('Error fetching account data:', error);
+                    } else if (accountData) {
+                        setUserProfile(accountData);
+                        localStorage.setItem('account', JSON.stringify(accountData));
+                    }
+                }
+            });
+        }
 
-    // useEffect(() => {
-    //     updateUserProfileAndVersion()
-    // }, [updateUserProfileAndVersion, userProfileResponse])
-
-    // useEffect(() => {
-    //     if (currentWorkspaceResponse)
-    //         setCurrentWorkspace(currentWorkspaceResponse)
-    // }, [currentWorkspaceResponse])
-
-    // useEffect(() => {
-    //     if (tags) {
-    //         console.log('tags', tags);
-    //     }
-    // }, [tags]);
+        // 实时监听用户信息更新
+        const realtime = supabase
+            .channel('user-updates')
+            .on(
+                'postgres_changes',
+                {
+                    event: 'UPDATE',
+                    schema: 'public',
+                    table: 'account',
+                    filter: `id=eq.${account?.id}`
+                },
+                (payload) => {
+                    const accountData = payload.new;
+                    // console.log('new', accountData);
+                    // 确保accountData符合AccountModel类型
+                    if (accountData && 'id' in accountData && 'email' in accountData && 'name' in accountData && 'avatar' in accountData) {
+                        setUserProfile(accountData as AccountModel);
+                    } else {
+                        console.error('Received account data does not match AccountModel:', accountData);
+                    }
+                    localStorage.setItem('account', JSON.stringify(accountData));
+                }
+            )
+            .subscribe();
+        return () => {
+            realtime.unsubscribe();
+        };
+    }, []);
 
     if (!userProfile) return <Loading type="app" />;
 

@@ -35,7 +35,7 @@ function PromptContainer() {
             });
             setPrompts(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     const handleSearch = async (value: string) => {

@@ -1,7 +1,7 @@
 import { CircularProgress, Link } from '@mui/joy';
 
 interface ViewProps {
-    loading?: boolean
+    loading?: boolean;
 }
 
 export default function LoadView(props: ViewProps) {

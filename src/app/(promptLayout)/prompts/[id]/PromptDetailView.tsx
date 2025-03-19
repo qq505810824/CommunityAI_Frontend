@@ -14,16 +14,15 @@ interface ViewProps {
 function PromptDetailView(props: ViewProps) {
     const { prompt } = props;
 
-
     return (
-        <>
-            <div className="w-full flex flex-col sm:flex-row px-4 sm:px-10 py-4 gap-4  ">
+        <><div className="w-full flex justify-center">
+            <div className="w-full sm:max-w-7xl flex flex-col sm:flex-row px-4 sm:px-10 py-4 gap-4  ">
                 <div className="w-full  sm:w-1/3 space-y-4">
                     <BackView title="Back" />
                     <Typography level="h4">{prompt?.title}</Typography>
                     <UserView
                         user={prompt?.account}
-                        imgClassName={"w-10 h-10"}
+                        imgClassName={'w-10 h-10'}
                         textClassName={{
                             fontSize: 16
                         }}
@@ -44,7 +43,8 @@ function PromptDetailView(props: ViewProps) {
                     <OperationView prompt={prompt} />
                     <PromptInfoView prompt={prompt?.prompt || ''} />
                 </div>
-            </div>
+            </div >
+        </div>
         </>
     );
 }

@@ -4,7 +4,7 @@ import { PromptModel } from '@/hooks/usePromptData';
 import { Box, Typography } from '@mui/joy';
 interface ViewProps {
     data: any;
-    isLoading: any
+    isLoading: any;
     prompts: PromptModel[];
     onClose: () => void;
     handleSearch: any;
@@ -30,7 +30,11 @@ function PromptView(props: ViewProps) {
                     {/* <div className='h-10'>
                         {(isLoading || searching) && <LoadView />}
                     </div> */}
-                    {prompts.length == 0 && !isLoading && <Typography level='h4' sx={{ padding: 10 }} >No prompts found.</Typography>}
+                    {prompts.length == 0 && !isLoading && (
+                        <Typography level="h4" sx={{ padding: 10 }}>
+                            No prompts found.
+                        </Typography>
+                    )}
                     <div className="flex-row   px-4 grid   sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full sm:max-w-7xl">
                         {prompts?.map((product, index) => (
                             <PromptCard prompt={product} key={index} />

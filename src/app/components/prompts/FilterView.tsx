@@ -121,10 +121,12 @@ export default function FilterView(props: ViewProps) {
                             ))}
                         </div>
                     </div>
-                    <div className='h-10'>
+                    <div className="h-10">
                         {selectOption && (
                             <div className="flex flex-row gap-2  items-center">
-                                <span className=" text-sm font-medium whitespace-nowrap">已选:</span>
+                                <span className=" text-sm font-medium whitespace-nowrap">
+                                    已选:
+                                </span>
                                 <div className="flex flex-row gap-2 flex-wrap items-center">
                                     <TagView
                                         tag={selectOption}
@@ -132,7 +134,6 @@ export default function FilterView(props: ViewProps) {
                                             setSelectedOption('');
                                         }}
                                     ></TagView>
-
                                 </div>
                             </div>
                         )}

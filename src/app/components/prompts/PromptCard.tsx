@@ -17,8 +17,7 @@ export default function PromptCard(props: ViewProps) {
     const router = useRouter();
 
     const handleClick = () => {
-        if (prompt)
-            router.push(`/prompts/${prompt.id}`);
+        if (prompt) router.push(`/prompts/${prompt.id}`);
     };
 
     return (
@@ -30,7 +29,6 @@ export default function PromptCard(props: ViewProps) {
                 <div className="flex flex-row space-x-2">
                     <div className="w-full overflow-hidden space-y-1 ">
                         <div className="flex flex-row items-center justify-between">
-
                             <Typography
                                 level="h4"
                                 style={{
@@ -44,10 +42,7 @@ export default function PromptCard(props: ViewProps) {
 
                             <CopyButton content={prompt?.prompt} />
                         </div>
-                        <UserView
-                            user={prompt.account}
-                            imgClassName={"w-4 h-4 "}
-                        />
+                        <UserView user={prompt.account} imgClassName={'w-4 h-4 '} />
                         <Typography
                             level="body-sm"
                             className="text-sm text-black"
