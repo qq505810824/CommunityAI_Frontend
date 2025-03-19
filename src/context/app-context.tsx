@@ -1,6 +1,5 @@
 'use client';
 
-import Loading from '@/app/components/base/loading';
 import { AccountModel } from '@/models/Account';
 import type { LangGeniusVersionResponse } from '@/models/common';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
@@ -33,7 +32,7 @@ const AppContext = createContext<AppContextValue>({
         id: '',
         name: '',
         email: '',
-        avatar: '',
+        avatar: ''
     },
     pageContainerRef: createRef(),
     langeniusVersionInfo: initialLangeniusVersionInfo,
@@ -52,14 +51,19 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
     const supabase = createClientComponentClient();
 
     const pageContainerRef = useRef<HTMLDivElement>(null);
-    const [userProfile, setUserProfile] = useState<AccountModel>();
+    const [userProfile, setUserProfile] = useState<AccountModel>({
+        id: '',
+        name: '',
+        email: '',
+        avatar: ''
+    });
 
     useEffect(() => {
         // 从本地存储中获取用户信息
         const storedAccount = localStorage.getItem('account');
-        let account = null
+        let account = null;
         if (storedAccount) {
-            account = JSON.parse(storedAccount)
+            account = JSON.parse(storedAccount);
             setUserProfile(account);
         } else {
             supabase.auth.getUser().then(async ({ data: { user } }) => {
@@ -95,10 +99,19 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
                     const accountData = payload.new;
                     // console.log('new', accountData);
                     // 确保accountData符合AccountModel类型
-                    if (accountData && 'id' in accountData && 'email' in accountData && 'name' in accountData && 'avatar' in accountData) {
+                    if (
+                        accountData &&
+                        'id' in accountData &&
+                        'email' in accountData &&
+                        'name' in accountData &&
+                        'avatar' in accountData
+                    ) {
                         setUserProfile(accountData as AccountModel);
                     } else {
-                        console.error('Received account data does not match AccountModel:', accountData);
+                        console.error(
+                            'Received account data does not match AccountModel:',
+                            accountData
+                        );
                     }
                     localStorage.setItem('account', JSON.stringify(accountData));
                 }
@@ -109,7 +122,7 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
         };
     }, []);
 
-    if (!userProfile) return <Loading type="app" />;
+    // if (!userProfile) return <Loading type="app" />;
 
     return (
         <AppContext.Provider

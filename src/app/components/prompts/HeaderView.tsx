@@ -11,11 +11,9 @@ import { useEffect } from 'react';
 import { toggleSidebar } from '../../../utils/utils';
 
 export default function HeaderView() {
-    const { userProfile } = useAppContext()
+    const { userProfile } = useAppContext();
 
-    useEffect(() => {
-
-    }, []);
+    useEffect(() => {}, []);
 
     function AvatarMenu(props?: any) {
         const router = useRouter();
@@ -37,28 +35,24 @@ export default function HeaderView() {
                             router.push(`/profile`);
                         }}
                     >
-                        <PermIdentityIcon />Profile
+                        <PermIdentityIcon />
+                        Profile
                     </MenuItem>
                     <Divider />
-                    <MenuItem
-                        color="danger"
-                        onClick={() => {
-
-                        }}
-                    >
-                        <LogoutIcon />Logout
+                    <MenuItem color="danger" onClick={() => {}}>
+                        <LogoutIcon />
+                        Logout
                     </MenuItem>
                 </Menu>
             </Dropdown>
         );
     }
 
-
     return (
         <>
             <Sheet
                 sx={{
-                    display: "flex",
+                    display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     position: 'fixed',
@@ -71,26 +65,28 @@ export default function HeaderView() {
                     borderBottom: '1px solid',
                     borderColor: 'background.level1',
                     boxShadow: 'sm'
-                }}>
+                }}
+            >
                 <GlobalStyles
                     styles={(theme) => ({
                         ':root': {
-                            '--Header-height': '52px',
+                            '--Header-height': '52px'
                         }
                     })}
                 />
-                <div className='w-full sm:max-w-7xl flex justify-between '>
-                    <div className='flex flex-row items-center gap-2'>
-                        <img alt='' src='/logo/logo_p.png' className='w-8 rounded-full' />
-                        <Typography level={'h4'} >Prompt 知识库</Typography>
+                <div className="w-full sm:max-w-7xl flex justify-between ">
+                    <div className="flex flex-row items-center gap-2">
+                        <img alt="" src="/logo/logo_p.png" className="w-8 rounded-full" />
+                        <Typography level={'h4'}>Prompt 知识库</Typography>
                     </div>
 
-                    <div className='flex flex-row items-center gap-2'>
+                    <div className="flex flex-row items-center gap-2">
                         {AvatarMenu()}
                         <Box
                             sx={{
                                 display: { xs: 'flex', sm: 'none' }
-                            }}>
+                            }}
+                        >
                             <IconButton
                                 onClick={() => toggleSidebar()}
                                 variant="outlined"
