@@ -1,8 +1,8 @@
-import { PromptModel } from '@/hooks/usePromptData';
-import { FavoriteBorderOutlined } from '@mui/icons-material';
+import { PromptModel, usePromptOperations } from '@/hooks/usePromptData';
 import ContentCopyOutlinedIcon from '@mui/icons-material/ContentCopyOutlined';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import { Typography } from '@mui/joy';
 import { useRouter } from 'next/navigation';
 import CopyButton from './CopyButton';
@@ -15,10 +15,20 @@ interface ViewProps {
 export default function PromptCard(props: ViewProps) {
     const { prompt } = props;
     const router = useRouter();
-
+    const { updatePrompt } = usePromptOperations()
     const handleClick = () => {
         if (prompt) router.push(`/prompts/${prompt.id}`);
     };
+
+    const handleCopy = async () => {
+        console.log('copy');
+        if (prompt) {
+            const res = await updatePrompt(prompt?.id, {
+                copy: 1
+            })
+            console.log('res', res);
+        }
+    }
 
     return (
         <>
@@ -40,7 +50,7 @@ export default function PromptCard(props: ViewProps) {
                                 {prompt?.title}
                             </Typography>
 
-                            <CopyButton content={prompt?.prompt} />
+                            <CopyButton content={prompt?.prompt} callback={handleCopy} />
                         </div>
                         <UserView user={prompt.account} imgClassName={'w-4 h-4 '} />
                         <Typography
@@ -85,7 +95,7 @@ export default function PromptCard(props: ViewProps) {
                                 {prompt?.collect || 0}
                             </Typography>
                             <Typography
-                                startDecorator={<FavoriteBorderOutlined sx={{ width: 12 }} />}
+                                startDecorator={<ThumbUpOffAltIcon sx={{ width: 12 }} />}
                                 sx={{
                                     color: 'gray',
                                     fontSize: 12
@@ -105,7 +115,7 @@ export default function PromptCard(props: ViewProps) {
                             </Typography>
                         </>
                     </div>
-                    <Typography level="body-xs">{prompt?.created_at}</Typography>
+                    <Typography level="body-xs">{prompt?.updated_at}</Typography>
                 </div>
             </div>
         </>

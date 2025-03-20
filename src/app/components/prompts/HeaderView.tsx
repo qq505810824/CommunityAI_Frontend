@@ -14,15 +14,15 @@ import { toggleSidebar } from '../../../utils/utils';
 export default function HeaderView() {
     const { userProfile } = useAppContext();
     const supabase = createClientComponentClient();
-    useEffect(() => { }, []);
+    useEffect(() => {}, []);
     const router = useRouter();
 
     const logout = async () => {
-        localStorage.setItem('account', "")
-        localStorage?.setItem('user_id', "");
-        const res = await supabase.auth.signOut()
-        router.push('/login?=prompts')
-    }
+        localStorage.setItem('account', '');
+        localStorage?.setItem('user_id', '');
+        const res = await supabase.auth.signOut();
+        router.push('/login?=prompts');
+    };
 
     function AvatarMenu(props?: any) {
         const router = useRouter();
@@ -42,7 +42,7 @@ export default function HeaderView() {
                     <MenuItem
                         onClick={() => {
                             if (userProfile.id == '') {
-                                router.push('/login?url=prompts')
+                                router.push('/login?url=prompts');
                             } else {
                                 router.push(`/profile`);
                             }
@@ -51,20 +51,24 @@ export default function HeaderView() {
                         <PermIdentityIcon />
                         Profile
                     </MenuItem>
-                    {userProfile.id != '' && <>
-                        <Divider />
-                        <MenuItem color="danger" onClick={() => {
-                            if (userProfile.id == '') {
-                                router.push('/login?url=prompts')
-                            } else {
-                                logout()
-                            }
-                        }}>
-                            <LogoutIcon />
-                            Logout
-                        </MenuItem>
-                    </>
-                    }
+                    {userProfile.id != '' && (
+                        <>
+                            <Divider />
+                            <MenuItem
+                                color="danger"
+                                onClick={() => {
+                                    if (userProfile.id == '') {
+                                        router.push('/login?url=prompts');
+                                    } else {
+                                        logout();
+                                    }
+                                }}
+                            >
+                                <LogoutIcon />
+                                Logout
+                            </MenuItem>
+                        </>
+                    )}
                 </Menu>
             </Dropdown>
         );

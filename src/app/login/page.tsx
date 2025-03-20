@@ -9,20 +9,20 @@ export default function SignIn() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
-    const searchParams = useSearchParams()
+    const searchParams = useSearchParams();
     const supabase = createClientComponentClient();
-    const [loading, setLoading] = useState(false)
-    const [redirect, setRedirect] = useState('')
+    const [loading, setLoading] = useState(false);
+    const [redirect, setRedirect] = useState('');
 
     useEffect(() => {
         if (searchParams) {
-            setRedirect(searchParams.get('url') || '')
+            setRedirect(searchParams.get('url') || '');
         }
-    }, [router, searchParams])
+    }, [router, searchParams]);
 
     const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setLoading(true)
+        setLoading(true);
         try {
             const { data, error } = await supabase.auth.signInWithPassword({
                 email,

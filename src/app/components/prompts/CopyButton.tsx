@@ -5,10 +5,11 @@ import { useState } from 'react';
 
 interface ViewProps {
     content?: string;
+    callback?: () => void;
 }
 
 export default function CopyButton(props: ViewProps) {
-    const { content } = props;
+    const { content, callback } = props;
 
     const [copySuccess, setCopySuccess] = useState(false);
 
@@ -16,9 +17,10 @@ export default function CopyButton(props: ViewProps) {
         e.stopPropagation();
         copy(content || '');
         setCopySuccess(true);
+        callback && callback();
         setTimeout(() => {
             setCopySuccess(false);
-        }, 1000); // 2 秒后隐藏提示
+        }, 1000); // 2 秒后隐藏提示  
     };
 
     return (

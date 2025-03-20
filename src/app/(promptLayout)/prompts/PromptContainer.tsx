@@ -25,12 +25,13 @@ function PromptContainer() {
             const newData = data?.map((item) => {
                 return {
                     ...item,
-                    tags: item.tags && JSON.parse(item.tags).slice(0, 4) || [],
+                    tags: (item.tags && JSON.parse(item.tags).slice(0, 4)) || [],
                     collect: formatK(item.collect || 0),
                     focus: formatK(item.focus || 0),
                     share: formatK(item.share || 0),
                     copy: formatK(item.copy || 0),
-                    created_at: moment(item.created_at).fromNow()
+                    created_at: moment(item.created_at).fromNow(),
+                    updated_at: moment(item.updated_at).fromNow()
                 };
             });
             setPrompts(newData);
@@ -47,12 +48,13 @@ function PromptContainer() {
             const newData = res.data.map((item: PromptModel) => {
                 return {
                     ...item,
-                    tags: item.tags && JSON.parse(item.tags).slice(0, 4) || [],
+                    tags: (item.tags && JSON.parse(item.tags).slice(0, 4)) || [],
                     collect: formatK(item.collect || 0),
                     focus: formatK(item.focus || 0),
                     share: formatK(item.share || 0),
                     copy: formatK(item.copy || 0),
-                    created_at: moment(item.created_at).fromNow()
+                    created_at: moment(item.created_at).fromNow(),
+                    updated_at: moment(item.updated_at).fromNow()
                 };
             });
             setPrompts(newData);

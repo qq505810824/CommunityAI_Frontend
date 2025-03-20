@@ -26,6 +26,8 @@ export interface PromptModel {
     account?: AccountModel;
     created_at: string;
     updated_at: string;
+
+    is_collected?: boolean
 }
 
 // 应用数据 fetcher 函数
@@ -52,16 +54,16 @@ export const usePromptData = (options = {}) => {
     };
 };
 
-const appDetailFetcher = async (id: number) => {
-    const { data, error } = await getAppDetail(id);
+const appDetailFetcher = async (id: number, accountId?: string) => {
+    const { data, error } = await getAppDetail(id, accountId);
     if (error) throw error;
     return data || [];
 };
 
-export const usePromptDetailData = (id: number, options = {}) => {
+export const usePromptDetailData = (id: number, accountId?: string, options = {}) => {
     const { data, error, isLoading, mutate } = useSWR(
         'detail_prompt_' + id,
-        () => appDetailFetcher(id),
+        () => appDetailFetcher(id, accountId),
         {
             revalidateOnFocus: false,
             revalidateOnReconnect: false,

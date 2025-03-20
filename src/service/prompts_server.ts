@@ -9,7 +9,9 @@ const supabase = createClient(
 const db = 'prompts';
 export const getAllApps = async () => {
     try {
-        const { data, error } = await supabase.from(db).select('*, account(id,name,email,avatar)');
+        const { data, error } = await supabase.from(db)
+            .select('*, account(id,name,email,avatar)')
+            .order('updated_at', { ascending: false });;
 
         if (error) {
             throw error;
@@ -22,20 +24,48 @@ export const getAllApps = async () => {
     }
 };
 
-export const getAppDetail = async (id: number) => {
+export const getAppDetail = async (id: number, accountId?: string) => {
     try {
-        const { data, error } = await supabase
-            .from(db)
-            .select('*, account(id,name,email,avatar)')
-            .eq('id', id)
-            .single();
-        if (error) {
-            throw error;
+        // 构建查询任务数组
+        const tasks = [
+            supabase.rpc('increment_view', { row_id: id }),
+            supabase
+                .from(db)
+                .select('*, account(id,name,email,avatar)')
+                .eq('id', id)
+                .single()
+        ];
+
+        // 如果有用户ID，添加收藏状态查询
+        // console.log('accountId', accountId);
+        if (accountId) {
+            tasks.push(
+                supabase
+                    .from('account_prompts')
+                    .select('*')
+                    .eq('prompt_id', id)
+                    .eq('account_id', accountId)
+                // .single()
+            );
         }
 
-        return { data, error: null };
+        // 并行执行所有操作
+        const [viewResult, detailResult, collectResult] = await Promise.all(tasks);
+        // console.log('collectResult', collectResult);
+
+        if (detailResult.error) {
+            throw detailResult.error;
+        }
+
+        return {
+            data: {
+                ...detailResult.data,
+                is_collected: collectResult ? collectResult?.data?.length > 0 : false
+            },
+            error: null
+        };
     } catch (error) {
-        console.error('获取应用列表失败:', error);
+        console.error('获取应用详情失败:', error);
         return { data: null, error };
     }
 };
@@ -57,13 +87,35 @@ export const createApp = async (appData: Omit<PromptModel, 'id'>) => {
 
 export const updateApp = async (id: number, appData: Partial<PromptModel>) => {
     try {
-        const { data, error } = await supabase.from(db).update(appData).eq('id', id).select();
+        let result;
+        // 如果是更新 focus，使用 RPC
+        if ('focus' in appData) {
+            const { data, error } = await supabase
+                .rpc(appData.focus == 1 ? 'increment_focus' : 'decrement_focus', { row_id: id })
+                .single();
 
-        if (error) {
-            throw error;
+            if (error) throw error;
+            result = { data, error: null };
+        } else if ('copy' in appData) {
+            const { data, error } = await supabase
+                .rpc('increment_copy', { row_id: id })
+                .single();
+
+            if (error) throw error;
+            result = { data, error: null };
+        } else {
+            // 其他更新操作保持不变
+            const { data, error } = await supabase
+                .from(db)
+                .update(appData)
+                .eq('id', id)
+                .select();
+
+            if (error) throw error;
+            result = { data, error: null };
         }
 
-        return { success: true, data };
+        return { success: true, data: result.data };
     } catch (error) {
         console.error('更新应用失败:', error);
         return { success: false, error };
