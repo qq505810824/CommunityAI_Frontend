@@ -32,9 +32,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
 };
 
 export const metadata = {
-    title: 'Prompt文案',
-    keywords: 'prompt,Prompt,AI prompt,,AI Prompt,文案, AI 文案, prompt 文案',
-    description: 'Prompt文案'
+    title: 'Prompt知识库',
+    keywords: 'prompt,Prompt,AI prompt,,AI Prompt,文案, AI 文案, prompt 文案, prompt 知识库',
+    description: 'Prompt知识库'
 };
 
 export default Layout;

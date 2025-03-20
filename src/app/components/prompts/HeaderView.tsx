@@ -14,14 +14,14 @@ import { toggleSidebar } from '../../../utils/utils';
 export default function HeaderView() {
     const { userProfile } = useAppContext();
     const supabase = createClientComponentClient();
-    useEffect(() => {}, []);
+    useEffect(() => { }, []);
     const router = useRouter();
 
     const logout = async () => {
         localStorage.setItem('account', '');
         localStorage?.setItem('user_id', '');
         const res = await supabase.auth.signOut();
-        router.push('/login?=prompts');
+        router.push(`/login?redirect=${window.location.href}`);
     };
 
     function AvatarMenu(props?: any) {

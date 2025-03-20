@@ -15,7 +15,11 @@ function PromptDetailContainer() {
     const user_id = localStorage.getItem('user_id');
     const [prompt, setPrompts] = useState<PromptModel>();
 
-    const { data, isLoading: categoryLoading, isError } = usePromptDetailData(Number(params['id']), user_id || '');
+    const {
+        data,
+        isLoading: categoryLoading,
+        isError
+    } = usePromptDetailData(Number(params['id']), user_id || '');
 
     useEffect(() => {
         if (data) {
@@ -25,7 +29,7 @@ function PromptDetailContainer() {
             };
             setPrompts(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     return (

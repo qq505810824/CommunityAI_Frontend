@@ -15,15 +15,12 @@ interface ViewProps {
 export default function FilterView(props: ViewProps) {
     const { tag, onClose, onSearch, searching } = props;
 
-    const [selectedOption1, setSelectedOption1] = useState(PromptFatherTags[0].name);
-    const [selectedOption2, setSelectedOption2] = useState('');
     const [secondOptions, setSecondOptions] = useState<any[]>([]);
     const [selectOption, setSelectedOption] = useState<any>(null);
     const [selectFather, setSelectedFather] = useState<any>();
 
     useEffect(() => {
         const options = PromptTags.filter((tag) => tag.father == PromptFatherTags[0].name);
-        setSelectedOption2(options[0].name || '');
         setSecondOptions(options);
         setSelectedFather(PromptFatherTags[0]);
     }, []);
@@ -39,23 +36,11 @@ export default function FilterView(props: ViewProps) {
         setSecondOptions(options);
     };
 
-    const handleOption1Change = (event: React.SyntheticEvent | null, newValue: string | null) => {
-        setSelectedOption1(newValue || '');
-        // 根据第一个选择框的值更新第二个选择框的选项
-        const options = PromptTags.filter((tag) => tag.father == newValue);
-        setSecondOptions(options);
-        setSelectedOption2(options[0].name || '');
-    };
-
-    const handleOption2Change = (event: React.SyntheticEvent | null, newValue: string | null) => {
-        setSelectedOption2(newValue || '');
-    };
-
     return (
         <>
             <div className="w-full items-center bg-blue-400 text-center px-4 flex flex-col justify-center py-8 sm:py-16  ">
                 <Typography level="h2" sx={{ color: '#eeeeee', marginBottom: 4 }}>
-                    Prompt 文案
+                    Prompt
                 </Typography>
                 <SearchInputView
                     className={'w-full sm:w-1/2 rounded-full mb-4'}

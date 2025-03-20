@@ -109,7 +109,7 @@ export default function CreatePromptModal({ onClose }: CreatePromptModalProps) {
                         multiple
                         defaultValue={[
                             uiSchema['ui:options']?.enumOptions &&
-                                uiSchema['ui:options']?.enumOptions[0]
+                            uiSchema['ui:options']?.enumOptions[0]
                         ]}
                         onChange={(event, value) => {
                             // 处理选择变化
@@ -148,7 +148,7 @@ export default function CreatePromptModal({ onClose }: CreatePromptModalProps) {
                         multiple
                         defaultValue={[
                             uiSchema['ui:options']?.enumOptions &&
-                                uiSchema['ui:options']?.enumOptions[0]
+                            uiSchema['ui:options']?.enumOptions[0]
                         ]}
                         onChange={(event, value) => {
                             // 处理选择变化
@@ -212,7 +212,7 @@ export default function CreatePromptModal({ onClose }: CreatePromptModalProps) {
                 }}
                 sx={{}}
             >
-                <ModalDialog size="md">
+                <ModalDialog size="md" className="h-[80vh]">
                     <ModalClose />
                     <DialogTitle>Create new Prompt</DialogTitle>
                     {/* <DialogContent>Fill in the information of the projectFill </DialogContent> */}

@@ -1,7 +1,4 @@
-import {
-    collectPrompt
-} from '@/service/account_server';
-
+import { collectPrompt } from '@/service/account_server';
 
 export const useAccontOperations = () => {
     // const { mutate } = usePromptData(); // 移动到顶层

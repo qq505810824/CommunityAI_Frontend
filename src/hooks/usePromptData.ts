@@ -27,7 +27,7 @@ export interface PromptModel {
     created_at: string;
     updated_at: string;
 
-    is_collected?: boolean
+    is_collected?: boolean;
 }
 
 // 应用数据 fetcher 函数

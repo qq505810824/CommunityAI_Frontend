@@ -6,6 +6,7 @@ import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import { IconButton, Tooltip } from '@mui/joy';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import CopyButton from './CopyButton';
 
@@ -15,12 +16,12 @@ interface ViewProps {
 
 export default function OperationView(props: ViewProps) {
     const { prompt } = props;
-
+    const router = useRouter();
     const [collect, setCollect] = useState(prompt?.is_collected || false);
     const [focus, setFocus] = useState(false);
     const isLogin = localStorage?.getItem('user_id') || '';
-    const { updatePrompt } = usePromptOperations()
-    const { collectPromptById } = useAccontOperations()
+    const { updatePrompt } = usePromptOperations();
+    const { collectPromptById } = useAccontOperations();
 
     useEffect(() => {
         // 当 prompt 数据更新时，更新收藏状态
@@ -30,13 +31,18 @@ export default function OperationView(props: ViewProps) {
     }, [prompt?.is_collected]);
 
     const handleCollect = async () => {
+        if (!isLogin) {
+            router.push(`/login?redirect=${window.location.href}`);
+            return;
+        }
+        setCollect(!collect);
         const userId = localStorage?.getItem('user_id');
         if (!userId || !prompt?.id) return;
 
         const res = await collectPromptById(prompt.id, userId);
-        if (res.success) {
-            setCollect(res.action === 'collect');
-        }
+        // if (res.success) {
+        //     setCollect(res.action === 'collect');
+        // }
     };
 
     const handleFocus = async () => {
@@ -44,11 +50,9 @@ export default function OperationView(props: ViewProps) {
         if (prompt?.id) {
             const res = await updatePrompt(prompt?.id, {
                 focus: !focus ? 1 : 0
-            })
+            });
             console.log('res', res);
-
         }
-
     };
 
     const handleCopy = async () => {
@@ -56,15 +60,12 @@ export default function OperationView(props: ViewProps) {
         if (prompt?.id) {
             const res = await updatePrompt(prompt?.id, {
                 copy: 1
-            })
+            });
             console.log('res', res);
-
         }
-    }
-
-    const handleShare = () => {
-
     };
+
+    const handleShare = () => { };
 
     return (
         <>

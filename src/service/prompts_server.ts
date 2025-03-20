@@ -9,9 +9,10 @@ const supabase = createClient(
 const db = 'prompts';
 export const getAllApps = async () => {
     try {
-        const { data, error } = await supabase.from(db)
+        const { data, error } = await supabase
+            .from(db)
             .select('*, account(id,name,email,avatar)')
-            .order('updated_at', { ascending: false });;
+            .order('updated_at', { ascending: false });
 
         if (error) {
             throw error;
@@ -29,11 +30,7 @@ export const getAppDetail = async (id: number, accountId?: string) => {
         // 构建查询任务数组
         const tasks = [
             supabase.rpc('increment_view', { row_id: id }),
-            supabase
-                .from(db)
-                .select('*, account(id,name,email,avatar)')
-                .eq('id', id)
-                .single()
+            supabase.from(db).select('*, account(id,name,email,avatar)').eq('id', id).single()
         ];
 
         // 如果有用户ID，添加收藏状态查询
@@ -97,19 +94,13 @@ export const updateApp = async (id: number, appData: Partial<PromptModel>) => {
             if (error) throw error;
             result = { data, error: null };
         } else if ('copy' in appData) {
-            const { data, error } = await supabase
-                .rpc('increment_copy', { row_id: id })
-                .single();
+            const { data, error } = await supabase.rpc('increment_copy', { row_id: id }).single();
 
             if (error) throw error;
             result = { data, error: null };
         } else {
             // 其他更新操作保持不变
-            const { data, error } = await supabase
-                .from(db)
-                .update(appData)
-                .eq('id', id)
-                .select();
+            const { data, error } = await supabase.from(db).update(appData).eq('id', id).select();
 
             if (error) throw error;
             result = { data, error: null };

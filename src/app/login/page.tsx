@@ -16,7 +16,7 @@ export default function SignIn() {
 
     useEffect(() => {
         if (searchParams) {
-            setRedirect(searchParams.get('url') || '');
+            setRedirect(searchParams.get('redirect') || '');
         }
     }, [router, searchParams]);
 

@@ -15,7 +15,7 @@ interface ViewProps {
 export default function PromptCard(props: ViewProps) {
     const { prompt } = props;
     const router = useRouter();
-    const { updatePrompt } = usePromptOperations()
+    const { updatePrompt } = usePromptOperations();
     const handleClick = () => {
         if (prompt) router.push(`/prompts/${prompt.id}`);
     };
@@ -25,10 +25,10 @@ export default function PromptCard(props: ViewProps) {
         if (prompt) {
             const res = await updatePrompt(prompt?.id, {
                 copy: 1
-            })
+            });
             console.log('res', res);
         }
-    }
+    };
 
     return (
         <>

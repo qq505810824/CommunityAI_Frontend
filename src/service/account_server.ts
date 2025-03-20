@@ -53,10 +53,12 @@ export const getUserCollections = async (accountId: string) => {
     try {
         const { data, error } = await supabase
             .from('prompts')
-            .select(`
+            .select(
+                `
                 *,
                 account_prompts!inner(*)
-            `)
+            `
+            )
             .eq('account_prompts.account_id', accountId);
 
         if (error) throw error;

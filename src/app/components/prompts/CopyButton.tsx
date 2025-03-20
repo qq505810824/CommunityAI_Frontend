@@ -20,7 +20,7 @@ export default function CopyButton(props: ViewProps) {
         callback && callback();
         setTimeout(() => {
             setCopySuccess(false);
-        }, 1000); // 2 秒后隐藏提示  
+        }, 1000); // 2 秒后隐藏提示
     };
 
     return (
