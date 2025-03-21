@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 
+import { Footerdemo } from '@/components/ui/footer-section';
 import Box from '@mui/joy/Box';
 import CssBaseline from '@mui/joy/CssBaseline';
 import { CssVarsProvider } from '@mui/joy/styles';
@@ -11,7 +12,8 @@ function SimpleLayout(props: { children: React.ReactNode }) {
     return (
         <CssVarsProvider disableTransitionOnChange>
             <CssBaseline />
-            <Box sx={{ display: 'flex', height: '100dvh' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', height: '100dvh' }}>
+                {/* {Navbar1Demo()} */}
                 <HeaderView />
                 <Box
                     component="main"
@@ -28,11 +30,15 @@ function SimpleLayout(props: { children: React.ReactNode }) {
                         minWidth: 0,
                         // height: '100dvh',
                         gap: 1,
-                        overflow: 'auto'
+                        // overflow: 'auto'
                     }}
                 >
                     {props.children}
+
                 </Box>
+                <div className="block ">
+                    <Footerdemo />
+                </div>
             </Box>
         </CssVarsProvider>
     );
