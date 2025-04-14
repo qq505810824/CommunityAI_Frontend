@@ -2,20 +2,23 @@ import { useAppContext } from '@/context/app-context';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-import { Box, Divider, Dropdown, Menu, MenuButton, MenuItem, Typography } from '@mui/joy';
+import { Box, Divider, Dropdown, Menu, MenuItem, Typography } from '@mui/joy';
 import GlobalStyles from '@mui/joy/GlobalStyles';
 import IconButton from '@mui/joy/IconButton';
 import Sheet from '@mui/joy/Sheet';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { toggleSidebar } from '../../../utils/utils';
+import MenuButton from './MenuButton';
 
 export default function HeaderView() {
     const { userProfile } = useAppContext();
     const supabase = createClientComponentClient();
     useEffect(() => { }, []);
     const router = useRouter();
+    const [email, setEmail] = useState('222');
 
     const logout = async () => {
         localStorage.setItem('account', '');
@@ -107,7 +110,18 @@ export default function HeaderView() {
                     </div>
 
                     <div className="flex flex-row items-center gap-2">
-                        {AvatarMenu()}
+                        {userProfile.id != '' ? (
+                            <div className="flex justify-end items-center col-span-3 md:col-span-4">
+                                <MenuButton email={userProfile.email} logout={logout} />
+                            </div>
+                        ) : (
+                            <div className="flex flex-row gap-8 items-center justify-end col-span-3">
+                                <Link href={`/login?redirect=${window.location.href}`} className="text-purple-900 hover:underline">
+                                    Login
+                                </Link>
+                            </div>
+                        )}
+
                         <Box
                             sx={{
                                 display: { xs: 'none', sm: 'none' }

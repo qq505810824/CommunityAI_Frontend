@@ -61,7 +61,7 @@ export type IOtherOptions = {
     isLoginAPI?: boolean;
     isPublicAPI?: boolean;
     isDifyAPI?: boolean;
-    isAirtableAPI?: boolean;
+    isSpeakingAPI?: boolean;
     bodyStringify?: boolean;
     needAllResponseContent?: boolean;
     deleteContentType?: boolean;
@@ -87,8 +87,7 @@ type ResponseError = {
     code: string;
     message: string;
     status: number;
-    errors?: any;
-    error?: string;
+    error: string;
 };
 
 type FetchOptionType = Omit<RequestInit, 'body'> & {
@@ -223,9 +222,10 @@ const baseFetch = <T>(
     url: string,
     fetchOptions: FetchOptionType,
     {
-        isPublicAPI = false,
         isLoginAPI = false,
-        isAirtableAPI = false,
+        isPublicAPI = false,
+        isDifyAPI = false,
+        isSpeakingAPI = false,
         bodyStringify = true,
         needAllResponseContent,
         deleteContentType,
@@ -246,14 +246,14 @@ const baseFetch = <T>(
     }
     if (isLoginAPI) {
         options.headers.delete('Authorization');
-    } else if (isAirtableAPI) {
-        options.headers.set(
-            'Authorization',
-            `Bearer pat2gXzfWCzDaxWfn.ed899dda7840a3a190d3081c6f47473ff4ad7c42fb75bcf4619f4ef88d171d81`
-        );
+    } else if (isDifyAPI) {
+        // options.headers.set('Authorization', `Bearer app-oWPBC9qwiCF0q7U9QWmCiXTT`);
+        options.headers.set('Authorization', `Bearer ${process.env.NEXT_PUBLIC_DIFY_KEY}`);
     } else {
-        const accessToken = localStorage.getItem('authorization') || '';
-        options.headers.set('Authorization', `Bearer ${accessToken}`);
+        const accessToken = localStorage.getItem('token') || '';
+        // console.log('accessToken', accessToken);
+
+        options.headers.set('Authorization', `${accessToken}`);
     }
 
     if (deleteContentType) {
@@ -299,36 +299,17 @@ const baseFetch = <T>(
                             case 401: {
                                 if (isLoginAPI) {
                                     return bodyJson.then((data: ResponseError) => {
-                                        Toast.notify({ type: 'error', message: data.message });
+                                        Toast.notify({ type: 'error', message: data.error });
                                         return Promise.reject(data);
                                     });
                                 }
-                                // const loginUrl = `${globalThis.location.origin}/signin`;
-                                // globalThis.location.href = loginUrl;
+                                const loginUrl = `${globalThis.location.origin}/login`;
+                                globalThis.location.href = loginUrl;
                                 break;
                             }
                             case 403:
-                                // globalThis.location.href = `${globalThis.location.origin}/signin`;
+                                globalThis.location.href = `${globalThis.location.origin}/login`;
                                 break;
-                            case 422:
-                                return bodyJson.then((data: ResponseError) => {
-                                    const errMessage = data.message || data.errors?.toString();
-                                    Toast.notify({ type: 'error', message: errMessage });
-                                    return resolve(data);
-                                });
-                            case 400:
-                                return bodyJson.then((data: ResponseError) => {
-                                    const errMessage =
-                                        data.error || data.message || data.errors?.toString();
-                                    Toast.notify({ type: 'error', message: errMessage });
-                                    return resolve(data);
-                                });
-                            case 500:
-                                return bodyJson.then((data: ResponseError) => {
-                                    const errMessage = data.error || 'Server error';
-                                    // Toast.notify({ type: 'error', message: errMessage });
-                                    return resolve({ success: false, error: errMessage });
-                                });
                             // fall through
                             default:
                                 bodyJson.then((data: ResponseError) => {
@@ -342,13 +323,6 @@ const baseFetch = <T>(
                     // handle delete api. Delete api not return content.
                     if (res.status === 204) {
                         resolve({ success: 'success' });
-                        return;
-                    }
-
-                    if (res.status === 422) {
-                        console.log('resClone', resClone);
-
-                        resolve({ success: false });
                         return;
                     }
 
@@ -382,7 +356,7 @@ export const upload = (
         let accessTokenJson = { [sharedToken]: '' };
         try {
             accessTokenJson = JSON.parse(accessToken);
-        } catch (e) {}
+        } catch (e) { }
         token = accessTokenJson[sharedToken];
     } else {
         const accessToken = localStorage.getItem('console_token') || '';
@@ -454,12 +428,18 @@ export const ssePost = (
 
     const contentType = options.headers.get('Content-Type');
     if (!contentType) options.headers.set('Content-Type', ContentType.json);
+    // options.headers.set('Authorization', `Bearer ${process.env.NEXT_PUBLIC_DIFY_KEY}`);
+    options.headers.set(
+        'Authorization',
+        `Bearer ${'app-G26M1jiMVYxyUlF5TRaNf1bk'}`
+    );
+    // options.headers.set('Authorization', `Bearer app-fvw85uREiHQGJVl1hjSkU5WW`);
 
     getAbortController?.(abortController);
 
-    const urlPrefix = isPublicAPI ? PUBLIC_API_PREFIX : API_PREFIX;
-    const urlWithPrefix = `${urlPrefix}${url.startsWith('/') ? url : `/${url}`}`;
-
+    // const urlPrefix = isPublicAPI ? PUBLIC_API_PREFIX : API_PREFIX;
+    // const urlWithPrefix = `${urlPrefix}${url.startsWith('/') ? url : `/${url}`}`;
+    const urlWithPrefix = url;
     const { body } = options;
     if (body) options.body = JSON.stringify(body);
 
@@ -486,6 +466,8 @@ export const ssePost = (
                 (str: string, isFirstMessage: boolean, moreInfo: IOnDataMoreInfo) => {
                     if (moreInfo.errorMessage) {
                         onError?.(moreInfo.errorMessage, moreInfo.errorCode);
+                        console.log(moreInfo.errorMessage);
+
                         if (moreInfo.errorMessage !== 'AbortError: The user aborted a request.')
                             Toast.notify({ type: 'error', message: moreInfo.errorMessage });
                         return;
@@ -506,6 +488,7 @@ export const ssePost = (
             );
         })
         .catch((e) => {
+            console.log(e);
             if (e.toString() !== 'AbortError: The user aborted a request.')
                 Toast.notify({ type: 'error', message: e });
             onError?.(e);
