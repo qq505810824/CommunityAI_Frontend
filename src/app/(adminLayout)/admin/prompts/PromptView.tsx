@@ -4,6 +4,8 @@ import SearchInputView from '@/app/components/common/Views/SearchInputView';
 import { PromptModel } from '@/hooks/usePromptData';
 import { Button, Typography } from '@mui/joy';
 import { useRouter } from 'next/navigation';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 interface ViewProps {
     data: any;
     isLoading: any;
@@ -17,9 +19,10 @@ interface ViewProps {
 function PromptView(props: ViewProps) {
     const { isLoading, prompts, onClose, handleSearch, searching, onDelete } = props;
     const router = useRouter();
+    const { t } = useTranslation();
 
     return (
-        <>
+        <React.Fragment>
             <div className="w-full flex justify-between items-center my-4">
                 <Typography level="h3">Prompt知识库</Typography>
                 <Button
@@ -42,42 +45,38 @@ function PromptView(props: ViewProps) {
                 />
             </div>
             {/* 给表格外层容器添加样式，使其内容超出时可横向滚动 */}
-            <div className="w-full overflow-x-scroll">
-                <TableSheet className=" ">
-                    {' '}
-                    {/* 给表格设置最小宽度 */}
-                    <thead>
-                        <tr>
-                            <th className="text-center">标题</th>
-                            <th className="text-center">标签</th>
-                            <th className="text-center">浏览数</th>
-                            <th className="text-center">点赞数</th>
-                            <th className="text-center">收藏数</th>
-                            <th className="text-center">分享数</th>
-                            <th className="text-center">复制数</th>
-                            <th className="text-center">创建者</th>
-                            <th className="text-center">更新时间</th>
-                            <th className="text-center">操作</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {prompts.map((row) => (
-                            <PromptItem
-                                prompt={row}
-                                key={row.id}
-                                onDelete={() => onDelete(row.id)}
-                            />
-                        ))}
-                    </tbody>
-                </TableSheet>
-            </div>
+            <TableSheet >
+                <thead>
+                    <tr>
+                        <th className="text-center w-[200px]">标题</th>
+                        <th className="text-center w-[200px]">标签</th>
+                        <th className="text-center whitespace-nowrap w-[60px]">浏览数</th>
+                        <th className="text-center whitespace-nowrap w-[60px]">点赞数</th>
+                        <th className="text-center whitespace-nowrap w-[60px]">收藏数</th>
+                        <th className="text-center whitespace-nowrap w-[60px]">分享数</th>
+                        <th className="text-center whitespace-nowrap w-[60px]">复制数</th>
+                        <th className="text-center whitespace-nowrap w-[100px]">创建者</th>
+                        <th className="text-center whitespace-nowrap w-[100px]">更新时间</th>
+                        <th className="text-center whitespace-nowrap w-[200px]">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {prompts.map((row) => (
+                        <PromptItem
+                            prompt={row}
+                            key={row.id}
+                            onDelete={() => onDelete(row.id)}
+                        />
+                    ))}
+                </tbody>
+            </TableSheet>
             {/* 当没有提示信息且不在加载状态时显示提示 */}
             {prompts.length === 0 && !isLoading && (
                 <Typography level="h4" sx={{ padding: 10 }}>
                     No prompts found.
                 </Typography>
             )}
-        </>
+        </React.Fragment>
     );
 }
 

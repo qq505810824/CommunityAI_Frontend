@@ -48,11 +48,11 @@ function AccountView(props: ViewProps) {
                     {/* 给表格设置最小宽度 */}
                     <thead>
                         <tr>
-                            <th className="text-center">用户名</th>
-                            <th className="text-center">昵称</th>
-                            <th className="text-center">邮箱</th>
-                            <th className="text-center">创建时间</th>
-                            <th className="text-center">操作</th>
+                            <th className="text-center whitespace-nowrap w-[200px]">用户名</th>
+                            <th className="text-center whitespace-nowrap w-[200px]">昵称</th>
+                            <th className="text-center whitespace-nowrap w-[200px]">邮箱</th>
+                            <th className="text-center whitespace-nowrap w-[200px]">创建时间</th>
+                            <th className="text-center whitespace-nowrap w-[200px]">操作</th>
                         </tr>
                     </thead>
                     <tbody>

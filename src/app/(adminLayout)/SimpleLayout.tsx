@@ -15,9 +15,9 @@ function SimpleLayout(props: { children: React.ReactNode }) {
             <Box sx={{ display: 'flex', height: '100dvh' }}>
                 <Sidebar />
                 {/* <AgentList /> */}
-                <div className="flex flex-col flex-1">
+                <div className="w-full flex flex-col flex-1">
                     <Header />
-                    <Box sx={{ flex: 1, p: 2, overflow: 'auto' }}>{props.children}</Box>
+                    <div className="w-full p-2 overflow-auto flex-1">{props.children}</div>
                 </div>
 
                 {/* <Box
