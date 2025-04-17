@@ -1,3 +1,4 @@
+'use client';
 import AdminView from './AdminView';
 
 const AdminContainer = () => {

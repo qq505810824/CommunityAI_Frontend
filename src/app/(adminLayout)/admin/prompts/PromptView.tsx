@@ -45,7 +45,7 @@ function PromptView(props: ViewProps) {
                 />
             </div>
             {/* 给表格外层容器添加样式，使其内容超出时可横向滚动 */}
-            <TableSheet >
+            <TableSheet>
                 <thead>
                     <tr>
                         <th className="text-center w-[200px]">标题</th>
@@ -62,11 +62,7 @@ function PromptView(props: ViewProps) {
                 </thead>
                 <tbody>
                     {prompts.map((row) => (
-                        <PromptItem
-                            prompt={row}
-                            key={row.id}
-                            onDelete={() => onDelete(row.id)}
-                        />
+                        <PromptItem prompt={row} key={row.id} onDelete={() => onDelete(row.id)} />
                     ))}
                 </tbody>
             </TableSheet>
