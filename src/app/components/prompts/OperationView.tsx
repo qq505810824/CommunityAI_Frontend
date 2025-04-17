@@ -65,7 +65,7 @@ export default function OperationView(props: ViewProps) {
         }
     };
 
-    const handleShare = () => { };
+    const handleShare = () => {};
 
     return (
         <>

@@ -16,7 +16,7 @@ import MenuButton from './MenuButton';
 export default function HeaderView() {
     const { userProfile } = useAppContext();
     const supabase = createClientComponentClient();
-    useEffect(() => { }, []);
+    useEffect(() => {}, []);
     const router = useRouter();
     const [email, setEmail] = useState('222');
 
@@ -116,7 +116,10 @@ export default function HeaderView() {
                             </div>
                         ) : (
                             <div className="flex flex-row gap-8 items-center justify-end col-span-3">
-                                <Link href={`/login?redirect=${window.location.href}`} className="text-purple-900 hover:underline">
+                                <Link
+                                    href={`/login?redirect=${window.location.href}`}
+                                    className="text-purple-900 hover:underline"
+                                >
                                     Login
                                 </Link>
                             </div>

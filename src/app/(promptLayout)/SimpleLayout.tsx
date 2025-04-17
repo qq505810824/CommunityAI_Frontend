@@ -29,12 +29,11 @@ function SimpleLayout(props: { children: React.ReactNode }) {
                         flexDirection: 'column',
                         minWidth: 0,
                         // height: '100dvh',
-                        gap: 1,
+                        gap: 1
                         // overflow: 'auto'
                     }}
                 >
                     {props.children}
-
                 </Box>
                 <div className="block ">
                     <Footerdemo />

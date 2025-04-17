@@ -32,7 +32,9 @@ const AppContext = createContext<AppContextValue>({
         id: '',
         name: '',
         email: '',
-        avatar: ''
+        avatar: '',
+        nickname: '',
+        created_at: ''
     },
     pageContainerRef: createRef(),
     langeniusVersionInfo: initialLangeniusVersionInfo,
@@ -55,7 +57,9 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
         id: '',
         name: '',
         email: '',
-        avatar: ''
+        avatar: '',
+        nickname: '',
+        created_at: ''
     });
 
     useEffect(() => {

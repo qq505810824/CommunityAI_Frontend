@@ -94,9 +94,7 @@ export const usePromptOperations = () => {
     };
 
     const deletePrompt = async (id: number) => {
-        return handleAppOperation(async () => {
-            return await deleteApp(id);
-        });
+        return await deleteApp(id);
     };
 
     const searchPrompt = async (key: string) => {

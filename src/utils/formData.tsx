@@ -55,3 +55,20 @@ export const PromptFormData = {
         prompt: { 'ui:widget': 'textarea' }
     }
 };
+
+export const AccountFormData = {
+    fieldSchema: {
+        name: { type: 'string', title: '名称', required: true },
+        email: { type: 'string', title: '邮箱', required: true },
+        nickname: { type: 'string', title: '昵称', required: true },
+        password: { type: 'string', title: '密码', required: true },
+        avatar: { type: 'string', title: '头像', required: false }
+    },
+    uiSchema: {
+        name: { 'ui:widget': 'text' },
+        email: { 'ui:widget': 'text' },
+        nickname: { 'ui:widget': 'text' },
+        password: { 'ui:widget': 'password' },
+        avatar: { 'ui:widget': 'text' }
+    }
+};

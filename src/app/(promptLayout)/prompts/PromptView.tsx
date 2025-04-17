@@ -12,11 +12,7 @@ interface ViewProps {
     searching?: boolean;
 }
 function DemoHeroGeometric() {
-    return <HeroGeometric
-        badge="Prompt知识库"
-        title1="属于你的知识库"
-        title2="Digital Vision"
-    />
+    return <HeroGeometric badge="Prompt知识库" title1="属于你的知识库" title2="Digital Vision" />;
 }
 function PromptView(props: ViewProps) {
     const { isLoading, prompts, onClose, handleSearch, searching } = props;
@@ -29,7 +25,7 @@ function PromptView(props: ViewProps) {
                         display: 'flex',
                         alignItems: 'center',
                         flexDirection: 'column',
-                        width: '100%',
+                        width: '100%'
                     }}
                 >
                     {/* {DemoHeroGeometric()} */}

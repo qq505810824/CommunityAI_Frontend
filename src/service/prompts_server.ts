@@ -12,7 +12,7 @@ export const getAllApps = async () => {
         const { data, error } = await supabase
             .from(db)
             .select('*, account(id,name,email,avatar)')
-            .order('updated_at', { ascending: false });
+            .order('updated_at', { ascending: true });
 
         if (error) {
             throw error;
@@ -115,7 +115,7 @@ export const updateApp = async (id: number, appData: Partial<PromptModel>) => {
 
 export const deleteApp = async (id: number) => {
     try {
-        const { error } = await supabase.from(db).delete().eq('id', id);
+        const { data, error } = await supabase.from(db).delete().eq('id', id);
 
         if (error) {
             throw error;

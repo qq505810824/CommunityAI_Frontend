@@ -27,12 +27,17 @@ export default function CopyButton(props: ViewProps) {
     return (
         <>
             <Tooltip title={copySuccess ? '复制成功' : '复制'} placement="top">
-                <IconButton
-                    onClick={handleCopy}
-                    disabled={copySuccess}>
-
-                    {copySuccess ? <Check className="stroke-emerald-500" size={16} strokeWidth={2} aria-hidden="true" /> :
-                        <ContentCopyOutlinedIcon sx={{ width: '18px' }} />}
+                <IconButton onClick={handleCopy} disabled={copySuccess}>
+                    {copySuccess ? (
+                        <Check
+                            className="stroke-emerald-500"
+                            size={16}
+                            strokeWidth={2}
+                            aria-hidden="true"
+                        />
+                    ) : (
+                        <ContentCopyOutlinedIcon sx={{ width: '18px' }} />
+                    )}
                 </IconButton>
             </Tooltip>
         </>

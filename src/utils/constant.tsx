@@ -11,8 +11,10 @@ import {
     VideoCameraFront as VideoCameraFrontIcon
 } from '@mui/icons-material'; // 从 Material-UI 导入图标
 import AirplayOutlinedIcon from '@mui/icons-material/AirplayOutlined';
+import DvrIcon from '@mui/icons-material/Dvr';
 import GroupsIcon from '@mui/icons-material/Groups';
 import LanguageIcon from '@mui/icons-material/Language';
+import PeopleIcon from '@mui/icons-material/People';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 
 export const AppMeuns = [
@@ -372,5 +374,20 @@ export const PromptTags = [
         father: 'Other',
         name: '幽默',
         color: '#C0392B'
+    }
+];
+
+export const AdminMeuns = [
+    {
+        name: 'Prompt列表',
+        href: '/admin/prompts',
+        icon: <DvrIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
+        items: []
+    },
+    {
+        name: '用户列表',
+        href: '/admin/accounts',
+        icon: <PeopleIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
+        items: []
     }
 ];

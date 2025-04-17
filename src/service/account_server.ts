@@ -1,3 +1,4 @@
+import { AccountModel } from '@/models/Account';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -67,5 +68,83 @@ export const getUserCollections = async (accountId: string) => {
     } catch (error) {
         console.error('获取收藏列表失败:', error);
         return { success: false, error };
+    }
+};
+
+export const getAllAccounts = async () => {
+    try {
+        const { data, error } = await supabase
+            .from(db)
+            .select('*')
+            .order('updated_at', { ascending: true });
+
+        if (error) {
+            throw error;
+        }
+
+        return { data, error: null };
+    } catch (error) {
+        console.error('获取应用列表失败:', error);
+        return { data: null, error };
+    }
+};
+
+export const getAppDetail = async (id: string) => {
+    try {
+        // 构建查询任务数组
+
+        const { data, error } = await supabase.from(db).select('*').eq('id', id).single();
+
+        if (error) throw error;
+
+        return { data, error: null };
+    } catch (error) {
+        console.error('获取应用详情失败:', error);
+        return { data: null, error };
+    }
+};
+
+export const updateApp = async (id: string, appData: Partial<AccountModel>) => {
+    try {
+        // 其他更新操作保持不变
+        const { data, error } = await supabase.from(db).update(appData).eq('id', id).select();
+        if (error) throw error;
+        return { success: true, data };
+    } catch (error) {
+        console.error('更新应用失败:', error);
+        return { success: false, error };
+    }
+};
+
+export const deleteApp = async (id: string) => {
+    try {
+        const { data, error } = await supabase.from(db).delete().eq('id', id);
+
+        if (error) {
+            throw error;
+        }
+
+        return { success: true };
+    } catch (error) {
+        console.error('删除应用失败:', error);
+        return { success: false, error };
+    }
+};
+
+export const searchApp = async (key: string) => {
+    try {
+        const { data, error } = await supabase
+            .from(db)
+            .select('*')
+            .or(`name.ilike.%${key}%,email.ilike.%${key}%,nickname.ilike.%${key}%`);
+
+        if (error) {
+            throw error;
+        }
+
+        return { data, error: null };
+    } catch (error) {
+        console.error('获取应用列表失败:', error);
+        return { data: null, error };
     }
 };

@@ -1,28 +1,23 @@
-"use client"
+'use client';
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { Facebook, Instagram, Linkedin, Send, Twitter } from "lucide-react"
-import moment from "moment"
-import * as React from "react"
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Facebook, Instagram, Linkedin, Send, Twitter } from 'lucide-react';
+import moment from 'moment';
+import * as React from 'react';
 
 function Footerdemo() {
-    const [isDarkMode, setIsDarkMode] = React.useState(true)
-    const [isChatOpen, setIsChatOpen] = React.useState(false)
+    const [isDarkMode, setIsDarkMode] = React.useState(true);
+    const [isChatOpen, setIsChatOpen] = React.useState(false);
 
     React.useEffect(() => {
         if (isDarkMode) {
-            document.documentElement.classList.add("dark")
+            document.documentElement.classList.add('dark');
         } else {
-            document.documentElement.classList.remove("dark")
+            document.documentElement.classList.remove('dark');
         }
-    }, [isDarkMode])
+    }, [isDarkMode]);
 
     return (
         <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
@@ -85,7 +80,11 @@ function Footerdemo() {
                             <TooltipProvider>
                                 <Tooltip>
                                     <TooltipTrigger asChild>
-                                        <Button variant="outline" size="icon" className="rounded-full hover:bg-gray-200 border-gray-300">
+                                        <Button
+                                            variant="outline"
+                                            size="icon"
+                                            className="rounded-full hover:bg-gray-200 border-gray-300"
+                                        >
                                             <Facebook className="h-4 w-4" />
                                             <span className="sr-only">Facebook</span>
                                         </Button>
@@ -98,7 +97,11 @@ function Footerdemo() {
                             <TooltipProvider>
                                 <Tooltip>
                                     <TooltipTrigger asChild>
-                                        <Button variant="outline" size="icon" className="rounded-full hover:bg-gray-200 border-gray-300">
+                                        <Button
+                                            variant="outline"
+                                            size="icon"
+                                            className="rounded-full hover:bg-gray-200 border-gray-300"
+                                        >
                                             <Twitter className="h-4 w-4" />
                                             <span className="sr-only">Twitter</span>
                                         </Button>
@@ -111,7 +114,11 @@ function Footerdemo() {
                             <TooltipProvider>
                                 <Tooltip>
                                     <TooltipTrigger asChild>
-                                        <Button variant="outline" size="icon" className="rounded-full hover:bg-gray-200 border-gray-300">
+                                        <Button
+                                            variant="outline"
+                                            size="icon"
+                                            className="rounded-full hover:bg-gray-200 border-gray-300"
+                                        >
                                             <Instagram className="h-4 w-4" />
                                             <span className="sr-only">Instagram</span>
                                         </Button>
@@ -124,7 +131,11 @@ function Footerdemo() {
                             <TooltipProvider>
                                 <Tooltip>
                                     <TooltipTrigger asChild>
-                                        <Button variant="outline" size="icon" className="rounded-full hover:bg-gray-200 border-gray-300">
+                                        <Button
+                                            variant="outline"
+                                            size="icon"
+                                            className="rounded-full hover:bg-gray-200 border-gray-300"
+                                        >
                                             <Linkedin className="h-4 w-4" />
                                             <span className="sr-only">LinkedIn</span>
                                         </Button>
@@ -155,7 +166,7 @@ function Footerdemo() {
                 </div>
             </div>
         </footer>
-    )
+    );
 }
 
-export { Footerdemo }
+export { Footerdemo };

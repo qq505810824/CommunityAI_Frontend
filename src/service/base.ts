@@ -356,7 +356,7 @@ export const upload = (
         let accessTokenJson = { [sharedToken]: '' };
         try {
             accessTokenJson = JSON.parse(accessToken);
-        } catch (e) { }
+        } catch (e) {}
         token = accessTokenJson[sharedToken];
     } else {
         const accessToken = localStorage.getItem('console_token') || '';
@@ -429,10 +429,7 @@ export const ssePost = (
     const contentType = options.headers.get('Content-Type');
     if (!contentType) options.headers.set('Content-Type', ContentType.json);
     // options.headers.set('Authorization', `Bearer ${process.env.NEXT_PUBLIC_DIFY_KEY}`);
-    options.headers.set(
-        'Authorization',
-        `Bearer ${'app-G26M1jiMVYxyUlF5TRaNf1bk'}`
-    );
+    options.headers.set('Authorization', `Bearer ${'app-G26M1jiMVYxyUlF5TRaNf1bk'}`);
     // options.headers.set('Authorization', `Bearer app-fvw85uREiHQGJVl1hjSkU5WW`);
 
     getAbortController?.(abortController);
