@@ -4,7 +4,9 @@ import {
     deleteApp,
     getAllApps,
     getAppDetail,
+    getAppDetailById,
     searchApp,
+    statisticsApp,
     updateApp
 } from '@/service/prompts_server';
 import useSWR from 'swr';
@@ -64,6 +66,56 @@ export const usePromptDetailData = (id: number, accountId?: string, options = {}
     const { data, error, isLoading, mutate } = useSWR(
         'detail_prompt_' + id,
         () => appDetailFetcher(id, accountId),
+        {
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false,
+            dedupingInterval: 20000, // 1分钟内不重复请求
+            ...options
+        }
+    );
+    return {
+        data: data as PromptModel | undefined,
+        isLoading,
+        isError: error,
+        mutate
+    };
+};
+
+const appDetailByIdFetcher = async (id: number) => {
+    const { data, error } = await getAppDetailById(id);
+    if (error) throw error;
+    return data || [];
+};
+
+export const usePromptDetailByIdData = (id: number, options = {}) => {
+    const { data, error, isLoading, mutate } = useSWR(
+        'detail_prompt_by_id_' + id,
+        () => appDetailByIdFetcher(id),
+        {
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false,
+            dedupingInterval: 20000, // 1分钟内不重复请求
+            ...options
+        }
+    );
+    return {
+        data: data as PromptModel | undefined,
+        isLoading,
+        isError: error,
+        mutate
+    };
+};
+
+const appStatisticsFetcher = async () => {
+    const { data, error } = await statisticsApp();
+    if (error) throw error;
+    return data || [];
+};
+
+export const usePromptStatisticsData = (options = {}) => {
+    const { data, error, isLoading, mutate } = useSWR(
+        'detail_prompt_statistics',
+        () => appStatisticsFetcher(),
         {
             revalidateOnFocus: false,
             revalidateOnReconnect: false,

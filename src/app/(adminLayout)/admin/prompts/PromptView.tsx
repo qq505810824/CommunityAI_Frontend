@@ -44,28 +44,30 @@ function PromptView(props: ViewProps) {
                     }}
                 />
             </div>
-            {/* 给表格外层容器添加样式，使其内容超出时可横向滚动 */}
-            <TableSheet>
-                <thead>
-                    <tr>
-                        <th className="text-center w-[200px]">标题</th>
-                        <th className="text-center w-[200px]">标签</th>
-                        <th className="text-center whitespace-nowrap w-[60px]">浏览数</th>
-                        <th className="text-center whitespace-nowrap w-[60px]">点赞数</th>
-                        <th className="text-center whitespace-nowrap w-[60px]">收藏数</th>
-                        <th className="text-center whitespace-nowrap w-[60px]">分享数</th>
-                        <th className="text-center whitespace-nowrap w-[60px]">复制数</th>
-                        <th className="text-center whitespace-nowrap w-[100px]">创建者</th>
-                        <th className="text-center whitespace-nowrap w-[100px]">更新时间</th>
-                        <th className="text-center whitespace-nowrap w-[200px]">操作</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {prompts.map((row) => (
-                        <PromptItem prompt={row} key={row.id} onDelete={() => onDelete(row.id)} />
-                    ))}
-                </tbody>
-            </TableSheet>
+            <div className="w-full overflow-x-scroll">
+                {/* 给表格外层容器添加样式，使其内容超出时可横向滚动 */}
+                <TableSheet>
+                    <thead>
+                        <tr>
+                            <th className="text-center w-[200px]">标题</th>
+                            <th className="text-center w-[200px]">标签</th>
+                            <th className="text-center whitespace-nowrap w-[60px]">浏览数</th>
+                            <th className="text-center whitespace-nowrap w-[60px]">点赞数</th>
+                            <th className="text-center whitespace-nowrap w-[60px]">收藏数</th>
+                            <th className="text-center whitespace-nowrap w-[60px]">分享数</th>
+                            <th className="text-center whitespace-nowrap w-[60px]">复制数</th>
+                            <th className="text-center whitespace-nowrap w-[100px]">创建者</th>
+                            <th className="text-center whitespace-nowrap w-[100px]">更新时间</th>
+                            <th className="text-center whitespace-nowrap w-[200px]">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {prompts.map((row) => (
+                            <PromptItem prompt={row} key={row.id} onDelete={() => onDelete(row.id)} />
+                        ))}
+                    </tbody>
+                </TableSheet>
+            </div>
             {/* 当没有提示信息且不在加载状态时显示提示 */}
             {prompts.length === 0 && !isLoading && (
                 <Typography level="h4" sx={{ padding: 10 }}>

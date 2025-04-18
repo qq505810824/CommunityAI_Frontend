@@ -1,7 +1,7 @@
 'use client';
 
 import useAlert from '@/hooks/useAlert';
-import { PromptModel, usePromptDetailData, usePromptOperations } from '@/hooks/usePromptData';
+import { PromptModel, usePromptDetailByIdData, usePromptOperations } from '@/hooks/usePromptData';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import PromptEditView from './PromptEditView';
@@ -19,7 +19,7 @@ const PromptEditContainer = () => {
         data,
         isLoading: categoryLoading,
         isError
-    } = usePromptDetailData(Number(params['id']), user_id || '');
+    } = usePromptDetailByIdData(Number(params['id']));
 
     useEffect(() => {
         if (data) {

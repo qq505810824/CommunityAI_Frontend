@@ -67,6 +67,22 @@ export const getAppDetail = async (id: number, accountId?: string) => {
     }
 };
 
+export const getAppDetailById = async (id: number) => {
+    try {
+        // 构建查询任务数组
+        const { data, error } = await supabase.from(db).select('*, account(id,name,email,avatar)').eq('id', id).single()
+
+        if (error) {
+            throw error;
+        }
+
+        return { success: true, data };
+    } catch (error) {
+        console.error('获取应用详情失败:', error);
+        return { data: null, error };
+    }
+};
+
 export const createApp = async (appData: Omit<PromptModel, 'id'>) => {
     try {
         const { data, error } = await supabase.from(db).insert([appData]).select();
@@ -145,5 +161,38 @@ export const searchApp = async (key: string) => {
     } catch (error) {
         console.error('获取应用列表失败:', error);
         return { data: null, error };
+    }
+};
+
+export const statisticsApp = async () => {
+    try {
+        // const { data, error } = await supabase
+        //     .from(db)
+        //     .select('"COUNT"(focus) as total_focus') // 使用 head: true 来获取单个结果（如果有多个聚合列）
+        //     .single(); // 使用 .single() 来确保结果是一个对象而不是数组
+
+        const { data, error } = await supabase
+            .rpc('get_prompts_count');
+        // const { data, error } = await supabase
+        //     .rpc('execute_sql', {
+        //         query: `
+        //         SELECT 
+        //           COUNT(focus) AS total_focus 
+        //         FROM ${db}
+        //       `
+        //     });
+        if (error) {
+            console.log('error', error);
+
+            throw new Error(`Database error: ${error.message}, Code: ${error.code}`);
+        }
+
+        // Extract the statistical results
+        // const totalCollect = data ? Number(data.total_collect) : 0;
+
+        return { data: data, error: null };
+    } catch (error) {
+        console.error('Failed to count the total number of app collections:', error);
+        return { data: null, error: error instanceof Error ? error.message : String(error) };
     }
 };
