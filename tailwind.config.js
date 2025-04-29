@@ -106,12 +106,12 @@ module.exports = {
                 xl: '0px 8px 8px -4px rgba(16, 24, 40, 0.03), 0px 20px 24px -4px rgba(16, 24, 40, 0.08)',
                 '2xl': '0px 24px 48px -12px rgba(16, 24, 40, 0.18)',
                 '3xl': '0px 32px 64px -12px rgba(16, 24, 40, 0.14)'
-            },
-            borderRadius: {
-                lg: 'var(--radius)',
-                md: 'calc(var(--radius) - 2px)',
-                sm: 'calc(var(--radius) - 4px)'
             }
+            // borderRadius: {
+            //     lg: 'var(--radius)',
+            //     md: 'calc(var(--radius) - 2px)',
+            //     sm: 'calc(var(--radius) - 4px)'
+            // }
         }
     },
     plugins: [require('tailwindcss-animate')]

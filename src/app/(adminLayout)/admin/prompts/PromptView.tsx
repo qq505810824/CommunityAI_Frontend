@@ -63,7 +63,11 @@ function PromptView(props: ViewProps) {
                     </thead>
                     <tbody>
                         {prompts.map((row) => (
-                            <PromptItem prompt={row} key={row.id} onDelete={() => onDelete(row.id)} />
+                            <PromptItem
+                                prompt={row}
+                                key={row.id}
+                                onDelete={() => onDelete(row.id)}
+                            />
                         ))}
                     </tbody>
                 </TableSheet>

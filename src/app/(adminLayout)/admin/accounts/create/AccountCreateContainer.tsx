@@ -30,7 +30,7 @@ const AccountCreateContainer = () => {
                 data: { user },
                 error: signUpError
             } = await supabase.auth.signUp({
-                email: newFormData.email,
+                email: newFormData.email || '',
                 password: newFormData.password,
                 options: {
                     emailRedirectTo: undefined,

@@ -1,4 +1,4 @@
-import { PromptModel } from '@/hooks/usePromptData';
+import { HotModel } from '@/hooks/useHotData';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -6,7 +6,7 @@ const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-const db = 'prompts';
+const db = 'hots';
 export const getAllApps = async () => {
     try {
         const { data, error } = await supabase
@@ -87,7 +87,7 @@ export const getAppDetailById = async (id: number) => {
     }
 };
 
-export const createApp = async (appData: Omit<PromptModel, 'id'>) => {
+export const createApp = async (appData: Omit<HotModel, 'id'>) => {
     try {
         const { data, error } = await supabase.from(db).insert([appData]).select();
 
@@ -102,7 +102,7 @@ export const createApp = async (appData: Omit<PromptModel, 'id'>) => {
     }
 };
 
-export const updateApp = async (id: number, appData: Partial<PromptModel>) => {
+export const updateApp = async (id: number, appData: Partial<HotModel>) => {
     try {
         let result;
         // 如果是更新 focus，使用 RPC

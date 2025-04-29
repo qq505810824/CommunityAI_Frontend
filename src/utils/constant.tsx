@@ -391,3 +391,113 @@ export const AdminMeuns = [
         items: []
     }
 ];
+
+export const FormulabotMeuns = [
+    {
+        name: 'Templates',
+        href: '/formulabot/dashboard?menu=templates',
+        value: 'templates',
+        icon: <DvrIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    },
+    {
+        name: 'Formula Generator',
+        href: '/formulabot/dashboard?menu=tools&tool=excel&category=generator',
+        value: 'generator',
+        icon: <PeopleIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    },
+    {
+        name: 'PDF to Execl Converter',
+        href: '/formulabot/dashboard?menu=tools&tool=pdf-to-excel-converter&category=overview',
+        value: 'converter',
+        icon: <PeopleIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    }
+];
+
+export const ToolsMeuns = [
+    {
+        name: 'Excel Guru',
+        href: '/formulabot/dashboard?menu=tools&tool=excel&category=overview',
+        value: 'excel',
+        icon: <DvrIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    },
+    {
+        name: 'Google Sheets',
+        href: '/formulabot/dashboard?menu=tools&tool=google-sheets&category=overview',
+        value: 'google-sheets',
+        icon: <PeopleIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    },
+    {
+        name: 'PDF to Excel Converter',
+        href: '/formulabot/dashboard?menu=tools&tool=pdf-to-excel-converter&category=overview',
+        value: 'pdf-to-excel-converter',
+        icon: <PeopleIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    },
+    {
+        name: 'AI Prompt',
+        href: '/formulabot/dashboard?menu=converter',
+        value: 'converter',
+        icon: <PeopleIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    },
+    {
+        name: 'Google Analytics',
+        href: '/formulabot/dashboard?menu=converter',
+        value: 'converter',
+        icon: <PeopleIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    },
+    {
+        name: 'Sentiment Analysis',
+        href: '/formulabot/dashboard?menu=converter',
+        value: 'converter',
+        icon: <PeopleIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    },
+    {
+        name: 'Text Extraction',
+        href: '/formulabot/dashboard?menu=converter',
+        value: 'converter',
+        icon: <PeopleIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    },
+    {
+        name: 'Google Search Console',
+        href: '/formulabot/dashboard?menu=converter',
+        value: 'converter',
+        icon: <PeopleIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    },
+    {
+        name: 'Text Classification',
+        href: '/formulabot/dashboard?menu=converter',
+        value: 'converter',
+        icon: <PeopleIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    },
+    {
+        name: 'Google Trends',
+        href: '/formulabot/dashboard?menu=converter',
+        value: 'converter',
+        icon: <PeopleIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    },
+    {
+        name: 'Economic Data',
+        href: '/formulabot/dashboard?menu=converter',
+        value: 'converter',
+        icon: <PeopleIcon sx={{ color: '#000' }} className="w-5 text-[#000]" />,
+        items: []
+    }
+];
+
+export const HotsFatherTags = [
+    {
+        name: '美食'
+    }
+];
