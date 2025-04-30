@@ -499,5 +499,8 @@ export const ToolsMeuns = [
 export const HotsFatherTags = [
     {
         name: '美食'
+    },
+    {
+        name: '旅游'
     }
 ];

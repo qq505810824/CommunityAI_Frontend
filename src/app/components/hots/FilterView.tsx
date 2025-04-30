@@ -1,3 +1,4 @@
+import { ContentType } from '@/hooks/useHotData';
 import { HotsFatherTags, PromptTags } from '@/utils/constant';
 import { Button, Input, Typography } from '@mui/joy';
 import { useEffect, useState } from 'react';
@@ -15,7 +16,10 @@ interface ViewProps {
 export default function FilterView(props: ViewProps) {
     const { tag, onClose, onSearch, searching, changeCategory } = props;
 
-    const [category, setCategory] = useState('dy');
+    const [category, setCategory] = useState('xhs');
+    const [type, setType] = useState('')
+    const [date, setDate] = useState('')
+    const [keyword, setKeyword] = useState('')
 
     const [secondOptions, setSecondOptions] = useState<any[]>([]);
     const [selectOption, setSelectedOption] = useState<any>(null);
@@ -24,18 +28,20 @@ export default function FilterView(props: ViewProps) {
     useEffect(() => {
         // const options = PromptTags.filter((tag) => tag.father == PromptFatherTags[0].name);
         // setSecondOptions(options);
-        setSelectedFather('');
+        setSelectedFather({
+            name: '美食'
+        });
     }, []);
 
     useEffect(() => {
         if (category) {
-            changeCategory(category);
+            changeCategory('category', category);
         }
     }, [category]);
 
-    useEffect(() => {
-        if (selectOption != null) onSearch(selectOption?.name || '');
-    }, [selectOption]);
+    // useEffect(() => {
+    //     if (selectOption != null) onSearch(selectOption?.name || '');
+    // }, [selectOption]);
 
     const handleOption1 = (_tag: any) => {
         setSelectedFather(_tag);
@@ -44,19 +50,27 @@ export default function FilterView(props: ViewProps) {
         setSecondOptions(options);
     };
 
+    const onKeyUp = (e: any) => {
+        if (e.keyCode === 13) {
+            onSearch(keyword)
+        }
+    };
+
     return (
         <>
             <div className="w-full sm:max-w-7xl  px-4   flex my-2 flex-col  justify-start items-start space-y-4 ">
                 <div className="w-full flex flex-row items-center  space-x-2">
-                    <Typography level="h3">Hots</Typography>
+                    <Typography level="h3">热榜</Typography>
                     <Input
                         sx={{ '--Input-decoratorChildHeight': '45px' }}
                         className="w-full sm:w-1/2"
                         placeholder="Input keyword..."
-                        type="email"
+                        type="text"
                         required
-                        value={''}
-                        onChange={(event) => {}}
+                        onKeyUp={onKeyUp}
+                        onChange={(event) => {
+                            setKeyword(event.target.value)
+                        }}
                         // error={data.status === 'failure'}
                         endDecorator={
                             <Button
@@ -64,6 +78,9 @@ export default function FilterView(props: ViewProps) {
                                 color="primary"
                                 type="submit"
                                 sx={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
+                                onClick={() => {
+                                    onSearch(keyword)
+                                }}
                             >
                                 Search
                             </Button>
@@ -81,9 +98,21 @@ export default function FilterView(props: ViewProps) {
                 </div>
                 <div className=" flex flex-row items-center gap-4">
                     <div
-                        className={`${category == '' || category == 'dy' ? 'bg-blue-500  text-white' : 'text-[#333] hover:text-blue-500  bg-gray-200'}   items-center  rounded-sm w-[100px] flex justify-center text-center  cursor-pointer py-2 px-3`}
+                        className={`${category == '' || category == ContentType.XiaoHongShu ? 'bg-blue-500  text-white' : 'text-[#333] hover:text-blue-500  bg-gray-200'}   items-center  rounded-sm w-[100px] flex justify-center text-center  cursor-pointer py-2 px-3`}
                         onClick={() => {
-                            setCategory('dy');
+                            setCategory(ContentType.XiaoHongShu);
+                        }}
+                    >
+                        <img
+                            src="https://chs.newrank.cn/main/logo/logo-xiaohongshu.png"
+                            className="w-5 h-5 mr-2"
+                        />
+                        <label className="cursor-pointer">小红书</label>
+                    </div>
+                    <div
+                        className={`${category == ContentType.Douyin ? 'bg-blue-500  text-white' : 'text-[#333] hover:text-blue-500  bg-gray-200'}   items-center  rounded-sm w-[100px] flex justify-center text-center  cursor-pointer py-2 px-3`}
+                        onClick={() => {
+                            setCategory(ContentType.Douyin);
                         }}
                     >
                         <img
@@ -93,9 +122,9 @@ export default function FilterView(props: ViewProps) {
                         <label className="cursor-pointer">抖音</label>
                     </div>
                     <div
-                        className={`${category == 'ks' ? 'bg-blue-500  text-white' : 'text-[#333] hover:text-blue-500  bg-gray-200'}  items-center rounded-sm w-[100px] flex justify-center text-center  cursor-pointer py-2 px-3`}
+                        className={`${category == ContentType.KuaiShou ? 'bg-blue-500  text-white' : 'text-[#333] hover:text-blue-500  bg-gray-200'}  items-center rounded-sm w-[100px] flex justify-center text-center  cursor-pointer py-2 px-3`}
                         onClick={() => {
-                            setCategory('ks');
+                            setCategory(ContentType.KuaiShou);
                         }}
                     >
                         <img
@@ -134,6 +163,7 @@ export default function FilterView(props: ViewProps) {
                                     className={` px-2 py-2 text-sm rounded-sm   hover:text-white hover:bg-blue-500 cursor-pointer ${selectFather?.name == tag.name ? 'bg-blue-500 text-white' : 'bg-white text-[#000]'}`}
                                     onClick={() => {
                                         handleOption1(tag);
+                                        changeCategory('type', tag.name)
                                     }}
                                 >
                                     {tag.name}
@@ -188,6 +218,10 @@ export default function FilterView(props: ViewProps) {
                                 {
                                     name: '2025-04-29',
                                     value: '2025-04-29'
+                                },
+                                {
+                                    name: '2025-04-28',
+                                    value: '2025-04-28'
                                 }
                             ]}
                             defaultValue={'2025-04-29'}
@@ -195,7 +229,9 @@ export default function FilterView(props: ViewProps) {
                             bgClassName=" bg-white"
                             overlayClassName="py-1"
                             className="border border-blue-500 w-[150px] rounded-r-sm bg-white"
-                            onSelect={() => {}}
+                            onSelect={(item) => {
+                                changeCategory('date', item.value);
+                            }}
                         ></Select>
                     </div>
                 </div>

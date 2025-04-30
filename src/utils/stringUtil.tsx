@@ -73,7 +73,7 @@ export const removeHtmlTags = (text: string) => {
 };
 
 export const formatK = (value: number) => {
-    return value > 1000 ? (value / 1000).toFixed(1) + 'k' : value;
+    return value > 10000 ? (value / 10000).toFixed(2) + 'w' : value > 1000 ? (value / 1000).toFixed(2) + 'k' : value;
 };
 
 export async function extractInfoFromHTML(htmlContent: any) {

@@ -49,8 +49,8 @@ export default function UserView(props: ViewProps) {
                     />
                 }
                 sx={{
-                    color: '#000',
-                    fontSize: 14,
+                    color: '#333',
+                    fontSize: 12,
                     ...textClassName
                 }}
             >

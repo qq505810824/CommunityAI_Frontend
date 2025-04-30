@@ -13,6 +13,8 @@ import useSWR from 'swr';
 // 定义应用数据类型
 export interface HotModel {
     id: number;
+    category?: string;
+
     rankPosition?: number;
     title?: string;
     coverUrl?: string;
@@ -31,14 +33,37 @@ export interface HotModel {
 
     userType?: string;
 
+    photoId?: string;
+    photoType?: string;
+
     videoDuration?: number;
     video_tag_name_lv1?: string;
     video_tag_name_lv2?: string;
+
+    note_counter_type_v1?: string;
+    note_counter_type_v2?: string;
+
+    userTypeFirst?: string;
+    userTypeSecond?: string
+
 
     publicTime?: string;
 
     created_at: string;
     updated_at: string;
+}
+
+export enum PhotoType {
+    Video = 'video',
+    Normal = 'normal'
+
+}
+
+export enum ContentType {
+    XiaoHongShu = 'xhs',
+    Douyin = 'dy',
+    KuaiShou = 'ks'
+
 }
 
 // 应用数据 fetcher 函数
