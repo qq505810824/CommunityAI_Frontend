@@ -3,7 +3,7 @@ const nextConfig = {
     reactStrictMode: false,
     images: {
         domains: ['inews.gtimg.com'],
-      },
+    },
     experimental: {
         missingSuspenseWithCSRBailout: false,
     },
@@ -29,7 +29,7 @@ const nextConfig = {
         return [
             {
                 source: '/',
-                destination: '/home',
+                destination: '/hots',
                 permanent: false,
             },
         ]
