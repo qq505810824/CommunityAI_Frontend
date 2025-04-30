@@ -61,12 +61,11 @@ export default function HotsCard(props: ViewProps) {
 
     return (
         <>
-
             <div
                 className=" relative border rounded-md overflow-x-hidden  hover:shadow-lg cursor-pointer p-2 space-y-2 bg-white"
                 onClick={handleClick}
             >
-                <label className=' absolute right-2 top-1 text-sm'>{product.rankPosition}</label>
+                <label className=" absolute right-2 top-1 text-sm">{product.rankPosition}</label>
                 <div className="flex flex-row space-x-2">
                     <div className=" relative w-[70px]  min-w-[70px]">
                         <img
