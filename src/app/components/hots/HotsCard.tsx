@@ -19,21 +19,21 @@ export default function HotsCard(props: ViewProps) {
     const handleClick = () => {
         if (product.category == ContentType.Douyin) {
             if (product.photoType == PhotoType.Video) {
-                window.open(`https://www.douyin.com/video/${product.photoId}`, "_blank")
+                window.open(`https://www.douyin.com/video/${product.photoId}`, '_blank');
             } else {
-                window.open(`https://www.douyin.com/video/${product.photoId}`, "_blank")
+                window.open(`https://www.douyin.com/video/${product.photoId}`, '_blank');
             }
         } else if (product.category == ContentType.KuaiShou) {
             if (product.photoType == PhotoType.Video) {
-                window.open(`https://www.kuaishou.com/short-video/${product.photoId}`, "_blank")
+                window.open(`https://www.kuaishou.com/short-video/${product.photoId}`, '_blank');
             } else {
-                window.open(`https://www.kuaishou.com/short-video/${product.photoId}`, "_blank")
+                window.open(`https://www.kuaishou.com/short-video/${product.photoId}`, '_blank');
             }
         } else if (product.category == ContentType.XiaoHongShu) {
             if (product.photoType == PhotoType.Video) {
-                window.open(`https://www.xiaohongshu.com/explore/${product.photoId}`, "_blank")
+                window.open(`https://www.xiaohongshu.com/explore/${product.photoId}`, '_blank');
             } else {
-                window.open(`https://www.xiaohongshu.com/explore/${product.photoId}`, "_blank")
+                window.open(`https://www.xiaohongshu.com/explore/${product.photoId}`, '_blank');
             }
         }
     };
@@ -51,20 +51,22 @@ export default function HotsCard(props: ViewProps) {
     const getIconImage = (category: string) => {
         switch (category) {
             case ContentType.Douyin:
-                return "https://chs.newrank.cn/main/logo/logo-douyin.png";
+                return 'https://chs.newrank.cn/main/logo/logo-douyin.png';
             case ContentType.KuaiShou:
-                return "https://chs.newrank.cn/main/logo/logo-kuaishou.png";
+                return 'https://chs.newrank.cn/main/logo/logo-kuaishou.png';
             case ContentType.XiaoHongShu:
-                return "https://chs.newrank.cn/main/logo/logo-xiaohongshu.png"
+                return 'https://chs.newrank.cn/main/logo/logo-xiaohongshu.png';
         }
-    }
+    };
 
     return (
         <>
+
             <div
-                className=" border rounded-md overflow-x-hidden  hover:shadow-lg cursor-pointer p-4 space-y-2 bg-white"
+                className=" relative border rounded-md overflow-x-hidden  hover:shadow-lg cursor-pointer p-2 space-y-2 bg-white"
                 onClick={handleClick}
             >
+                <label className=' absolute right-2 top-1 text-sm'>{product.rankPosition}</label>
                 <div className="flex flex-row space-x-2">
                     <div className=" relative w-[70px]  min-w-[70px]">
                         <img
@@ -114,7 +116,10 @@ export default function HotsCard(props: ViewProps) {
                     {/* {prompt?.tags?.map((tag: any, index: number) => (
                         <TagView tag={tag} key={index} />
                     ))} */}
-                    <label className='text-sm font-semibold'>{product.userType || product.video_tag_name_lv1}</label>  <label className='text-sm  text-gray-500'>{product.video_tag_name_lv2}</label>
+                    <label className="text-sm font-semibold">
+                        {product.userType || product.video_tag_name_lv1}
+                    </label>{' '}
+                    <label className="text-sm  text-gray-500">{product.video_tag_name_lv2}</label>
                 </div>
                 <div className="flex flex-row  overflow-x-hidden  justify-between items-center">
                     <div className="flex flex-row space-x-4  ">
@@ -147,7 +152,9 @@ export default function HotsCard(props: ViewProps) {
                                 {product?.shareCount || 0}
                             </Typography>
                             <Typography
-                                startDecorator={<ThumbUpOffAltIcon sx={{ width: 12, color: 'red' }} />}
+                                startDecorator={
+                                    <ThumbUpOffAltIcon sx={{ width: 12, color: 'red' }} />
+                                }
                                 sx={{
                                     color: 'red',
                                     fontSize: 12
@@ -155,8 +162,6 @@ export default function HotsCard(props: ViewProps) {
                             >
                                 {product?.likeCount || 0}
                             </Typography>
-
-
                         </>
                     </div>
                 </div>

@@ -17,9 +17,9 @@ export default function FilterView(props: ViewProps) {
     const { tag, onClose, onSearch, searching, changeCategory } = props;
 
     const [category, setCategory] = useState('xhs');
-    const [type, setType] = useState('')
-    const [date, setDate] = useState('')
-    const [keyword, setKeyword] = useState('')
+    const [type, setType] = useState('');
+    const [date, setDate] = useState('');
+    const [keyword, setKeyword] = useState('');
 
     const [secondOptions, setSecondOptions] = useState<any[]>([]);
     const [selectOption, setSelectedOption] = useState<any>(null);
@@ -52,14 +52,14 @@ export default function FilterView(props: ViewProps) {
 
     const onKeyUp = (e: any) => {
         if (e.keyCode === 13) {
-            onSearch(keyword)
+            onSearch(keyword);
         }
     };
 
     return (
         <>
             <div className="w-full sm:max-w-7xl  px-4   flex my-2 flex-col  justify-start items-start space-y-4 ">
-                <div className="w-full flex flex-row items-center  space-x-2">
+                <div className="w-full flex flex-row items-center  space-x-2 whitespace-nowrap">
                     <Typography level="h3">热榜</Typography>
                     <Input
                         sx={{ '--Input-decoratorChildHeight': '45px' }}
@@ -69,7 +69,7 @@ export default function FilterView(props: ViewProps) {
                         required
                         onKeyUp={onKeyUp}
                         onChange={(event) => {
-                            setKeyword(event.target.value)
+                            setKeyword(event.target.value);
                         }}
                         // error={data.status === 'failure'}
                         endDecorator={
@@ -79,7 +79,7 @@ export default function FilterView(props: ViewProps) {
                                 type="submit"
                                 sx={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
                                 onClick={() => {
-                                    onSearch(keyword)
+                                    onSearch(keyword);
                                 }}
                             >
                                 Search
@@ -98,7 +98,7 @@ export default function FilterView(props: ViewProps) {
                 </div>
                 <div className=" flex flex-row items-center gap-4">
                     <div
-                        className={`${category == '' || category == ContentType.XiaoHongShu ? 'bg-blue-500  text-white' : 'text-[#333] hover:text-blue-500  bg-gray-200'}   items-center  rounded-sm w-[100px] flex justify-center text-center  cursor-pointer py-2 px-3`}
+                        className={`${category == '' || category == ContentType.XiaoHongShu ? 'bg-blue-500  text-white' : 'text-[#333] hover:text-blue-500  bg-gray-200'}  whitespace-nowrap  items-center  rounded-sm w-[100px] flex justify-center text-center  cursor-pointer py-2 px-3`}
                         onClick={() => {
                             setCategory(ContentType.XiaoHongShu);
                         }}
@@ -110,7 +110,7 @@ export default function FilterView(props: ViewProps) {
                         <label className="cursor-pointer">小红书</label>
                     </div>
                     <div
-                        className={`${category == ContentType.Douyin ? 'bg-blue-500  text-white' : 'text-[#333] hover:text-blue-500  bg-gray-200'}   items-center  rounded-sm w-[100px] flex justify-center text-center  cursor-pointer py-2 px-3`}
+                        className={`${category == ContentType.Douyin ? 'bg-blue-500  text-white' : 'text-[#333] hover:text-blue-500  bg-gray-200'} whitespace-nowrap  items-center  rounded-sm w-[100px] flex justify-center text-center  cursor-pointer py-2 px-3`}
                         onClick={() => {
                             setCategory(ContentType.Douyin);
                         }}
@@ -122,7 +122,7 @@ export default function FilterView(props: ViewProps) {
                         <label className="cursor-pointer">抖音</label>
                     </div>
                     <div
-                        className={`${category == ContentType.KuaiShou ? 'bg-blue-500  text-white' : 'text-[#333] hover:text-blue-500  bg-gray-200'}  items-center rounded-sm w-[100px] flex justify-center text-center  cursor-pointer py-2 px-3`}
+                        className={`${category == ContentType.KuaiShou ? 'bg-blue-500  text-white' : 'text-[#333] hover:text-blue-500  bg-gray-200'} whitespace-nowrap items-center rounded-sm w-[100px] flex justify-center text-center  cursor-pointer py-2 px-3`}
                         onClick={() => {
                             setCategory(ContentType.KuaiShou);
                         }}
@@ -163,7 +163,7 @@ export default function FilterView(props: ViewProps) {
                                     className={` px-2 py-2 text-sm rounded-sm   hover:text-white hover:bg-blue-500 cursor-pointer ${selectFather?.name == tag.name ? 'bg-blue-500 text-white' : 'bg-white text-[#000]'}`}
                                     onClick={() => {
                                         handleOption1(tag);
-                                        changeCategory('type', tag.name)
+                                        changeCategory('type', tag.name);
                                     }}
                                 >
                                     {tag.name}

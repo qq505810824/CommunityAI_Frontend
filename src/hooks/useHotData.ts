@@ -44,8 +44,7 @@ export interface HotModel {
     note_counter_type_v2?: string;
 
     userTypeFirst?: string;
-    userTypeSecond?: string
-
+    userTypeSecond?: string;
 
     publicTime?: string;
 
@@ -56,14 +55,12 @@ export interface HotModel {
 export enum PhotoType {
     Video = 'video',
     Normal = 'normal'
-
 }
 
 export enum ContentType {
     XiaoHongShu = 'xhs',
     Douyin = 'dy',
     KuaiShou = 'ks'
-
 }
 
 // 应用数据 fetcher 函数

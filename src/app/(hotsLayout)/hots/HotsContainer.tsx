@@ -21,8 +21,8 @@ function HotsContainer() {
     const { searchPrompt } = usePromptOperations();
     const [searching, setSearching] = useState(false);
     const [category, setCategory] = useState<any>('xhs');
-    const [type, setType] = useState('美食')
-    const [date, setDate] = useState('2025-04-29')
+    const [type, setType] = useState('美食');
+    const [date, setDate] = useState('2025-04-29');
 
     // const { data, isLoading: promptsLoading, isError, mutate } = usePromptData();
 
@@ -73,10 +73,10 @@ function HotsContainer() {
     const handleSearch = async (keyword: string) => {
         if (!keyword) {
             getProducts(category, type, date);
-            return
+            return;
         }
         console.log('search value', keyword);
-        const filterData = _.filter(products, item => _.includes(item.title, keyword))
+        const filterData = _.filter(products, (item) => _.includes(item.title, keyword));
         console.log(filterData);
         const newData = filterData?.map((item: any) => {
             return {
@@ -120,11 +120,10 @@ function HotsContainer() {
         if (filterKey == 'category') {
             setCategory(filterValue);
         } else if (filterKey == 'type') {
-            setType(filterValue)
+            setType(filterValue);
         } else if (filterKey == 'date') {
-            setDate(filterValue)
+            setDate(filterValue);
         }
-
     };
 
     return (

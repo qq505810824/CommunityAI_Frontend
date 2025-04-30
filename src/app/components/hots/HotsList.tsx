@@ -1,34 +1,32 @@
-import { ContentType, HotModel, PhotoType } from "@/hooks/useHotData";
-import { Table, Typography } from "@mui/joy";
-import UserView from "./UserView";
+import { ContentType, HotModel, PhotoType } from '@/hooks/useHotData';
+import { Table, Typography } from '@mui/joy';
+import UserView from './UserView';
 
 interface ViewProps {
     products: HotModel[];
 }
 
 export default function HotsList(props: ViewProps) {
-    const {
-        products
-    } = props
+    const { products } = props;
 
     const handleClick = (product: HotModel) => {
         if (product.category == ContentType.Douyin) {
             if (product.photoType == PhotoType.Video) {
-                window.open(`https://www.douyin.com/video/${product.photoId}`, "_blank")
+                window.open(`https://www.douyin.com/video/${product.photoId}`, '_blank');
             } else {
-                window.open(`https://www.douyin.com/video/${product.photoId}`, "_blank")
+                window.open(`https://www.douyin.com/video/${product.photoId}`, '_blank');
             }
         } else if (product.category == ContentType.KuaiShou) {
             if (product.photoType == PhotoType.Video) {
-                window.open(`https://www.kuaishou.com/short-video/${product.photoId}`, "_blank")
+                window.open(`https://www.kuaishou.com/short-video/${product.photoId}`, '_blank');
             } else {
-                window.open(`https://www.kuaishou.com/short-video/${product.photoId}`, "_blank")
+                window.open(`https://www.kuaishou.com/short-video/${product.photoId}`, '_blank');
             }
         } else if (product.category == ContentType.XiaoHongShu) {
             if (product.photoType == PhotoType.Video) {
-                window.open(`https://www.xiaohongshu.com/explore/${product.photoId}`, "_blank")
+                window.open(`https://www.xiaohongshu.com/explore/${product.photoId}`, '_blank');
             } else {
-                window.open(`https://www.xiaohongshu.com/explore/${product.photoId}`, "_blank")
+                window.open(`https://www.xiaohongshu.com/explore/${product.photoId}`, '_blank');
             }
         }
     };
@@ -36,18 +34,17 @@ export default function HotsList(props: ViewProps) {
     const getIconImage = (category: string) => {
         switch (category) {
             case ContentType.Douyin:
-                return "https://chs.newrank.cn/main/logo/logo-douyin.png";
+                return 'https://chs.newrank.cn/main/logo/logo-douyin.png';
             case ContentType.KuaiShou:
-                return "https://chs.newrank.cn/main/logo/logo-kuaishou.png";
+                return 'https://chs.newrank.cn/main/logo/logo-kuaishou.png';
             case ContentType.XiaoHongShu:
-                return "https://chs.newrank.cn/main/logo/logo-xiaohongshu.png"
+                return 'https://chs.newrank.cn/main/logo/logo-xiaohongshu.png';
         }
-    }
+    };
 
     return (
         <>
-            <Table aria-label="basic table  "
-                stickyHeader>
+            <Table aria-label="basic table  " stickyHeader>
                 <thead>
                     <tr>
                         <th style={{ width: '50px', textAlign: 'center' }}>排名</th>
@@ -62,10 +59,13 @@ export default function HotsList(props: ViewProps) {
                 </thead>
                 <tbody className="bg-white">
                     {products?.map((product, index) => (
-                        <tr key={index} className=" cursor-pointer"
+                        <tr
+                            key={index}
+                            className=" cursor-pointer"
                             onClick={() => {
-                                handleClick(product)
-                            }}>
+                                handleClick(product);
+                            }}
+                        >
                             <td className=" items-center text-center">{product.rankPosition}</td>
                             <td>
                                 <div className="flex flex-row space-x-2">
@@ -114,13 +114,23 @@ export default function HotsList(props: ViewProps) {
                                 </div>
                             </td>
                             <td className=" items-center text-center">
-                                <p className=" font-semibold">{product.userType || product.video_tag_name_lv1}</p>
+                                <p className=" font-semibold">
+                                    {product.userType || product.video_tag_name_lv1}
+                                </p>
                                 <p className=" text-gray-500">{product.video_tag_name_lv2}</p>
                             </td>
-                            <td className=" items-center text-center">{product?.commentCount || 0}</td>
-                            <td className=" items-center text-center">{product?.collectCount || 0}</td>
-                            <td className=" items-center text-center">{product?.shareCount || 0}</td>
-                            <td className=" items-center text-center"><label className='text-red-500'>{product?.likeCount || 0}</label></td>
+                            <td className=" items-center text-center">
+                                {product?.commentCount || 0}
+                            </td>
+                            <td className=" items-center text-center">
+                                {product?.collectCount || 0}
+                            </td>
+                            <td className=" items-center text-center">
+                                {product?.shareCount || 0}
+                            </td>
+                            <td className=" items-center text-center">
+                                <label className="text-red-500">{product?.likeCount || 0}</label>
+                            </td>
 
                             {/* <td className=" items-center text-center">4</td> */}
                         </tr>
@@ -128,5 +138,5 @@ export default function HotsList(props: ViewProps) {
                 </tbody>
             </Table>
         </>
-    )
+    );
 }
