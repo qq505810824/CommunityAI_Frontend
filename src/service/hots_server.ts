@@ -9,10 +9,14 @@ const supabase = createClient(
 const db = 'hots';
 export const getAllApps = async () => {
     try {
+        const key = "2025-04-29"
         const { data, error } = await supabase
             .from(db)
-            .select('*, account(id,name,email,avatar)')
-            .order('updated_at', { ascending: true });
+            .select('*')
+            .or(
+                `publicTime.ilike.%${key}%`
+            )
+            .order('rankPosition', { ascending: true });
 
         if (error) {
             throw error;
@@ -106,25 +110,25 @@ export const updateApp = async (id: number, appData: Partial<HotModel>) => {
     try {
         let result;
         // 如果是更新 focus，使用 RPC
-        if ('focus' in appData) {
-            const { data, error } = await supabase
-                .rpc(appData.focus == 1 ? 'increment_focus' : 'decrement_focus', { row_id: id })
-                .single();
+        // if ('focus' in appData) {
+        //     const { data, error } = await supabase
+        //         .rpc(appData.focus == 1 ? 'increment_focus' : 'decrement_focus', { row_id: id })
+        //         .single();
 
-            if (error) throw error;
-            result = { data, error: null };
-        } else if ('copy' in appData) {
-            const { data, error } = await supabase.rpc('increment_copy', { row_id: id }).single();
+        //     if (error) throw error;
+        //     result = { data, error: null };
+        // } else if ('copy' in appData) {
+        //     const { data, error } = await supabase.rpc('increment_copy', { row_id: id }).single();
 
-            if (error) throw error;
-            result = { data, error: null };
-        } else {
-            // 其他更新操作保持不变
-            const { data, error } = await supabase.from(db).update(appData).eq('id', id).select();
+        //     if (error) throw error;
+        //     result = { data, error: null };
+        // } else {
+        //     // 其他更新操作保持不变
+        const { data, error } = await supabase.from(db).update(appData).eq('id', id).select();
 
-            if (error) throw error;
-            result = { data, error: null };
-        }
+        if (error) throw error;
+        result = { data, error: null };
+        // }
 
         return { success: true, data: result.data };
     } catch (error) {
@@ -154,7 +158,7 @@ export const searchApp = async (key: string) => {
             .from(db)
             .select('*')
             .or(
-                `title.ilike.%${key}%,description.ilike.%${key}%,prompt.ilike.%${key}%,tags.ilike.%${key}%`
+                `title.ilike.%${key}%`
             );
 
         if (error) {

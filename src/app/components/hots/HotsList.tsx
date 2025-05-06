@@ -44,7 +44,9 @@ export default function HotsList(props: ViewProps) {
 
     return (
         <>
-            <Table aria-label="basic table  " stickyHeader>
+            <Table aria-label="basic table  "
+            // stickyHeader
+            >
                 <thead>
                     <tr>
                         <th style={{ width: '50px', textAlign: 'center' }}>排名</th>

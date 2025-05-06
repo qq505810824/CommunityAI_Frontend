@@ -11,7 +11,7 @@ import {
 import useSWR from 'swr';
 
 // 定义应用数据类型
-export interface HotModel {
+export type HotModel = {
     id: number;
     category?: string;
 
@@ -71,8 +71,8 @@ const appsFetcher = async () => {
 };
 
 // 自定义 hook 使用 SWR 获取所有应用
-export const usePromptData = (options = {}) => {
-    const { data, error, isLoading, mutate } = useSWR('all-prompts', appsFetcher, {
+export const useHotsData = (options = {}) => {
+    const { data, error, isLoading, mutate } = useSWR('all-hots', appsFetcher, {
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
         dedupingInterval: 60000, // 1分钟内不重复请求
@@ -93,9 +93,9 @@ const appDetailFetcher = async (id: number, accountId?: string) => {
     return data || [];
 };
 
-export const usePromptDetailData = (id: number, accountId?: string, options = {}) => {
+export const useHotsDetailData = (id: number, accountId?: string, options = {}) => {
     const { data, error, isLoading, mutate } = useSWR(
-        'detail_prompt_' + id,
+        'detail_hots_' + id,
         () => appDetailFetcher(id, accountId),
         {
             revalidateOnFocus: false,
@@ -118,9 +118,9 @@ const appDetailByIdFetcher = async (id: number) => {
     return data || [];
 };
 
-export const usePromptDetailByIdData = (id: number, options = {}) => {
+export const useHotsDetailByIdData = (id: number, options = {}) => {
     const { data, error, isLoading, mutate } = useSWR(
-        'detail_prompt_by_id_' + id,
+        'detail_hots_by_id_' + id,
         () => appDetailByIdFetcher(id),
         {
             revalidateOnFocus: false,
@@ -143,9 +143,9 @@ const appStatisticsFetcher = async () => {
     return data || [];
 };
 
-export const usePromptStatisticsData = (options = {}) => {
+export const useHotsStatisticsData = (options = {}) => {
     const { data, error, isLoading, mutate } = useSWR(
-        'detail_prompt_statistics',
+        'detail_hots_statistics',
         () => appStatisticsFetcher(),
         {
             revalidateOnFocus: false,
@@ -162,30 +162,30 @@ export const usePromptStatisticsData = (options = {}) => {
     };
 };
 
-export const usePromptOperations = () => {
+export const useHotsOperations = () => {
     // const { mutate } = usePromptData(); // 移动到顶层
-    const addPrompt = async (appData: Omit<HotModel, 'id'>) => {
+    const addHots = async (appData: Omit<HotModel, 'id'>) => {
         return handleAppOperation(async () => {
             return await createApp(appData);
         });
     };
 
-    const updatePrompt = async (id: number, updatedData: Partial<HotModel>) => {
+    const updateHots = async (id: number, updatedData: Partial<HotModel>) => {
         return handleAppOperation(async () => {
             return await updateApp(id, updatedData);
         });
     };
 
-    const deletePrompt = async (id: number) => {
+    const deleteHots = async (id: number) => {
         return await deleteApp(id);
     };
 
-    const searchPrompt = async (key: string) => {
+    const searchHots = async (key: string) => {
         return handleAppOperation(async () => {
             return await searchApp(key);
         });
     };
-    return { addPrompt, updatePrompt, deletePrompt, searchPrompt };
+    return { addHots, updateHots, deleteHots, searchHots };
 };
 
 // 处理应用操作的通用函数

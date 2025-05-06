@@ -47,12 +47,12 @@ function HotsView(props: ViewProps) {
                             作品
                         </Typography>
                     </div>
-                    <div className="flex-row   pb-10 px-4 grid   sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full sm:max-w-7xl">
+                    <div className="sm:hidden grid flex-row   pb-10 px-4    sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full sm:max-w-7xl">
                         {products?.map((product, index) => (
                             <HotsCard product={product} key={index} />
                         ))}
                     </div>
-                    <div className="w-full sm:max-w-7xl px-4 overflow-auto">
+                    <div className=" hidden sm:block w-full sm:max-w-7xl px-4 overflow-auto">
                         <HotsList products={products} />
                     </div>
                 </Box>
