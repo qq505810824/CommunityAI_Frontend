@@ -106,6 +106,7 @@ export default function FilterView(props: ViewProps) {
                         <img
                             src="https://chs.newrank.cn/main/logo/logo-xiaohongshu.png"
                             className="w-5 h-5 mr-2"
+                            alt=''
                         />
                         <label className="cursor-pointer">小红书</label>
                     </div>
@@ -118,6 +119,7 @@ export default function FilterView(props: ViewProps) {
                         <img
                             src="https://chs.newrank.cn/main/logo/logo-douyin.png"
                             className="w-5 h-5 mr-2"
+                            alt=''
                         />
                         <label className="cursor-pointer">抖音</label>
                     </div>
@@ -130,6 +132,7 @@ export default function FilterView(props: ViewProps) {
                         <img
                             src="https://chs.newrank.cn/main/logo/logo-kuaishou.png"
                             className="w-5 h-5 mr-2"
+                            alt=''
                         />
                         <label className="cursor-pointer">快手</label>
                     </div>

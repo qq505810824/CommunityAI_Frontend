@@ -50,7 +50,7 @@ export type HotModel = {
 
     created_at: string;
     updated_at: string;
-}
+};
 
 export enum PhotoType {
     Video = 'video',
@@ -63,16 +63,38 @@ export enum ContentType {
     KuaiShou = 'ks'
 }
 
+export const IPlatform = {
+    "xhs": {
+        name: "小红书",
+        video_link: 'https://www.xiaohongshu.com/explore/',
+        icon: 'https://chs.newrank.cn/main/logo/logo-xiaohongshu.png'
+    },
+    "dy": {
+        name: "抖音",
+        video_link: "https://www.douyin.com/video/",
+        icon: "https://chs.newrank.cn/main/logo/logo-douyin.png"
+    },
+    "ks": {
+        name: "快手",
+        video_link: 'https://www.kuaishou.com/short-video/',
+        icon: 'https://chs.newrank.cn/main/logo/logo-kuaishou.png'
+    }
+}
+
+
 // 应用数据 fetcher 函数
-const appsFetcher = async () => {
-    const { data, error } = await getAllApps();
+const appsFetcher = async (category: string) => {
+    console.log('category2', category);
+    const { data, error } = await getAllApps(category);
     if (error) throw error;
     return data || [];
 };
 
 // 自定义 hook 使用 SWR 获取所有应用
-export const useHotsData = (options = {}) => {
-    const { data, error, isLoading, mutate } = useSWR('all-hots', appsFetcher, {
+export const useHotsData = (category: string, options = {}) => {
+    console.log('category', category);
+
+    const { data, error, isLoading, mutate } = useSWR(['all-hots', category], ([_, category]) => appsFetcher(category), {
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
         dedupingInterval: 60000, // 1分钟内不重复请求
@@ -180,9 +202,9 @@ export const useHotsOperations = () => {
         return await deleteApp(id);
     };
 
-    const searchHots = async (key: string) => {
+    const searchHots = async (key: string, options?: string) => {
         return handleAppOperation(async () => {
-            return await searchApp(key);
+            return await searchApp(key, options);
         });
     };
     return { addHots, updateHots, deleteHots, searchHots };

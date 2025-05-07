@@ -12,7 +12,6 @@ const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-
 const HotsCreateContainer = () => {
     const params = useParams();
     const user_id = localStorage.getItem('user_id');
@@ -21,8 +20,6 @@ const HotsCreateContainer = () => {
     const { setAlert } = useAlert();
     const { addPrompt } = usePromptOperations();
     const router = useRouter();
-
-
 
     const handleSubmit = async (formData: PromptModel) => {
         // 处理表单提交
@@ -50,7 +47,6 @@ const HotsCreateContainer = () => {
         });
 
         console.log('data', data, error);
-
 
         // setSubmitting(true);
         // try {

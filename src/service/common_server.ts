@@ -5,7 +5,6 @@ const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-
 export const createAppByExecute = async (table: string, query: string) => {
     try {
         const { data, error } = await supabase.rpc('execute_sql', {

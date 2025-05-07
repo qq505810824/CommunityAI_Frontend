@@ -78,7 +78,7 @@ function HotsEditForm(props: ViewProps) {
                         multiple
                         defaultValue={[
                             uiSchema['ui:options']?.enumOptions &&
-                            uiSchema['ui:options']?.enumOptions[0]
+                                uiSchema['ui:options']?.enumOptions[0]
                         ]}
                         onChange={(event, value) => {
                             // 处理选择变化
@@ -117,7 +117,7 @@ function HotsEditForm(props: ViewProps) {
                         multiple
                         defaultValue={[
                             uiSchema['ui:options']?.enumOptions &&
-                            uiSchema['ui:options']?.enumOptions[0]
+                                uiSchema['ui:options']?.enumOptions[0]
                         ]}
                         onChange={(event, value) => {
                             // 处理选择变化

@@ -1,5 +1,5 @@
 import { useModalContext } from '@/context/modal-context';
-import { ContentType, HotModel, PhotoType } from '@/hooks/useHotData';
+import { ContentType, HotModel, IPlatform, PhotoType } from '@/hooks/useHotData';
 import { usePromptOperations } from '@/hooks/usePromptData';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { Tooltip } from '@mui/joy';
@@ -37,7 +37,7 @@ export default function HotsItem(props: ViewProps) {
     };
 
     const handleEdit = () => {
-        if (product) router.push(`/admin/prompts/${product.id}/edit`);
+        if (product) router.push(`/admin/hots/${product.id}/edit`);
     };
 
     const handleDelete = () => {
@@ -55,6 +55,7 @@ export default function HotsItem(props: ViewProps) {
         <>
             <tr>
                 <td>{product.rankPosition}</td>
+                <td>{product.category && (IPlatform as Record<string, any>)[product.category].name}</td>
                 <td>
                     <Tooltip title={product.title}>
                         <div
@@ -77,11 +78,11 @@ export default function HotsItem(props: ViewProps) {
                 <td>{product.collectCount || 0}</td>
                 <td>{product.shareCount || 0}</td>
                 <td style={{ textAlign: 'center' }}>
-                    <p className=' font-semibold'>{product.note_counter_type_v1}</p>
-                    {product.note_counter_type_v2}
+                    <p className=" font-semibold">{product.userType || product.note_counter_type_v1}</p>
+                    {product.note_counter_type_v2 || ''}
                 </td>
                 <td>{product.publicTime}</td>
-                <td className='hidden'>
+                <td className="hidden">
                     <div className="flex flex-row items-center overflow-hidden space-x-2">
                         <label
                             className="flex flex-row items-center text-blue-500 cursor-pointer whitespace-nowrap px-2 py-1 rounded-md bg-blue-100 hover:bg-blue-200 text-xs"

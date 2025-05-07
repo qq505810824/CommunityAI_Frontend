@@ -7,15 +7,13 @@ const supabase = createClient(
 );
 
 const db = 'hots';
-export const getAllApps = async () => {
+export const getAllApps = async (category: string) => {
     try {
-        const key = "2025-04-29"
+        // const key = '2025-04-29';
         const { data, error } = await supabase
             .from(db)
             .select('*')
-            .or(
-                `publicTime.ilike.%${key}%`
-            )
+            .or(`category.ilike.%${category}%`)
             .order('rankPosition', { ascending: true });
 
         if (error) {
@@ -152,14 +150,55 @@ export const deleteApp = async (id: number) => {
     }
 };
 
-export const searchApp = async (key: string) => {
+export const searchApp = async (key: string, options?: string) => {
     try {
-        const { data, error } = await supabase
-            .from(db)
-            .select('*')
-            .or(
-                `title.ilike.%${key}%`
-            );
+        let query = supabase.from(db).select('*');
+
+        // 如果 key 存在，添加 title 的模糊查询条件
+        if (key) {
+            query = query.ilike('title', `%${key}%`);
+        }
+
+        // 如果 options 存在，解析并添加条件
+        if (options) {
+            const optionConditions = options.split(',');
+            optionConditions.forEach((condition) => {
+                const [column, operator, value] = condition.split('.');
+                const trimmedColumn = column.trim();
+                const trimmedOperator = operator.trim();
+                const trimmedValue = value.trim().replace(/^['"]|['"]$/g, '');
+                console.log('==', column, operator, value);
+
+                switch (trimmedOperator) {
+                    case 'like':
+                        query = query.like(trimmedColumn, value);
+                        break;
+                    case 'ilike':
+                        query = query.ilike(trimmedColumn, value);
+                        break;
+                    case 'eq':
+                        query = query.eq(trimmedColumn, value);
+                        break;
+                    case 'gt':
+                        query = query.gt(trimmedColumn, trimmedValue);
+                        break;
+                    case 'lt':
+                        query = query.lt(trimmedColumn, trimmedValue);
+                        break;
+                    case 'gte':
+                        query = query.gte(trimmedColumn, trimmedValue);
+                        break;
+                    case 'lte':
+                        query = query.lte(trimmedColumn, trimmedValue);
+                        break;
+                    default:
+                        console.warn(`不支持的操作符: ${trimmedOperator}`);
+                }
+            });
+        }
+        console.log('query', query);
+
+        const { data, error } = await query;
 
         if (error) {
             throw error;

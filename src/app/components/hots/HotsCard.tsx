@@ -1,4 +1,4 @@
-import { ContentType, HotModel, PhotoType } from '@/hooks/useHotData';
+import { ContentType, HotModel, IPlatform, PhotoType } from '@/hooks/useHotData';
 import { usePromptOperations } from '@/hooks/usePromptData';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
@@ -78,7 +78,8 @@ export default function HotsCard(props: ViewProps) {
                         />
                         <img
                             className=" absolute top-0 left-0 w-4 h-4 rounded-full"
-                            src={getIconImage(product.category || '')}
+                            src={product.category && (IPlatform as Record<string, any>)[product.category].icon}
+                            alt=''
                         ></img>
                     </div>
                     <div className="w-full overflow-hidden space-y-1 ">

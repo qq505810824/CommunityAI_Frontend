@@ -1,4 +1,4 @@
-import { ContentType, HotModel, PhotoType } from '@/hooks/useHotData';
+import { ContentType, HotModel, IPlatform, PhotoType } from '@/hooks/useHotData';
 import { Table, Typography } from '@mui/joy';
 import UserView from './UserView';
 
@@ -44,7 +44,8 @@ export default function HotsList(props: ViewProps) {
 
     return (
         <>
-            <Table aria-label="basic table  "
+            <Table
+                aria-label="basic table  "
             // stickyHeader
             >
                 <thead>
@@ -82,7 +83,8 @@ export default function HotsList(props: ViewProps) {
                                         />
                                         <img
                                             className=" absolute top-0 left-0 w-4 h-4 rounded-full"
-                                            src={getIconImage(product?.category || '')}
+                                            src={product.category && (IPlatform as Record<string, any>)[product.category].icon}
+                                            alt=''
                                         ></img>
                                     </div>
                                     <div className="flex flex-col justify-between ">
