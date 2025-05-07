@@ -55,7 +55,9 @@ export default function HotsItem(props: ViewProps) {
         <>
             <tr>
                 <td>{product.rankPosition}</td>
-                <td>{product.category && (IPlatform as Record<string, any>)[product.category].name}</td>
+                <td>
+                    {product.category && (IPlatform as Record<string, any>)[product.category].name}
+                </td>
                 <td>
                     <Tooltip title={product.title}>
                         <div
@@ -78,8 +80,10 @@ export default function HotsItem(props: ViewProps) {
                 <td>{product.collectCount || 0}</td>
                 <td>{product.shareCount || 0}</td>
                 <td style={{ textAlign: 'center' }}>
-                    <p className=" font-semibold">{product.userType || product.note_counter_type_v1}</p>
-                    {product.note_counter_type_v2 || ''}
+                    <p className=" font-semibold">
+                        {product.tag_main}
+                    </p>
+                    {product.tag_sub}
                 </td>
                 <td>{product.publicTime}</td>
                 <td className="hidden">

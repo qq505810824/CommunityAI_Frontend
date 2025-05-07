@@ -46,7 +46,7 @@ export default function HotsList(props: ViewProps) {
         <>
             <Table
                 aria-label="basic table  "
-            // stickyHeader
+                // stickyHeader
             >
                 <thead>
                     <tr>
@@ -83,8 +83,12 @@ export default function HotsList(props: ViewProps) {
                                         />
                                         <img
                                             className=" absolute top-0 left-0 w-4 h-4 rounded-full"
-                                            src={product.category && (IPlatform as Record<string, any>)[product.category].icon}
-                                            alt=''
+                                            src={
+                                                product.category &&
+                                                (IPlatform as Record<string, any>)[product.category]
+                                                    .icon
+                                            }
+                                            alt=""
                                         ></img>
                                     </div>
                                     <div className="flex flex-col justify-between ">

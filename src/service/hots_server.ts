@@ -7,15 +7,26 @@ const supabase = createClient(
 );
 
 const db = 'hots';
-export const getAllApps = async (category: string) => {
+export const getAllApps = async (options: string) => {
     try {
         // const key = '2025-04-29';
-        const { data, error } = await supabase
-            .from(db)
-            .select('*')
-            .or(`category.ilike.%${category}%`)
-            .order('rankPosition', { ascending: true });
+        let query = supabase.from(db).select('*').order('rankPosition', { ascending: true });
+        // const { data, error } = await supabase
+        //     .from(db)
+        //     .select('*')
+        //     .order('rankPosition', { ascending: true });
+        if (options) {
+            const optionConditions = options.split(',');
+            optionConditions.forEach((condition) => {
+                const [column, operator, value] = condition.split('.');
+                const trimmedColumn = column.trim();
+                const trimmedOperator = operator.trim();
+                const trimmedValue = value.trim().replace(/^['"]|['"]$/g, '');
+                query = query.ilike(trimmedColumn, trimmedValue);
+            })
+        }
 
+        const { data, error } = await query;
         if (error) {
             throw error;
         }
@@ -167,17 +178,15 @@ export const searchApp = async (key: string, options?: string) => {
                 const trimmedColumn = column.trim();
                 const trimmedOperator = operator.trim();
                 const trimmedValue = value.trim().replace(/^['"]|['"]$/g, '');
-                console.log('==', column, operator, value);
-
                 switch (trimmedOperator) {
                     case 'like':
-                        query = query.like(trimmedColumn, value);
+                        query = query.like(trimmedColumn, trimmedValue);
                         break;
                     case 'ilike':
-                        query = query.ilike(trimmedColumn, value);
+                        query = query.ilike(trimmedColumn, trimmedValue);
                         break;
                     case 'eq':
-                        query = query.eq(trimmedColumn, value);
+                        query = query.eq(trimmedColumn, trimmedValue);
                         break;
                     case 'gt':
                         query = query.gt(trimmedColumn, trimmedValue);

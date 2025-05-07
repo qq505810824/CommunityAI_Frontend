@@ -16,10 +16,16 @@ interface ViewProps {
     searching?: boolean;
     onDelete: (id: number) => void;
     changeCategory?: any;
+    filterOption?: {
+        category: string,
+        type: string,
+        date: string
+    }
 }
 
 function HotsView(props: ViewProps) {
-    const { isLoading, products, onClose, handleSearch, searching, onDelete, changeCategory } = props;
+    const { isLoading, products, onClose, handleSearch, searching, onDelete, changeCategory, filterOption } =
+        props;
     const router = useRouter();
     const { t } = useTranslation();
     const [category, setCategory] = useState('xhs');
@@ -28,11 +34,11 @@ function HotsView(props: ViewProps) {
         e.preventDefault();
         e.stopPropagation();
         let csvContent =
-            'category,rankPosition,title,coverUrl,collectCount,commentCount,fans,likeCount,shareCount,userId,userHeadUrl,userName,collectStatus,userType,photoId,photoType,videoDuration,video_tag_name_lv1,video_tag_name_lv2,note_counter_type_v1,note_counter_type_v2,userTypeFirst,userTypeSecond,publicTime\n';
+            'category,rankPosition,title,coverUrl,collectCount,commentCount,fans,likeCount,shareCount,userId,userHeadUrl,userName,userType,photoId,photoType,videoDuration,tag_main,tag_sub,publicTime\n';
         products.map((item) => {
             csvContent += item.category + ',';
             csvContent += (item.rankPosition || 0) + ',';
-            csvContent += item.title + ',';
+            csvContent += item.title?.replaceAll('\n', '') + ',';
             csvContent += item.coverUrl + ',';
             csvContent += (item.collectCount || 0) + ',';
             csvContent += (item.commentCount || 0) + ',';
@@ -42,17 +48,12 @@ function HotsView(props: ViewProps) {
             csvContent += item.userId + ',';
             csvContent += item.userHeadUrl + ',';
             csvContent += item.userName + ',';
-            csvContent += item.collectStatus + ',';
-            csvContent += item.userType + ',';
+            csvContent += (item.userType || '') + ',';
             csvContent += item.photoId + ',';
             csvContent += item.photoType + ',';
             csvContent += item.videoDuration + ',';
-            csvContent += item.video_tag_name_lv1 + ',';
-            csvContent += item.video_tag_name_lv2 + ',';
-            csvContent += item.note_counter_type_v1 + ',';
-            csvContent += item.note_counter_type_v2 + ',';
-            csvContent += item.userTypeFirst + ',';
-            csvContent += item.userTypeSecond + ',';
+            csvContent += (item.tag_main || '') + ',';
+            csvContent += (item.tag_sub || '') + ',';
             csvContent += item.publicTime + '\n';
         });
         const blob = new Blob([csvContent], { type: 'text/csv' });
@@ -83,7 +84,7 @@ function HotsView(props: ViewProps) {
                     </Button>
                 </div>
             </div>
-            <div className='my-2'>
+            <div className="my-2">
                 <SearchInputView
                     className={'w-full rounded-full mb-4'}
                     handleSearch={handleSearch}
@@ -93,11 +94,9 @@ function HotsView(props: ViewProps) {
                         borderRadius: 100
                     }}
                 />
-                <div className='flex flex-row items-center space-x-2  '>
+                <div className="flex flex-row items-center space-x-2  ">
                     <div className="flex flex-row items-center ">
-                        <label className=" text-sm px-2  ">
-                            平台：
-                        </label>
+                        <label className=" text-sm px-2  ">平台：</label>
                         <Select
                             items={[
                                 {
@@ -113,7 +112,7 @@ function HotsView(props: ViewProps) {
                                     value: 'ks'
                                 }
                             ]}
-                            defaultValue={'xhs'}
+                            defaultValue={filterOption?.category}
                             allowSearch={false}
                             bgClassName=" bg-white"
                             overlayClassName="py-1"
@@ -124,9 +123,7 @@ function HotsView(props: ViewProps) {
                         ></Select>
                     </div>
                     <div className="flex flex-row items-center ">
-                        <label className=" text-sm px-2    ">
-                            分类：
-                        </label>
+                        <label className=" text-sm px-2    ">分类：</label>
                         <Select
                             items={[
                                 {
@@ -138,21 +135,18 @@ function HotsView(props: ViewProps) {
                                     value: '旅游'
                                 }
                             ]}
-                            defaultValue={''}
+                            defaultValue={filterOption?.type}
                             allowSearch={false}
                             bgClassName=" bg-white"
                             overlayClassName="py-1"
                             className="w-[150px]  z-40"
                             onSelect={(item) => {
                                 changeCategory('type', item.value);
-
                             }}
                         ></Select>
                     </div>
                     <div className="flex flex-row items-center ">
-                        <label className=" text-sm px-2  ">
-                            日期：
-                        </label>
+                        <label className=" text-sm px-2  ">日期：</label>
                         <Select
                             items={[
                                 {
@@ -164,7 +158,7 @@ function HotsView(props: ViewProps) {
                                     value: '2025-04-28'
                                 }
                             ]}
-                            defaultValue={''}
+                            defaultValue={filterOption?.date}
                             allowSearch={false}
                             bgClassName=" bg-white"
                             overlayClassName="py-1"

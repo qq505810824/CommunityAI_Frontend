@@ -29,7 +29,7 @@ export type HotModel = {
     userId?: string;
     userHeadUrl?: string;
     userName?: string;
-    collectStatus?: number;
+    // collectStatus?: number;
 
     userType?: string;
 
@@ -37,6 +37,9 @@ export type HotModel = {
     photoType?: string;
 
     videoDuration?: number;
+    tag_main?: string;
+    tag_sub?: string;
+
     video_tag_name_lv1?: string;
     video_tag_name_lv2?: string;
 
@@ -64,28 +67,27 @@ export enum ContentType {
 }
 
 export const IPlatform = {
-    "xhs": {
-        name: "小红书",
+    xhs: {
+        name: '小红书',
         video_link: 'https://www.xiaohongshu.com/explore/',
         icon: 'https://chs.newrank.cn/main/logo/logo-xiaohongshu.png'
     },
-    "dy": {
-        name: "抖音",
-        video_link: "https://www.douyin.com/video/",
-        icon: "https://chs.newrank.cn/main/logo/logo-douyin.png"
+    dy: {
+        name: '抖音',
+        video_link: 'https://www.douyin.com/video/',
+        icon: 'https://chs.newrank.cn/main/logo/logo-douyin.png'
     },
-    "ks": {
-        name: "快手",
+    ks: {
+        name: '快手',
         video_link: 'https://www.kuaishou.com/short-video/',
         icon: 'https://chs.newrank.cn/main/logo/logo-kuaishou.png'
     }
-}
-
+};
 
 // 应用数据 fetcher 函数
-const appsFetcher = async (category: string) => {
-    console.log('category2', category);
-    const { data, error } = await getAllApps(category);
+const appsFetcher = async (options: string) => {
+    console.log('options', options);
+    const { data, error } = await getAllApps(options);
     if (error) throw error;
     return data || [];
 };
@@ -94,12 +96,16 @@ const appsFetcher = async (category: string) => {
 export const useHotsData = (category: string, options = {}) => {
     console.log('category', category);
 
-    const { data, error, isLoading, mutate } = useSWR(['all-hots', category], ([_, category]) => appsFetcher(category), {
-        revalidateOnFocus: false,
-        revalidateOnReconnect: false,
-        dedupingInterval: 60000, // 1分钟内不重复请求
-        ...options
-    });
+    const { data, error, isLoading, mutate } = useSWR(
+        ['all-hots', category],
+        ([_, category]) => appsFetcher(category),
+        {
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false,
+            dedupingInterval: 60000, // 1分钟内不重复请求
+            ...options
+        }
+    );
 
     return {
         data: data as HotModel[],
