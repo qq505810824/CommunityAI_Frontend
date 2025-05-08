@@ -1,4 +1,5 @@
 import type { I18nText } from '@/i18n/language';
+import { ChanHotsModel } from './ChanHots';
 
 export type CommonResponse = {
     success: true | false;
@@ -204,15 +205,15 @@ export type FileUploadConfigResponse = {
 
 export type InvitationResult =
     | {
-          status: 'success';
-          email: string;
-          url: string;
-      }
+        status: 'success';
+        email: string;
+        url: string;
+    }
     | {
-          status: 'failed';
-          email: string;
-          message: string;
-      };
+        status: 'failed';
+        email: string;
+        message: string;
+    };
 
 export type InvitationResponse = CommonResponse & {
     invitation_results: InvitationResult[];
@@ -270,3 +271,10 @@ export type ModerationService = (
         text: string;
     }
 ) => Promise<ModerateResponse>;
+
+
+export type ChanHotsResponse = {
+    data: {
+        list: ChanHotsModel[]
+    };
+};
