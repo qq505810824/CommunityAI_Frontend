@@ -10,7 +10,7 @@ interface ViewProps {
     onSearch: any;
     changeCategory?: any;
     searching?: boolean;
-    categorys?: any[]
+    categorys?: any[];
 }
 
 export default function FilterView(props: ViewProps) {
@@ -104,10 +104,10 @@ export default function FilterView(props: ViewProps) {
                                 className={` px-2 py-2 text-sm rounded-sm   hover:text-white hover:bg-blue-500 cursor-pointer ${selectFather?.name == '' ? 'bg-blue-500 text-white' : 'bg-white text-[#000]'}`}
                                 onClick={() => {
                                     setSelectedFather({
-                                        name: ""
+                                        name: ''
                                     });
                                     // handleOption1(tag);
-                                    changeCategory('video_tag', "");
+                                    changeCategory('video_tag', '');
                                 }}
                             >
                                 {'全部'}

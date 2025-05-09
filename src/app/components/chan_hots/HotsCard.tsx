@@ -31,7 +31,7 @@ export default function HotsCard(props: ViewProps) {
         // }
     };
 
-    const getIconImage = (category: string) => { };
+    const getIconImage = (category: string) => {};
 
     return (
         <>

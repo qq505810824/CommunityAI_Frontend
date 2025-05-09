@@ -20,8 +20,17 @@ function ChanHotsContainer() {
     const [type, setType] = useState('美食');
     const [date, setDate] = useState('2025-04-29');
 
-    const [filterParams, setFilterParams] = useState<any>()
-    const [categorys, setCategorys] = useState<any>()
+    const [filterParams, setFilterParams] = useState<any>({
+        time: '24h',
+        gender_type: -1,
+        goods_relatived: 0,
+        fans_hottest: 0,
+        group_buy_relatived: 0,
+        sort: 'digg_count',
+        size: 50,
+        order_by: 'desc'
+    });
+    const [categorys, setCategorys] = useState<any>();
 
     // const { data, isLoading, isError, mutate } = useChanHotsData();
 
@@ -34,8 +43,8 @@ function ChanHotsContainer() {
     // }, [router, data]);
 
     useEffect(() => {
-        fetchCategoryData()
-        fetchData(filterParams)
+        fetchCategoryData();
+        fetchData(filterParams);
     }, [filterParams]);
 
     const fetchData = async (params: any) => {
@@ -49,10 +58,8 @@ function ChanHotsContainer() {
             });
             const data = await response.json();
             // console.log('data', data);
-            setProducts(data.data.list)
-
-        } catch (error) {
-        }
+            setProducts(data.data.list);
+        } catch (error) { }
     };
 
     const fetchCategoryData = async () => {
@@ -65,16 +72,15 @@ function ChanHotsContainer() {
             });
             const data = await response.json();
             // console.log('starCategory data', data);
-            setCategorys(data.data)
-        } catch (error) {
-        }
+            setCategorys(data.data);
+        } catch (error) { }
     };
 
     const handleSearch = async (keyword: string) => {
         setFilterParams({
             ...filterParams,
             keyword: keyword
-        })
+        });
     };
 
     const refresh = () => {
@@ -86,7 +92,7 @@ function ChanHotsContainer() {
         setFilterParams({
             ...filterParams,
             [filterKey]: filterValue
-        })
+        });
     };
 
     return (
