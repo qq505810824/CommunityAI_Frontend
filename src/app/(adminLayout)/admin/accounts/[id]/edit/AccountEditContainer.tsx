@@ -17,7 +17,11 @@ const AccountEditContainer = () => {
     const { updateAccount } = useAccountOperations();
     const router = useRouter();
 
-    const { data, isLoading: loading, isError } = useAccountDetailData(params['id'] as string);
+    const {
+        data,
+        isLoading: loading,
+        isError
+    } = useAccountDetailData(params['id'] as string);
 
     useEffect(() => {
         if (data) {
