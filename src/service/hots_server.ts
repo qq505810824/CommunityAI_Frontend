@@ -23,7 +23,7 @@ export const getAllApps = async (options: string) => {
                 const trimmedOperator = operator.trim();
                 const trimmedValue = value.trim().replace(/^['"]|['"]$/g, '');
                 query = query.ilike(trimmedColumn, trimmedValue);
-            })
+            });
         }
 
         const { data, error } = await query;

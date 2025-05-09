@@ -205,15 +205,15 @@ export type FileUploadConfigResponse = {
 
 export type InvitationResult =
     | {
-        status: 'success';
-        email: string;
-        url: string;
-    }
+          status: 'success';
+          email: string;
+          url: string;
+      }
     | {
-        status: 'failed';
-        email: string;
-        message: string;
-    };
+          status: 'failed';
+          email: string;
+          message: string;
+      };
 
 export type InvitationResponse = CommonResponse & {
     invitation_results: InvitationResult[];
@@ -272,9 +272,8 @@ export type ModerationService = (
     }
 ) => Promise<ModerateResponse>;
 
-
 export type ChanHotsResponse = {
     data: {
-        list: ChanHotsModel[]
+        list: ChanHotsModel[];
     };
 };

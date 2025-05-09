@@ -1,5 +1,3 @@
-
-
 export interface SpuInfo {
     poi_id: string;
     product_id: string;
@@ -105,7 +103,7 @@ export interface AwemeInfo {
     aweme_url: string;
     duration: number;
     product_volume_text_cmm_ind: string;
-    is_hot: number
+    is_hot: number;
 }
 
 export interface PoiInfo {

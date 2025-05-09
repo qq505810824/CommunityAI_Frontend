@@ -17,15 +17,23 @@ interface ViewProps {
     onDelete: (id: number) => void;
     changeCategory?: any;
     filterOption?: {
-        category: string,
-        type: string,
-        date: string
-    }
+        category: string;
+        type: string;
+        date: string;
+    };
 }
 
 function HotsView(props: ViewProps) {
-    const { isLoading, products, onClose, handleSearch, searching, onDelete, changeCategory, filterOption } =
-        props;
+    const {
+        isLoading,
+        products,
+        onClose,
+        handleSearch,
+        searching,
+        onDelete,
+        changeCategory,
+        filterOption
+    } = props;
     const router = useRouter();
     const { t } = useTranslation();
     const [category, setCategory] = useState('xhs');

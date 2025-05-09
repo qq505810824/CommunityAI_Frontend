@@ -16,7 +16,7 @@ export default function HotsCard(props: ViewProps) {
     const router = useRouter();
     const { updatePrompt } = usePromptOperations();
     const handleClick = () => {
-        window.open(product.aweme_info.aweme_url, "_blank")
+        window.open(product.aweme_info.aweme_url, '_blank');
         // window.open(`https://www.douyin.com/video/${product.aweme_info.music_id}`, '_blank');
     };
 
@@ -30,9 +30,7 @@ export default function HotsCard(props: ViewProps) {
         // }
     };
 
-    const getIconImage = (category: string) => {
-
-    };
+    const getIconImage = (category: string) => {};
 
     return (
         <>
@@ -40,8 +38,15 @@ export default function HotsCard(props: ViewProps) {
                 className=" relative border rounded-md overflow-x-hidden  hover:shadow-lg cursor-pointer p-2 space-y-2 bg-white"
                 onClick={handleClick}
             >
-                <label className=" absolute right-2 top-1 text-sm">{product.aweme_info.is_hot == 1 &&
-                    <img src="https://cdn-static.chanmama.com/sub-module/static-file/3/3/07a6777d89" alt='' className='w-6' />}</label>
+                <label className=" absolute right-2 top-1 text-sm">
+                    {product.aweme_info.is_hot == 1 && (
+                        <img
+                            src="https://cdn-static.chanmama.com/sub-module/static-file/3/3/07a6777d89"
+                            alt=""
+                            className="w-6"
+                        />
+                    )}
+                </label>
                 <div className="flex flex-row space-x-2">
                     <div className=" relative w-[70px]  min-w-[70px]">
                         <img
@@ -52,7 +57,6 @@ export default function HotsCard(props: ViewProps) {
                                 e.currentTarget.src = ''; // 如果加载失败，使用默认图像
                             }}
                         />
-
                     </div>
                     <div className="w-full overflow-hidden space-y-1 ">
                         <UserView

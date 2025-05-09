@@ -23,9 +23,9 @@ function HotsContainer() {
     const [date, setDate] = useState('2025-04-29');
     const [keyword, setKeyword] = useState('');
 
-
-    const { data, isLoading, isError, mutate } = useHotsData(`category.like.%${category}%,tag_main.ilike.%${type}%,publicTime.ilike.%${date}%`);
-
+    const { data, isLoading, isError, mutate } = useHotsData(
+        `category.like.%${category}%,tag_main.ilike.%${type}%,publicTime.ilike.%${date}%`
+    );
 
     // 提取构建搜索条件的函数
     const buildSearchConditions = (category: string, type: string, date: string) => {
@@ -94,7 +94,7 @@ function HotsContainer() {
             });
             setProducts(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     const handleSearch = async (value: string, options?: string) => {
@@ -138,17 +138,16 @@ function HotsContainer() {
         if (filterKey === 'category') {
             setCategory(filterValue);
             const searchConditions = buildSearchConditions(filterValue, type, date);
-            handleSearch("", searchConditions.join(','))
+            handleSearch('', searchConditions.join(','));
         } else if (filterKey === 'type') {
             setType(filterValue);
             const searchConditions = buildSearchConditions(category, filterValue, date);
-            handleSearch("", searchConditions.join(','))
+            handleSearch('', searchConditions.join(','));
         } else if (filterKey === 'date') {
             setDate(filterValue);
             const searchConditions = buildSearchConditions(category, type, filterValue);
-            handleSearch("", searchConditions.join(','))
+            handleSearch('', searchConditions.join(','));
         }
-
     };
     return (
         <HotsView

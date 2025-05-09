@@ -80,9 +80,7 @@ export default function HotsItem(props: ViewProps) {
                 <td>{product.collectCount || 0}</td>
                 <td>{product.shareCount || 0}</td>
                 <td style={{ textAlign: 'center' }}>
-                    <p className=" font-semibold">
-                        {product.tag_main}
-                    </p>
+                    <p className=" font-semibold">{product.tag_main}</p>
                     {product.tag_sub}
                 </td>
                 <td>{product.publicTime}</td>

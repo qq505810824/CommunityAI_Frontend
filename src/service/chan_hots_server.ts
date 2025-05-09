@@ -17,8 +17,13 @@ export const getAllApps: Fetcher<
     { params: Record<string, any> }
 > = ({ params }) => {
     const urlParams = qs.stringify(params);
-    return get(`
-https://api-service.chanmama.com/v5/home/aweme/search?anchor_info_type=&anchor_info_title=&gender_type=-1&age_types=&province=&page=1&video_tag=%E7%BE%8E%E9%A3%9F&video_sub_tag=&video_third_tag=&keyword=&digg=&follower_counts=&durations=&hour_ranges=&sort=digg_count&size=50&time=24h&goods_relatived=0&fans_hottest=0&group_buy_relatived=0&aweme_graph_type=0&is_hot=0&filter_delete=1&order_by=desc&from=detail&product_title=&poi_name=&spu_name=&blue_words=` + urlParams, {}, { isChanAPI: true });
+    return get(
+        `
+https://api-service.chanmama.com/v5/home/aweme/search?anchor_info_type=&anchor_info_title=&gender_type=-1&age_types=&province=&page=1&video_tag=%E7%BE%8E%E9%A3%9F&video_sub_tag=&video_third_tag=&keyword=&digg=&follower_counts=&durations=&hour_ranges=&sort=digg_count&size=50&time=24h&goods_relatived=0&fans_hottest=0&group_buy_relatived=0&aweme_graph_type=0&is_hot=0&filter_delete=1&order_by=desc&from=detail&product_title=&poi_name=&spu_name=&blue_words=` +
+            urlParams,
+        {},
+        { isChanAPI: true }
+    );
 };
 
 export const getAppDetail = async (id: number, accountId?: string) => {
