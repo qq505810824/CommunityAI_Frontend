@@ -1,5 +1,6 @@
 import { usePromptOperations } from '@/hooks/usePromptData';
 import { ChanHotsModel } from '@/models/ChanHots';
+import { formatK } from '@/utils/stringUtil';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
@@ -30,7 +31,7 @@ export default function HotsCard(props: ViewProps) {
         // }
     };
 
-    const getIconImage = (category: string) => {};
+    const getIconImage = (category: string) => { };
 
     return (
         <>
@@ -103,7 +104,7 @@ export default function HotsCard(props: ViewProps) {
                                     fontSize: 12
                                 }}
                             >
-                                {product?.aweme_info.comment_count || 0}
+                                {formatK(product?.aweme_info.comment_count || 0)}
                             </Typography>
                             <Typography
                                 startDecorator={<StarBorderOutlinedIcon sx={{ width: 12 }} />}
@@ -112,7 +113,7 @@ export default function HotsCard(props: ViewProps) {
                                     fontSize: 12
                                 }}
                             >
-                                {product?.aweme_info.collect_count || 0}
+                                {formatK(product?.aweme_info.collect_count || 0)}
                             </Typography>
                             <Typography
                                 startDecorator={<ShareOutlinedIcon sx={{ width: 12 }} />}
@@ -121,7 +122,7 @@ export default function HotsCard(props: ViewProps) {
                                     fontSize: 12
                                 }}
                             >
-                                {product?.aweme_info.share_count || 0}
+                                {formatK(product?.aweme_info.share_count || 0)}
                             </Typography>
                             <Typography
                                 startDecorator={
@@ -132,7 +133,7 @@ export default function HotsCard(props: ViewProps) {
                                     fontSize: 12
                                 }}
                             >
-                                {product?.aweme_info.digg_count || 0}
+                                {formatK(product?.aweme_info.digg_count || 0)}
                             </Typography>
                         </>
                     </div>

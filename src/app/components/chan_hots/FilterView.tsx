@@ -1,4 +1,4 @@
-import { HotsFatherTags, PromptTags } from '@/utils/constant';
+import { PromptTags } from '@/utils/constant';
 import { Button, Input, Typography } from '@mui/joy';
 import { useEffect, useState } from 'react';
 import Select from '../base/select';
@@ -10,10 +10,11 @@ interface ViewProps {
     onSearch: any;
     changeCategory?: any;
     searching?: boolean;
+    categorys?: any[]
 }
 
 export default function FilterView(props: ViewProps) {
-    const { tag, onClose, onSearch, searching, changeCategory } = props;
+    const { tag, onClose, onSearch, searching, changeCategory, categorys } = props;
 
     const [category, setCategory] = useState('xhs');
     const [type, setType] = useState('');
@@ -28,13 +29,13 @@ export default function FilterView(props: ViewProps) {
         // const options = PromptTags.filter((tag) => tag.father == PromptFatherTags[0].name);
         // setSecondOptions(options);
         setSelectedFather({
-            name: '美食'
+            name: ''
         });
     }, []);
 
     useEffect(() => {
         if (category) {
-            changeCategory('category', category);
+            // changeCategory('category', category);
         }
     }, [category]);
 
@@ -45,7 +46,7 @@ export default function FilterView(props: ViewProps) {
     const handleOption1 = (_tag: any) => {
         setSelectedFather(_tag);
         // 根据第一个选择框的值更新第二个选择框的选项
-        const options = PromptTags.filter((tag) => tag.father == _tag.name);
+        const options = PromptTags.filter((tag) => tag.father == _tag.cat_name);
         setSecondOptions(options);
     };
 
@@ -100,25 +101,30 @@ export default function FilterView(props: ViewProps) {
                     <div className="flex flex-row gap-2  items-center">
                         <div className="flex flex-row gap-2 flex-wrap items-center">
                             <div
-                                className={` px-2 py-2 text-sm rounded-sm   hover:text-white hover:bg-blue-500 cursor-pointer ${selectFather == '' ? 'bg-blue-500 text-white' : 'bg-white text-[#000]'}`}
+                                className={` px-2 py-2 text-sm rounded-sm   hover:text-white hover:bg-blue-500 cursor-pointer ${selectFather?.name == '' ? 'bg-blue-500 text-white' : 'bg-white text-[#000]'}`}
                                 onClick={() => {
-                                    setSelectedFather('');
+                                    setSelectedFather({
+                                        name: ""
+                                    });
                                     // handleOption1(tag);
+                                    changeCategory('video_tag', "");
                                 }}
                             >
                                 {'全部'}
                             </div>
 
-                            {HotsFatherTags.map((tag, index) => (
+                            {categorys?.map((tag, index) => (
                                 <div
                                     key={index}
-                                    className={` px-2 py-2 text-sm rounded-sm   hover:text-white hover:bg-blue-500 cursor-pointer ${selectFather?.name == tag.name ? 'bg-blue-500 text-white' : 'bg-white text-[#000]'}`}
+                                    className={` px-2 py-2 text-sm rounded-sm   hover:text-white hover:bg-blue-500 cursor-pointer ${selectFather?.name == tag.cat_name ? 'bg-blue-500 text-white' : 'bg-white text-[#000]'}`}
                                     onClick={() => {
-                                        handleOption1(tag);
-                                        changeCategory('type', tag.name);
+                                        setSelectedFather({
+                                            name: tag.cat_name
+                                        });
+                                        changeCategory('video_tag', tag.cat_name);
                                     }}
                                 >
-                                    {tag.name}
+                                    {tag.cat_name}
                                 </div>
                             ))}
                         </div>

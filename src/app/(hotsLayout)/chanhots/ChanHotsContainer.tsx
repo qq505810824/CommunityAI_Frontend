@@ -20,6 +20,9 @@ function ChanHotsContainer() {
     const [type, setType] = useState('美食');
     const [date, setDate] = useState('2025-04-29');
 
+    const [filterParams, setFilterParams] = useState<any>()
+    const [categorys, setCategorys] = useState<any>()
+
     // const { data, isLoading, isError, mutate } = useChanHotsData();
 
     // useEffect(() => {
@@ -31,32 +34,59 @@ function ChanHotsContainer() {
     // }, [router, data]);
 
     useEffect(() => {
-        fetch('/api/chanmamaProxy')
-            .then((res) => res.json())
-            .then((data) => {
-                setProducts(data.data.list)
-                console.log('data', data);
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-            });
-    }, []);
+        fetchCategoryData()
+        fetchData(filterParams)
+    }, [filterParams]);
 
-    const handleSearch = async (keyword: string) => { };
+    const fetchData = async (params: any) => {
+        try {
+            const response = await fetch('/api/chanmamaProxy', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ params })
+            });
+            const data = await response.json();
+            // console.log('data', data);
+            setProducts(data.data.list)
+
+        } catch (error) {
+        }
+    };
+
+    const fetchCategoryData = async () => {
+        try {
+            const response = await fetch('/api/starCategory', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const data = await response.json();
+            // console.log('starCategory data', data);
+            setCategorys(data.data)
+        } catch (error) {
+        }
+    };
+
+    const handleSearch = async (keyword: string) => {
+        setFilterParams({
+            ...filterParams,
+            keyword: keyword
+        })
+    };
 
     const refresh = () => {
         // mutate()
     };
 
     const changeCategory = (filterKey: string, filterValue: string) => {
-        // console.log(filterKey, filterValue);
-        // if (filterKey == 'category') {
-        //     setCategory(filterValue);
-        // } else if (filterKey == 'type') {
-        //     setType(filterValue);
-        // } else if (filterKey == 'date') {
-        //     setDate(filterValue);
-        // }
+        console.log(filterKey, filterValue);
+        setFilterParams({
+            ...filterParams,
+            [filterKey]: filterValue
+        })
     };
 
     return (
@@ -67,7 +97,8 @@ function ChanHotsContainer() {
                 onClose: refresh,
                 handleSearch,
                 searching,
-                changeCategory
+                changeCategory,
+                categorys
             }}
         />
     );

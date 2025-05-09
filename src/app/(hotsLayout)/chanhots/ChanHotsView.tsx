@@ -10,10 +10,11 @@ interface ViewProps {
     handleSearch: any;
     searching?: boolean;
     changeCategory?: any;
+    categorys: any[]
 }
 
 function ChanHotsView(props: ViewProps) {
-    const { isLoading, products, onClose, handleSearch, searching, changeCategory } = props;
+    const { isLoading, products, onClose, handleSearch, searching, changeCategory, categorys } = props;
 
     return (
         <>
@@ -31,6 +32,7 @@ function ChanHotsView(props: ViewProps) {
                         onSearch={handleSearch}
                         onClose={onClose}
                         changeCategory={changeCategory}
+                        categorys={categorys}
                     />
 
                     <div className="w-full sm:max-w-7xl px-4 my-4 hidden">

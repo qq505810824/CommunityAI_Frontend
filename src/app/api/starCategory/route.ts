@@ -1,20 +1,15 @@
 import { NextResponse } from 'next/server';
-import qs from 'qs';
 
 export async function POST(req: Request) {
     const apiUrl =
-        'https://api-service.chanmama.com/v5/home/aweme/search';
+        'https://api-service.chanmama.com/v1/common/starCategory?has_star=0&no_gov=0&is_third=1';
     const headers = {
         Authorization:
             'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTAwMDAsImFwcFZlcnNpb24iOiIiLCJleHBpcmVfdGltZSI6MTc0NzI0OTIwMCwiaWF0IjoxNzQ2NjY4MzE0LCJpZCI6MTQyOTc3MjksImtpZCI6IkNBU0VSLUVLR1RRSDVIT1dMQy1YUzkxNDQiLCJyayI6IlRDN2l1In0.fD1_fPJcwwBZZGJ9z5V5jRmJpKSJiRqnGyW8BXEBTGs'
     };
 
     try {
-        const { params } = await req.json();
-        console.log('params', params);
-        const urlParams = qs.stringify(params);
-        // console.log('urlParams', urlParams);
-        const apiRes = await fetch(apiUrl+"?"+urlParams, { method: 'get', headers });
+        const apiRes = await fetch(apiUrl, { method: 'get', headers });
         const data = await apiRes.json();
         return NextResponse.json(data);
     } catch (error) {
