@@ -1,7 +1,6 @@
 'use client';
 
 import useAlert from '@/hooks/useAlert';
-import { useChanHotsData } from '@/hooks/useChanHotsData';
 import useLoad from '@/hooks/useLoad';
 import { usePromptOperations } from '@/hooks/usePromptData';
 import { ChanHotsModel } from '@/models/ChanHots';
@@ -21,20 +20,21 @@ function ChanHotsContainer() {
     const [type, setType] = useState('美食');
     const [date, setDate] = useState('2025-04-29');
 
-    const { data, isLoading, isError, mutate } = useChanHotsData();
+    // const { data, isLoading, isError, mutate } = useChanHotsData();
 
-    useEffect(() => {
-        if (data && data.data) {
-            console.log('data', data.data.list);
-            setProducts(data.data.list);
-        }
-        return () => {};
-    }, [router, data]);
+    // useEffect(() => {
+    //     if (data && data.data) {
+    //         console.log('data', data.data.list);
+    //         setProducts(data.data.list);
+    //     }
+    //     return () => {};
+    // }, [router, data]);
 
     useEffect(() => {
         fetch('/api/chanmamaProxy')
             .then((res) => res.json())
             .then((data) => {
+                setProducts(data.data.list)
                 console.log('data', data);
             })
             .catch((error) => {
@@ -42,7 +42,7 @@ function ChanHotsContainer() {
             });
     }, []);
 
-    const handleSearch = async (keyword: string) => {};
+    const handleSearch = async (keyword: string) => { };
 
     const refresh = () => {
         // mutate()
