@@ -4,6 +4,7 @@ import {
     getAllApps,
     getAppDetail,
     getAppDetailById,
+    getStatCategoryData,
     searchApp,
     statisticsApp,
     updateApp
@@ -87,8 +88,22 @@ export const IPlatform = {
 // 自定义 hook 使用 SWR 获取所有应用
 export const useChanHotsData = (params?: any) => {
     const { data, error, isLoading, mutate } = useSWR(
-        () => ({ params: {} }), // 使用对象并添加类型字段
+        () => ({ body: params }), // 使用对象并添加类型字段
         getAllApps,
+        {}
+    );
+    return {
+        data: data,
+        isLoading,
+        isError: error,
+        mutate
+    };
+};
+
+export const useChanHotsStatCategotyData = (params?: any) => {
+    const { data, error, isLoading, mutate } = useSWR(
+        () => ({ body: params }), // 使用对象并添加类型字段
+        getStatCategoryData,
         {}
     );
     return {

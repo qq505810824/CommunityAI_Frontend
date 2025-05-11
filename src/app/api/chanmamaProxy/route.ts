@@ -10,9 +10,8 @@ export async function POST(req: Request) {
 
     try {
         const { params } = await req.json();
-        // console.log('params', params);
         const urlParams = qs.stringify(params);
-        // console.log('urlParams', urlParams);
+        // console.log('params', params);
         const apiRes = await fetch(apiUrl + '?' + urlParams, { method: 'get', headers });
         const data = await apiRes.json();
         return NextResponse.json(data);

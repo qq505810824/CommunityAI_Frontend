@@ -1,6 +1,7 @@
 'use client';
 
 import useAlert from '@/hooks/useAlert';
+import { useChanHotsData, useChanHotsStatCategotyData } from '@/hooks/useChanHotsData';
 import useLoad from '@/hooks/useLoad';
 import { usePromptOperations } from '@/hooks/usePromptData';
 import { ChanHotsModel } from '@/models/ChanHots';
@@ -32,19 +33,28 @@ function ChanHotsContainer() {
     });
     const [categorys, setCategorys] = useState<any>();
 
-    // const { data, isLoading, isError, mutate } = useChanHotsData();
-
-    // useEffect(() => {
-    //     if (data && data.data) {
-    //         console.log('data', data.data.list);
-    //         setProducts(data.data.list);
-    //     }
-    //     return () => {};
-    // }, [router, data]);
+    const { data, isLoading, isError, mutate } = useChanHotsData({ params: filterParams });
+    const { data: statCategoryData } = useChanHotsStatCategotyData();
 
     useEffect(() => {
-        fetchCategoryData();
-        fetchData(filterParams);
+        if (data && data.data) {
+            // console.log('data', data); 
+            setProducts(data.data.list);
+        }
+        return () => { };
+    }, [router, data]);
+
+    useEffect(() => {
+        if (statCategoryData && statCategoryData.data) {
+            // console.log('data', data); 
+            setCategorys(statCategoryData.data);
+        }
+        return () => { };
+    }, [router, statCategoryData]);
+
+    useEffect(() => {
+        // fetchCategoryData();
+        // fetchData(filterParams);
     }, [filterParams]);
 
     const fetchData = async (params: any) => {

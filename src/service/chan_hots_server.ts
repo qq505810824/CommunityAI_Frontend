@@ -1,9 +1,8 @@
 import { HotModel } from '@/hooks/useHotData';
 import { ChanHotsResponse, CommonResponse } from '@/models/common';
 import { createClient } from '@supabase/supabase-js';
-import qs from 'qs';
 import { Fetcher } from 'swr';
-import { get } from './base';
+import { post } from './base';
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -14,14 +13,22 @@ const db = 'hots';
 
 export const getAllApps: Fetcher<
     CommonResponse & ChanHotsResponse,
-    { params: Record<string, any> }
-> = ({ params }) => {
-    const urlParams = qs.stringify(params);
-    return get(
-        `
-https://api-service.chanmama.com/v5/home/aweme/search?anchor_info_type=&anchor_info_title=&gender_type=-1&age_types=&province=&page=1&video_tag=%E7%BE%8E%E9%A3%9F&video_sub_tag=&video_third_tag=&keyword=&digg=&follower_counts=&durations=&hour_ranges=&sort=digg_count&size=50&time=24h&goods_relatived=0&fans_hottest=0&group_buy_relatived=0&aweme_graph_type=0&is_hot=0&filter_delete=1&order_by=desc&from=detail&product_title=&poi_name=&spu_name=&blue_words=` +
-            urlParams,
-        {},
+    { body: Record<string, any> }
+> = ({ body }) => {
+    return post(
+        `/api/chanmamaProxy`,
+        { body },
+        { isChanAPI: true }
+    );
+};
+
+export const getStatCategoryData: Fetcher<
+    CommonResponse & ChanHotsResponse,
+    { body: Record<string, any> }
+> = ({ body }) => {
+    return post(
+        `/api/starCategory`,
+        { body },
         { isChanAPI: true }
     );
 };
