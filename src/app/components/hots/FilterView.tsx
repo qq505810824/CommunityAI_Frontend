@@ -1,6 +1,7 @@
 import { ContentType } from '@/hooks/useHotData';
 import { HotsFatherTags, PromptTags } from '@/utils/constant';
 import { Button, Input, Typography } from '@mui/joy';
+import moment from 'moment';
 import { useEffect, useState } from 'react';
 import Select from '../base/select';
 import TagView from './TagView';
@@ -55,6 +56,24 @@ export default function FilterView(props: ViewProps) {
             onSearch(keyword);
         }
     };
+
+    // 计算过去 7 天的日期
+    const getLast7Days = () => {
+        const dates = [];
+        const today = new Date();
+        for (let i = 1; i <= 7; i++) {
+
+            const formattedDate = moment().add(-i, 'day').format('YYYY-MM-DD');
+            dates.push({
+                name: formattedDate,
+                value: formattedDate
+            });
+        }
+        return dates;
+    };
+
+    const last7Days = getLast7Days();
+    const yesterday = last7Days[0]?.value;
 
     return (
         <>
@@ -217,21 +236,12 @@ export default function FilterView(props: ViewProps) {
                             日榜
                         </label>
                         <Select
-                            items={[
-                                {
-                                    name: '2025-04-29',
-                                    value: '2025-04-29'
-                                },
-                                {
-                                    name: '2025-04-28',
-                                    value: '2025-04-28'
-                                }
-                            ]}
-                            defaultValue={'2025-04-29'}
+                            items={last7Days}
+                            defaultValue={yesterday}
                             allowSearch={false}
                             bgClassName=" bg-white"
                             overlayClassName="py-1"
-                            className="border border-blue-500 w-[150px] rounded-r-sm bg-white"
+                            className="border border-blue-500 w-[160px] rounded-r-sm bg-white"
                             onSelect={(item) => {
                                 changeCategory('date', item.value);
                             }}

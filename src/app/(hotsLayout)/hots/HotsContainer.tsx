@@ -1,7 +1,7 @@
 'use client';
 
 import useAlert from '@/hooks/useAlert';
-import { HotModel } from '@/hooks/useHotData';
+import { HotModel, IPlatform } from '@/hooks/useHotData';
 import useLoad from '@/hooks/useLoad';
 import { usePromptOperations } from '@/hooks/usePromptData';
 import { formatK } from '@/utils/stringUtil';
@@ -22,7 +22,7 @@ function HotsContainer() {
     const [searching, setSearching] = useState(false);
     const [category, setCategory] = useState<any>('xhs');
     const [type, setType] = useState('美食');
-    const [date, setDate] = useState('2025-04-29');
+    const [date, setDate] = useState(moment().add(-1, 'day').format('YYYY-MM-DD'));
 
     // const { data, isLoading: promptsLoading, isError, mutate } = usePromptData();
 
@@ -44,9 +44,52 @@ function HotsContainer() {
     //     }
     //     return () => { };
     // }, [router, data]);
+    useEffect(() => {
+        // fetchData()
+    }, [])
+
+    const fetchData = async (category: string, type: string, date: string) => {
+
+        const api = (IPlatform as Record<string, any>)[category].api
+        try {
+            const response = await fetch(api, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "rankType": 1,
+                    "rankDate": date,
+                    "type": [type],
+                    "size": 25,
+                    "start": 1,
+                    "secondType": "",
+                    "rankRealType": 1
+                })
+            });
+            const data = await response.json();
+            console.log('data', data);
+            const newData = data.data.list?.map((item: HotModel) => {
+                return {
+                    ...item,
+                    category: category,
+                    commentCount: formatK(item.commentCount || 0),
+                    collectCount: formatK(item.collectCount || 0),
+                    shareCount: formatK(item.shareCount || 0),
+                    likeCount: formatK(item.likeCount || 0),
+                    video_tag_name_lv1: item.video_tag_name_lv1 || item.note_counter_type_v1,
+                    video_tag_name_lv2: item.video_tag_name_lv2 || item.note_counter_type_v2,
+                    publicTime: moment(item.publicTime).format('MM-DD HH:mm')
+                };
+            });
+
+            setProducts(newData);
+        } catch (error) { }
+    };
 
     useEffect(() => {
-        getProducts(category, type, date);
+        fetchData(category, type, date)
+        // getProducts(category, type, date);
     }, [category, type, date]);
 
     const getProducts = async (category: string, type: string, date: string) => {
@@ -72,7 +115,8 @@ function HotsContainer() {
 
     const handleSearch = async (keyword: string) => {
         if (!keyword) {
-            getProducts(category, type, date);
+            fetchData(category, type, date)
+            // getProducts(category, type, date);
             return;
         }
         console.log('search value', keyword);

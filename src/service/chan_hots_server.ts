@@ -15,22 +15,14 @@ export const getAllApps: Fetcher<
     CommonResponse & ChanHotsResponse,
     { body: Record<string, any> }
 > = ({ body }) => {
-    return post(
-        `/api/chanmamaProxy`,
-        { body },
-        { isChanAPI: true }
-    );
+    return post(`/api/chanmamaProxy`, { body }, { isChanAPI: true });
 };
 
 export const getStatCategoryData: Fetcher<
     CommonResponse & ChanHotsResponse,
     { body: Record<string, any> }
 > = ({ body }) => {
-    return post(
-        `/api/starCategory`,
-        { body },
-        { isChanAPI: true }
-    );
+    return post(`/api/starCategory`, { body }, { isChanAPI: true });
 };
 
 export const getAppDetail = async (id: number, accountId?: string) => {

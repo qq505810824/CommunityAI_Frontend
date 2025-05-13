@@ -364,7 +364,7 @@ export const upload = (
         let accessTokenJson = { [sharedToken]: '' };
         try {
             accessTokenJson = JSON.parse(accessToken);
-        } catch (e) { }
+        } catch (e) {}
         token = accessTokenJson[sharedToken];
     } else {
         const accessToken = localStorage.getItem('console_token') || '';

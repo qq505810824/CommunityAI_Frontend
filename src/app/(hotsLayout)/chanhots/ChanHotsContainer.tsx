@@ -38,18 +38,18 @@ function ChanHotsContainer() {
 
     useEffect(() => {
         if (data && data.data) {
-            // console.log('data', data); 
+            // console.log('data', data);
             setProducts(data.data.list);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     useEffect(() => {
         if (statCategoryData && statCategoryData.data) {
-            // console.log('data', data); 
+            // console.log('data', data);
             setCategorys(statCategoryData.data);
         }
-        return () => { };
+        return () => {};
     }, [router, statCategoryData]);
 
     useEffect(() => {
@@ -69,7 +69,7 @@ function ChanHotsContainer() {
             const data = await response.json();
             // console.log('data', data);
             setProducts(data.data.list);
-        } catch (error) { }
+        } catch (error) {}
     };
 
     const fetchCategoryData = async () => {
@@ -83,7 +83,7 @@ function ChanHotsContainer() {
             const data = await response.json();
             // console.log('starCategory data', data);
             setCategorys(data.data);
-        } catch (error) { }
+        } catch (error) {}
     };
 
     const handleSearch = async (keyword: string) => {

@@ -70,17 +70,20 @@ export const IPlatform = {
     xhs: {
         name: '小红书',
         video_link: 'https://www.xiaohongshu.com/explore/',
-        icon: 'https://chs.newrank.cn/main/logo/logo-xiaohongshu.png'
+        icon: 'https://chs.newrank.cn/main/logo/logo-xiaohongshu.png',
+        api: '/api/hots/getXhsHotContent'
     },
     dy: {
         name: '抖音',
         video_link: 'https://www.douyin.com/video/',
-        icon: 'https://chs.newrank.cn/main/logo/logo-douyin.png'
+        icon: 'https://chs.newrank.cn/main/logo/logo-douyin.png',
+        api: '/api/hots/getDyHotContent'
     },
     ks: {
         name: '快手',
         video_link: 'https://www.kuaishou.com/short-video/',
-        icon: 'https://chs.newrank.cn/main/logo/logo-kuaishou.png'
+        icon: 'https://chs.newrank.cn/main/logo/logo-kuaishou.png',
+        api: '/api/hots/getKsHotContent'
     }
 };
 
