@@ -20,7 +20,7 @@ export default function FilterView(props: ViewProps) {
 
     const switchMenu = (value: string) => {
         setMenu(value);
-        onSwitchCategory(value)
+        onSwitchCategory(value);
     };
 
     const handleClickNew = () => {

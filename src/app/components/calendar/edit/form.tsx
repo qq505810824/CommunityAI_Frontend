@@ -30,7 +30,10 @@ function CalendarEditForm(props: ViewProps) {
             if (uiSchema['ui:widget'] === 'select') {
                 // 类型保护，确保 uiSchema 具有 ui:options 属性
                 if ('ui:options' in uiSchema && uiSchema['ui:options']?.enumOptions) {
-                    setValue(key as keyof CalendarModel, uiSchema['ui:options'].enumOptions[0].value);
+                    setValue(
+                        key as keyof CalendarModel,
+                        uiSchema['ui:options'].enumOptions[0].value
+                    );
                 }
             }
         });
@@ -80,7 +83,10 @@ function CalendarEditForm(props: ViewProps) {
                         {...register(key as keyof CalendarModel)}
                         required={field.required}
                         multiple={false}
-                        defaultValue={uiSchema['ui:options']?.enumOptions && uiSchema['ui:options']?.enumOptions[0].value || ''
+                        defaultValue={
+                            (uiSchema['ui:options']?.enumOptions &&
+                                uiSchema['ui:options']?.enumOptions[0].value) ||
+                            ''
                         }
                         onChange={(event, value) => {
                             setValue(key as keyof CalendarModel, value?.toString());
@@ -159,14 +165,18 @@ function CalendarEditForm(props: ViewProps) {
                             type="date"
                             required={field.required}
                             className="border p-2 rounded-md"
-                            onChange={(e) => setValue(uiSchema['ui:keys']?.start_date, e.target.value)}
+                            onChange={(e) =>
+                                setValue(uiSchema['ui:keys']?.start_date, e.target.value)
+                            }
                         />
                         <span>至</span>
                         <input
                             type="date"
                             required={field.required}
                             className="border p-2 rounded-md"
-                            onChange={(e) => setValue(uiSchema['ui:keys']?.end_date, e.target.value)}
+                            onChange={(e) =>
+                                setValue(uiSchema['ui:keys']?.end_date, e.target.value)
+                            }
                         />
                     </div>
                 );

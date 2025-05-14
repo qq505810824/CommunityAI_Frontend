@@ -21,7 +21,6 @@ function CalendarContainer() {
 
     useEffect(() => {
         if (data) {
-
             const newData = data?.map((item) => {
                 return {
                     ...item,
@@ -60,6 +59,7 @@ function CalendarContainer() {
     };
 
     const handleSwitchCategory = async (category: string) => {
+        setSearching(true);
         const res: any = await searchCalendar({
             category: category,
             status: 'success'
@@ -79,7 +79,7 @@ function CalendarContainer() {
             });
             setProducts(newData);
         }
-    }
+    };
     return (
         <CalendarView
             {...{

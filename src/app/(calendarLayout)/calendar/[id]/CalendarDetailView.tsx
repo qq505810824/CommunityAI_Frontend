@@ -30,7 +30,9 @@ function CalendarDetailView(props: ViewProps) {
                                 {product?.from_date} - {product?.to_date}
                             </p>
                             <p className="text-sm font-semibold flex flex-row items-center text-orange-500 ">
-                                <AccessTimeOutlinedIcon sx={{ fontSize: 16, color: '#f97316', mr: 1 }} />
+                                <AccessTimeOutlinedIcon
+                                    sx={{ fontSize: 16, color: '#f97316', mr: 1 }}
+                                />
                                 {product?.from_date} - {product?.to_date}
                             </p>
 

@@ -140,15 +140,16 @@ export const searchApp = async (options?: any) => {
         // console.log('options', options);
 
         if (options && options.category) {
-            query = query.eq('category', options.category)
+            query = query.eq('category', options.category);
         }
         if (options && options.status) {
-            query = query.or(`status.like.%${options?.status || ''}`)
+            query = query.or(`status.like.%${options?.status || ''}`);
         }
-        query = query.or(`name.ilike.%${options?.keyword || ''}%,description.ilike.%${options?.keyword || ''}%`);
+        query = query.or(
+            `name.ilike.%${options?.keyword || ''}%,description.ilike.%${options?.keyword || ''}%`
+        );
 
-
-        const { data, error } = await query
+        const { data, error } = await query;
 
         if (error) {
             throw error;
@@ -160,8 +161,6 @@ export const searchApp = async (options?: any) => {
         return { data: null, error };
     }
 };
-
-
 
 export const statisticsApp = async () => {
     try {

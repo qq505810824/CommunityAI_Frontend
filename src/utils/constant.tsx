@@ -379,8 +379,8 @@ export const PromptTags = [
 
 export const AdminMeuns = [
     {
-        name: '热榜列表',
-        href: '/admin/hots',
+        name: 'Calendar列表',
+        href: '/admin/calendars',
         icon: <DvrIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
         items: []
     },
