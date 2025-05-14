@@ -29,7 +29,7 @@ const nextConfig = {
         return [
             {
                 source: '/',
-                destination: '/hots',
+                destination: '/calendar',
                 permanent: false,
             },
         ]
