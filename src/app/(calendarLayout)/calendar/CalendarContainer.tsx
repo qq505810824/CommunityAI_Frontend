@@ -1,7 +1,7 @@
 'use client';
 
 import useAlert from '@/hooks/useAlert';
-import { useCalendarData, useCalendarOperations } from '@/hooks/useCalendarData';
+import { CalendarModel, useCalendarData, useCalendarOperations } from '@/hooks/useCalendarData';
 import useLoad from '@/hooks/useLoad';
 import moment from 'moment';
 import { useRouter } from 'next/navigation';
@@ -17,11 +17,10 @@ function CalendarContainer() {
     const { searchCalendar } = useCalendarOperations();
     const [searching, setSearching] = useState(false);
 
-    const { data, isLoading, isError, mutate } = useCalendarData();
+    const { data, isLoading, isError, mutate } = useCalendarData({ status: 'success' });
 
     useEffect(() => {
         if (data) {
-            console.log('data', data);
 
             const newData = data?.map((item) => {
                 return {
@@ -38,12 +37,16 @@ function CalendarContainer() {
     }, [router, data]);
 
     const handleSearch = async (value: string) => {
-        console.log('search value', value);
+        // console.log('search value', value);
         setSearching(true);
-        const res: any = await searchCalendar(value);
+        const res: any = await searchCalendar({
+            keyword: value,
+            status: 'success'
+        });
         setSearching(false);
+
         if (res.data) {
-            const newData = data?.map((item) => {
+            const newData = res.data?.map((item: CalendarModel) => {
                 return {
                     ...item,
                     from_date: moment(item.from_date).format('MM月DD日'),
@@ -56,6 +59,27 @@ function CalendarContainer() {
         }
     };
 
+    const handleSwitchCategory = async (category: string) => {
+        const res: any = await searchCalendar({
+            category: category,
+            status: 'success'
+        });
+        setSearching(false);
+        // console.log('res3', res);
+
+        if (res.data) {
+            const newData = res.data?.map((item: CalendarModel) => {
+                return {
+                    ...item,
+                    from_date: moment(item.from_date).format('MM月DD日'),
+                    to_date: moment(item.to_date).format('MM月DD日'),
+                    created_at: moment(item.created_at).fromNow(),
+                    updated_at: moment(item.updated_at).fromNow()
+                };
+            });
+            setProducts(newData);
+        }
+    }
     return (
         <CalendarView
             {...{
@@ -64,6 +88,7 @@ function CalendarContainer() {
                 products,
                 onClose: mutate,
                 handleSearch,
+                onSwitchCategory: handleSwitchCategory,
                 searching
             }}
         />

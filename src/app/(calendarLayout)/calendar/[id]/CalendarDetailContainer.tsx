@@ -15,20 +15,16 @@ function CalendarDetailContainer() {
     const user_id = localStorage.getItem('user_id');
     const [product, setProduct] = useState<CalendarModel>();
 
-    const {
-        data,
-        isLoading,
-        isError
-    } = useCalendarDetailData(Number(params['id']), user_id || '');
+    const { data, isLoading, isError } = useCalendarDetailData(Number(params['id']), user_id || '');
 
     useEffect(() => {
         if (data) {
             const newData = {
-                ...data,
+                ...data
             };
             setProduct(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     return (

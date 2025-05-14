@@ -85,15 +85,25 @@ export const CalendarFormData = {
     },
     uiSchema: {
         name: { 'ui:widget': 'text' },
-        category: { 'ui:widget': 'select', 'ui:options': { enumOptions: ['課程', '活動'] } },
+        category: {
+            'ui:widget': 'select', 'ui:options': {
+                enumOptions: [
+                    {
+                        name: '課程', value: 'course'
+                    },
+                    {
+                        name: '活動', value: 'activity'
+                    }]
+            }
+        },
         // tags: {
         //     'ui:widget': 'tag',
         //     'ui:options': { enumOptions: [...PromptTags] }
         // },
         description: { 'ui:widget': 'textarea' },
         image_url: { 'ui:widget': 'file' },
-        date_range: { 'ui:widget': 'date_range' },
-        pre_date_range: { 'ui:widget': 'date_range' },
+        date_range: { 'ui:widget': 'date_range', 'ui:keys': { start_date: 'from_date', end_date: 'to_date' } },
+        pre_date_range: { 'ui:widget': 'date_range', 'ui:keys': { start_date: 'pre_from_date', end_date: 'pre_to_date' } },
         reference_url: { 'ui:widget': 'text' }
     }
 };

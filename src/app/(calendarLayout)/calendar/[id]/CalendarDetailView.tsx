@@ -1,6 +1,7 @@
 import BackView from '@/app/components/base/back/BackView';
 import { CalendarModel } from '@/hooks/useCalendarData';
 import { CalendarIcon } from '@heroicons/react/24/outline';
+import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { Button, Typography } from '@mui/joy';
 import { useState } from 'react';
@@ -24,8 +25,14 @@ function CalendarDetailView(props: ViewProps) {
                     <div className="w-full  flex flex-col sm:flex-row justify-center space-y-4  ">
                         <div className="w-full sm:2/3 space-y-4  overflow-x-auto">
                             <Typography level="h4">{product?.name}</Typography>
-                            <p className="text-sm font-semibold flex flex-row items-center text-orange-500 "><CalendarIcon className='w-4 mr-2' />{product?.from_date} - {product?.to_date}</p>
-                            <p className="text-sm font-semibold flex flex-row items-center text-orange-500 "><CalendarIcon className='w-4 mr-2' />{product?.from_date} - {product?.to_date}</p>
+                            <p className="text-sm font-semibold flex flex-row items-center text-orange-500 ">
+                                <CalendarIcon className="w-4 mr-2" />
+                                {product?.from_date} - {product?.to_date}
+                            </p>
+                            <p className="text-sm font-semibold flex flex-row items-center text-orange-500 ">
+                                <AccessTimeOutlinedIcon sx={{ fontSize: 16, color: '#f97316', mr: 1 }} />
+                                {product?.from_date} - {product?.to_date}
+                            </p>
 
                             <div className=" break-words">
                                 <ReactMarkdown
@@ -39,7 +46,11 @@ function CalendarDetailView(props: ViewProps) {
                                             /> // 自定义链接样式为蓝色
                                         ),
                                         img: ({ node, ...props }) => (
-                                            <img {...props} className=" rounded-lg h-[200px]" alt='' /> // 设置图片最大高度为200px
+                                            <img
+                                                {...props}
+                                                className=" rounded-lg h-[200px]"
+                                                alt=""
+                                            /> // 设置图片最大高度为200px
                                         )
                                     }}
                                 >
@@ -47,16 +58,18 @@ function CalendarDetailView(props: ViewProps) {
                                 </ReactMarkdown>
                             </div>
                             <div>
-                                {product?.reference_url &&
+                                {product?.reference_url && (
                                     <Button
-                                        startDecorator={<ShareOutlinedIcon sx={{ width: '18px' }} />}
+                                        startDecorator={
+                                            <ShareOutlinedIcon sx={{ width: '18px' }} />
+                                        }
                                         onClick={() => {
-                                            window.open(product?.reference_url, "_blank")
+                                            window.open(product?.reference_url, '_blank');
                                         }}
                                     >
                                         相關網址
                                     </Button>
-                                }
+                                )}
                             </div>
                         </div>
                         <div className="w-full sm:1/3">

@@ -7,11 +7,14 @@ const supabase = createClient(
 );
 
 const db = 'calendars';
-export const getAllApps = async () => {
+export const getAllApps = async (options?: any) => {
     try {
+        console.log('options', options);
+
         const { data, error } = await supabase
             .from(db)
             .select('*')
+            .or(`status.like.%${options?.status || ''}`)
             .order('updated_at', { ascending: true });
 
         if (error) {
@@ -43,7 +46,7 @@ export const getAppDetail = async (id: number, accountId?: string) => {
 
         return {
             data: {
-                ...detailResult.data,
+                ...detailResult.data
                 // is_collected: collectResult ? collectResult?.data?.length > 0 : false
             },
             error: null
@@ -57,11 +60,7 @@ export const getAppDetail = async (id: number, accountId?: string) => {
 export const getAppDetailById = async (id: number) => {
     try {
         // 构建查询任务数组
-        const { data, error } = await supabase
-            .from(db)
-            .select('*')
-            .eq('id', id)
-            .single();
+        const { data, error } = await supabase.from(db).select('*').eq('id', id).single();
 
         if (error) {
             throw error;
@@ -135,14 +134,21 @@ export const deleteApp = async (id: number) => {
     }
 };
 
-export const searchApp = async (key: string) => {
+export const searchApp = async (options?: any) => {
     try {
-        const { data, error } = await supabase
-            .from(db)
-            .select('*')
-            .or(
-                `name.ilike.%${key}%,description.ilike.%${key}%`
-            );
+        let query = supabase.from(db).select('*');
+        // console.log('options', options);
+
+        if (options && options.category) {
+            query = query.eq('category', options.category)
+        }
+        if (options && options.status) {
+            query = query.or(`status.like.%${options?.status || ''}`)
+        }
+        query = query.or(`name.ilike.%${options?.keyword || ''}%,description.ilike.%${options?.keyword || ''}%`);
+
+
+        const { data, error } = await query
 
         if (error) {
             throw error;
@@ -154,6 +160,8 @@ export const searchApp = async (key: string) => {
         return { data: null, error };
     }
 };
+
+
 
 export const statisticsApp = async () => {
     try {

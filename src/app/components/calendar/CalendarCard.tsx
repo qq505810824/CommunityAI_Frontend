@@ -24,9 +24,7 @@ export default function CalendarCard(props: ViewProps) {
             >
                 <div className="w-full h-[250px]">
                     <img
-                        src={
-                            'https://www.mocalendar.com/storage/events/tb-MVeD284VesCAYc1VoxbhcLEqFXc7TcL3qCI6fk7P.jpeg'
-                        }
+                        src={product.image_url}
                         className="w-full h-full object-cover rounded-t-3xlmd"
                         alt=""
                     />
@@ -35,7 +33,10 @@ export default function CalendarCard(props: ViewProps) {
                     <div className="flex flex-row space-x-2 justify-between ">
                         <div className="space-y-2">
                             <p className="text-md font-bold">{product.name}</p>
-                            <div className="text-sm text-orange-500 flex flex-row items-center"><CalendarIcon className='w-4 mr-2' />{product.from_date} - {product.to_date}</div>
+                            <div className="text-sm text-orange-500 flex flex-row items-center">
+                                <CalendarIcon className="w-4 mr-2" />
+                                {product.from_date} - {product.to_date}
+                            </div>
                             <p
                                 className="text-sm text-gray-400"
                                 style={{
@@ -52,7 +53,7 @@ export default function CalendarCard(props: ViewProps) {
                     </div>
 
                     <div className="flex flex-row   my-1 justify-between items-center">
-                        <label className="text-sm font-semibold">{product.status}</label>
+                        <label className="text-sm font-semibold text-orange-600">{'進行中'}</label>
                         <Typography
                             startDecorator={<RemoveRedEyeOutlinedIcon sx={{ width: 14 }} />}
                             sx={{

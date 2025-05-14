@@ -28,17 +28,13 @@ function CalendarEditForm(props: ViewProps) {
         Object.keys(formData.fieldSchema).forEach((key) => {
             const uiSchema = formData.uiSchema[key as keyof typeof formData.uiSchema];
             if (uiSchema['ui:widget'] === 'select') {
-
-
                 // 类型保护，确保 uiSchema 具有 ui:options 属性
                 if ('ui:options' in uiSchema && uiSchema['ui:options']?.enumOptions) {
-                    console.log('ss', uiSchema['ui:options'].enumOptions[0]);
-                    setValue(key as keyof CalendarModel, uiSchema['ui:options'].enumOptions[0]);
+                    setValue(key as keyof CalendarModel, uiSchema['ui:options'].enumOptions[0].value);
                 }
             }
         });
     }, [formData, setValue, product]); // 添加依赖项
-
 
     const handleClickFile = (e: any) => {
         e.stopPropagation();
@@ -84,17 +80,11 @@ function CalendarEditForm(props: ViewProps) {
                         {...register(key as keyof CalendarModel)}
                         required={field.required}
                         multiple={false}
-                        defaultValue={[
-                            uiSchema['ui:options']?.enumOptions &&
-                            uiSchema['ui:options']?.enumOptions[0]
-                        ]}
+                        defaultValue={uiSchema['ui:options']?.enumOptions && uiSchema['ui:options']?.enumOptions[0].value || ''
+                        }
                         onChange={(event, value) => {
-                            // 处理选择变化
                             setValue(key as keyof CalendarModel, value?.toString());
                         }}
-                        // renderValue={(selected) => (
-
-                        // )}
                         sx={{ minWidth: '15rem' }}
                         slotProps={{
                             listbox: {
@@ -104,9 +94,9 @@ function CalendarEditForm(props: ViewProps) {
                             }
                         }}
                     >
-                        {uiSchema['ui:options']?.enumOptions?.map((option: string) => (
-                            <Option key={option} value={option}>
-                                {option}
+                        {uiSchema['ui:options']?.enumOptions?.map((option: any) => (
+                            <Option key={option} value={option.value}>
+                                {option.name}
                             </Option>
                         ))}
                     </Select>
@@ -169,14 +159,14 @@ function CalendarEditForm(props: ViewProps) {
                             type="date"
                             required={field.required}
                             className="border p-2 rounded-md"
-                            onChange={(e) => setValue('from_date', e.target.value)}
+                            onChange={(e) => setValue(uiSchema['ui:keys']?.start_date, e.target.value)}
                         />
                         <span>至</span>
                         <input
                             type="date"
                             required={field.required}
                             className="border p-2 rounded-md"
-                            onChange={(e) => setValue('to_date', e.target.value)}
+                            onChange={(e) => setValue(uiSchema['ui:keys']?.end_date, e.target.value)}
                         />
                     </div>
                 );

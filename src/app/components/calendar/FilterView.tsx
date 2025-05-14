@@ -7,18 +7,20 @@ interface ViewProps {
     tag?: any;
     onClose: () => void;
     onSearch: any;
+    onSwitchCategory: any;
     searching?: boolean;
 }
 
 export default function FilterView(props: ViewProps) {
-    const { tag, onClose, onSearch, searching } = props;
+    const { tag, onClose, onSearch, searching, onSwitchCategory } = props;
     const router = useRouter();
 
     const [menu, setMenu] = useState('');
-    const [keyword, setKeyword] = useState('')
+    const [keyword, setKeyword] = useState('');
 
     const switchMenu = (value: string) => {
         setMenu(value);
+        onSwitchCategory(value)
     };
 
     const handleClickNew = () => {
@@ -52,13 +54,15 @@ export default function FilterView(props: ViewProps) {
                                 placeholder="輸入關鍵詞..."
                                 onKeyUp={onKeyUp}
                                 onChange={(e) => {
-                                    setKeyword(e.target.value)
+                                    setKeyword(e.target.value);
                                 }}
                             />
-                            <button className="px-2 py-2 bg-orange-500 text-white rounded-r-sm"
+                            <button
+                                className="px-2 py-2 bg-orange-500 text-white rounded-r-sm"
                                 onClick={() => {
-                                    onSearch(keyword)
-                                }}>
+                                    onSearch(keyword);
+                                }}
+                            >
                                 Search
                             </button>
                         </div>

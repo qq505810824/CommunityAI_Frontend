@@ -8,11 +8,12 @@ interface ViewProps {
     products: CalendarModel[];
     onClose: () => void;
     handleSearch: any;
+    onSwitchCategory: any;
     searching?: boolean;
 }
 
 function CalendarView(props: ViewProps) {
-    const { isLoading, products, onClose, handleSearch, searching } = props;
+    const { isLoading, products, onClose, handleSearch, onSwitchCategory, searching } = props;
 
     return (
         <>
@@ -26,7 +27,7 @@ function CalendarView(props: ViewProps) {
                     }}
                 >
                     {/* {DemoHeroGeometric()} */}
-                    <FilterView onSearch={handleSearch} onClose={onClose} />
+                    <FilterView onSearch={handleSearch} onSwitchCategory={onSwitchCategory} onClose={onClose} />
 
                     {/* {(isLoading || searching) && <LoadView />} */}
                     {/* <div className='h-10'>
