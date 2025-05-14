@@ -1,8 +1,9 @@
 'use client';
 
 import useAlert from '@/hooks/useAlert';
+import { useCalendarData, useCalendarOperations } from '@/hooks/useCalendarData';
 import useLoad from '@/hooks/useLoad';
-import { usePromptData, usePromptOperations } from '@/hooks/usePromptData';
+import moment from 'moment';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import CalendarView from './CalendarView';
@@ -13,49 +14,45 @@ function CalendarContainer() {
     const router = useRouter();
 
     const [products, setProducts] = useState<any[]>([]);
-    const { searchPrompt } = usePromptOperations();
+    const { searchCalendar } = useCalendarOperations();
     const [searching, setSearching] = useState(false);
 
-    const { data, isLoading: promptsLoading, isError, mutate } = usePromptData();
+    const { data, isLoading, isError, mutate } = useCalendarData();
 
     useEffect(() => {
         if (data) {
-            // const newData = data?.map((item) => {
-            //     return {
-            //         ...item,
-            //         tags: (item.tags && JSON.parse(item.tags).slice(0, 4)) || [],
-            //         collect: formatK(item.collect || 0),
-            //         focus: formatK(item.focus || 0),
-            //         share: formatK(item.share || 0),
-            //         copy: formatK(item.copy || 0),
-            //         created_at: moment(item.created_at).fromNow(),
-            //         updated_at: moment(item.updated_at).fromNow()
-            //     };
-            // });
-            // setProducts(newData);
+            console.log('data', data);
+
+            const newData = data?.map((item) => {
+                return {
+                    ...item,
+                    from_date: moment(item.from_date).format('MM月DD日'),
+                    to_date: moment(item.to_date).format('MM月DD日'),
+                    created_at: moment(item.created_at).fromNow(),
+                    updated_at: moment(item.updated_at).fromNow()
+                };
+            });
+            setProducts(newData);
         }
-        return () => {};
+        return () => { };
     }, [router, data]);
 
     const handleSearch = async (value: string) => {
         console.log('search value', value);
         setSearching(true);
-        const res: any = await searchPrompt(value);
+        const res: any = await searchCalendar(value);
         setSearching(false);
         if (res.data) {
-            // const newData = res.data.map((item: PromptModel) => {
-            //     return {
-            //         ...item,
-            //         tags: (item.tags && JSON.parse(item.tags).slice(0, 4)) || [],
-            //         collect: formatK(item.collect || 0),
-            //         focus: formatK(item.focus || 0),
-            //         share: formatK(item.share || 0),
-            //         copy: formatK(item.copy || 0),
-            //         created_at: moment(item.created_at).fromNow(),
-            //         updated_at: moment(item.updated_at).fromNow()
-            //     };
-            // });
-            // setPrompts(newData);
+            const newData = data?.map((item) => {
+                return {
+                    ...item,
+                    from_date: moment(item.from_date).format('MM月DD日'),
+                    to_date: moment(item.to_date).format('MM月DD日'),
+                    created_at: moment(item.created_at).fromNow(),
+                    updated_at: moment(item.updated_at).fromNow()
+                };
+            });
+            setProducts(newData);
         }
     };
 
@@ -63,7 +60,7 @@ function CalendarContainer() {
         <CalendarView
             {...{
                 data,
-                isLoading: promptsLoading,
+                isLoading,
                 products,
                 onClose: mutate,
                 handleSearch,

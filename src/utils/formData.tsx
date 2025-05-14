@@ -76,7 +76,7 @@ export const AccountFormData = {
 export const CalendarFormData = {
     fieldSchema: {
         image_url: { type: 'file', title: '', required: true, tip: '' },
-        title: { type: 'string', title: '活動名稱', required: true, tip: '' },
+        name: { type: 'string', title: '活動名稱', required: true, tip: '' },
         category: { type: 'string', title: '类型', required: true, tip: '' },
         pre_date_range: { type: 'string', title: '報名日期範圍', required: false, tip: '(選填)' },
         date_range: { type: 'string', title: '活動日期範圍', required: true, tip: '' },
@@ -84,12 +84,12 @@ export const CalendarFormData = {
         description: { type: 'string', title: '描述', required: true, tip: '' }
     },
     uiSchema: {
-        title: { 'ui:widget': 'text' },
+        name: { 'ui:widget': 'text' },
         category: { 'ui:widget': 'select', 'ui:options': { enumOptions: ['課程', '活動'] } },
-        tags: {
-            'ui:widget': 'tag',
-            'ui:options': { enumOptions: [...PromptTags] }
-        },
+        // tags: {
+        //     'ui:widget': 'tag',
+        //     'ui:options': { enumOptions: [...PromptTags] }
+        // },
         description: { 'ui:widget': 'textarea' },
         image_url: { 'ui:widget': 'file' },
         date_range: { 'ui:widget': 'date_range' },

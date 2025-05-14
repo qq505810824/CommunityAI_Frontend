@@ -1,10 +1,11 @@
 import CalendarCard from '@/app/components/calendar/CalendarCard';
 import FilterView from '@/app/components/calendar/FilterView';
+import { CalendarModel } from '@/hooks/useCalendarData';
 import { Box } from '@mui/joy';
 interface ViewProps {
     data: any;
     isLoading: any;
-    products: any[];
+    products: CalendarModel[];
     onClose: () => void;
     handleSearch: any;
     searching?: boolean;
@@ -40,7 +41,6 @@ function CalendarView(props: ViewProps) {
                         {products?.map((product, index) => (
                             <CalendarCard product={product} key={index} />
                         ))}
-                        <CalendarCard product={''} key={1} />
                     </div>
                 </Box>
             </div>

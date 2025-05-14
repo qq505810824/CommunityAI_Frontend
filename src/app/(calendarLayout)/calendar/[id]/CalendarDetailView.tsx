@@ -1,5 +1,6 @@
 import BackView from '@/app/components/base/back/BackView';
-import { PromptModel } from '@/hooks/usePromptData';
+import { CalendarModel } from '@/hooks/useCalendarData';
+import { CalendarIcon } from '@heroicons/react/24/outline';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { Button, Typography } from '@mui/joy';
 import { useState } from 'react';
@@ -8,39 +9,23 @@ import remarkGfm from 'remark-gfm'; // 导入 remark-gfm
 
 interface ViewProps {
     data: any;
-    prompt: PromptModel | undefined;
+    product: CalendarModel | undefined;
 }
 
 function CalendarDetailView(props: ViewProps) {
-    const { prompt } = props;
+    const { product } = props;
 
-    const [description, setDescription] = useState(`每月相聚，桌遊的魅力世界
-
-日期：2025年5月24日(星期六)
-
-時間：晚上8:00
-
-地點：澳門林茂塘海邊馬路信潔花園地下A舖一樓
-
-對象：本會會員
-
-內容：桌遊學習及體驗
-
-報名費：澳門幣20元
-
-報名連結：https://docs.google.com/forms/d/1_JRM7uOocNJ27VweCDvjrRITeP271zpx2YuXAdGbPQQ/edit
-
-        `);
+    const [description, setDescription] = useState(``);
     return (
         <>
             <div className="w-full flex flex-col justify-center items-center">
                 <div className="w-full sm:max-w-7xl px-4 py-4 flex flex-col  ">
                     <BackView title="Back" />
-                    <div className="w-full sm:max-w-7xl flex flex-col sm:flex-row justify-center  ">
-                        <div className="w-full sm:1/2 space-y-4  overflow-x-auto">
-                            <Typography level="h4">{'prompt?.title'}</Typography>
-                            <p className="text-sm font-semibold">報名日期:</p>
-                            <p className="text-sm font-semibold">活動日期:</p>
+                    <div className="w-full  flex flex-col sm:flex-row justify-center space-y-4  ">
+                        <div className="w-full sm:2/3 space-y-4  overflow-x-auto">
+                            <Typography level="h4">{product?.name}</Typography>
+                            <p className="text-sm font-semibold flex flex-row items-center text-orange-500 "><CalendarIcon className='w-4 mr-2' />{product?.from_date} - {product?.to_date}</p>
+                            <p className="text-sm font-semibold flex flex-row items-center text-orange-500 "><CalendarIcon className='w-4 mr-2' />{product?.from_date} - {product?.to_date}</p>
 
                             <div className=" break-words">
                                 <ReactMarkdown
@@ -54,27 +39,30 @@ function CalendarDetailView(props: ViewProps) {
                                             /> // 自定义链接样式为蓝色
                                         ),
                                         img: ({ node, ...props }) => (
-                                            <img {...props} className=" rounded-lg h-[200px]" /> // 设置图片最大高度为200px
+                                            <img {...props} className=" rounded-lg h-[200px]" alt='' /> // 设置图片最大高度为200px
                                         )
                                     }}
                                 >
-                                    {description?.replace(/\n\n/g, '\n\n').replace(/\n/g, '  \n')}
+                                    {product?.description}
                                 </ReactMarkdown>
                             </div>
                             <div>
-                                <Button
-                                    startDecorator={<ShareOutlinedIcon sx={{ width: '18px' }} />}
-                                >
-                                    相關網址
-                                </Button>
+                                {product?.reference_url &&
+                                    <Button
+                                        startDecorator={<ShareOutlinedIcon sx={{ width: '18px' }} />}
+                                        onClick={() => {
+                                            window.open(product?.reference_url, "_blank")
+                                        }}
+                                    >
+                                        相關網址
+                                    </Button>
+                                }
                             </div>
                         </div>
-                        <div className="w-full sm:1/2">
+                        <div className="w-full sm:1/3">
                             <img
-                                src={
-                                    'https://www.mocalendar.com/storage/events/tb-MVeD284VesCAYc1VoxbhcLEqFXc7TcL3qCI6fk7P.jpeg'
-                                }
-                                className="w-full h-auto object-cover rounded-t-3xlmd"
+                                src={product?.image_url}
+                                className="w-[400px] h-auto object-cover"
                                 alt=""
                             />
                         </div>

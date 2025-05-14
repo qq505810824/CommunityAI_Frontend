@@ -1,7 +1,7 @@
 import { CalendarModel } from '@/hooks/useCalendarData';
 import { CalendarFormData } from '@/utils/formData';
-import { Box, Button, Option, Select } from '@mui/joy';
-import { useRef, useState } from 'react';
+import { Button, Option, Select } from '@mui/joy';
+import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 interface ViewProps {
@@ -22,6 +22,23 @@ function CalendarEditForm(props: ViewProps) {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [showReplaceButton, setShowReplaceButton] = useState(false);
+
+    useEffect(() => {
+        // 初始化时设置默认值
+        Object.keys(formData.fieldSchema).forEach((key) => {
+            const uiSchema = formData.uiSchema[key as keyof typeof formData.uiSchema];
+            if (uiSchema['ui:widget'] === 'select') {
+
+
+                // 类型保护，确保 uiSchema 具有 ui:options 属性
+                if ('ui:options' in uiSchema && uiSchema['ui:options']?.enumOptions) {
+                    console.log('ss', uiSchema['ui:options'].enumOptions[0]);
+                    setValue(key as keyof CalendarModel, uiSchema['ui:options'].enumOptions[0]);
+                }
+            }
+        });
+    }, [formData, setValue, product]); // 添加依赖项
+
 
     const handleClickFile = (e: any) => {
         e.stopPropagation();
@@ -66,17 +83,18 @@ function CalendarEditForm(props: ViewProps) {
                     <Select
                         {...register(key as keyof CalendarModel)}
                         required={field.required}
+                        multiple={false}
                         defaultValue={[
                             uiSchema['ui:options']?.enumOptions &&
-                                uiSchema['ui:options']?.enumOptions[0]
+                            uiSchema['ui:options']?.enumOptions[0]
                         ]}
                         onChange={(event, value) => {
                             // 处理选择变化
                             setValue(key as keyof CalendarModel, value?.toString());
                         }}
-                        renderValue={(selected) => (
-                            <Box sx={{ display: 'flex', gap: '0.25rem' }}>{selected?.label}</Box>
-                        )}
+                        // renderValue={(selected) => (
+
+                        // )}
                         sx={{ minWidth: '15rem' }}
                         slotProps={{
                             listbox: {

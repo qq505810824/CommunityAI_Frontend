@@ -15,6 +15,7 @@ export default function FilterView(props: ViewProps) {
     const router = useRouter();
 
     const [menu, setMenu] = useState('');
+    const [keyword, setKeyword] = useState('')
 
     const switchMenu = (value: string) => {
         setMenu(value);
@@ -22,6 +23,12 @@ export default function FilterView(props: ViewProps) {
 
     const handleClickNew = () => {
         router.push('/calendar/create');
+    };
+
+    const onKeyUp = (e: any) => {
+        if (e.keyCode === 13) {
+            onSearch(keyword);
+        }
     };
 
     return (
@@ -43,8 +50,15 @@ export default function FilterView(props: ViewProps) {
                                 type="search"
                                 className="w-1/2 px-2 py-2 border-gray-300 rounded-l-sm"
                                 placeholder="輸入關鍵詞..."
+                                onKeyUp={onKeyUp}
+                                onChange={(e) => {
+                                    setKeyword(e.target.value)
+                                }}
                             />
-                            <button className="px-2 py-2 bg-orange-500 text-white rounded-r-sm">
+                            <button className="px-2 py-2 bg-orange-500 text-white rounded-r-sm"
+                                onClick={() => {
+                                    onSearch(keyword)
+                                }}>
                                 Search
                             </button>
                         </div>

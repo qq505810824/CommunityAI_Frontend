@@ -1,8 +1,7 @@
 'use client';
 
 import useAlert from '@/hooks/useAlert';
-import { CalendarModel } from '@/hooks/useCalendarData';
-import { usePromptOperations } from '@/hooks/usePromptData';
+import { CalendarModel, useCalendarOperations } from '@/hooks/useCalendarData';
 import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import CalendarCreateEditView from './CalendarCreateEditView';
@@ -13,41 +12,42 @@ const CalendarCreateContainer = () => {
     const [product, setProduct] = useState<CalendarModel | null>(null);
     const [submitting, setSubmitting] = useState(false);
     const { setAlert } = useAlert();
-    const { addPrompt } = usePromptOperations();
+    const { addCalendar } = useCalendarOperations();
     const router = useRouter();
 
     const handleSubmit = async (formData: CalendarModel) => {
         // 处理表单提交
         console.log(formData);
         const newFormData = {
-            ...formData
+            ...formData,
+            status: 'draft'
             // user: localStorage?.getItem('user_id') || null
         };
-        // setSubmitting(true);
-        // try {
-        //     const { data, error } = await addPrompt(newFormData);
-        //     if (error) {
-        //         console.error('创建文章错误:', error);
-        //         setAlert({
-        //             title: '创建文章失败！',
-        //             type: 'error'
-        //         });
-        //     } else {
-        //         router.push(`/admin/prompts`);
-        //         setAlert({
-        //             title: '文章创建成功！',
-        //             type: 'success'
-        //         });
-        //     }
-        // } catch (error) {
-        //     setAlert({
-        //         title: '文章更新失败！',
-        //         type: 'error'
-        //     });
-        //     console.error('创建文章错误:', error);
-        // } finally {
-        //     setSubmitting(false);
-        // }
+        setSubmitting(true);
+        try {
+            const { data, error } = await addCalendar(newFormData);
+            if (error) {
+                console.error('發佈錯誤:', error);
+                setAlert({
+                    title: '發佈錯誤！',
+                    type: 'error'
+                });
+            } else {
+                router.push(`/`);
+                setAlert({
+                    title: '發佈成功，請等待審核通過',
+                    type: 'success'
+                });
+            }
+        } catch (error) {
+            setAlert({
+                title: '發佈錯誤！',
+                type: 'error'
+            });
+            console.error('發佈錯誤！:', error);
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     return (

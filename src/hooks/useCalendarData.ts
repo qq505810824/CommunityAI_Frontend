@@ -1,4 +1,5 @@
 import {
+    createApp,
     deleteApp,
     getAllApps,
     getAppDetail,
@@ -6,7 +7,8 @@ import {
     searchApp,
     statisticsApp,
     updateApp
-} from '@/service/prompts_server';
+} from '@/service/calendar_server';
+
 import useSWR from 'swr';
 
 // 定义应用数据类型
@@ -22,6 +24,7 @@ export interface CalendarModel {
     pre_to_date: string;
     view_count: number;
     reference_url: string;
+    status: string;
     created_at: string;
     updated_at: string;
 
@@ -36,8 +39,8 @@ const appsFetcher = async () => {
 };
 
 // 自定义 hook 使用 SWR 获取所有应用
-export const usePromptData = (options = {}) => {
-    const { data, error, isLoading, mutate } = useSWR('all-prompts', appsFetcher, {
+export const useCalendarData = (options = {}) => {
+    const { data, error, isLoading, mutate } = useSWR('all-calendars', appsFetcher, {
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
         dedupingInterval: 60000, // 1分钟内不重复请求
@@ -58,9 +61,9 @@ const appDetailFetcher = async (id: number, accountId?: string) => {
     return data || [];
 };
 
-export const usePromptDetailData = (id: number, accountId?: string, options = {}) => {
+export const useCalendarDetailData = (id: number, accountId?: string, options = {}) => {
     const { data, error, isLoading, mutate } = useSWR(
-        'detail_prompt_' + id,
+        'detail_calendar_' + id,
         () => appDetailFetcher(id, accountId),
         {
             revalidateOnFocus: false,
@@ -83,9 +86,9 @@ const appDetailByIdFetcher = async (id: number) => {
     return data || [];
 };
 
-export const usePromptDetailByIdData = (id: number, options = {}) => {
+export const useCalendarDetailByIdData = (id: number, options = {}) => {
     const { data, error, isLoading, mutate } = useSWR(
-        'detail_prompt_by_id_' + id,
+        'detail_calendar_by_id_' + id,
         () => appDetailByIdFetcher(id),
         {
             revalidateOnFocus: false,
@@ -108,9 +111,9 @@ const appStatisticsFetcher = async () => {
     return data || [];
 };
 
-export const usePromptStatisticsData = (options = {}) => {
+export const useCalendarStatisticsData = (options = {}) => {
     const { data, error, isLoading, mutate } = useSWR(
-        'detail_prompt_statistics',
+        'detail_calendar_statistics',
         () => appStatisticsFetcher(),
         {
             revalidateOnFocus: false,
@@ -127,30 +130,30 @@ export const usePromptStatisticsData = (options = {}) => {
     };
 };
 
-export const usePromptOperations = () => {
+export const useCalendarOperations = () => {
     // const { mutate } = usePromptData(); // 移动到顶层
-    const addPrompt = async (appData: Omit<CalendarModel, 'id'>) => {
+    const addCalendar = async (appData: Omit<CalendarModel, 'id'>) => {
         return handleAppOperation(async () => {
-            // return await createApp(appData);
+            return await createApp(appData);
         });
     };
 
-    const updatePrompt = async (id: number, updatedData: Partial<CalendarModel>) => {
+    const updateCalendar = async (id: number, updatedData: Partial<CalendarModel>) => {
         return handleAppOperation(async () => {
             return await updateApp(id, updatedData);
         });
     };
 
-    const deletePrompt = async (id: number) => {
+    const deleteCalendar = async (id: number) => {
         return await deleteApp(id);
     };
 
-    const searchPrompt = async (key: string) => {
+    const searchCalendar = async (key: string) => {
         return handleAppOperation(async () => {
             return await searchApp(key);
         });
     };
-    return { addPrompt, updatePrompt, deletePrompt, searchPrompt };
+    return { addCalendar, updateCalendar, deleteCalendar, searchCalendar };
 };
 
 // 处理应用操作的通用函数

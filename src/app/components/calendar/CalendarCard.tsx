@@ -1,7 +1,11 @@
+import { CalendarModel } from '@/hooks/useCalendarData';
 import { formatK } from '@/utils/stringUtil';
+import { CalendarIcon } from '@heroicons/react/24/outline';
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import { Typography } from '@mui/joy';
 import { useRouter } from 'next/navigation';
 interface ViewProps {
-    product: any;
+    product: CalendarModel;
 }
 
 export default function CalendarCard(props: ViewProps) {
@@ -30,8 +34,8 @@ export default function CalendarCard(props: ViewProps) {
                 <div className="p-2">
                     <div className="flex flex-row space-x-2 justify-between ">
                         <div className="space-y-2">
-                            <p className="text-md font-bold">{'九澳高頂燒烤公園'}</p>
-                            <span className="text-sm text-orange-500">10月10日 - 11月-11</span>
+                            <p className="text-md font-bold">{product.name}</p>
+                            <div className="text-sm text-orange-500 flex flex-row items-center"><CalendarIcon className='w-4 mr-2' />{product.from_date} - {product.to_date}</div>
                             <p
                                 className="text-sm text-gray-400"
                                 style={{
@@ -42,18 +46,22 @@ export default function CalendarCard(props: ViewProps) {
                                     height: '3em' // 根据行高设置最大高度
                                 }}
                             >
-                                {
-                                    '簡介：位於九澳高頂馬路末段，離路環東北步行徑入口不遠。面積約2,788平方米。園內設有停車場及公共電話亭。備有一般燒烤的設施及別具特色的戶外野餐桌椅。由於靠近公路旁，容易到達，甚受市民歡迎。'
-                                }
+                                {product.description}
                             </p>
                         </div>
                     </div>
 
                     <div className="flex flex-row   my-1 justify-between items-center">
-                        <label className="text-sm font-semibold">進行中</label>
-                        <label className="text-sm text-gray-500">
-                            {formatK(product?.meta_info?.heat || 0)}
-                        </label>
+                        <label className="text-sm font-semibold">{product.status}</label>
+                        <Typography
+                            startDecorator={<RemoveRedEyeOutlinedIcon sx={{ width: 14 }} />}
+                            sx={{
+                                color: 'gray',
+                                fontSize: 14
+                            }}
+                        >
+                            {formatK(product?.view_count || 0)}
+                        </Typography>
                     </div>
                 </div>
             </div>
