@@ -16,7 +16,7 @@ import MenuButton from './MenuButton';
 export default function HeaderView() {
     const { userProfile } = useAppContext();
     const supabase = createClientComponentClient();
-    useEffect(() => { }, []);
+    useEffect(() => {}, []);
     const router = useRouter();
     const [email, setEmail] = useState('222');
 

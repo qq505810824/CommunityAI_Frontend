@@ -81,8 +81,7 @@ export const CalendarFormData = {
         pre_date_range: { type: 'string', title: '報名日期範圍', required: false, tip: '(選填)' },
         date_range: { type: 'string', title: '活動日期範圍', required: true, tip: '' },
         reference_url: { type: 'string', title: '相關網址', required: false, tip: '(選填)' },
-        description: { type: 'string', title: '描述', required: true, tip: '' },
-
+        description: { type: 'string', title: '描述', required: true, tip: '' }
     },
     uiSchema: {
         title: { 'ui:widget': 'text' },
@@ -95,6 +94,6 @@ export const CalendarFormData = {
         image_url: { 'ui:widget': 'file' },
         date_range: { 'ui:widget': 'date_range' },
         pre_date_range: { 'ui:widget': 'date_range' },
-        reference_url: { 'ui:widget': 'text' },
+        reference_url: { 'ui:widget': 'text' }
     }
 };

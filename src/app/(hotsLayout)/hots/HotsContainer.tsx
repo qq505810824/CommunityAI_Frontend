@@ -46,11 +46,10 @@ function HotsContainer() {
     // }, [router, data]);
     useEffect(() => {
         // fetchData()
-    }, [])
+    }, []);
 
     const fetchData = async (category: string, type: string, date: string) => {
-
-        const api = (IPlatform as Record<string, any>)[category].api
+        const api = (IPlatform as Record<string, any>)[category].api;
         try {
             const response = await fetch(api, {
                 method: 'POST',
@@ -58,13 +57,13 @@ function HotsContainer() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    "rankType": 1,
-                    "rankDate": date,
-                    "type": [type],
-                    "size": 25,
-                    "start": 1,
-                    "secondType": "",
-                    "rankRealType": 1
+                    rankType: 1,
+                    rankDate: date,
+                    type: [type],
+                    size: 25,
+                    start: 1,
+                    secondType: '',
+                    rankRealType: 1
                 })
             });
             const data = await response.json();
@@ -84,11 +83,11 @@ function HotsContainer() {
             });
 
             setProducts(newData);
-        } catch (error) { }
+        } catch (error) {}
     };
 
     useEffect(() => {
-        fetchData(category, type, date)
+        fetchData(category, type, date);
         // getProducts(category, type, date);
     }, [category, type, date]);
 
@@ -115,7 +114,7 @@ function HotsContainer() {
 
     const handleSearch = async (keyword: string) => {
         if (!keyword) {
-            fetchData(category, type, date)
+            fetchData(category, type, date);
             // getProducts(category, type, date);
             return;
         }

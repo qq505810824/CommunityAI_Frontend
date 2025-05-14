@@ -5,9 +5,9 @@ const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 /**
- * 
- * @param table_name 
- * @param query 
+ *
+ * @param table_name
+ * @param query
  * column text,
  * column text array,可以设置放array
  * column numberic,
@@ -17,8 +17,8 @@ const supabase = createClient(
  * column date,
  * column time,timetz,timetamptz,
  * column bool,
- * 
- * @returns 
+ *
+ * @returns
  */
 export const createAppByExecute = async (table_name: string, query: string) => {
     try {

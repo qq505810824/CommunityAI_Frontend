@@ -30,19 +30,17 @@ function CalendarDetailView(props: ViewProps) {
 
 報名連結：https://docs.google.com/forms/d/1_JRM7uOocNJ27VweCDvjrRITeP271zpx2YuXAdGbPQQ/edit
 
-        `)
+        `);
     return (
         <>
-            <div className='w-full flex flex-col justify-center items-center'>
-                <div className='w-full sm:max-w-7xl px-4 py-4 flex flex-col  '>
+            <div className="w-full flex flex-col justify-center items-center">
+                <div className="w-full sm:max-w-7xl px-4 py-4 flex flex-col  ">
                     <BackView title="Back" />
                     <div className="w-full sm:max-w-7xl flex flex-col sm:flex-row justify-center  ">
-
                         <div className="w-full sm:1/2 space-y-4  overflow-x-auto">
-
                             <Typography level="h4">{'prompt?.title'}</Typography>
-                            <p className='text-sm font-semibold'>報名日期:</p>
-                            <p className='text-sm font-semibold'>活動日期:</p>
+                            <p className="text-sm font-semibold">報名日期:</p>
+                            <p className="text-sm font-semibold">活動日期:</p>
 
                             <div className=" break-words">
                                 <ReactMarkdown
@@ -60,20 +58,24 @@ function CalendarDetailView(props: ViewProps) {
                                         )
                                     }}
                                 >
-                                    {description
-                                        ?.replace(/\n\n/g, '\n\n')
-                                        .replace(/\n/g, '  \n')}
+                                    {description?.replace(/\n\n/g, '\n\n').replace(/\n/g, '  \n')}
                                 </ReactMarkdown>
                             </div>
                             <div>
-                                <Button startDecorator={<ShareOutlinedIcon sx={{ width: '18px' }} />}>相關網址</Button>
+                                <Button
+                                    startDecorator={<ShareOutlinedIcon sx={{ width: '18px' }} />}
+                                >
+                                    相關網址
+                                </Button>
                             </div>
                         </div>
                         <div className="w-full sm:1/2">
                             <img
-                                src={'https://www.mocalendar.com/storage/events/tb-MVeD284VesCAYc1VoxbhcLEqFXc7TcL3qCI6fk7P.jpeg'}
+                                src={
+                                    'https://www.mocalendar.com/storage/events/tb-MVeD284VesCAYc1VoxbhcLEqFXc7TcL3qCI6fk7P.jpeg'
+                                }
                                 className="w-full h-auto object-cover rounded-t-3xlmd"
-                                alt=''
+                                alt=""
                             />
                         </div>
                     </div>

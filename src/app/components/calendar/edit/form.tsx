@@ -33,7 +33,7 @@ function CalendarEditForm(props: ViewProps) {
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
-                setValue('image_url', reader.result as string)
+                setValue('image_url', reader.result as string);
                 setSelectedImage(reader.result as string);
             };
             reader.readAsDataURL(file);
@@ -68,16 +68,14 @@ function CalendarEditForm(props: ViewProps) {
                         required={field.required}
                         defaultValue={[
                             uiSchema['ui:options']?.enumOptions &&
-                            uiSchema['ui:options']?.enumOptions[0]
+                                uiSchema['ui:options']?.enumOptions[0]
                         ]}
                         onChange={(event, value) => {
                             // 处理选择变化
                             setValue(key as keyof CalendarModel, value?.toString());
                         }}
                         renderValue={(selected) => (
-                            <Box sx={{ display: 'flex', gap: '0.25rem' }}>
-                                {selected?.label}
-                            </Box>
+                            <Box sx={{ display: 'flex', gap: '0.25rem' }}>{selected?.label}</Box>
                         )}
                         sx={{ minWidth: '15rem' }}
                         slotProps={{
@@ -100,9 +98,10 @@ function CalendarEditForm(props: ViewProps) {
                     <>
                         <div
                             {...register(key as keyof CalendarModel)}
-                            className='w-full flex justify-center relative'>
+                            className="w-full flex justify-center relative"
+                        >
                             <div
-                                className='bg-gray-200 font-semibold rounded-sm flex justify-center flex-col items-center text-center w-[250px] h-[300px] cursor-pointer relative'
+                                className="bg-gray-200 font-semibold rounded-sm flex justify-center flex-col items-center text-center w-[250px] h-[300px] cursor-pointer relative"
                                 onClick={(e) => handleClickFile(e)}
                                 onMouseEnter={() => selectedImage && setShowReplaceButton(true)}
                                 onMouseLeave={() => setShowReplaceButton(false)}
@@ -117,7 +116,7 @@ function CalendarEditForm(props: ViewProps) {
                                         {showReplaceButton && (
                                             <div className="absolute bottom-2 left-0 right-0 flex justify-center">
                                                 <button
-                                                    type='button'
+                                                    type="button"
                                                     className="bg-blue-500 text-white px-3 py-1 rounded-md text-sm"
                                                     onClick={(e) => {
                                                         handleClickFile(e);
@@ -131,17 +130,15 @@ function CalendarEditForm(props: ViewProps) {
                                 ) : (
                                     <>
                                         <p>上傳活動封面</p>
-                                        <p className='text-xs'>
-                                            (建議上傳圖片比例5:6,限10M內)
-                                        </p>
+                                        <p className="text-xs">(建議上傳圖片比例5:6,限10M內)</p>
                                     </>
                                 )}
                             </div>
                         </div>
                         <input
-                            type='file'
-                            accept='.png,.jpg,.jpeg'
-                            className='hidden'
+                            type="file"
+                            accept=".png,.jpg,.jpeg"
+                            className="hidden"
                             ref={fileInputRef}
                             onChange={handleFileChange}
                         />
@@ -178,7 +175,10 @@ function CalendarEditForm(props: ViewProps) {
                     const uiSchema = formData.uiSchema[key as keyof typeof formData.uiSchema];
                     return (
                         <div key={key} className="mb-4">
-                            <p className=" font-medium text-sm">{field.title} <span className="text-sm text-gray-400">{field.tip}</span></p>
+                            <p className=" font-medium text-sm">
+                                {field.title}{' '}
+                                <span className="text-sm text-gray-400">{field.tip}</span>
+                            </p>
                             {renderField(key, field, uiSchema)}
                         </div>
                     );

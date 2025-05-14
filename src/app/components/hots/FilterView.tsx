@@ -62,7 +62,6 @@ export default function FilterView(props: ViewProps) {
         const dates = [];
         const today = new Date();
         for (let i = 1; i <= 7; i++) {
-
             const formattedDate = moment().add(-i, 'day').format('YYYY-MM-DD');
             dates.push({
                 name: formattedDate,

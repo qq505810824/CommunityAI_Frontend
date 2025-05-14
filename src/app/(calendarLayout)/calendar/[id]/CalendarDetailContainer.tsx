@@ -29,7 +29,7 @@ function CalendarDetailContainer() {
             };
             setPrompts(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     return (
