@@ -112,7 +112,7 @@ function CalendarEditForm(props: ViewProps) {
                                 //     'help',
                                 //     'wordcount'
                                 // ],
-                                plugins: ['link', 'wordcount', 'preview', 'image'],
+                                plugins: ['autolink', 'link', 'wordcount', 'preview', 'image'],
                                 // toolbar:
                                 //     'undo redo | blocks | ' +
                                 //     'bold italic forecolor | alignleft aligncenter ' +
@@ -120,7 +120,7 @@ function CalendarEditForm(props: ViewProps) {
                                 //     'removeformat | help',
                                 toolbar:
                                     'undo redo | blocks | ' +
-                                    'bold italic forecolor | alignleft aligncenter ' +
+                                    'bold italic underline forecolor | link image alignleft aligncenter ' +
                                     'alignright alignjustify | bullist numlist outdent indent | ' +
                                     'removeformat',
                                 content_style:

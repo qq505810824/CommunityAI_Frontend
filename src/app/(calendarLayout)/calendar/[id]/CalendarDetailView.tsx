@@ -5,8 +5,6 @@ import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { Button, Typography } from '@mui/joy';
 import { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 
 interface ViewProps {
     data: any;
@@ -37,7 +35,7 @@ function CalendarDetailView(props: ViewProps) {
                             </p>
 
                             <div className="break-words">
-                                <ReactMarkdown
+                                {/* <ReactMarkdown
                                     remarkPlugins={[remarkGfm]}
                                     components={{
                                         a: ({ node, ...props }) => (
@@ -63,7 +61,10 @@ function CalendarDetailView(props: ViewProps) {
                                     skipHtml={false}
                                 >
                                     {product?.description}
-                                </ReactMarkdown>
+                                </ReactMarkdown> */}
+                                <div
+                                    dangerouslySetInnerHTML={{ __html: product?.description || '' }}
+                                ></div>
                             </div>
                             <div>
                                 {product?.reference_url && (
