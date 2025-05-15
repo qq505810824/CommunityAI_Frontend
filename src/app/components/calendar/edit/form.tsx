@@ -129,8 +129,8 @@ function CalendarEditForm(props: ViewProps) {
                                                 : '';
                                             var blobInfo = blobCache.create(id, file, base64);
                                             blobCache.add(blobInfo);
-                                            // cb(blobInfo.blobUri(), { title: file?.name });
-                                            cb(base64, { title: file?.name });
+                                            cb(blobInfo.blobUri(), { title: file?.name });
+                                            // cb(base64, { title: file?.name });
                                         };
                                         reader.onerror = function () {
                                             console.error('File reading failed');

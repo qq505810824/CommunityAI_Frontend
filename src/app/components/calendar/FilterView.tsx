@@ -49,7 +49,7 @@ export default function FilterView(props: ViewProps) {
                         </Typography>
                         <div className="w-full justify-center flex flex-row items-center mx-4 flex-1  ">
                             <input
-                                type="search"
+                                type="text"
                                 className="w-1/2 px-2 py-2 border-gray-300  rounded-none"
                                 placeholder="輸入關鍵詞..."
                                 onKeyUp={onKeyUp}
