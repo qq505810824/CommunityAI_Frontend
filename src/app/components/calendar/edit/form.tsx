@@ -1,16 +1,18 @@
 import { CalendarModel } from '@/hooks/useCalendarData';
 import { CalendarFormData } from '@/utils/formData';
 import { Button, Option, Select } from '@mui/joy';
+import { Editor } from '@tinymce/tinymce-react';
 import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 interface ViewProps {
     product: CalendarModel | null;
+    submitting?: boolean
     submit: (formData: CalendarModel) => void;
 }
 
 function CalendarEditForm(props: ViewProps) {
-    const { product, submit } = props;
+    const { product, submitting, submit } = props;
     const formData = CalendarFormData;
     const {
         register,
@@ -18,7 +20,6 @@ function CalendarEditForm(props: ViewProps) {
         setValue,
         formState: { errors }
     } = useForm<CalendarModel>();
-    const [submitting, setSubmitting] = useState(false);
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [showReplaceButton, setShowReplaceButton] = useState(false);
@@ -68,14 +69,68 @@ function CalendarEditForm(props: ViewProps) {
                         className="border p-2 w-full rounded-md"
                     />
                 );
+            // case 'textarea':
+            //     return (
+            //         <textarea
+            //             {...register(key as keyof CalendarModel)}
+            //             required={field.required}
+            //             placeholder={field.title}
+            //             className="border p-2 w-full rounded-md min-h-[200px]"
+            //         />
+            //     );
             case 'textarea':
                 return (
-                    <textarea
-                        {...register(key as keyof CalendarModel)}
-                        required={field.required}
-                        placeholder={field.title}
-                        className="border p-2 w-full rounded-md min-h-[200px]"
-                    />
+                    <div className="   w-full  min-h-[100px]">
+                        <Editor
+                            {...register(key as keyof CalendarModel)}
+                            id="output_editor"
+                            apiKey="g6v7lxx8s2baelpg69g81ei3jp7npb8bf1yv6hs8w8tp4422"
+                            // onInit={(evt, editor) => ((editorRef.current as any) = editor)}
+                            initialValue={''}
+                            init={{
+                                height: 500,
+                                menubar: false,
+                                entity_encoding: 'raw',
+                                verify_html: false,
+                                // plugins: [
+                                //     'advlist',
+                                //     'autolink',
+                                //     'lists',
+                                //     'link',
+                                //     'image',
+                                //     'charmap',
+                                //     'preview',
+                                //     'anchor',
+                                //     'searchreplace',
+                                //     'visualblocks',
+                                //     'code',
+                                //     'fullscreen',
+                                //     'insertdatetime',
+                                //     'media',
+                                //     'table',
+                                //     'code',
+                                //     'help',
+                                //     'wordcount'
+                                // ],
+                                plugins: ['link', 'wordcount', 'preview', 'image'],
+                                // toolbar:
+                                //     'undo redo | blocks | ' +
+                                //     'bold italic forecolor | alignleft aligncenter ' +
+                                //     'alignright alignjustify | bullist numlist outdent indent | ' +
+                                //     'removeformat | help',
+                                toolbar:
+                                    'undo redo | blocks | ' +
+                                    'bold italic forecolor | alignleft aligncenter ' +
+                                    'alignright alignjustify | bullist numlist outdent indent | ' +
+                                    'removeformat',
+                                content_style:
+                                    'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                            }}
+                            onEditorChange={(a: any, editor: any) => {
+                                setValue(key as keyof CalendarModel, a); // 设置表单值
+                            }}
+                        />
+                    </div>
                 );
             case 'select':
                 return (
@@ -101,7 +156,7 @@ function CalendarEditForm(props: ViewProps) {
                         }}
                     >
                         {uiSchema['ui:options']?.enumOptions?.map((option: any) => (
-                            <Option key={option} value={option.value}>
+                            <Option key={option.value} value={option.value}>
                                 {option.name}
                             </Option>
                         ))}
@@ -187,7 +242,8 @@ function CalendarEditForm(props: ViewProps) {
 
     return (
         <>
-            <form onSubmit={handleSubmit(submit)} className="w-full overflow-auto">
+            <form onSubmit={handleSubmit(submit)}
+                className="w-full overflow-auto">
                 {Object.keys(formData.fieldSchema).map((key) => {
                     const field = formData.fieldSchema[key as keyof typeof formData.fieldSchema];
                     const uiSchema = formData.uiSchema[key as keyof typeof formData.uiSchema];

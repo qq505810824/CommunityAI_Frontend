@@ -4,11 +4,12 @@ import { CalendarModel } from '@/hooks/useCalendarData';
 
 interface ViewProps {
     product: CalendarModel | null;
+    submitting?: boolean;
     handleSubmit: (formData: CalendarModel) => void;
 }
 
 function CalendarCreateEditView(props: ViewProps) {
-    const { product, handleSubmit } = props;
+    const { product, submitting, handleSubmit } = props;
     return (
         <>
             <div className="w-full flex flex-col justify-center items-center">
@@ -17,6 +18,7 @@ function CalendarCreateEditView(props: ViewProps) {
                     <CalendarEditForm
                         {...{
                             product,
+                            submitting,
                             submit: handleSubmit
                         }}
                     />

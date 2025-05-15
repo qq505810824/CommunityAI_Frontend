@@ -54,6 +54,7 @@ const CalendarCreateContainer = () => {
         <CalendarCreateEditView
             {...{
                 product,
+                submitting,
                 handleSubmit
             }}
         />

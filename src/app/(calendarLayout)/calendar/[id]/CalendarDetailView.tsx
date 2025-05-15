@@ -5,8 +5,6 @@ import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { Button, Typography } from '@mui/joy';
 import { useState } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm'; // 导入 remark-gfm
 
 interface ViewProps {
     data: any;
@@ -37,27 +35,39 @@ function CalendarDetailView(props: ViewProps) {
                             </p>
 
                             <div className=" break-words">
-                                <ReactMarkdown
+                                {/* <ReactMarkdown
                                     remarkPlugins={[remarkGfm]}
                                     components={{
                                         a: ({ node, ...props }) => (
                                             <a
                                                 target="_blank"
                                                 {...props}
-                                                className=" no-underline hover:underline text-blue-500"
-                                            /> // 自定义链接样式为蓝色
+                                                className="no-underline hover:underline text-blue-500"
+                                            />
                                         ),
                                         img: ({ node, ...props }) => (
                                             <img
                                                 {...props}
-                                                className=" rounded-lg h-[200px]"
+                                                className="rounded-lg h-[200px]"
                                                 alt=""
-                                            /> // 设置图片最大高度为200px
+                                            />
+                                        ),
+                                        div: ({ node, ...props }) => (
+                                            <div
+                                                {...props}
+                                                // 为了避免类型错误，将 props.children 转换为字符串
+                                                dangerouslySetInnerHTML={{ __html: props.children || '' }}
+                                            />
                                         )
                                     }}
+                                    skipHtml={false}  // 允许渲染HTML内容
                                 >
                                     {product?.description}
-                                </ReactMarkdown>
+
+                                </ReactMarkdown> */}
+                                <div
+                                    dangerouslySetInnerHTML={{ __html: product?.description || '' }}
+                                />
                             </div>
                             <div>
                                 {product?.reference_url && (
