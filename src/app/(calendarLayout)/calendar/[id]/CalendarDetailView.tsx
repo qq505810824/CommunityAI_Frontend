@@ -20,7 +20,7 @@ function CalendarDetailView(props: ViewProps) {
             <div className="w-full flex flex-col justify-center items-center">
                 <div className="w-full sm:max-w-7xl px-4 py-4 flex flex-col  ">
                     <BackView title="Back" />
-                    <div className="w-full  flex flex-col sm:flex-row justify-center space-y-4  ">
+                    <div className="w-full  flex flex-col sm:flex-row justify-center space-y-4 space-x-2 sm:space-x-8 ">
                         <div className="w-full sm:2/3 space-y-4  overflow-x-auto">
                             <Typography level="h4">{product?.name}</Typography>
                             <p className="text-sm font-semibold flex flex-row items-center text-orange-500 ">

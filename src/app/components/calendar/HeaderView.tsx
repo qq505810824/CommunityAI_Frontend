@@ -16,7 +16,7 @@ import MenuButton from './MenuButton';
 export default function HeaderView() {
     const { userProfile } = useAppContext();
     const supabase = createClientComponentClient();
-    useEffect(() => { }, []);
+    useEffect(() => {}, []);
     const router = useRouter();
     const [email, setEmail] = useState('222');
 
@@ -104,7 +104,12 @@ export default function HeaderView() {
                     })}
                 />
                 <div className="w-full sm:max-w-7xl flex justify-between ">
-                    <div className="flex flex-row items-center gap-2 cursor-pointer" onClick={() => { router.push('/') }}>
+                    <div
+                        className="flex flex-row items-center gap-2 cursor-pointer"
+                        onClick={() => {
+                            router.push('/');
+                        }}
+                    >
                         {/* <img alt="" src="/logo/logo_p.png" className="w-12 h-8" /> */}
                         <Typography level={'h4'}>Career calendar</Typography>
                     </div>
