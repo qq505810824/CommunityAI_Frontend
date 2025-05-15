@@ -17,7 +17,7 @@ export default function CalendarItem(props: ViewProps) {
     const { setShowConfirmDelete } = useModalContext();
     const handleClick = () => {
         if (product) {
-            window.open(`/calendar/${product.id}`, '_blank')
+            window.open(`/calendar/${product.id}`, '_blank');
         }
     };
 
@@ -63,16 +63,25 @@ export default function CalendarItem(props: ViewProps) {
                 </td>
                 <td>{product.category}</td>
                 <td>{product.view_count || 0}</td>
-                <td className={``}><Chip color={product.status == 'draft' ? 'danger' : 'success'} size='sm'>{product.status == 'draft' ? '待審核' : '已審核'}</Chip></td>
-                <td>{product.pre_from_date} - {product.pre_to_date}</td>
-                <td>{product.from_date} - {product.to_date}</td>
+                <td className={``}>
+                    <Chip color={product.status == 'draft' ? 'danger' : 'success'} size="sm">
+                        {product.status == 'draft' ? '待審核' : '已審核'}
+                    </Chip>
+                </td>
+                <td>
+                    {product.pre_from_date} - {product.pre_to_date}
+                </td>
+                <td>
+                    {product.from_date} - {product.to_date}
+                </td>
                 <td>{product.updated_at}</td>
                 <td>
                     <div className="flex flex-row items-center overflow-hidden space-x-2">
-
                         <label
                             className="flex flex-row items-center text-white cursor-pointer whitespace-nowrap px-2 py-1 rounded-md  bg-orange-500 hover:bg-orange-600 text-xs"
-                            onClick={() => handleStatus(product.status == 'draft' ? 'success' : 'draft')}
+                            onClick={() =>
+                                handleStatus(product.status == 'draft' ? 'success' : 'draft')
+                            }
                         >
                             {product.status == 'draft' ? '通過審核' : '存草稿'}
                         </label>

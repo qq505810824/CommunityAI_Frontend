@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 
 interface ViewProps {
     product: CalendarModel | null;
-    submitting?: boolean
+    submitting?: boolean;
     submit: (formData: CalendarModel) => void;
 }
 
@@ -242,8 +242,7 @@ function CalendarEditForm(props: ViewProps) {
 
     return (
         <>
-            <form onSubmit={handleSubmit(submit)}
-                className="w-full overflow-auto">
+            <form onSubmit={handleSubmit(submit)} className="w-full overflow-auto">
                 {Object.keys(formData.fieldSchema).map((key) => {
                     const field = formData.fieldSchema[key as keyof typeof formData.fieldSchema];
                     const uiSchema = formData.uiSchema[key as keyof typeof formData.uiSchema];

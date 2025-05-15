@@ -35,9 +35,7 @@ function CalendarView(props: ViewProps) {
                     />
 
                     {/* {(isLoading || searching) && <LoadView />} */}
-                    <div >
-                        {(isLoading || searching) && <LoadView />}
-                    </div>
+                    <div>{(isLoading || searching) && <LoadView />}</div>
                     {products.length == 0 && !isLoading && !searching && (
                         <Typography level="h4" sx={{ padding: 10 }}>
                             No Data.

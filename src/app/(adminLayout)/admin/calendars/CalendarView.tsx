@@ -18,7 +18,8 @@ interface ViewProps {
 }
 
 function CalendarView(props: ViewProps) {
-    const { isLoading, products, onClose, handleSearch, searching, onDelete, onUpdataStatus } = props;
+    const { isLoading, products, onClose, handleSearch, searching, onDelete, onUpdataStatus } =
+        props;
     const router = useRouter();
     const { t } = useTranslation();
 

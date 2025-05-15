@@ -5,6 +5,8 @@ import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { Button, Typography } from '@mui/joy';
 import { useState } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface ViewProps {
     data: any;
@@ -34,8 +36,8 @@ function CalendarDetailView(props: ViewProps) {
                                 {product?.from_date} - {product?.to_date}
                             </p>
 
-                            <div className=" break-words">
-                                {/* <ReactMarkdown
+                            <div className="break-words">
+                                <ReactMarkdown
                                     remarkPlugins={[remarkGfm]}
                                     components={{
                                         a: ({ node, ...props }) => (
@@ -43,31 +45,25 @@ function CalendarDetailView(props: ViewProps) {
                                                 target="_blank"
                                                 {...props}
                                                 className="no-underline hover:underline text-blue-500"
+                                                style={{ wordBreak: 'break-word' }}
                                             />
                                         ),
                                         img: ({ node, ...props }) => (
                                             <img
                                                 {...props}
-                                                className="rounded-lg h-[200px]"
+                                                className="rounded-lg max-w-full h-auto"
+                                                style={{ maxHeight: '200px' }}
                                                 alt=""
                                             />
                                         ),
-                                        div: ({ node, ...props }) => (
-                                            <div
-                                                {...props}
-                                                // 为了避免类型错误，将 props.children 转换为字符串
-                                                dangerouslySetInnerHTML={{ __html: props.children || '' }}
-                                            />
+                                        p: ({ node, ...props }) => (
+                                            <p {...props} style={{ wordBreak: 'break-word' }} />
                                         )
                                     }}
-                                    skipHtml={false}  // 允许渲染HTML内容
+                                    skipHtml={false}
                                 >
                                     {product?.description}
-
-                                </ReactMarkdown> */}
-                                <div
-                                    dangerouslySetInnerHTML={{ __html: product?.description || '' }}
-                                />
+                                </ReactMarkdown>
                             </div>
                             <div>
                                 {product?.reference_url && (

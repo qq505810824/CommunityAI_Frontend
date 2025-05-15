@@ -32,7 +32,7 @@ function CalendarContainer() {
             });
             setProducts(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     const handleSearch = async (value: string) => {
