@@ -47,7 +47,7 @@ export default function CalendarCard(props: ViewProps) {
                                     height: '3em' // 根据行高设置最大高度
                                 }}
                             >
-                                     {product.description.replace(/<[^>]*>/g, '')}
+                                {product.description.replace(/<[^>]*>/g, '')}
                             </p>
                         </div>
                     </div>

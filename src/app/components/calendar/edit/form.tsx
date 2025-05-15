@@ -85,49 +85,65 @@ function CalendarEditForm(props: ViewProps) {
                             {...register(key as keyof CalendarModel)}
                             id="output_editor"
                             apiKey="g6v7lxx8s2baelpg69g81ei3jp7npb8bf1yv6hs8w8tp4422"
-                            // onInit={(evt, editor) => ((editorRef.current as any) = editor)}
                             initialValue={''}
                             init={{
                                 height: 500,
                                 menubar: false,
                                 entity_encoding: 'raw',
                                 verify_html: false,
-                                // plugins: [
-                                //     'advlist',
-                                //     'autolink',
-                                //     'lists',
-                                //     'link',
-                                //     'image',
-                                //     'charmap',
-                                //     'preview',
-                                //     'anchor',
-                                //     'searchreplace',
-                                //     'visualblocks',
-                                //     'code',
-                                //     'fullscreen',
-                                //     'insertdatetime',
-                                //     'media',
-                                //     'table',
-                                //     'code',
-                                //     'help',
-                                //     'wordcount'
-                                // ],
-                                plugins: ['autolink', 'link', 'wordcount', 'preview', 'image'],
-                                // toolbar:
-                                //     'undo redo | blocks | ' +
-                                //     'bold italic forecolor | alignleft aligncenter ' +
-                                //     'alignright alignjustify | bullist numlist outdent indent | ' +
-                                //     'removeformat | help',
+                                image_title: true,
+                                automatic_uploads: true,
+                                plugins: [
+                                    'autolink',
+                                    'link',
+                                    'wordcount',
+                                    'preview',
+                                    'image'
+                                    // 'imagetools'
+                                ],
                                 toolbar:
                                     'undo redo | blocks | ' +
                                     'bold italic underline forecolor | link image alignleft aligncenter ' +
                                     'alignright alignjustify | bullist numlist outdent indent | ' +
                                     'removeformat',
+                                file_picker_types: 'image',
+                                file_picker_callback: function (cb: any, value: any, meta: any) {
+                                    var input = document.createElement('input');
+                                    input.setAttribute('type', 'file');
+                                    input.setAttribute('accept', 'image/*');
+
+                                    input.onchange = function () {
+                                        const inputElement = this as HTMLInputElement;
+                                        var file = inputElement.files?.[0];
+                                        if (!file) return;
+
+                                        var reader = new FileReader();
+                                        reader.onload = function () {
+                                            var id = 'blobid' + new Date().getTime();
+                                            // 为了解决类型“Window & typeof globalThis”上不存在属性“tinymce”的问题，使用类型断言
+                                            var blobCache = (window as any).tinymce.activeEditor
+                                                .editorUpload.blobCache;
+                                            // 检查 reader.result 是否为 null，若为 null 则使用空字符串代替
+                                            var base64 = reader.result
+                                                ? reader.result.toString()
+                                                : '';
+                                            var blobInfo = blobCache.create(id, file, base64);
+                                            blobCache.add(blobInfo);
+                                            // cb(blobInfo.blobUri(), { title: file?.name });
+                                            cb(base64, { title: file?.name });
+                                        };
+                                        reader.onerror = function () {
+                                            console.error('File reading failed');
+                                        };
+                                        reader.readAsDataURL(file);
+                                    };
+                                    input.click();
+                                },
                                 content_style:
                                     'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                             }}
                             onEditorChange={(a: any, editor: any) => {
-                                setValue(key as keyof CalendarModel, a); // 设置表单值
+                                setValue(key as keyof CalendarModel, a);
                             }}
                         />
                     </div>
