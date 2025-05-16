@@ -1,9 +1,16 @@
 import { CalendarModel } from '@/hooks/useCalendarData';
 import { CalendarFormData } from '@/utils/formData';
 import { Button, Option, Select } from '@mui/joy';
+import { createClient } from '@supabase/supabase-js';
 import { Editor } from '@tinymce/tinymce-react';
 import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
+const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
 
 interface ViewProps {
     product: CalendarModel | null;
@@ -24,6 +31,8 @@ function CalendarEditForm(props: ViewProps) {
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [showReplaceButton, setShowReplaceButton] = useState(false);
     const [blobToBase64Map, setBlobToBase64Map] = useState<{ [blobUri: string]: string }>({});
+    const [uploadImageLoading, setUploadImageLoading] = useState(false)
+
     useEffect(() => {
         // 初始化时设置默认值
         Object.keys(formData.fieldSchema).forEach((key) => {
@@ -45,16 +54,83 @@ function CalendarEditForm(props: ViewProps) {
         fileInputRef.current?.click();
     };
 
-    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const compressImage = async (file: File, quality = 0.85, maxWidth = 1200, maxHeight = 1200): Promise<Blob> => {
+        return new Promise((resolve, reject) => {
+            const img = new window.Image();
+            const url = URL.createObjectURL(file);
+
+            img.onload = () => {
+                let { width, height } = img;
+                // 限制最大宽高
+                if (width > maxWidth || height > maxHeight) {
+                    const scale = Math.min(maxWidth / width, maxHeight / height);
+                    width = width * scale;
+                    height = height * scale;
+                }
+
+                const canvas = document.createElement('canvas');
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx?.drawImage(img, 0, 0, width, height);
+
+                canvas.toBlob(
+                    (blob) => {
+                        if (blob) resolve(blob);
+                        else reject(new Error('图片压缩失败'));
+                    },
+                    'image/jpeg', // 你也可以根据 file.type 动态选择
+                    quality // 0.8~0.9 通常清晰度和体积都不错
+                );
+                URL.revokeObjectURL(url);
+            };
+            img.onerror = reject;
+            img.src = url;
+        });
+    };
+
+    const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setValue('image_url', reader.result as string);
-                setSelectedImage(reader.result as string);
-            };
-            reader.readAsDataURL(file);
+            setUploadImageLoading(true);
+
+            // 压缩图片
+            let compressedFile: Blob;
+            try {
+                compressedFile = await compressImage(file, 0.85, 1200, 1200); // 你可以调整参数
+            } catch (e) {
+                setUploadImageLoading(false);
+                alert('图片压缩失败');
+                return;
+            }
+
+            const filePath = `calendar_${Math.random()}-${Date.now()}`;
+            const { error: uploadError } = await supabase.storage
+                .from('calendars')
+                .upload(filePath, compressedFile, {
+                    cacheControl: '3600',
+                    upsert: true
+                });
+            setUploadImageLoading(false);
+            if (uploadError) throw uploadError;
+
+            // 获取完整的公共 URL
+            const imageUrl = getImageUrl(filePath);
+            setValue('image_url', imageUrl);
+            setSelectedImage(imageUrl);
         }
+    };
+
+    // 添加一个函数来获取图片 URL
+    const getImageUrl = (path: string | null) => {
+        if (!path) return '/default-avatar.png';
+        if (path.startsWith('http')) return path;
+
+        const {
+            data: { publicUrl }
+        } = supabase.storage.from('calendars').getPublicUrl(path);
+
+        return publicUrl;
     };
 
     const renderField = (key: string, field: any, uiSchema: any) => {
@@ -120,7 +196,7 @@ function CalendarEditForm(props: ViewProps) {
                                         var reader = new FileReader();
                                         reader.onload = function () {
                                             var id = 'blobid' + new Date().getTime();
-                                            // 为了解决类型“Window & typeof globalThis”上不存在属性“tinymce”的问题，使用类型断言
+                                            // 为了解决类型"Window & typeof globalThis"上不存在属性"tinymce"的问题，使用类型断言
                                             var blobCache = (window as any).tinymce.activeEditor
                                                 .editorUpload.blobCache;
                                             // 检查 reader.result 是否为 null，若为 null 则使用空字符串代替
@@ -131,11 +207,10 @@ function CalendarEditForm(props: ViewProps) {
                                             blobCache.add(blobInfo);
 
                                             // 保存 blobUri 和 base64 的映射
-                                            setBlobToBase64Map(prev => ({
+                                            setBlobToBase64Map((prev) => ({
                                                 ...prev,
                                                 [blobInfo.blobUri()]: base64
                                             }));
-
 
                                             cb(blobInfo.blobUri(), { title: file?.name });
                                             // cb(base64, { title: file?.name });
@@ -157,7 +232,10 @@ function CalendarEditForm(props: ViewProps) {
                                     newContent = newContent.replaceAll(blobUri, base64);
                                 });
                                 // 用正则去掉多余的 data:image/jpeg;base64, 前缀，只保留一个
-                                newContent = newContent.replace(/(data:image\/jpeg;base64,)+/g, 'data:image/jpeg;base64,');
+                                newContent = newContent.replace(
+                                    /(data:image\/jpeg;base64,)+/g,
+                                    'data:image/jpeg;base64,'
+                                );
                                 setValue(key as keyof CalendarModel, newContent);
                             }}
                         />
@@ -229,6 +307,16 @@ function CalendarEditForm(props: ViewProps) {
                                     </>
                                 ) : (
                                     <>
+                                        {uploadImageLoading && (
+                                            <div className=" absolute w-full h-full inset-0 z-10 flex flex-col items-center justify-center bg-gray-100/80">
+                                                <svg className="animate-spin h-8 w-8 text-blue-500 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                                                </svg>
+                                                <span className="text-blue-500">上載中...</span>
+                                            </div>
+                                        )}
+
                                         <p>上傳活動封面</p>
                                         <p className="text-xs">(建議上傳圖片比例5:6,限10M內)</p>
                                     </>
