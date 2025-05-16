@@ -5,10 +5,46 @@ import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { Button, Typography } from '@mui/joy';
 import { useState } from 'react';
+import './style.css';
 
 interface ViewProps {
     data: any;
     product: CalendarModel | undefined;
+}
+
+function removeContainerClass(html: string) {
+    // 去掉 class="container"
+    html = html.replace(/class\s*=\s*["']container["']/g, '');
+    // 去掉 class="xxx container yyy"
+    html = html.replace(/class\s*=\s*["']([^"']*\s)?container(\s[^"']*)?["']/g, (match, p1, p2) => {
+        // 保留其他 class
+        let classes = match.match(/class\s*=\s*["']([^"']*)["']/)?.[1] || '';
+        let filtered = classes
+            .split(/\s+/)
+            .filter((c) => c && c !== 'container')
+            .join(' ');
+        return filtered ? `class="${filtered}"` : '';
+    });
+    return html;
+}
+
+function processHtml(html: string) {
+    // 去掉 container class
+    html = removeContainerClass(html);
+
+    // 给所有 a 标签加 target="_blank" rel="noopener noreferrer"
+    html = html.replace(
+        /<a\s+([^>]*?)>/gi,
+        (match, p1) => {
+            // 如果已经有 target 或 rel，先去掉再加
+            let newAttrs = p1
+                .replace(/\s*target\s*=\s*(['"]).*?\1/gi, '')
+                .replace(/\s*rel\s*=\s*(['"]).*?\1/gi, '')
+                .trim();
+            return `<a ${newAttrs} target="_blank" rel="noopener noreferrer">`;
+        }
+    );
+    return html;
 }
 
 function CalendarDetailView(props: ViewProps) {
@@ -20,7 +56,7 @@ function CalendarDetailView(props: ViewProps) {
             <div className="w-full flex flex-col justify-center items-center">
                 <div className="w-full sm:max-w-7xl px-4 py-4 flex flex-col  ">
                     <BackView title="Back" />
-                    <div className="w-full  flex flex-col sm:flex-row justify-center space-y-4 space-x-2 sm:space-x-8 ">
+                    <div className="w-full  flex flex-col sm:flex-row justify-center space-y-4   sm:space-x-8 ">
                         <div className="w-full sm:2/3 space-y-4  overflow-x-auto">
                             <Typography level="h4">{product?.name}</Typography>
                             <p className="text-sm font-semibold flex flex-row items-center text-orange-500 ">
@@ -63,7 +99,8 @@ function CalendarDetailView(props: ViewProps) {
                                     {product?.description}
                                 </ReactMarkdown> */}
                                 <div
-                                    dangerouslySetInnerHTML={{ __html: product?.description || '' }}
+                                    className="prose max-w-none"
+                                    dangerouslySetInnerHTML={{ __html: processHtml(product?.description || '') }}
                                 ></div>
                             </div>
                             <div>
