@@ -31,8 +31,8 @@ export default function CalendarCard(props: ViewProps) {
                 </div>
                 <div className="p-2">
                     <div className="flex flex-row space-x-2 justify-between ">
-                        <div className="space-y-2">
-                            <p className="text-md font-bold">{product.name}</p>
+                        <div className="space-y-2 word-break">
+                            <p className="text-md font-bold" >{product.name}</p>
                             <div className="text-sm text-orange-500 flex flex-row items-center">
                                 <CalendarIcon className="w-4 mr-2" />
                                 {product.from_date} - {product.to_date}

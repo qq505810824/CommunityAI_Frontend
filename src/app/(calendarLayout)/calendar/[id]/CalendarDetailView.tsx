@@ -33,17 +33,14 @@ function processHtml(html: string) {
     html = removeContainerClass(html);
 
     // 给所有 a 标签加 target="_blank" rel="noopener noreferrer"
-    html = html.replace(
-        /<a\s+([^>]*?)>/gi,
-        (match, p1) => {
-            // 如果已经有 target 或 rel，先去掉再加
-            let newAttrs = p1
-                .replace(/\s*target\s*=\s*(['"]).*?\1/gi, '')
-                .replace(/\s*rel\s*=\s*(['"]).*?\1/gi, '')
-                .trim();
-            return `<a ${newAttrs} target="_blank" rel="noopener noreferrer">`;
-        }
-    );
+    html = html.replace(/<a\s+([^>]*?)>/gi, (match, p1) => {
+        // 如果已经有 target 或 rel，先去掉再加
+        let newAttrs = p1
+            .replace(/\s*target\s*=\s*(['"]).*?\1/gi, '')
+            .replace(/\s*rel\s*=\s*(['"]).*?\1/gi, '')
+            .trim();
+        return `<a ${newAttrs} target="_blank" rel="noopener noreferrer">`;
+    });
     return html;
 }
 
@@ -100,7 +97,9 @@ function CalendarDetailView(props: ViewProps) {
                                 </ReactMarkdown> */}
                                 <div
                                     className="prose max-w-none"
-                                    dangerouslySetInnerHTML={{ __html: processHtml(product?.description || '') }}
+                                    dangerouslySetInnerHTML={{
+                                        __html: processHtml(product?.description || '')
+                                    }}
                                 ></div>
                             </div>
                             <div>

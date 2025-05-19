@@ -4,7 +4,7 @@ import { CalendarModel } from '@/hooks/useCalendarData';
 
 interface ViewProps {
     product: CalendarModel | null;
-    submitting: boolean
+    submitting: boolean;
     handleSubmit: (formData: CalendarModel) => void;
 }
 
@@ -12,7 +12,7 @@ function CalendarEditView(props: ViewProps) {
     const { product, submitting, handleSubmit } = props;
     return (
         <>
-            <BackView title='Back' />
+            <BackView title="Back" />
             <CalendarEditForm
                 {...{
                     product,

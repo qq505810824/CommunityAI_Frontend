@@ -1,7 +1,11 @@
 'use client';
 
 import useAlert from '@/hooks/useAlert';
-import { CalendarModel, useCalendarDetailByIdData, useCalendarOperations } from '@/hooks/useCalendarData';
+import {
+    CalendarModel,
+    useCalendarDetailByIdData,
+    useCalendarOperations
+} from '@/hooks/useCalendarData';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import CalendarEditView from './CalendarEditView';
@@ -14,11 +18,7 @@ const CalendarEditContainer = () => {
     const { updateCalendar } = useCalendarOperations();
     const router = useRouter();
 
-    const {
-        data,
-        isLoading,
-        isError
-    } = useCalendarDetailByIdData(Number(params['id']));
+    const { data, isLoading, isError } = useCalendarDetailByIdData(Number(params['id']));
 
     useEffect(() => {
         if (data) {
@@ -49,7 +49,7 @@ const CalendarEditContainer = () => {
                     title: '更新成功！',
                     type: 'success'
                 });
-                router.push('/admin/calendars')
+                router.push('/admin/calendars');
                 // router.back()
             }
         } catch (error) {

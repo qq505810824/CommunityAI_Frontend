@@ -52,16 +52,16 @@ function CalendarEditForm(props: ViewProps) {
     useEffect(() => {
         if (product) {
             // console.log('product', product['category']);
-            setValue('name', product.name)
-            setValue('description', product.description)
-            setValue('pre_from_date', product.pre_from_date)
-            setValue('pre_to_date', product.pre_to_date)
-            setValue('to_date', product.to_date)
-            setValue('from_date', product.from_date)
-            setValue('image_url', product.image_url)
-            setSelectedImage(product.image_url)
-            setValue('reference_url', product.reference_url)
-            setValue('category', product.category)
+            setValue('name', product.name);
+            setValue('description', product.description);
+            setValue('pre_from_date', product.pre_from_date);
+            setValue('pre_to_date', product.pre_to_date);
+            setValue('to_date', product.to_date);
+            setValue('from_date', product.from_date);
+            setValue('image_url', product.image_url);
+            setSelectedImage(product.image_url);
+            setValue('reference_url', product.reference_url);
+            setValue('category', product.category);
         }
     }, [product]);
 
@@ -266,9 +266,13 @@ function CalendarEditForm(props: ViewProps) {
                 return (
                     <Select
                         // {...register(key as keyof CalendarModel)}
-                        defaultValue={product?.[key as keyof CalendarModel] as string || (uiSchema['ui:options']?.enumOptions?.[0]?.value || '')}
+                        defaultValue={
+                            (product?.[key as keyof CalendarModel] as string) ||
+                            uiSchema['ui:options']?.enumOptions?.[0]?.value ||
+                            ''
+                        }
                         allowSearch={false}
-                        bgClassName=' bg-white rounded-sm'
+                        bgClassName=" bg-white rounded-sm"
                         items={uiSchema['ui:options']?.enumOptions || []}
                         onSelect={(item: Item) => {
                             setValue(key as keyof CalendarModel, item?.value);
@@ -358,7 +362,13 @@ function CalendarEditForm(props: ViewProps) {
                         <input
                             // {...register(key as keyof CalendarModel)}
                             type="date"
-                            defaultValue={product && product[uiSchema['ui:keys']?.start_date as keyof CalendarModel] as string || ''}
+                            defaultValue={
+                                (product &&
+                                    (product[
+                                        uiSchema['ui:keys']?.start_date as keyof CalendarModel
+                                    ] as string)) ||
+                                ''
+                            }
                             required={field.required}
                             className="border p-2 rounded-md"
                             onChange={(e) =>
@@ -369,7 +379,13 @@ function CalendarEditForm(props: ViewProps) {
                         <input
                             // {...register(key as keyof CalendarModel)}
                             type="date"
-                            defaultValue={product && product[uiSchema['ui:keys']?.end_date as keyof CalendarModel] as string || ''}
+                            defaultValue={
+                                (product &&
+                                    (product[
+                                        uiSchema['ui:keys']?.end_date as keyof CalendarModel
+                                    ] as string)) ||
+                                ''
+                            }
                             required={field.required}
                             className="border p-2 rounded-md"
                             onChange={(e) =>
