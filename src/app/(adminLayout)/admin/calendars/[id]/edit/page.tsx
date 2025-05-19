@@ -1,5 +1,5 @@
 import withLayout from '../../../../../../layout/withLayout';
 import SimpleLayout from '../../../../SimpleLayout';
-import Container from './PromptEditContainer';
+import Container from './CalendarEditContainer';
 
 export default withLayout(Container, SimpleLayout);

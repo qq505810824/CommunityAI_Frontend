@@ -64,7 +64,7 @@ export default function BackView(props: ViewProps) {
                     onClick={onClick ? onClick : handleBack}
                 >
                     <ChevronLeftIcon className="w-4" />
-                    <span className="ml-2">{title || t('common.operation.back')}</span>
+                    <span className="ml-2">{title || 'Back'}</span>
                 </div>
                 {name && (
                     <div>

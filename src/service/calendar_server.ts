@@ -9,7 +9,7 @@ const supabase = createClient(
 const db = 'calendars';
 export const getAllApps = async (options?: any) => {
     try {
-        console.log('options', options);
+        // console.log('options', options);
 
         const { data, error } = await supabase
             .from(db)

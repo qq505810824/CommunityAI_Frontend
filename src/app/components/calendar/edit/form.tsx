@@ -1,10 +1,11 @@
 import { CalendarModel } from '@/hooks/useCalendarData';
 import { CalendarFormData } from '@/utils/formData';
-import { Button, Option, Select } from '@mui/joy';
+import { Button } from '@mui/joy';
 import { createClient } from '@supabase/supabase-js';
 import { Editor } from '@tinymce/tinymce-react';
 import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Select, { Item } from '../../base/select';
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -38,15 +39,31 @@ function CalendarEditForm(props: ViewProps) {
             const uiSchema = formData.uiSchema[key as keyof typeof formData.uiSchema];
             if (uiSchema['ui:widget'] === 'select') {
                 // 类型保护，确保 uiSchema 具有 ui:options 属性
-                if ('ui:options' in uiSchema && uiSchema['ui:options']?.enumOptions) {
-                    setValue(
-                        key as keyof CalendarModel,
-                        uiSchema['ui:options'].enumOptions[0].value
-                    );
+                if ('ui:options' in uiSchema && product) {
+                    // setValue(
+                    //     'category',
+                    //     product['category']
+                    // );
                 }
             }
         });
     }, [formData, setValue, product]); // 添加依赖项
+
+    useEffect(() => {
+        if (product) {
+            // console.log('product', product['category']);
+            setValue('name', product.name)
+            setValue('description', product.description)
+            setValue('pre_from_date', product.pre_from_date)
+            setValue('pre_to_date', product.pre_to_date)
+            setValue('to_date', product.to_date)
+            setValue('from_date', product.from_date)
+            setValue('image_url', product.image_url)
+            setSelectedImage(product.image_url)
+            setValue('reference_url', product.reference_url)
+            setValue('category', product.category)
+        }
+    }, [product]);
 
     const handleClickFile = (e: any) => {
         e.stopPropagation();
@@ -165,7 +182,7 @@ function CalendarEditForm(props: ViewProps) {
                             {...register(key as keyof CalendarModel)}
                             id="output_editor"
                             apiKey="g6v7lxx8s2baelpg69g81ei3jp7npb8bf1yv6hs8w8tp4422"
-                            initialValue={''}
+                            initialValue={product?.description || ''}
                             init={{
                                 height: 500,
                                 menubar: false,
@@ -248,32 +265,15 @@ function CalendarEditForm(props: ViewProps) {
             case 'select':
                 return (
                     <Select
-                        {...register(key as keyof CalendarModel)}
-                        required={field.required}
-                        multiple={false}
-                        defaultValue={
-                            (uiSchema['ui:options']?.enumOptions &&
-                                uiSchema['ui:options']?.enumOptions[0].value) ||
-                            ''
-                        }
-                        onChange={(event, value) => {
-                            setValue(key as keyof CalendarModel, value?.toString());
+                        // {...register(key as keyof CalendarModel)}
+                        defaultValue={product?.[key as keyof CalendarModel] as string || (uiSchema['ui:options']?.enumOptions?.[0]?.value || '')}
+                        allowSearch={false}
+                        bgClassName=' bg-white rounded-sm'
+                        items={uiSchema['ui:options']?.enumOptions || []}
+                        onSelect={(item: Item) => {
+                            setValue(key as keyof CalendarModel, item?.value);
                         }}
-                        sx={{ minWidth: '15rem' }}
-                        slotProps={{
-                            listbox: {
-                                sx: {
-                                    width: '100%'
-                                }
-                            }
-                        }}
-                    >
-                        {uiSchema['ui:options']?.enumOptions?.map((option: any) => (
-                            <Option key={option.value} value={option.value}>
-                                {option.name}
-                            </Option>
-                        ))}
-                    </Select>
+                    />
                 );
             case 'file':
                 return (
@@ -356,7 +356,9 @@ function CalendarEditForm(props: ViewProps) {
                 return (
                     <div className="flex items-center gap-2">
                         <input
+                            // {...register(key as keyof CalendarModel)}
                             type="date"
+                            defaultValue={product && product[uiSchema['ui:keys']?.start_date as keyof CalendarModel] as string || ''}
                             required={field.required}
                             className="border p-2 rounded-md"
                             onChange={(e) =>
@@ -365,7 +367,9 @@ function CalendarEditForm(props: ViewProps) {
                         />
                         <span>至</span>
                         <input
+                            // {...register(key as keyof CalendarModel)}
                             type="date"
+                            defaultValue={product && product[uiSchema['ui:keys']?.end_date as keyof CalendarModel] as string || ''}
                             required={field.required}
                             className="border p-2 rounded-md"
                             onChange={(e) =>

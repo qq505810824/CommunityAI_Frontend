@@ -1,57 +1,60 @@
 'use client';
 
 import useAlert from '@/hooks/useAlert';
-import { PromptModel, usePromptDetailByIdData, usePromptOperations } from '@/hooks/usePromptData';
+import { CalendarModel, useCalendarDetailByIdData, useCalendarOperations } from '@/hooks/useCalendarData';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import PromptEditView from './PromptEditView';
+import CalendarEditView from './CalendarEditView';
 
-const PromptEditContainer = () => {
+const CalendarEditContainer = () => {
     const params = useParams();
-    const user_id = localStorage.getItem('user_id');
-    const [prompt, setPrompt] = useState<PromptModel | null>(null);
+    const [product, setProduct] = useState<CalendarModel | null>(null);
     const [submitting, setSubmitting] = useState(false);
     const { setAlert } = useAlert();
-    const { updatePrompt } = usePromptOperations();
+    const { updateCalendar } = useCalendarOperations();
     const router = useRouter();
 
     const {
         data,
-        isLoading: categoryLoading,
+        isLoading,
         isError
-    } = usePromptDetailByIdData(Number(params['id']));
+    } = useCalendarDetailByIdData(Number(params['id']));
 
     useEffect(() => {
         if (data) {
-            setPrompt(data);
+            setProduct(data);
         }
     }, [data]);
 
-    const handleSubmit = async (formData: PromptModel) => {
+    const handleSubmit = async (formData: CalendarModel) => {
         // 处理表单提交
-        console.log(formData);
+
         const newFormData = {
+            ...product,
             ...formData
             // user: localStorage?.getItem('user_id') || null
         };
+        // console.log(newFormData);
         setSubmitting(true);
         try {
-            const { data, error } = await updatePrompt(Number(params['id']), newFormData);
+            const { data, error } = await updateCalendar(Number(params['id']), newFormData);
             if (error) {
                 console.error('更新文章错误:', error);
                 setAlert({
-                    title: '更新文章失败！',
+                    title: '更新失敗',
                     type: 'error'
                 });
             } else {
                 setAlert({
-                    title: '文章更新成功！',
+                    title: '更新成功！',
                     type: 'success'
                 });
+                router.push('/admin/calendars')
+                // router.back()
             }
         } catch (error) {
             setAlert({
-                title: '文章更新失败！',
+                title: '更新失敗！',
                 type: 'error'
             });
             console.error('更新文章错误:', error);
@@ -61,13 +64,14 @@ const PromptEditContainer = () => {
     };
 
     return (
-        <PromptEditView
+        <CalendarEditView
             {...{
-                prompt,
+                product,
+                submitting,
                 handleSubmit
             }}
         />
     );
 };
 
-export default PromptEditContainer;
+export default CalendarEditContainer;

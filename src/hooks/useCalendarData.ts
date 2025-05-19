@@ -130,7 +130,6 @@ export const useCalendarStatisticsData = (options = {}) => {
 };
 
 export const useCalendarOperations = () => {
-    // const { mutate } = usePromptData(); // 移动到顶层
     const addCalendar = async (appData: Omit<CalendarModel, 'id'>) => {
         return handleAppOperation(async () => {
             return await createApp(appData);
@@ -152,7 +151,13 @@ export const useCalendarOperations = () => {
             return await searchApp(options);
         });
     };
-    return { addCalendar, updateCalendar, deleteCalendar, searchCalendar };
+
+    const mutate = async (options?: any) => {
+        return handleAppOperation(async () => {
+            return useCalendarData(options);
+        });
+    };
+    return { addCalendar, updateCalendar, deleteCalendar, searchCalendar, mutate };
 };
 
 // 处理应用操作的通用函数

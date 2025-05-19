@@ -22,7 +22,7 @@ export default function CalendarItem(props: ViewProps) {
     };
 
     const handleEdit = () => {
-        // if (prompt) router.push(`/admin/prompts/${prompt.id}/edit`);
+        if (product) router.push(`/admin/calendars/${product.id}/edit`);
     };
 
     const handleDelete = () => {
@@ -86,7 +86,7 @@ export default function CalendarItem(props: ViewProps) {
                             {product.status == 'draft' ? '通過審核' : '存草稿'}
                         </label>
                         <label
-                            className="hidden flex flex-row items-center text-blue-500 cursor-pointer whitespace-nowrap px-2 py-1 rounded-md bg-blue-100 hover:bg-blue-200 text-xs"
+                            className="flex flex-row items-center text-blue-500 cursor-pointer whitespace-nowrap px-2 py-1 rounded-md bg-blue-100 hover:bg-blue-200 text-xs"
                             onClick={handleEdit}
                         >
                             <PencilIcon className="w-3 h-3 mr-1" /> 编辑

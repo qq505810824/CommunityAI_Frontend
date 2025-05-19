@@ -30,8 +30,8 @@ function CalendarContainer() {
             });
             setProducts(newData);
         }
-        return () => {};
-    }, [router, data]);
+        return () => { };
+    }, [data]);
 
     const handleSearch = async (value: string) => {
         console.log('search value', value);
