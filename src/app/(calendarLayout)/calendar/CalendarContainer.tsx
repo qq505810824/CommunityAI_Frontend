@@ -1,7 +1,12 @@
 'use client';
 
 import useAlert from '@/hooks/useAlert';
-import { CalendarModel, showCalendarValues, useCalendarData, useCalendarOperations } from '@/hooks/useCalendarData';
+import {
+    CalendarModel,
+    showCalendarValues,
+    useCalendarData,
+    useCalendarOperations
+} from '@/hooks/useCalendarData';
 import useLoad from '@/hooks/useLoad';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -15,8 +20,12 @@ function CalendarContainer() {
     const [products, setProducts] = useState<any[]>([]);
     const { searchCalendar } = useCalendarOperations();
     const [searching, setSearching] = useState(false);
+    const [filters, setFilters] = useState<any>({
+        order: 'created_at',
+        direction: 'desc'
+    })
 
-    const { data, isLoading, isError, mutate } = useCalendarData({ status: 'success' });
+    const { data, isLoading, isError, mutate } = useCalendarData({ ...filters, status: 'success' });
 
     useEffect(() => {
         if (data) {
@@ -28,11 +37,11 @@ function CalendarContainer() {
         return () => { };
     }, [router, data]);
 
-
     const handleSearch = async (value: string) => {
         // console.log('search value', value);
         setSearching(true);
         const res: any = await searchCalendar({
+            ...filters,
             keyword: value,
             status: 'success'
         });
@@ -49,6 +58,7 @@ function CalendarContainer() {
     const handleSwitchCategory = async (category: string) => {
         setSearching(true);
         const res: any = await searchCalendar({
+            ...filters,
             category: category,
             status: 'success'
         });
@@ -58,7 +68,6 @@ function CalendarContainer() {
         if (res.data) {
             const newData = res.data?.map((item: CalendarModel) => {
                 return showCalendarValues(item);
-
             });
             setProducts(newData);
         }
@@ -72,7 +81,9 @@ function CalendarContainer() {
                 onClose: mutate,
                 handleSearch,
                 onSwitchCategory: handleSwitchCategory,
-                searching
+                searching,
+                filters,
+                setFilters
             }}
         />
     );

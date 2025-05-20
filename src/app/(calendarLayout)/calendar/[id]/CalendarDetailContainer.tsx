@@ -25,7 +25,7 @@ function CalendarDetailContainer() {
             };
             setProduct(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     if (!data) return <Loading type="app" />;

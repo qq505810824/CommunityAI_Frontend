@@ -504,3 +504,33 @@ export const HotsFatherTags = [
         name: '旅游'
     }
 ];
+
+export const CalendarCategorys = [
+    {
+        name: '全部',
+        value: ''
+    },
+    {
+        name: '課程',
+        value: 'course'
+    },
+    {
+        name: '活動',
+        value: 'activity'
+    }
+];
+
+export const CalendarFilters = [
+    {
+        name: '按最近更新排序',
+        value: 'created_at'
+    },
+    {
+        name: '按活動時間排序',
+        value: 'from_date'
+    },
+    // {
+    //     name: '按瀏覽數',
+    //     value: 'view_count'
+    // }
+];

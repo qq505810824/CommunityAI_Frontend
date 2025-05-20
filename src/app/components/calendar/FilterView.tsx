@@ -1,3 +1,4 @@
+import { CalendarCategorys, CalendarFilters } from '@/utils/constant';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { Button, Typography } from '@mui/joy';
 import { useRouter } from 'next/navigation';
@@ -9,10 +10,12 @@ interface ViewProps {
     onSearch: any;
     onSwitchCategory: any;
     searching?: boolean;
+    filters?: any;
+    setFilters?: any;
 }
 
 export default function FilterView(props: ViewProps) {
-    const { tag, onClose, onSearch, searching, onSwitchCategory } = props;
+    const { tag, onClose, onSearch, searching, onSwitchCategory, filters, setFilters } = props;
     const router = useRouter();
 
     const [menu, setMenu] = useState('');
@@ -35,7 +38,7 @@ export default function FilterView(props: ViewProps) {
 
     return (
         <>
-            <div className="w-full items-center  text-center flex flex-col justify-center  ">
+            <div className="w-full items-center  text-center flex flex-col justify-center ">
                 <div className="w-full items-center bg-blue-400 text-center flex flex-row justify-center    py-8 sm:py-16 ">
                     <div className="w-full sm:max-w-7xl  items-center  text-center px-4 flex flex-col justify-center space-y-2 ">
                         <Typography
@@ -71,45 +74,26 @@ export default function FilterView(props: ViewProps) {
 
                 <div className="w-full sm:max-w-7xl  px-4 border-b  flex  flex-row items-center justify-between ">
                     <div className="flex flex-row items-center">
-                        <div
-                            className={`px-4 py-2  cursor-pointer hover:text-orange-500 ${menu == '' ? 'bg-orange-200' : ''}`}
-                            onClick={() => {
-                                switchMenu('');
-                            }}
-                        >
-                            <span
-                                className={`  hover:text-orange-500 font-semibold ${menu == '' ? 'text-orange-500' : 'text-[#333]'}`}
-                            >
-                                全部
-                            </span>
-                        </div>
-                        <div
-                            className={`px-4 py-2  cursor-pointer hover:text-orange-500 ${menu == 'course' ? 'bg-orange-200' : ''}`}
-                            onClick={() => {
-                                switchMenu('course');
-                            }}
-                        >
-                            <span
-                                className={`  hover:text-orange-500 font-semibold ${menu == 'course' ? 'text-orange-500' : 'text-[#333]'}`}
-                            >
-                                課程
-                            </span>
-                        </div>
-                        <div
-                            className={`px-4 py-2  cursor-pointer ${menu == 'activity' ? 'bg-orange-200' : ''}`}
-                            onClick={() => {
-                                switchMenu('activity');
-                            }}
-                        >
-                            <span
-                                className={`  hover:text-orange-500 font-semibold ${menu == 'activity' ? 'text-orange-500' : 'text-[#333]'}`}
-                            >
-                                活動
-                            </span>
-                        </div>
+                        {CalendarCategorys.map((category, index) => {
+                            return (
+                                <div
+                                    key={index}
+                                    className={`px-4 py-2  cursor-pointer hover:text-orange-500 ${menu == category.value ? 'bg-orange-200' : ''}`}
+                                    onClick={() => {
+                                        switchMenu(category.value);
+                                    }}
+                                >
+                                    <span
+                                        className={`  hover:text-orange-500 font-semibold ${menu == category.value ? 'text-orange-500' : 'text-[#333]'}`}
+                                    >
+                                        {category.name}
+                                    </span>
+                                </div>
+                            )
+                        })}
                     </div>
                     <Button
-                        color="warning"
+                        color="danger"
                         sx={{
                             // bgcolor: '#fff',
                             // color: 'black',
@@ -124,6 +108,30 @@ export default function FilterView(props: ViewProps) {
                     >
                         發佈活動
                     </Button>
+                </div>
+                <div className="w-full sm:max-w-7xl  items-center  text-center px-4 flex flex-col justify-center space-y-2 mt-2 ">
+                    <div className="w-full flex flex-row items-center">
+                        {CalendarFilters.map((item, index) => {
+                            return (
+                                <div
+                                    key={index}
+                                    className={`px-4 py-2 rounded-lg  cursor-pointer hover:text-orange-500 ${filters?.order == item.value ? 'bg-orange-200' : ''}`}
+                                    onClick={() => {
+                                        setFilters({
+                                            ...filters,
+                                            order: item.value
+                                        });
+                                    }}
+                                >
+                                    <span
+                                        className={`  hover:text-orange-500 font-semibold ${filters?.order == item.value ? 'text-orange-500' : 'text-[#333]'}`}
+                                    >
+                                        {item.name}
+                                    </span>
+                                </div>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         </>

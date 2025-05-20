@@ -15,7 +15,7 @@ export const getAllApps = async (options?: any) => {
             .from(db)
             .select('*')
             .or(`status.like.%${options?.status || ''}`)
-            .order('updated_at', { ascending: true });
+            .order(options?.order || 'created_at', { ascending: options.direction == 'asc' ? true : false });
 
         if (error) {
             throw error;

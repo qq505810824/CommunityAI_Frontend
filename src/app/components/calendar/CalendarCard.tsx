@@ -64,7 +64,9 @@ export default function CalendarCard(props: ViewProps) {
                     </div>
 
                     <div className="flex flex-row   my-1 justify-between items-center">
-                        <label className="text-sm font-semibold text-orange-600">{product.status}</label>
+                        <label className="text-sm font-semibold text-orange-600">
+                            {product.status}
+                        </label>
                         <Typography
                             startDecorator={<RemoveRedEyeOutlinedIcon sx={{ width: 14 }} />}
                             sx={{

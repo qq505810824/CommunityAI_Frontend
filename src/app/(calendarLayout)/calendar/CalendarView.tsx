@@ -11,10 +11,12 @@ interface ViewProps {
     handleSearch: any;
     onSwitchCategory: any;
     searching?: boolean;
+    filters?: any;
+    setFilters?: any;
 }
 
 function CalendarView(props: ViewProps) {
-    const { isLoading, products, onClose, handleSearch, onSwitchCategory, searching } = props;
+    const { isLoading, products, onClose, handleSearch, onSwitchCategory, searching, filters, setFilters } = props;
 
     return (
         <>
@@ -32,6 +34,8 @@ function CalendarView(props: ViewProps) {
                         onSearch={handleSearch}
                         onSwitchCategory={onSwitchCategory}
                         onClose={onClose}
+                        filters={filters}
+                        setFilters={setFilters}
                     />
 
                     {/* {(isLoading || searching) && <LoadView />} */}
