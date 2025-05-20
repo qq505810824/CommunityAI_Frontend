@@ -42,19 +42,24 @@ function CalendarContainer() {
 
     const handleSearch = async (value: string) => {
         // console.log('search value', value);
-        setSearching(true);
-        const res: any = await searchCalendar({
+        setFilters({
             ...filters,
             keyword: value
         });
-        setSearching(false);
 
-        if (res.data) {
-            const newData = res.data?.map((item: CalendarModel) => {
-                return showCalendarValues(item);
-            });
-            setProducts(newData);
-        }
+        // setSearching(true);
+        // const res: any = await searchCalendar({
+        //     ...filters,
+        //     keyword: value
+        // });
+        // setSearching(false);
+
+        // if (res.data) {
+        //     const newData = res.data?.map((item: CalendarModel) => {
+        //         return showCalendarValues(item);
+        //     });
+        //     setProducts(newData);
+        // }
     };
 
     const handleSwitchCategory = async (category: string) => {

@@ -32,11 +32,7 @@ export default function FilterView(props: ViewProps) {
 
     const onKeyUp = (e: any) => {
         if (e.keyCode === 13) {
-            // onSearch(keyword);
-            setFilters({
-                ...filters,
-                keyword: keyword
-            })
+            onSearch(keyword);
         }
     };
 
@@ -67,11 +63,7 @@ export default function FilterView(props: ViewProps) {
                             <button
                                 className="px-2 py-2 bg-orange-500 text-white rounded-r-sm"
                                 onClick={() => {
-                                    // onSearch(keyword);
-                                    setFilters({
-                                        ...filters,
-                                        keyword: keyword
-                                    })
+                                    onSearch(keyword);
                                 }}
                             >
                                 Search
@@ -92,7 +84,7 @@ export default function FilterView(props: ViewProps) {
                                         setFilters({
                                             ...filters,
                                             category: category.value
-                                        })
+                                        });
                                     }}
                                 >
                                     <span
