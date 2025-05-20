@@ -23,7 +23,7 @@ export default function FilterView(props: ViewProps) {
 
     const switchMenu = (value: string) => {
         setMenu(value);
-        onSwitchCategory(value);
+        // onSwitchCategory(value);
     };
 
     const handleClickNew = () => {
@@ -32,7 +32,11 @@ export default function FilterView(props: ViewProps) {
 
     const onKeyUp = (e: any) => {
         if (e.keyCode === 13) {
-            onSearch(keyword);
+            // onSearch(keyword);
+            setFilters({
+                ...filters,
+                keyword: keyword
+            })
         }
     };
 
@@ -63,7 +67,11 @@ export default function FilterView(props: ViewProps) {
                             <button
                                 className="px-2 py-2 bg-orange-500 text-white rounded-r-sm"
                                 onClick={() => {
-                                    onSearch(keyword);
+                                    // onSearch(keyword);
+                                    setFilters({
+                                        ...filters,
+                                        keyword: keyword
+                                    })
                                 }}
                             >
                                 Search
@@ -81,6 +89,10 @@ export default function FilterView(props: ViewProps) {
                                     className={`px-4 py-2  cursor-pointer hover:text-orange-500 ${menu == category.value ? 'bg-orange-200' : ''}`}
                                     onClick={() => {
                                         switchMenu(category.value);
+                                        setFilters({
+                                            ...filters,
+                                            category: category.value
+                                        })
                                     }}
                                 >
                                     <span
@@ -89,7 +101,7 @@ export default function FilterView(props: ViewProps) {
                                         {category.name}
                                     </span>
                                 </div>
-                            )
+                            );
                         })}
                     </div>
                     <Button
@@ -129,7 +141,7 @@ export default function FilterView(props: ViewProps) {
                                         {item.name}
                                     </span>
                                 </div>
-                            )
+                            );
                         })}
                     </div>
                 </div>

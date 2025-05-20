@@ -21,11 +21,14 @@ function CalendarContainer() {
     const { searchCalendar } = useCalendarOperations();
     const [searching, setSearching] = useState(false);
     const [filters, setFilters] = useState<any>({
+        keyword: '',
+        category: '',
         order: 'created_at',
-        direction: 'desc'
-    })
+        direction: 'desc',
+        status: 'success'
+    });
 
-    const { data, isLoading, isError, mutate } = useCalendarData({ ...filters, status: 'success' });
+    const { data, isLoading, isError, mutate } = useCalendarData({ ...filters });
 
     useEffect(() => {
         if (data) {
@@ -42,8 +45,7 @@ function CalendarContainer() {
         setSearching(true);
         const res: any = await searchCalendar({
             ...filters,
-            keyword: value,
-            status: 'success'
+            keyword: value
         });
         setSearching(false);
 
@@ -59,8 +61,7 @@ function CalendarContainer() {
         setSearching(true);
         const res: any = await searchCalendar({
             ...filters,
-            category: category,
-            status: 'success'
+            category: category
         });
         setSearching(false);
         // console.log('res3', res);

@@ -16,7 +16,16 @@ interface ViewProps {
 }
 
 function CalendarView(props: ViewProps) {
-    const { isLoading, products, onClose, handleSearch, onSwitchCategory, searching, filters, setFilters } = props;
+    const {
+        isLoading,
+        products,
+        onClose,
+        handleSearch,
+        onSwitchCategory,
+        searching,
+        filters,
+        setFilters
+    } = props;
 
     return (
         <>

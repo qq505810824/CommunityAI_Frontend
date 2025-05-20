@@ -11,11 +11,32 @@ export const getAllApps = async (options?: any) => {
     try {
         // console.log('options', options);
 
-        const { data, error } = await supabase
-            .from(db)
-            .select('*')
-            .or(`status.like.%${options?.status || ''}`)
-            .order(options?.order || 'created_at', { ascending: options.direction == 'asc' ? true : false });
+        let query = supabase.from(db).select('*');
+
+        if (options && options.category) {
+            query = query.eq('category', options.category);
+        }
+        if (options && options.status) {
+            query = query.or(`status.like.%${options?.status || ''}`);
+        }
+        query = query.or(
+            `name.ilike.%${options?.keyword || ''}%,description.ilike.%${options?.keyword || ''}%`
+        );
+
+        // const { data, error } = await query;
+        query = query.order(options?.order || 'created_at', {
+            ascending: options.direction == 'asc' ? true : false
+        });
+
+        const { data, error } = await query;
+
+        // const { data, error } = await supabase
+        //     .from(db)
+        //     .select('*')
+        //     .or(`status.like.%${options?.status || ''}`)
+        //     .order(options?.order || 'created_at', {
+        //         ascending: options.direction == 'asc' ? true : false
+        //     });
 
         if (error) {
             throw error;

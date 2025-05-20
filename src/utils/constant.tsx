@@ -528,7 +528,7 @@ export const CalendarFilters = [
     {
         name: '按活動時間排序',
         value: 'from_date'
-    },
+    }
     // {
     //     name: '按瀏覽數',
     //     value: 'view_count'
