@@ -1,5 +1,6 @@
 'use client';
 
+import Loading from '@/app/components/base/loading';
 import useAlert from '@/hooks/useAlert';
 import { CalendarModel, useCalendarDetailData } from '@/hooks/useCalendarData';
 import useLoad from '@/hooks/useLoad';
@@ -24,8 +25,10 @@ function CalendarDetailContainer() {
             };
             setProduct(newData);
         }
-        return () => {};
+        return () => { };
     }, [router, data]);
+
+    if (!data) return <Loading type="app" />;
 
     return (
         <CalendarDetailView

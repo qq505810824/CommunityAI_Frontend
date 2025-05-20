@@ -32,12 +32,12 @@ export const getAppDetail = async (id: number, accountId?: string) => {
     try {
         // 构建查询任务数组
         const tasks = [
-            // supabase.rpc('increment_view', { row_id: id }),
+            supabase.rpc('increment_view', { row_id: id }),
             supabase.from(db).select('*').eq('id', id).single()
         ];
 
         // 并行执行所有操作
-        const [detailResult] = await Promise.all(tasks);
+        const [viewResult, detailResult] = await Promise.all(tasks);
         // console.log('collectResult', collectResult);
 
         if (detailResult.error) {

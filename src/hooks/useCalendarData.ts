@@ -8,6 +8,7 @@ import {
     statisticsApp,
     updateApp
 } from '@/service/calendar_server';
+import moment from 'moment';
 
 import useSWR from 'swr';
 
@@ -29,6 +30,31 @@ export interface CalendarModel {
     updated_at: string;
 
     is_collected?: boolean;
+}
+
+export const showCalendarValues = (item: CalendarModel) => {
+    let status = ""
+    const nowDate = moment().format('YYYY-MM-DD')
+    console.log('nowDate', nowDate);
+    const from_date = moment(item.from_date).format('YYYY-MM-DD')
+    const to_date = moment(item.to_date).format('YYYY-MM-DD')
+    const diffDay = moment(item.from_date).diff(nowDate, 'day')
+
+    if (nowDate < from_date) {
+        status = "尚餘" + diffDay + "天"
+    } else if (nowDate >= from_date && nowDate <= to_date) {
+        status = "進行中"
+    } else if (nowDate > to_date) {
+        status = "已結束"
+    }
+    return {
+        ...item,
+        from_date: moment(item.from_date).format('MM月DD日'),
+        to_date: moment(item.to_date).format('MM月DD日'),
+        status: status,
+        created_at: moment(item.created_at).fromNow(),
+        updated_at: moment(item.updated_at).fromNow()
+    }
 }
 
 // 应用数据 fetcher 函数
