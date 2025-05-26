@@ -57,9 +57,7 @@ export default function SignIn() {
                 {error && <div className="rounded-md bg-red-50 p-4 text-red-500">{error}</div>}
                 <form onSubmit={handleSignIn} className="space-y-6">
                     <div>
-                        <label className="block text-sm font-medium">
-                            昵称
-                        </label>
+                        <label className="block text-sm font-medium">昵称</label>
                         <input
                             type="text"
                             required
@@ -116,7 +114,6 @@ export default function SignIn() {
                                 登入
                             </a>
                         </div>
-
                     </div>
                     <button
                         type="submit"
