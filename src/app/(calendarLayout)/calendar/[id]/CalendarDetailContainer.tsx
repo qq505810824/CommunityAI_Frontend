@@ -39,6 +39,15 @@ function CalendarDetailContainer() {
         return () => {};
     }, [router, data]);
 
+    const get_drives = async () => {
+        // const session: any = await getSession()
+        // if (!session) return router.push('/api/auth/signin')
+        // console.log('session', session);
+    };
+    useEffect(() => {
+        get_drives();
+    }, []);
+
     if (!data) return <Loading type="app" />;
 
     return (

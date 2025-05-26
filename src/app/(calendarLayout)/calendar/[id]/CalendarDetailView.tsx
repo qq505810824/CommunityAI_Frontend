@@ -114,7 +114,9 @@ function CalendarDetailView(props: ViewProps) {
                                 {product?.pdf_url && (
                                     <div className="my-4">
                                         <p className="text-md font-semibold">相關文件:</p>
-                                        <PdfView content={'../aigc_20250519.pdf'} />
+                                        <PdfView
+                                            content={product?.pdf_url || '../aigc_20250519.pdf'}
+                                        />
                                     </div>
                                 )}
                                 {product?.reference_url && (
