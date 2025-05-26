@@ -55,9 +55,12 @@ function CalendarDetailView(props: ViewProps) {
         <>
             <div className="w-full flex flex-col justify-center items-center">
                 <div className="w-full sm:max-w-7xl px-4 py-4 flex flex-col  ">
-                    <BackView title="Back" onClick={() => {
-                        router.push('/calendar');
-                    }} />
+                    <BackView
+                        title="Back"
+                        onClick={() => {
+                            router.push('/calendar');
+                        }}
+                    />
                     <div className="w-full  flex flex-col sm:flex-row justify-center space-y-4   sm:space-x-8 ">
                         <div className="w-full sm:2/3 space-y-4  overflow-x-auto">
                             <Typography level="h4">{product?.name}</Typography>
@@ -109,8 +112,8 @@ function CalendarDetailView(props: ViewProps) {
                             </div>
                             <div>
                                 {product?.pdf_url && (
-                                    <div className='my-4'>
-                                        <p className='text-md font-semibold'>相關文件:</p>
+                                    <div className="my-4">
+                                        <p className="text-md font-semibold">相關文件:</p>
                                         <PdfView content={'../aigc_20250519.pdf'} />
                                     </div>
                                 )}

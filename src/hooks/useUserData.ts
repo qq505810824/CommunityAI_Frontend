@@ -143,9 +143,7 @@ export const useUsersOperations = () => {
         return await deleteApp(id);
     };
     const detailById = async (email: string, password: string) => {
-
         return await getAppDetail(email, password);
-
     };
     const searchHots = async (key: string, options?: string) => {
         return handleAppOperation(async () => {

@@ -51,7 +51,7 @@ export default function SignIn() {
                 router.push(redirect || '/'); // 登录成功后跳转到指定页面或默认的仪表板页面
                 router.refresh(); // 刷新路由以更新状态
                 return;
-                // 跳转到指定页面或默认的仪表板页面 
+                // 跳转到指定页面或默认的仪表板页面
             }
 
             // const { data, error } = await supabase.auth.signInWithPassword({
@@ -114,7 +114,6 @@ export default function SignIn() {
                                 注册
                             </a>
                         </div>
-
                     </div>
                     <button
                         type="submit"

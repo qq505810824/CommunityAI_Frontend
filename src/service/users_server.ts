@@ -40,10 +40,12 @@ export const getAllApps = async (options: string) => {
 
 export const getAppDetail = async (name: string, password: string) => {
     try {
-
-        const { data, error } = await supabase.from(db).select('*').eq('email', name).eq('password', password).single()
-
-
+        const { data, error } = await supabase
+            .from(db)
+            .select('*')
+            .eq('email', name)
+            .eq('password', password)
+            .single();
 
         if (error) {
             throw error;
