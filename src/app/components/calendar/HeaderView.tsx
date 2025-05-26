@@ -73,7 +73,7 @@ export default function HeaderView() {
                                 color="danger"
                                 onClick={() => {
                                     if (userProfile.id == '') {
-                                        router.push('/login?url=prompts');
+                                        router.push('/login');
                                     } else {
                                         logout();
                                     }
@@ -126,7 +126,7 @@ export default function HeaderView() {
                         <Typography level={'h4'}>Career calendar</Typography>
                     </div>
 
-                    <div className="flex flex-row items-center gap-2">
+                    <div className="flex flex-row items-center gap-2 ">
                         {email != '' ? (
                             <div className="flex justify-end items-center col-span-3 md:col-span-4">
                                 <MenuButton email={email} logout={logout} />
