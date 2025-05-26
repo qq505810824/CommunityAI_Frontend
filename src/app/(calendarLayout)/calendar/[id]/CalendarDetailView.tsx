@@ -114,9 +114,7 @@ function CalendarDetailView(props: ViewProps) {
                                 {product?.pdf_url && (
                                     <div className="my-4">
                                         <p className="text-md font-semibold">相關文件:</p>
-                                        <PdfView
-                                            content={product?.pdf_url}
-                                        />
+                                        <PdfView content={product?.pdf_url} />
                                     </div>
                                 )}
                                 {product?.reference_url && (

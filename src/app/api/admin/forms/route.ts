@@ -12,7 +12,7 @@ export async function GET(req: Request) {
             .from('forms')
             .select('*')
             .order('created_at', { ascending: false });
-        console.log('Fetched forms:', data);
+        // console.log('Fetched forms:', data);
 
         if (error) {
             throw error;
