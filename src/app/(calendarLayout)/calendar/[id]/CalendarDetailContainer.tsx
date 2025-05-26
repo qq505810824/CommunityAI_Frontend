@@ -1,6 +1,7 @@
 'use client';
 
 import Loading from '@/app/components/base/loading';
+import { useModalContext } from '@/context/modal-context';
 import useAlert from '@/hooks/useAlert';
 import { CalendarModel, useCalendarDetailData } from '@/hooks/useCalendarData';
 import useLoad from '@/hooks/useLoad';
@@ -17,15 +18,27 @@ function CalendarDetailContainer() {
     const [product, setProduct] = useState<CalendarModel>();
 
     const { data, isLoading, isError } = useCalendarDetailData(Number(params['id']), user_id || '');
+    const { setShowConfirmDelete } = useModalContext();
 
     useEffect(() => {
         const storedEmail = localStorage.getItem('user_email') || '';
         if (storedEmail === '') {
-            setAlert({
-                type: 'error',
-                title: '请先登录'
-            });
-            router.push('/login?redirect=' + window.location.href);
+            router.push('/login?redirect=' + window.location.href)
+            // setShowConfirmDelete({
+            //     payload: {
+            //         title: '溫馨提示',
+            //         content: '免費註冊以瀏覽全部內容，立即註冊或登入。',
+            //         confirmText: '註冊/登入',
+            //         cancelText: '取消'
+            //     },
+            //     onSaveCallback: () => {
+            //         router.push('/login?redirect=' + window.location.href);
+            //     },
+            //     onCancelCallback() {
+
+            //     },
+            // });
+            // 
         }
     }, []);
 
@@ -36,7 +49,7 @@ function CalendarDetailContainer() {
             };
             setProduct(newData);
         }
-        return () => {};
+        return () => { };
     }, [router, data]);
 
     const get_drives = async () => {

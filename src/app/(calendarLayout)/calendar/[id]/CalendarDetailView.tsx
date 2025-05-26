@@ -72,7 +72,7 @@ function CalendarDetailView(props: ViewProps) {
                                 <AccessTimeOutlinedIcon
                                     sx={{ fontSize: 16, color: '#f97316', mr: 1 }}
                                 />
-                                {product?.from_date} - {product?.to_date}
+                                {product?.pre_from_date} - {product?.pre_to_date}
                             </p>
 
                             <div className="break-words">

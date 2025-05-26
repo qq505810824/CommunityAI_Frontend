@@ -1,3 +1,4 @@
+import { useModalContext } from '@/context/modal-context';
 import { CalendarModel } from '@/hooks/useCalendarData';
 import { formatK } from '@/utils/stringUtil';
 import { CalendarIcon } from '@heroicons/react/24/outline';
@@ -11,9 +12,29 @@ interface ViewProps {
 export default function CalendarCard(props: ViewProps) {
     const { product } = props;
     const router = useRouter();
+    const { setShowConfirmDelete } = useModalContext();
 
     const handleClick = () => {
-        router.push(`/calendar/${product.id}`);
+        const storedEmail = localStorage.getItem('user_email') || '';
+        if (storedEmail === '') {
+            setShowConfirmDelete({
+                payload: {
+                    title: '溫馨提示',
+                    content: '免費註冊以瀏覽全部內容，立即註冊或登入。',
+                    confirmText: '註冊/登入',
+                    cancelText: '取消'
+                },
+                onSaveCallback: () => {
+                    router.push('/login?redirect=' + window.location.href);
+                },
+                onCancelCallback() {
+
+                },
+            });
+            // 
+        } else {
+            router.push(`/calendar/${product.id}`);
+        }
     };
 
     return (

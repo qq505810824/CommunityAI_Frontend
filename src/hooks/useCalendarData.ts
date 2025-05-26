@@ -29,6 +29,7 @@ export interface CalendarModel {
     status: string;
     created_at: string;
     updated_at: string;
+    region?: string;
 
     is_collected?: boolean;
 }

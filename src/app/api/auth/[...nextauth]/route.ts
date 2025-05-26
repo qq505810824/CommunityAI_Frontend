@@ -1,7 +1,7 @@
 // import { OAuth2Client } from 'google-auth-library';
 // import { google } from "googleapis";
-import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import NextAuth from 'next-auth';
+import GoogleProvider from 'next-auth/providers/google';
 
 // const GOOGLE_AUTHORIZATION_URL =
 //     'https://accounts.google.com/o/oauth2/v2/auth?' +
@@ -21,19 +21,19 @@ async function refreshAccessToken(token: any) {
                 client_secret: process.env.NEXT_PUBLIC_CLIENT_SECRET || '',
                 grant_type: 'refresh_token',
                 refresh_token: token.refreshToken
-            })
+            });
 
         const response = await fetch(url, {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             method: 'POST'
-        })
+        });
 
-        const refreshedTokens = await response.json()
+        const refreshedTokens = await response.json();
 
         if (!response.ok) {
-            throw refreshedTokens
+            throw refreshedTokens;
         }
 
         return {
@@ -41,14 +41,14 @@ async function refreshAccessToken(token: any) {
             accessToken: refreshedTokens.access_token,
             accessTokenExpires: Date.now() + refreshedTokens.expires_in * 1000,
             refreshToken: refreshedTokens.refresh_token ?? token.refreshToken // Fall back to old refresh token
-        }
+        };
     } catch (error) {
-        console.log(error)
+        console.log(error);
 
         return {
             ...token,
             error: 'RefreshAccessTokenError'
-        }
+        };
     }
 }
 const authOptions = {
@@ -62,7 +62,7 @@ const authOptions = {
                     scope: 'profile https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file email openid',
                     prompt: 'consent',
                     access_type: 'offline'
-                },
+                }
                 // url: GOOGLE_AUTHORIZATION_URL
             }
         })
@@ -82,34 +82,32 @@ const authOptions = {
                     accessTokenExpires: Date.now() + account.expires_in * 1000,
                     refreshToken: account.refresh_token,
                     user
-                }
+                };
             }
 
             // Return previous token if the access token has not expired yet
             if (Date.now() < token.accessTokenExpires) {
-                return token
+                return token;
             }
             // console.log('token', token);
 
             // Access token has expired, try to update it
-            return refreshAccessToken(token)
+            return refreshAccessToken(token);
         },
         async signIn() {
             return true;
-        }
-        ,
+        },
         async session({ session, token, user }: any) {
             // Send properties to the client, like an access_token from a provider.
-            session.accessToken = token.accessToken
+            session.accessToken = token.accessToken;
 
             // Send properties to the client, like an access_token from a provider.
-            session.accessToken = token.accessToken
-            session.refreshToken = token.refreshToken
-            session.user = token.user
-            return session
-        },
+            session.accessToken = token.accessToken;
+            session.refreshToken = token.refreshToken;
+            session.user = token.user;
+            return session;
+        }
     }
-}
+};
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
-

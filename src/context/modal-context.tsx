@@ -21,9 +21,9 @@ const ModalContext = createContext<{
     setInputNameModal: Dispatch<SetStateAction<ModalState<BaseInputExtension> | null>>;
     setShowConfirmDelete: Dispatch<SetStateAction<ModalState<any> | null>>;
 }>({
-    setShowApiBasedExtensionModal: () => {},
-    setInputNameModal: () => {},
-    setShowConfirmDelete: () => {}
+    setShowApiBasedExtensionModal: () => { },
+    setInputNameModal: () => { },
+    setShowConfirmDelete: () => { }
 });
 
 export const useModalContext = () => useContext(ModalContext);
@@ -84,6 +84,8 @@ export const ModalContextProvider = ({ children }: ModalContextProviderProps) =>
                         title={showConfirmDelete?.payload?.title || 'Tip'}
                         content={showConfirmDelete?.payload?.content || 'Are you sure to delete?'}
                         isShow={!!showConfirmDelete}
+                        confirmText={showConfirmDelete?.payload?.confirmText || 'Confirm'}
+                        cancelText={showConfirmDelete?.payload?.cancelText || 'Cancel'}
                         onClose={() => setShowConfirmDelete(null)}
                         onConfirm={onConfirmDelete}
                         onCancel={() => setShowConfirmDelete(null)}

@@ -80,6 +80,7 @@ export const CalendarFormData = {
         category: { type: 'string', title: '类型', required: true, tip: '' },
         pre_date_range: { type: 'string', title: '報名日期範圍', required: false, tip: '(選填)' },
         date_range: { type: 'string', title: '活動日期範圍', required: true, tip: '' },
+        region: { type: 'string', title: '地區', required: true, tip: '' },
         reference_url: { type: 'string', title: '相關網址', required: false, tip: '(選填)' },
         pdf_url: { type: 'string', title: '相關文件地址(PDF文件)', required: false, tip: '(選填)' },
         description: { type: 'string', title: '描述', required: true, tip: '' }
@@ -97,6 +98,21 @@ export const CalendarFormData = {
                     {
                         name: '活動',
                         value: 'activity'
+                    }
+                ]
+            }
+        },
+        region: {
+            'ui:widget': 'select',
+            'ui:options': {
+                enumOptions: [
+                    {
+                        name: '澳門',
+                        value: 'mo'
+                    },
+                    {
+                        name: '香港',
+                        value: 'hk'
                     }
                 ]
             }

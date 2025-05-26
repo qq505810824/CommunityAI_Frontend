@@ -28,7 +28,7 @@ export default function SignIn() {
         setLoading(true);
         try {
             if (!email || !password) {
-                setError('请输入邮箱和密码');
+                setError('請輸入郵箱和密碼');
                 setLoading(false);
                 return;
             }
@@ -37,7 +37,7 @@ export default function SignIn() {
 
             if (error) {
                 console.log('登录错误', error);
-                setError('登录失败');
+                setError('登錄失敗');
                 setLoading(false);
                 return;
             }
@@ -75,12 +75,15 @@ export default function SignIn() {
     return (
         <div className="flex min-h-screen items-center justify-center">
             <div className="w-full max-w-md space-y-8 rounded-lg p-8 shadow-md">
-                <h2 className="text-center text-3xl font-bold">登录</h2>
+                <p className='text-blue-500 text-md hover:underline cursor-pointer' onClick={() => {
+                    router.push('/')
+                }}>{'< 返回'}</p>
+                <h2 className="text-center text-3xl font-bold">登入</h2>
                 {error && <div className="rounded-md bg-red-50 p-4 text-red-500">{error}</div>}
                 <form onSubmit={handleSignIn} className="space-y-6">
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium">
-                            邮箱
+                            郵箱
                         </label>
                         <input
                             id="email"
@@ -93,7 +96,7 @@ export default function SignIn() {
                     </div>
                     <div>
                         <label htmlFor="password" className="block text-sm font-medium">
-                            密码
+                            密碼
                         </label>
                         <input
                             id="password"
@@ -110,7 +113,7 @@ export default function SignIn() {
                                 href="/register"
                                 className="font-medium text-blue-600 hover:text-blue-500"
                             >
-                                注册
+                                註冊
                             </a>
                         </div>
                     </div>

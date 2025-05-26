@@ -24,7 +24,7 @@ export default function SignIn() {
         setLoading(true);
         try {
             if (password !== confirmPassword) {
-                setError('两次输入的密码不一致');
+                setError('兩次輸入的密碼不一樣');
                 setLoading(false);
                 return;
             }
@@ -53,11 +53,14 @@ export default function SignIn() {
     return (
         <div className="flex min-h-screen items-center justify-center">
             <div className="w-full max-w-md space-y-8 rounded-lg p-8 shadow-md">
-                <h2 className="text-center text-3xl font-bold">注册</h2>
+                <p className='text-blue-500 text-md hover:underline cursor-pointer' onClick={() => {
+                    router.push('/')
+                }}>{'< 返回'}</p>
+                <h2 className="text-center text-3xl font-bold">註冊</h2>
                 {error && <div className="rounded-md bg-red-50 p-4 text-red-500">{error}</div>}
                 <form onSubmit={handleSignIn} className="space-y-6">
                     <div>
-                        <label className="block text-sm font-medium">昵称</label>
+                        <label className="block text-sm font-medium">暱稱</label>
                         <input
                             type="text"
                             required
@@ -68,7 +71,7 @@ export default function SignIn() {
                     </div>
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium">
-                            邮箱
+                            郵箱
                         </label>
                         <input
                             id="email"
