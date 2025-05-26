@@ -37,7 +37,6 @@ export default function SignIn() {
 
             if (error) {
                 console.log('登录错误', error);
-
                 setError('登录失败');
                 setLoading(false);
                 return;
