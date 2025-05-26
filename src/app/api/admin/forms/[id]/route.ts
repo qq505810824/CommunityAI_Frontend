@@ -15,7 +15,8 @@ export async function GET(req: Request, { params }: { params: { id: string } }) 
         const { data, error } = await supabase
             .from('forms')
             .select('*')
-            .eq('id', params.id).single()
+            .eq('id', params.id)
+            .single();
         // console.log('Fetched forms:', data);
 
         if (error) {

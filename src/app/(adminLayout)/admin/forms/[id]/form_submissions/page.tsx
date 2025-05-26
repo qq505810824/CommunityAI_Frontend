@@ -152,7 +152,7 @@ const AdminDashboard: React.FC = () => {
             } else {
                 alert('無法手動簽到');
             }
-        } catch (err: any) { }
+        } catch (err: any) {}
     };
 
     const handleCheckout = async (qrcode_id: string) => {
@@ -204,7 +204,7 @@ const AdminDashboard: React.FC = () => {
             } else {
                 alert('無法刪除');
             }
-        } catch (err: any) { }
+        } catch (err: any) {}
     };
 
     const handleResendEmail = async (form_submission_id: string) => {
@@ -224,7 +224,7 @@ const AdminDashboard: React.FC = () => {
             } else {
                 alert(response.data.message || '重發失敗');
             }
-        } catch (err: any) { }
+        } catch (err: any) {}
     };
 
     const handleSearch = async (query: string) => {
@@ -259,9 +259,7 @@ const AdminDashboard: React.FC = () => {
     const fetchFormDetails = async () => {
         try {
             const formId = params['id'] || process.env.NEXT_PUBLIC_FORM_ID;
-            const response = await axios.get(
-                `/api/forms/${formId}`
-            );
+            const response = await axios.get(`/api/forms/${formId}`);
             if (response.data.success) {
                 console.log('Form Details:', response.data.form);
                 setFormDetails(response.data.form);
@@ -372,10 +370,10 @@ const AdminDashboard: React.FC = () => {
                                                             {formDetails.json_schema.required?.includes(
                                                                 key
                                                             ) && (
-                                                                    <span className="text-red-500 ml-2">
-                                                                        必填
-                                                                    </span>
-                                                                )}
+                                                                <span className="text-red-500 ml-2">
+                                                                    必填
+                                                                </span>
+                                                            )}
                                                         </span>
                                                         {field.enum && (
                                                             <span className="text-sm text-gray-600">
