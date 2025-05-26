@@ -152,7 +152,7 @@ const AdminDashboard: React.FC = () => {
             } else {
                 alert('無法手動簽到');
             }
-        } catch (err: any) {}
+        } catch (err: any) { }
     };
 
     const handleCheckout = async (qrcode_id: string) => {
@@ -188,7 +188,7 @@ const AdminDashboard: React.FC = () => {
     const handleDeleteFormSubmission = async (form_submission_id: string) => {
         try {
             const response = await axios.delete(
-                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/form_submissions/${form_submission_id}`,
+                `/api/form_submissions/${form_submission_id}`,
                 {
                     headers: {
                         Authorization: `Bearer ${process.env.NEXT_PUBLIC_BEARER_TOKEN}`
@@ -204,13 +204,13 @@ const AdminDashboard: React.FC = () => {
             } else {
                 alert('無法刪除');
             }
-        } catch (err: any) {}
+        } catch (err: any) { }
     };
 
     const handleResendEmail = async (form_submission_id: string) => {
         try {
             const response = await axios.post(
-                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/form_submissions/${form_submission_id}/resend_confirmation_email`,
+                `/api/form_submissions/${form_submission_id}/resend_confirmation_email`,
                 {},
                 {
                     headers: {
@@ -224,7 +224,7 @@ const AdminDashboard: React.FC = () => {
             } else {
                 alert(response.data.message || '重發失敗');
             }
-        } catch (err: any) {}
+        } catch (err: any) { }
     };
 
     const handleSearch = async (query: string) => {
@@ -232,7 +232,7 @@ const AdminDashboard: React.FC = () => {
             setIsSearching(true);
             const formId = params['id'] || process.env.NEXT_PUBLIC_FORM_ID;
             const response = await axios.get(
-                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/form_submissions/form/${formId}/search?query=${query}`
+                `/api/form_submissions/form/${formId}/search?query=${query}`
             );
             if (response.data.success) {
                 setSubmissions(response.data.form_submissions);
@@ -370,10 +370,10 @@ const AdminDashboard: React.FC = () => {
                                                             {formDetails.json_schema.required?.includes(
                                                                 key
                                                             ) && (
-                                                                <span className="text-red-500 ml-2">
-                                                                    必填
-                                                                </span>
-                                                            )}
+                                                                    <span className="text-red-500 ml-2">
+                                                                        必填
+                                                                    </span>
+                                                                )}
                                                         </span>
                                                         {field.enum && (
                                                             <span className="text-sm text-gray-600">
