@@ -123,7 +123,7 @@ export default function HeaderView() {
                         }}
                     >
                         {/* <img alt="" src="/logo/logo_p.png" className="w-12 h-8" /> */}
-                        <Typography level={'h4'}>Career calendar</Typography>
+                        <Typography level={'h4'}>Career Calendar</Typography>
                     </div>
 
                     <div className="flex flex-row items-center gap-2 ">
