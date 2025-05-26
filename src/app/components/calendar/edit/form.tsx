@@ -342,7 +342,7 @@ function CalendarEditForm(props: ViewProps) {
                                         )}
 
                                         <p>上傳活動封面</p>
-                                        <p className="text-xs">(建議上傳圖片比例5:6,限10M內)</p>
+                                        <p className="text-xs">(建議上傳圖片比例5:6,限6M內)</p>
                                     </>
                                 )}
                             </div>
