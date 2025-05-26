@@ -21,9 +21,9 @@ const ModalContext = createContext<{
     setInputNameModal: Dispatch<SetStateAction<ModalState<BaseInputExtension> | null>>;
     setShowConfirmDelete: Dispatch<SetStateAction<ModalState<any> | null>>;
 }>({
-    setShowApiBasedExtensionModal: () => { },
-    setInputNameModal: () => { },
-    setShowConfirmDelete: () => { }
+    setShowApiBasedExtensionModal: () => {},
+    setInputNameModal: () => {},
+    setShowConfirmDelete: () => {}
 });
 
 export const useModalContext = () => useContext(ModalContext);

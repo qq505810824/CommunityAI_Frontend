@@ -49,6 +49,13 @@ export type AppContextProviderProps = {
     children: ReactNode;
 };
 
+export async function getIpLocation() {
+    // const res = await fetch('https://ip-api.com/json/');
+    // const data = await res.json();
+    // // data.country, data.regionName, data.city 等字段
+    // return data;
+}
+
 export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) => {
     const supabase = createClientComponentClient();
 
@@ -61,6 +68,10 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
         nickname: '',
         created_at: ''
     });
+
+    useEffect(() => {
+
+    }, []);
 
     useEffect(() => {
         // 从本地存储中获取用户信息
@@ -89,41 +100,41 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
         }
 
         // 实时监听用户信息更新
-        const realtime = supabase
-            .channel('user-updates')
-            .on(
-                'postgres_changes',
-                {
-                    event: 'UPDATE',
-                    schema: 'public',
-                    table: 'account',
-                    filter: `id=eq.${account?.id}`
-                },
-                (payload) => {
-                    const accountData = payload.new;
-                    // console.log('new', accountData);
-                    // 确保accountData符合AccountModel类型
-                    if (
-                        accountData &&
-                        'id' in accountData &&
-                        'email' in accountData &&
-                        'name' in accountData &&
-                        'avatar' in accountData
-                    ) {
-                        setUserProfile(accountData as AccountModel);
-                    } else {
-                        console.error(
-                            'Received account data does not match AccountModel:',
-                            accountData
-                        );
-                    }
-                    localStorage.setItem('account', JSON.stringify(accountData));
-                }
-            )
-            .subscribe();
-        return () => {
-            realtime.unsubscribe();
-        };
+        // const realtime = supabase
+        //     .channel('user-updates')
+        //     .on(
+        //         'postgres_changes',
+        //         {
+        //             event: 'UPDATE',
+        //             schema: 'public',
+        //             table: 'account',
+        //             filter: `id=eq.${account?.id}`
+        //         },
+        //         (payload) => {
+        //             const accountData = payload.new;
+        //             // console.log('new', accountData);
+        //             // 确保accountData符合AccountModel类型
+        //             if (
+        //                 accountData &&
+        //                 'id' in accountData &&
+        //                 'email' in accountData &&
+        //                 'name' in accountData &&
+        //                 'avatar' in accountData
+        //             ) {
+        //                 setUserProfile(accountData as AccountModel);
+        //             } else {
+        //                 console.error(
+        //                     'Received account data does not match AccountModel:',
+        //                     accountData
+        //                 );
+        //             }
+        //             localStorage.setItem('account', JSON.stringify(accountData));
+        //         }
+        //     )
+        //     .subscribe();
+        // return () => {
+        //     realtime.unsubscribe();
+        // };
     }, []);
 
     // if (!userProfile) return <Loading type="app" />;

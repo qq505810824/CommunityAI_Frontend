@@ -27,11 +27,9 @@ export default function CalendarCard(props: ViewProps) {
                 onSaveCallback: () => {
                     router.push('/login?redirect=' + window.location.href);
                 },
-                onCancelCallback() {
-
-                },
+                onCancelCallback() {}
             });
-            // 
+            //
         } else {
             router.push(`/calendar/${product.id}`);
         }

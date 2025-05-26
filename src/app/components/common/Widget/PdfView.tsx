@@ -10,7 +10,7 @@ export default function PdfView(props: ViewProps) {
                 <object
                     className="object-center object-cover w-full h-full flex justify-center items-center"
                     type="application/pdf"
-                    data={content + '#toolbar=0'}
+                    data={content + '#toolbar=0&navpanes=0&scrollbar=0'}
                 >
                     <img
                         src={

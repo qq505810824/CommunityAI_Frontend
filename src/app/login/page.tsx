@@ -75,9 +75,14 @@ export default function SignIn() {
     return (
         <div className="flex min-h-screen items-center justify-center">
             <div className="w-full max-w-md space-y-8 rounded-lg p-8 shadow-md">
-                <p className='text-blue-500 text-md hover:underline cursor-pointer' onClick={() => {
-                    router.push('/')
-                }}>{'< 返回'}</p>
+                <p
+                    className="text-blue-500 text-md hover:underline cursor-pointer"
+                    onClick={() => {
+                        router.push('/');
+                    }}
+                >
+                    {'< 返回'}
+                </p>
                 <h2 className="text-center text-3xl font-bold">登入</h2>
                 {error && <div className="rounded-md bg-red-50 p-4 text-red-500">{error}</div>}
                 <form onSubmit={handleSignIn} className="space-y-6">
