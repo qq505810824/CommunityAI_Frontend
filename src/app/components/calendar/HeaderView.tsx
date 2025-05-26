@@ -16,14 +16,25 @@ import MenuButton from './MenuButton';
 export default function HeaderView() {
     const { userProfile } = useAppContext();
     const supabase = createClientComponentClient();
-    useEffect(() => {}, []);
+
     const router = useRouter();
-    const [email, setEmail] = useState('222');
+    const [email, setEmail] = useState('');
+
+    // const logout = async () => {
+    //     localStorage.setItem('account', '');
+    //     localStorage?.setItem('user_id', '');
+    //     const res = await supabase.auth.signOut();
+    //     router.push(`/login?redirect=${window.location.href}`);
+    // };
+    useEffect(() => {
+        const storedEmail = localStorage.getItem('user_email') || '';
+        setEmail(storedEmail);
+    }, []);
 
     const logout = async () => {
-        localStorage.setItem('account', '');
+        localStorage.setItem('user_email', '');
         localStorage?.setItem('user_id', '');
-        const res = await supabase.auth.signOut();
+        // const res = await supabase.auth.signOut();
         router.push(`/login?redirect=${window.location.href}`);
     };
 
@@ -43,9 +54,10 @@ export default function HeaderView() {
                 </MenuButton>
                 <Menu size="sm" sx={{ minWidth: 140 }}>
                     <MenuItem
+                        sx={{ display: 'none' }}
                         onClick={() => {
                             if (userProfile.id == '') {
-                                router.push('/login?url=prompts');
+                                router.push('/login?url=calendar');
                             } else {
                                 router.push(`/profile`);
                             }
@@ -114,10 +126,10 @@ export default function HeaderView() {
                         <Typography level={'h4'}>Career calendar</Typography>
                     </div>
 
-                    <div className="flex flex-row items-center gap-2 hidden">
-                        {userProfile.id != '' ? (
+                    <div className="flex flex-row items-center gap-2">
+                        {email != '' ? (
                             <div className="flex justify-end items-center col-span-3 md:col-span-4">
-                                <MenuButton email={userProfile.email} logout={logout} />
+                                <MenuButton email={email} logout={logout} />
                             </div>
                         ) : (
                             <div className="flex flex-row gap-8 items-center justify-end col-span-3">

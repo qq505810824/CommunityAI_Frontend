@@ -19,13 +19,24 @@ function CalendarDetailContainer() {
     const { data, isLoading, isError } = useCalendarDetailData(Number(params['id']), user_id || '');
 
     useEffect(() => {
+        const storedEmail = localStorage.getItem('user_email') || '';
+        if (storedEmail === '') {
+            setAlert({
+                type: 'error',
+                title: '请先登录'
+            });
+            router.push('/login?redirect=' + window.location.href);
+        }
+    }, []);
+
+    useEffect(() => {
         if (data) {
             const newData = {
                 ...data
             };
             setProduct(newData);
         }
-        return () => {};
+        return () => { };
     }, [router, data]);
 
     if (!data) return <Loading type="app" />;

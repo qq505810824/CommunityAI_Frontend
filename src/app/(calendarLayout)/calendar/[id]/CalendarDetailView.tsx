@@ -1,9 +1,11 @@
 import BackView from '@/app/components/base/back/BackView';
+import PdfView from '@/app/components/common/Widget/PdfView';
 import { CalendarModel } from '@/hooks/useCalendarData';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { Button, Typography } from '@mui/joy';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import './style.css';
 
@@ -46,13 +48,16 @@ function processHtml(html: string) {
 
 function CalendarDetailView(props: ViewProps) {
     const { product } = props;
+    const router = useRouter();
 
     const [description, setDescription] = useState(``);
     return (
         <>
             <div className="w-full flex flex-col justify-center items-center">
                 <div className="w-full sm:max-w-7xl px-4 py-4 flex flex-col  ">
-                    <BackView title="Back" />
+                    <BackView title="Back" onClick={() => {
+                        router.push('/calendar');
+                    }} />
                     <div className="w-full  flex flex-col sm:flex-row justify-center space-y-4   sm:space-x-8 ">
                         <div className="w-full sm:2/3 space-y-4  overflow-x-auto">
                             <Typography level="h4">{product?.name}</Typography>
@@ -103,6 +108,12 @@ function CalendarDetailView(props: ViewProps) {
                                 ></div>
                             </div>
                             <div>
+                                {product?.pdf_url && (
+                                    <div className='my-4'>
+                                        <p className='text-md font-semibold'>相關文件:</p>
+                                        <PdfView content={'../aigc_20250519.pdf'} />
+                                    </div>
+                                )}
                                 {product?.reference_url && (
                                     <Button
                                         startDecorator={

@@ -25,6 +25,7 @@ export interface CalendarModel {
     pre_to_date: string;
     view_count: number;
     reference_url: string;
+    pdf_url?: string;
     status: string;
     created_at: string;
     updated_at: string;
