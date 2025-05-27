@@ -16,8 +16,9 @@ export default function Header() {
     const logout = async () => {
         localStorage.setItem('account', '');
         localStorage?.setItem('user_id', '');
+        localStorage?.setItem('admin_authorization', '');
         const res = await supabase.auth.signOut();
-        router.push(`/login?redirect=${window.location.href}`);
+        router.push(`/admin/login?redirect=${window.location.href}`);
     };
 
     return (
@@ -67,7 +68,7 @@ export default function Header() {
                 ) : (
                     <div className="flex flex-row gap-8 items-center justify-end col-span-3">
                         <Link
-                            href={`/login?redirect=${window.location.href}`}
+                            href={`/admin/login?redirect=${window.location.href}`}
                             className="text-purple-900 hover:underline"
                         >
                             Login

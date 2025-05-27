@@ -534,3 +534,15 @@ export const CalendarFilters = [
     //     value: 'view_count'
     // }
 ];
+
+export const RegionFilters = [
+    {
+        name: '香港',
+        value: 'hk'
+    },
+    {
+        name: '澳門',
+        value: 'mo'
+    },
+
+];

@@ -1,4 +1,4 @@
-import { AppMeuns, PromptTags } from './constant';
+import { AppMeuns, PromptTags, RegionFilters } from './constant';
 
 export const AppFormData = {
     fieldSchema: {
@@ -105,16 +105,7 @@ export const CalendarFormData = {
         region: {
             'ui:widget': 'select',
             'ui:options': {
-                enumOptions: [
-                    {
-                        name: '澳門',
-                        value: 'mo'
-                    },
-                    {
-                        name: '香港',
-                        value: 'hk'
-                    }
-                ]
+                enumOptions: RegionFilters
             }
         },
         // tags: {

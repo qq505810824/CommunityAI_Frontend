@@ -43,23 +43,25 @@ export default function SignIn() {
                 router.push('/admin'); // 登录成功后跳转到仪表板页面
                 router.refresh();
             }
+            setLoading(false);
         } catch (error) {
             setError('登录过程中发生错误');
+            setLoading(false);
         }
     };
 
     return (
-        <div className="flex min-h-screen items-center justify-center">
+        <div className="flex min-h-screen items-center justify-center bg-white">
             <div className="w-full max-w-md space-y-8 rounded-lg p-8 shadow-md">
-                <p
+                {/* <p
                     className="text-blue-500 text-md hover:underline cursor-pointer"
                     onClick={() => {
                         router.push('/admin');
                     }}
                 >
                     {'< 返回'}
-                </p>
-                <h2 className="text-center text-3xl font-bold">登入</h2>
+                </p> */}
+                <h2 className="text-center text-3xl font-bold">管理後台登入</h2>
                 {error && <div className="rounded-md bg-red-50 p-4 text-red-500">{error}</div>}
                 <form onSubmit={handleSignIn} className="space-y-6">
                     <div>

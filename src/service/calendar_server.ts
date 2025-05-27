@@ -19,6 +19,9 @@ export const getAllApps = async (options?: any) => {
         if (options && options.status) {
             query = query.or(`status.like.%${options?.status || ''}`);
         }
+        if (options && options.region) {
+            query = query.eq(`region`, options.region);
+        }
         query = query.or(
             `name.ilike.%${options?.keyword || ''}%,description.ilike.%${options?.keyword || ''}%`
         );

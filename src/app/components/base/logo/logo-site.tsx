@@ -1,4 +1,5 @@
-import classNames from 'classnames';
+
+import { useRouter } from 'next/navigation';
 import type { FC } from 'react';
 
 type LogoSiteProps = {
@@ -6,12 +7,19 @@ type LogoSiteProps = {
 };
 
 const LogoSite: FC<LogoSiteProps> = ({ className }) => {
+    const router = useRouter()
     return (
-        <img
-            src="/logo/logo-site.png"
-            className={classNames('block w-auto h-10', className)}
-            alt="logo"
-        />
+        <>
+            <p className='text-xl font-semibold cursor-pointer'
+                onClick={() => {
+                    router.push('/');
+                }}>Career calendar</p>
+        </>
+        // <img
+        //     src="/logo/logo-site.png"
+        //     className={classNames('block w-auto h-10', className)}
+        //     alt="logo"
+        // />
     );
 };
 

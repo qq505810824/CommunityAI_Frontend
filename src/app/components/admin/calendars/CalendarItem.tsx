@@ -1,5 +1,5 @@
 import { useModalContext } from '@/context/modal-context';
-import { CalendarModel } from '@/hooks/useCalendarData';
+import { CalendarModel, EnumRegion } from '@/hooks/useCalendarData';
 import { usePromptOperations } from '@/hooks/usePromptData';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { Chip, Tooltip } from '@mui/joy';
@@ -62,6 +62,7 @@ export default function CalendarItem(props: ViewProps) {
                     </Tooltip>
                 </td>
                 <td>{product.category}</td>
+                <td>{EnumRegion[(product.region || 'hk') as keyof typeof EnumRegion]}</td>
                 <td>{product.view_count || 0}</td>
                 <td className={``}>
                     <Chip color={product.status == 'draft' ? 'danger' : 'success'} size="sm">

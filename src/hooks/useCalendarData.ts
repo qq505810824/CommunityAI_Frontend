@@ -34,6 +34,11 @@ export interface CalendarModel {
     is_collected?: boolean;
 }
 
+export enum EnumRegion {
+    mo = '澳門',
+    hk = '香港'
+}
+
 export const showCalendarValues = (item: CalendarModel) => {
     let status = '';
     const nowDate = moment().format('YYYY-MM-DD');

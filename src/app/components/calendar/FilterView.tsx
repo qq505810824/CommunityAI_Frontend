@@ -1,4 +1,4 @@
-import { CalendarCategorys, CalendarFilters } from '@/utils/constant';
+import { CalendarCategorys, CalendarFilters, RegionFilters } from '@/utils/constant';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { Button, Typography } from '@mui/joy';
 import { useRouter } from 'next/navigation';
@@ -113,6 +113,7 @@ export default function FilterView(props: ViewProps) {
                         發佈活動
                     </Button>
                 </div>
+
                 <div className="w-full sm:max-w-7xl  items-center  text-center px-4 flex flex-col justify-center space-y-2 mt-2 ">
                     <div className="w-full flex flex-row items-center">
                         {CalendarFilters.map((item, index) => {
@@ -129,6 +130,30 @@ export default function FilterView(props: ViewProps) {
                                 >
                                     <span
                                         className={`  hover:text-orange-500 font-semibold ${filters?.order == item.value ? 'text-orange-500' : 'text-[#333]'}`}
+                                    >
+                                        {item.name}
+                                    </span>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+                <div className="w-full sm:max-w-7xl  items-center  text-center px-4 flex flex-col justify-center space-y-2 mt-2 ">
+                    <div className="w-full flex flex-row items-center">
+                        {RegionFilters.map((item, index) => {
+                            return (
+                                <div
+                                    key={index}
+                                    className={`px-4 py-2 rounded-lg  cursor-pointer hover:text-orange-500 ${filters?.region == item.value ? 'bg-orange-200' : ''}`}
+                                    onClick={() => {
+                                        setFilters({
+                                            ...filters,
+                                            region: item.value
+                                        });
+                                    }}
+                                >
+                                    <span
+                                        className={`  hover:text-orange-500 font-semibold ${filters?.region == item.value ? 'text-orange-500' : 'text-[#333]'}`}
                                     >
                                         {item.name}
                                     </span>

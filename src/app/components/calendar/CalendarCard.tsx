@@ -25,9 +25,9 @@ export default function CalendarCard(props: ViewProps) {
                     cancelText: '取消'
                 },
                 onSaveCallback: () => {
-                    router.push('/login?redirect=' + window.location.href);
+                    router.push('/signin?redirect=' + window.location.href);
                 },
-                onCancelCallback() {}
+                onCancelCallback() { }
             });
             //
         } else {

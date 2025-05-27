@@ -19,7 +19,10 @@ const SwrInitor = ({ children }: SwrInitorProps) => {
         // console.log('consoleToken', consoleToken);
         // console.log('consoleTokenFromLocalStorage', consoleTokenFromLocalStorage);
 
-        // if (!consoleTokenFromLocalStorage) router.replace('/admin/login');
+        if (!consoleTokenFromLocalStorage) {
+            router.replace('/admin/login');
+            // return
+        }
 
         // if (consoleToken) {
         //     localStorage?.setItem('console_token', consoleToken!)

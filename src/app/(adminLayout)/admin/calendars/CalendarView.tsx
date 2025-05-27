@@ -53,6 +53,7 @@ function CalendarView(props: ViewProps) {
                         <tr>
                             <th className="text-center w-[200px]">活動名稱</th>
                             <th className="text-center w-[60px]">類型</th>
+                            <th className="text-center w-[60px]">地區</th>
                             <th className="text-center whitespace-nowrap w-[60px]">浏览数</th>
                             <th className="text-center w-[60px]">狀態</th>
                             <th className="text-center whitespace-nowrap w-[100px]">報名時間</th>

@@ -25,7 +25,8 @@ function CalendarContainer() {
         category: '',
         order: 'created_at',
         direction: 'desc',
-        status: 'success'
+        status: 'success',
+        region: 'hk',
     });
 
     const { data, isLoading, isError, mutate } = useCalendarData({ ...filters });
@@ -37,7 +38,7 @@ function CalendarContainer() {
             });
             setProducts(newData);
         }
-        return () => {};
+        return () => { };
     }, [router, data]);
 
     const handleSearch = async (value: string) => {

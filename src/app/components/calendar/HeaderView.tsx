@@ -35,7 +35,7 @@ export default function HeaderView() {
         localStorage.setItem('user_email', '');
         localStorage?.setItem('user_id', '');
         // const res = await supabase.auth.signOut();
-        router.push(`/login?redirect=${window.location.href}`);
+        router.push(`/signin?redirect=${window.location.href}`);
     };
 
     function AvatarMenu(props?: any) {
@@ -57,7 +57,7 @@ export default function HeaderView() {
                         sx={{ display: 'none' }}
                         onClick={() => {
                             if (userProfile.id == '') {
-                                router.push('/login?url=calendar');
+                                router.push('/signin?url=calendar');
                             } else {
                                 router.push(`/profile`);
                             }
@@ -73,7 +73,7 @@ export default function HeaderView() {
                                 color="danger"
                                 onClick={() => {
                                     if (userProfile.id == '') {
-                                        router.push('/login');
+                                        router.push('/signin');
                                     } else {
                                         logout();
                                     }
@@ -134,10 +134,10 @@ export default function HeaderView() {
                         ) : (
                             <div className="flex flex-row gap-8 items-center justify-end col-span-3">
                                 <Link
-                                    href={`/login?redirect=${window.location.href}`}
+                                    href={`/signin?redirect=${window.location.href}`}
                                     className="text-purple-900 hover:underline"
                                 >
-                                    Login
+                                    登入
                                 </Link>
                             </div>
                         )}

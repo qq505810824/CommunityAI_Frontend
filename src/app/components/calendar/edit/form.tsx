@@ -44,10 +44,16 @@ function CalendarEditForm(props: ViewProps) {
                     //     'category',
                     //     product['category']
                     // );
+
                 }
             }
         });
     }, [formData, setValue, product]); // 添加依赖项
+
+    useEffect(() => {
+        setValue('category', 'course'); // 默认值为 'course'
+        setValue('region', 'hk'); // 默认值为 'mo'
+    }, [])
 
     useEffect(() => {
         if (product) {
@@ -61,7 +67,8 @@ function CalendarEditForm(props: ViewProps) {
             setValue('image_url', product.image_url);
             setSelectedImage(product.image_url);
             setValue('reference_url', product.reference_url);
-            setValue('category', product.category);
+            setValue('category', product.category || 'course'); // 默认值为 'course'
+            setValue('region', product.region || 'hk'); // 默认值为 'mo'
         }
     }, [product]);
 
