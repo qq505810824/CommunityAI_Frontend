@@ -69,7 +69,7 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
         created_at: ''
     });
 
-    useEffect(() => {}, []);
+    useEffect(() => { }, []);
 
     useEffect(() => {
         // 从本地存储中获取用户信息
@@ -149,7 +149,7 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
                 {/* {globalThis.document?.body?.getAttribute('data-public-maintenance-notice') && <MaintenanceNotice />} */}
                 <div
                     ref={pageContainerRef}
-                    className="grow relative flex flex-col overflow-y-auto overflow-x-hidden bg-gray-100"
+                    className="grow   flex flex-col overflow-y-auto overflow-x-hidden bg-gray-100"
                 >
                     {children}
                 </div>

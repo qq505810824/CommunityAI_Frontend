@@ -46,10 +46,20 @@ export default function PdfView(props: { content: string }) {
             />
         );
     }
+    const isPdf = content.toLowerCase().endsWith('.pdf') || content.toLowerCase().includes('.pdf');
 
+    if (!isPdf) {
+        return (
+            <img
+                src={content}
+                className="mb-2 mx-auto w-full rounded-lg border"
+                alt="Preview"
+            />
+        )
+    }
     // PC端用 object
     return (
-        <div className="w-full relative overflow-auto" style={{ height: '842px' }}>
+        <div className="w-full relative overflow-auto mb-2" style={{ height: '842px' }}>
             <object
                 className="object-center object-cover w-full h-full flex justify-center items-center"
                 type="application/pdf"

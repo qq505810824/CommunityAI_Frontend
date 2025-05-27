@@ -32,6 +32,7 @@ export interface CalendarModel {
     region?: string;
 
     is_collected?: boolean;
+    uploadFiles?: File[]
 }
 
 export enum EnumRegion {

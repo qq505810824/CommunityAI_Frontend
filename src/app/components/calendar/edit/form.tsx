@@ -6,6 +6,7 @@ import { Editor } from '@tinymce/tinymce-react';
 import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Select, { Item } from '../../base/select';
+import RunBatch from '../../common/Widget/run-batch';
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -15,11 +16,12 @@ const supabase = createClient(
 interface ViewProps {
     product: CalendarModel | null;
     submitting?: boolean;
+    setSubmitting?: any;
     submit: (formData: CalendarModel) => void;
 }
 
 function CalendarEditForm(props: ViewProps) {
-    const { product, submitting, submit } = props;
+    const { product, submitting, setSubmitting, submit } = props;
     const formData = CalendarFormData;
     const {
         register,
@@ -32,6 +34,8 @@ function CalendarEditForm(props: ViewProps) {
     const [showReplaceButton, setShowReplaceButton] = useState(false);
     const [blobToBase64Map, setBlobToBase64Map] = useState<{ [blobUri: string]: string }>({});
     const [uploadImageLoading, setUploadImageLoading] = useState(false);
+    const [uploadFiles, setUploadFiles] = useState<File[]>([]);
+    const [uploadFileUrls, setUploadFileUrls] = useState<string[]>([]);
 
     useEffect(() => {
         // 初始化时设置默认值
@@ -51,9 +55,24 @@ function CalendarEditForm(props: ViewProps) {
     }, [formData, setValue, product]); // 添加依赖项
 
     useEffect(() => {
+        setUploadFiles([]); // 清空上传文件列表
         setValue('category', 'course'); // 默认值为 'course'
         setValue('region', 'hk'); // 默认值为 'mo'
     }, [])
+
+    useEffect(() => {
+        if (uploadFiles) {
+            setValue('uploadFiles', uploadFiles);
+            console.log('uploadFiles', uploadFiles);
+        }
+    }, [uploadFiles])
+
+    useEffect(() => {
+        if (uploadFileUrls) {
+            setValue('pdf_url', uploadFileUrls.join(','));
+            console.log('uploadFileUrls', uploadFileUrls);
+        }
+    }, [uploadFileUrls])
 
     useEffect(() => {
         if (product) {
@@ -69,6 +88,8 @@ function CalendarEditForm(props: ViewProps) {
             setValue('reference_url', product.reference_url);
             setValue('category', product.category || 'course'); // 默认值为 'course'
             setValue('region', product.region || 'hk'); // 默认值为 'mo'
+
+            setUploadFileUrls(product.pdf_url ? product.pdf_url.split(',') : []);
         }
     }, [product]);
 
@@ -400,6 +421,15 @@ function CalendarEditForm(props: ViewProps) {
                             }
                         />
                     </div>
+                );
+            case 'upload':
+                return (
+                    <RunBatch
+                        {...register(key as keyof CalendarModel)}
+                        uploadFileUrls={uploadFileUrls || []}
+                        setUploadFileUrls={setUploadFileUrls}
+                        setUploadFiles={setUploadFiles}
+                    />
                 );
             default:
                 return null;
