@@ -23,7 +23,7 @@ function CalendarDetailContainer() {
     useEffect(() => {
         const storedEmail = localStorage.getItem('user_email') || '';
         if (storedEmail === '') {
-            router.push('/login?redirect=' + window.location.href);
+            router.push('/signin?redirect=' + window.location.href);
             // setShowConfirmDelete({
             //     payload: {
             //         title: '溫馨提示',
@@ -49,7 +49,7 @@ function CalendarDetailContainer() {
             };
             setProduct(newData);
         }
-        return () => {};
+        return () => { };
     }, [router, data]);
 
     const get_drives = async () => {
