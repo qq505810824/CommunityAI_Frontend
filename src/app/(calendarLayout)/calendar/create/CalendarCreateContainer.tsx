@@ -21,7 +21,7 @@ const CalendarCreateContainer = () => {
         // 处理表单提交
         console.log(formData);
         setSubmitting(true);
-        let upload_file_urls = ''
+        let upload_file_urls = '';
         if (formData?.uploadFiles && formData?.uploadFiles.length > 0) {
             upload_file_urls = await UploadFilesToAzure(formData?.uploadFiles);
         }
@@ -29,7 +29,7 @@ const CalendarCreateContainer = () => {
         const newFormData = {
             ...formData,
             status: 'draft',
-            pdf_url: upload_file_urls,
+            pdf_url: upload_file_urls
             // user: localStorage?.getItem('user_id') || null
         };
         // console.log(_.omit(newFormData, 'uploadFiles'));

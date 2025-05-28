@@ -543,6 +543,5 @@ export const RegionFilters = [
     {
         name: '澳門',
         value: 'mo'
-    },
-
+    }
 ];

@@ -11,9 +11,7 @@ export default function PdfView(props: { content: string }) {
     if (isGoogleDriveLink(content)) {
         const match = content.match(/\/d\/([a-zA-Z0-9_-]+)/);
         const fileId = match ? match[1] : '';
-        const embedUrl = fileId
-            ? `https://drive.google.com/file/d/${fileId}/preview`
-            : content;
+        const embedUrl = fileId ? `https://drive.google.com/file/d/${fileId}/preview` : content;
 
         return (
             <iframe
@@ -29,7 +27,9 @@ export default function PdfView(props: { content: string }) {
 
     // 判断是否为移动端
     const isMobile = useMemo(
-        () => typeof window !== 'undefined' && /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent),
+        () =>
+            typeof window !== 'undefined' &&
+            /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent),
         []
     );
 
@@ -50,12 +50,8 @@ export default function PdfView(props: { content: string }) {
 
     if (!isPdf) {
         return (
-            <img
-                src={content}
-                className="mb-2 mx-auto w-full rounded-lg border"
-                alt="Preview"
-            />
-        )
+            <img src={content} className="mb-2 mx-auto w-full rounded-lg border" alt="Preview" />
+        );
     }
     // PC端用 object
     return (

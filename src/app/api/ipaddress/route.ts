@@ -1,13 +1,10 @@
 import { NextResponse } from 'next/server';
 
 export async function GET(req: Request) {
-
     // console.log('Request URL:', req.url);
     try {
         let region = 'hk';
-        fetch(
-            `https://ipinfo.io/json?token=8892f2064cffd7`
-        )
+        fetch(`https://ipinfo.io/json?token=8892f2064cffd7`)
             .then((res) => res.json())
             .then((data) => {
                 // console.log('Address data:', data?.country);

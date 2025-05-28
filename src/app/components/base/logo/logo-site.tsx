@@ -1,4 +1,3 @@
-
 import { useRouter } from 'next/navigation';
 import type { FC } from 'react';
 
@@ -7,13 +6,17 @@ type LogoSiteProps = {
 };
 
 const LogoSite: FC<LogoSiteProps> = ({ className }) => {
-    const router = useRouter()
+    const router = useRouter();
     return (
         <>
-            <p className='text-xl font-semibold cursor-pointer'
+            <p
+                className="text-xl font-semibold cursor-pointer"
                 onClick={() => {
                     router.push('/');
-                }}>Career calendar</p>
+                }}
+            >
+                Career calendar
+            </p>
         </>
         // <img
         //     src="/logo/logo-site.png"

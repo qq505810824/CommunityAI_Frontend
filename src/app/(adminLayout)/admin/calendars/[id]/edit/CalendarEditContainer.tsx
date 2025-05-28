@@ -32,7 +32,7 @@ const CalendarEditContainer = () => {
         // 处理表单提交
 
         setSubmitting(true);
-        let upload_file_urls = ''
+        let upload_file_urls = '';
         if (formData?.uploadFiles && formData?.uploadFiles.length > 0) {
             upload_file_urls = await UploadFilesToAzure(formData?.uploadFiles);
         }
@@ -40,14 +40,20 @@ const CalendarEditContainer = () => {
         const newFormData = {
             ...product,
             ...formData,
-            pdf_url: formData?.uploadFiles && formData?.uploadFiles.length > 0 ? upload_file_urls : formData?.pdf_url,
+            pdf_url:
+                formData?.uploadFiles && formData?.uploadFiles.length > 0
+                    ? upload_file_urls
+                    : formData?.pdf_url
             // user: localStorage?.getItem('user_id') || null
         };
 
         // console.log(newFormData);
 
         try {
-            const { data, error } = await updateCalendar(Number(params['id']), _.omit(newFormData, 'uploadFiles'));
+            const { data, error } = await updateCalendar(
+                Number(params['id']),
+                _.omit(newFormData, 'uploadFiles')
+            );
             if (error) {
                 console.error('更新文章错误:', error);
                 setAlert({

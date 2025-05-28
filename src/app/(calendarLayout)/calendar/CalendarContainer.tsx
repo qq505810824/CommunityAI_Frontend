@@ -26,7 +26,7 @@ function CalendarContainer() {
         order: 'created_at',
         direction: 'desc',
         status: 'success',
-        region: 'hk',
+        region: 'hk'
     });
 
     const { data, isLoading, isError, mutate } = useCalendarData({ ...filters });
@@ -38,11 +38,10 @@ function CalendarContainer() {
             });
             setProducts(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     useEffect(() => {
-
         fetch(`/api/ipaddress`)
             .then((res) => res.json())
             .then((data) => {
@@ -55,7 +54,6 @@ function CalendarContainer() {
                 }
             })
             .catch(() => console.log('无法获取具体地区信息'));
-
     }, [router]);
 
     const handleSearch = async (value: string) => {

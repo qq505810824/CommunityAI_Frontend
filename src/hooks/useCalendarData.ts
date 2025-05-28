@@ -32,7 +32,7 @@ export interface CalendarModel {
     region?: string;
 
     is_collected?: boolean;
-    uploadFiles?: File[]
+    uploadFiles?: File[];
 }
 
 export enum EnumRegion {
@@ -43,7 +43,7 @@ export enum EnumRegion {
 export const showCalendarValues = (item: CalendarModel) => {
     let status = '';
     const nowDate = moment().format('YYYY-MM-DD');
-    console.log('nowDate', nowDate);
+    // console.log('nowDate', nowDate);
     const from_date = moment(item.from_date).format('YYYY-MM-DD');
     const to_date = moment(item.to_date).format('YYYY-MM-DD');
     const diffDay = moment(item.from_date).diff(nowDate, 'day');

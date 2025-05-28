@@ -48,7 +48,6 @@ function CalendarEditForm(props: ViewProps) {
                     //     'category',
                     //     product['category']
                     // );
-
                 }
             }
         });
@@ -58,21 +57,21 @@ function CalendarEditForm(props: ViewProps) {
         setUploadFiles([]); // 清空上传文件列表
         setValue('category', 'course'); // 默认值为 'course'
         setValue('region', 'hk'); // 默认值为 'mo'
-    }, [])
+    }, []);
 
     useEffect(() => {
         if (uploadFiles) {
             setValue('uploadFiles', uploadFiles);
             console.log('uploadFiles', uploadFiles);
         }
-    }, [uploadFiles])
+    }, [uploadFiles]);
 
     useEffect(() => {
         if (uploadFileUrls) {
             setValue('pdf_url', uploadFileUrls.join(','));
             console.log('uploadFileUrls', uploadFileUrls);
         }
-    }, [uploadFileUrls])
+    }, [uploadFileUrls]);
 
     useEffect(() => {
         if (product) {

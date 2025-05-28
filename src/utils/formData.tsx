@@ -124,7 +124,7 @@ export const CalendarFormData = {
             'ui:keys': { start_date: 'pre_from_date', end_date: 'pre_to_date' }
         },
         reference_url: { 'ui:widget': 'text' },
-        pdf_url: { 'ui:widget': 'upload' },
+        pdf_url: { 'ui:widget': 'upload' }
         // pdf_urls: { 'ui:widget': 'upload' }
     }
 };

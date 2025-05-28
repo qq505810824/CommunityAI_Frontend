@@ -18,12 +18,12 @@ type IState = {
 
 type IAction = {
     type:
-    | 'login'
-    | 'login_failed'
-    | 'github_login'
-    | 'github_login_failed'
-    | 'google_login'
-    | 'google_login_failed';
+        | 'login'
+        | 'login_failed'
+        | 'github_login'
+        | 'github_login_failed'
+        | 'google_login'
+        | 'google_login_failed';
 };
 
 function reducer(state: IState, action: IAction) {
@@ -88,7 +88,6 @@ const UnlessForm = () => {
             setRedirect(searchParams.get('redirect') || '');
         }
     }, [router, searchParams]);
-
 
     const handleEmailPasswordLogin = async () => {
         if (!validEmailReg.test(email)) {
@@ -156,7 +155,7 @@ const UnlessForm = () => {
 
             <div className="w-full mx-auto mt-8">
                 <div className="bg-white ">
-                    <form onSubmit={() => { }}>
+                    <form onSubmit={() => {}}>
                         <div className="mb-5">
                             <label
                                 htmlFor="email"

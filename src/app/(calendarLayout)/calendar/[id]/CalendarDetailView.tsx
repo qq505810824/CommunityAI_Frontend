@@ -114,10 +114,11 @@ function CalendarDetailView(props: ViewProps) {
                                 {product?.pdf_url && (
                                     <div className="my-4">
                                         <p className="text-md font-semibold">相關文件:</p>
-                                        {product?.pdf_url?.split(',').map((url, index) => (
-                                            <PdfView key={index} content={url} />
-                                        ))}
-
+                                        {product?.pdf_url
+                                            ?.split(',')
+                                            .map((url, index) => (
+                                                <PdfView key={index} content={url} />
+                                            ))}
                                     </div>
                                 )}
                                 {product?.reference_url && (

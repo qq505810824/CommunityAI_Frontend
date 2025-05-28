@@ -69,7 +69,7 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
         created_at: ''
     });
 
-    useEffect(() => { }, []);
+    useEffect(() => {}, []);
 
     useEffect(() => {
         // 从本地存储中获取用户信息
