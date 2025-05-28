@@ -29,22 +29,39 @@ export default function SignIn() {
                 return;
             }
 
-            const { data, error } = await addUser({
-                name,
-                email,
-                password
+            const response = await fetch('/api/users/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "user": {
+                        "email": "cong@konnecai.com",
+                        "password": "123456",
+                        "password_confirmation": "123456",
+                        "company_id": 1
+                    }
+                })
             });
+            const data = await response.json();
+            console.log('data', data);
 
-            if (error) {
-                setLoading(false);
-                return;
-            }
+            // const { data, error } = await addUser({
+            //     name,
+            //     email,
+            //     password
+            // });
 
-            if (data) {
-                // 注册成功后，重定向到登录页面或其他页面
-                const redirectUrl = searchParams.get('redirect') || '/login';
-                router.push(redirectUrl);
-            }
+            // if (error) {
+            //     setLoading(false);
+            //     return;
+            // }
+
+            // if (data) {
+            //     // 注册成功后，重定向到登录页面或其他页面
+            //     const redirectUrl = searchParams.get('redirect') || '/login';
+            //     router.push(redirectUrl);
+            // }
         } catch (error) {
             setError('登录过程中发生错误');
         }

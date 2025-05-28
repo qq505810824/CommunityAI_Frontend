@@ -32,26 +32,42 @@ export default function SignIn() {
                 setLoading(false);
                 return;
             }
+
+            const response = await fetch('/api/users/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "user": {
+                        "email": "cong@konnecai.com",
+                        "password": "123456",
+                    }
+                })
+            });
+            console.log('response', response);
+
+
             // 调用登录操作
-            const { data, error } = await detailById(email, password);
+            // const { data, error } = await detailById(email, password);
 
-            if (error) {
-                console.log('登录错误', error);
-                setError('登錄失敗');
-                setLoading(false);
-                return;
-            }
-            if (data) {
-                // 登录成功后，保存用户ID到本地存储
-                localStorage?.setItem('user_id', data.id);
-                localStorage?.setItem('user_email', data.email);
+            // if (error) {
+            //     console.log('登录错误', error);
+            //     setError('登錄失敗');
+            //     setLoading(false);
+            //     return;
+            // }
+            // if (data) {
+            //     // 登录成功后，保存用户ID到本地存储
+            //     localStorage?.setItem('user_id', data.id);
+            //     localStorage?.setItem('user_email', data.email);
 
-                setLoading(false);
-                router.push(redirect || '/'); // 登录成功后跳转到指定页面或默认的仪表板页面
-                router.refresh(); // 刷新路由以更新状态
-                return;
-                // 跳转到指定页面或默认的仪表板页面
-            }
+            //     setLoading(false);
+            //     router.push(redirect || '/'); // 登录成功后跳转到指定页面或默认的仪表板页面
+            //     router.refresh(); // 刷新路由以更新状态
+            //     return;
+            //     // 跳转到指定页面或默认的仪表板页面
+            // }
 
             // const { data, error } = await supabase.auth.signInWithPassword({
             //     email,
