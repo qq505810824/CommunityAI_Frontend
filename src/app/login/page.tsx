@@ -4,6 +4,7 @@ import { useUsersOperations } from '@/hooks/useUserData';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import Toast from '../components/base/toast';
 
 export default function SignIn() {
     const [email, setEmail] = useState('');
@@ -33,19 +34,39 @@ export default function SignIn() {
                 return;
             }
 
-            const response = await fetch('/api/users/signin', {
+            const res = await fetch('/api/users/signin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     user: {
-                        email: 'cong@konnecai.com',
-                        password: '123456'
+                        email: email,
+                        password: password
                     }
                 })
             });
-            console.log('response', response);
+            setLoading(false);
+            // console.log('response', res);
+            const data = await res.json();
+            if (data.message == 'Logged in successfully.') {
+                // const token = res.headers.get('Authorization');
+                // console.log(data);
+                // console.log(token);
+                const token = data.token;
+                localStorage.setItem('authorization', token);
+                localStorage.setItem('email', email.trim());
+                Toast.notify({
+                    type: 'success',
+                    message: data.message
+                });
+                router.push(redirect || '/');
+            } else {
+                Toast.notify({
+                    type: 'error',
+                    message: data.message || data.error
+                });
+            }
 
             // 调用登录操作
             // const { data, error } = await detailById(email, password);
@@ -84,6 +105,8 @@ export default function SignIn() {
             // }
         } catch (error) {
             setError('登录过程中发生错误');
+        } finally {
+            setLoading(false);
         }
     };
 

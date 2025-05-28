@@ -27,7 +27,7 @@ export default function CalendarCard(props: ViewProps) {
                 onSaveCallback: () => {
                     router.push('/signin?redirect=' + window.location.href);
                 },
-                onCancelCallback() { }
+                onCancelCallback() {}
             });
             //
         } else {
