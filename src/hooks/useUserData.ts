@@ -17,6 +17,8 @@ export type UserModel = {
     name: string;
     created_at?: string;
     password?: string;
+    token?: string;
+    konnec_user_id?: number;
 };
 
 // 应用数据 fetcher 函数

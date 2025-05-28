@@ -39,14 +39,13 @@ export default function SignIn() {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    "user": {
-                        "email": "cong@konnecai.com",
-                        "password": "123456",
+                    user: {
+                        email: 'cong@konnecai.com',
+                        password: '123456'
                     }
                 })
             });
             console.log('response', response);
-
 
             // 调用登录操作
             // const { data, error } = await detailById(email, password);

@@ -15,7 +15,7 @@ export default function CalendarCard(props: ViewProps) {
     const { setShowConfirmDelete } = useModalContext();
 
     const handleClick = () => {
-        const storedEmail = localStorage.getItem('user_email') || '';
+        const storedEmail = localStorage.getItem('authorization') || '';
         if (storedEmail === '') {
             setShowConfirmDelete({
                 payload: {
@@ -27,7 +27,7 @@ export default function CalendarCard(props: ViewProps) {
                 onSaveCallback: () => {
                     router.push('/signin?redirect=' + window.location.href);
                 },
-                onCancelCallback() {}
+                onCancelCallback() { }
             });
             //
         } else {

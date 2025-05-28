@@ -27,12 +27,12 @@ export default function HeaderView() {
     //     router.push(`/login?redirect=${window.location.href}`);
     // };
     useEffect(() => {
-        const storedEmail = localStorage.getItem('user_email') || '';
+        const storedEmail = localStorage.getItem('email') || '';
         setEmail(storedEmail);
     }, []);
 
     const logout = async () => {
-        localStorage.setItem('user_email', '');
+        localStorage.setItem('email', '');
         localStorage?.setItem('user_id', '');
         // const res = await supabase.auth.signOut();
         router.push(`/signin?redirect=${window.location.href}`);

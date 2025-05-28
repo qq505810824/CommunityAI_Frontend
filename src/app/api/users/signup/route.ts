@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 export async function POST(req: Request) {
     const apiUrl = 'https://schemai-backend.m2mda.com/users';
     const headers = {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
     };
 
     try {

@@ -21,7 +21,7 @@ function CalendarDetailContainer() {
     const { setShowConfirmDelete } = useModalContext();
 
     useEffect(() => {
-        const storedEmail = localStorage.getItem('user_email') || '';
+        const storedEmail = localStorage.getItem('authorization') || '';
         if (storedEmail === '') {
             router.push('/signin?redirect=' + window.location.href);
             // setShowConfirmDelete({
@@ -49,7 +49,7 @@ function CalendarDetailContainer() {
             };
             setProduct(newData);
         }
-        return () => {};
+        return () => { };
     }, [router, data]);
 
     const get_drives = async () => {

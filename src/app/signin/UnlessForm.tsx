@@ -18,12 +18,12 @@ type IState = {
 
 type IAction = {
     type:
-        | 'login'
-        | 'login_failed'
-        | 'github_login'
-        | 'github_login_failed'
-        | 'google_login'
-        | 'google_login_failed';
+    | 'login'
+    | 'login_failed'
+    | 'github_login'
+    | 'github_login_failed'
+    | 'google_login'
+    | 'google_login_failed';
 };
 
 function reducer(state: IState, action: IAction) {
@@ -100,26 +100,59 @@ const UnlessForm = () => {
         try {
             setIsLoading(true);
 
+            const res = await fetch('/api/users/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user: {
+                        email: email.trim(),
+                        password: password.trim()
+                    }
+                })
+            });
+
+            const data = await res.json();
+            if (data.message == 'Logged in successfully.') {
+                // const token = res.headers.get('Authorization');
+                // console.log(data);
+                // console.log(token);
+                const token = data.token;
+                localStorage.setItem('authorization', token);
+                localStorage.setItem('email', email.trim());
+                Toast.notify({
+                    type: 'success',
+                    message: data.message
+                });
+                router.push(redirect || '/');
+            } else {
+                Toast.notify({
+                    type: 'error',
+                    message: data.message || data.error
+                });
+            }
+
             // 调用登录操作
-            const { data, error } = await detailById(email, password);
+            // const { data, error } = await detailById(email, password);
 
-            if (error) {
-                console.log('登录错误', error);
-                setError('登錄失敗');
-                setIsLoading(false);
-                return;
-            }
-            if (data) {
-                // 登录成功后，保存用户ID到本地存储
-                localStorage?.setItem('user_id', data.id);
-                localStorage?.setItem('user_email', data.email);
+            // if (error) {
+            //     console.log('登录错误', error);
+            //     setError('登錄失敗');
+            //     setIsLoading(false);
+            //     return;
+            // }
+            // if (data) {
+            //     // 登录成功后，保存用户ID到本地存储
+            //     localStorage?.setItem('user_id', data.id);
+            //     localStorage?.setItem('user_email', data.email);
 
-                setIsLoading(false);
-                router.push(redirect || '/'); // 登录成功后跳转到指定页面或默认的仪表板页面
-                router.refresh(); // 刷新路由以更新状态
-                return;
-                // 跳转到指定页面或默认的仪表板页面
-            }
+            //     setIsLoading(false);
+            //     router.push(redirect || '/'); // 登录成功后跳转到指定页面或默认的仪表板页面
+            //     router.refresh(); // 刷新路由以更新状态
+            //     return;
+            //     // 跳转到指定页面或默认的仪表板页面
+            // }
 
             // const res = await login({
             //     url: '/users/sign_in.json',
@@ -155,7 +188,7 @@ const UnlessForm = () => {
 
             <div className="w-full mx-auto mt-8">
                 <div className="bg-white ">
-                    <form onSubmit={() => {}}>
+                    <form onSubmit={() => { }}>
                         <div className="mb-5">
                             <label
                                 htmlFor="email"
