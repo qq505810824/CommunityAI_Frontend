@@ -41,6 +41,23 @@ function CalendarContainer() {
         return () => { };
     }, [router, data]);
 
+    useEffect(() => {
+
+        fetch(`/api/ipaddress`)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log('Address data:', data);
+                if (data?.region) {
+                    setFilters({
+                        ...filters,
+                        region: data.region
+                    });
+                }
+            })
+            .catch(() => console.log('无法获取具体地区信息'));
+
+    }, [router]);
+
     const handleSearch = async (value: string) => {
         // console.log('search value', value);
         setFilters({
