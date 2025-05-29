@@ -44,7 +44,12 @@ export default function SignIn() {
                 })
             });
             const res = await response.json();
-            console.log('data', res);
+            // console.log('data', res);
+            if (!res?.id) {
+                setError('註冊失敗，已存在相同郵箱的用戶');
+                setLoading(false);
+                return;
+            }
 
             const { data, error } = await addUser({
                 name,
