@@ -32,14 +32,8 @@ function AccountContainer() {
     const [searching, setSearching] = useState(false);
 
     // const { data, isLoading: loading, isError, mutate } = useAccountData();
-    const {
-        data,
-        isLoading,
-        setSize,
-        mutate
-    } = useSWRInfinite(
-        (pageIndex: number, previousPageData: UsersResponse) =>
-            getKey(pageIndex, previousPageData),
+    const { data, isLoading, setSize, mutate } = useSWRInfinite(
+        (pageIndex: number, previousPageData: UsersResponse) => getKey(pageIndex, previousPageData),
         get_users
     );
 
@@ -62,10 +56,9 @@ function AccountContainer() {
             //      )
             //     )
 
-
             // setAccounts(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     const handleSearch = async (value: string) => {

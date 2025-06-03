@@ -12,7 +12,6 @@ const supabase = createClient(
 const db = 'users';
 const baseURL = process.env.NEXT_PUBLIC_KONNECAI_URL;
 
-
 export type UsersResponse = CommonResponse & {
     users: UserModel[];
     meta: {
@@ -24,13 +23,12 @@ export type UsersResponse = CommonResponse & {
     };
 };
 
-export const get_users: Fetcher<
-    UsersResponse,
-    { url: string; params: Record<string, any> }
-> = ({ url, params }) => {
+export const get_users: Fetcher<UsersResponse, { url: string; params: Record<string, any> }> = ({
+    url,
+    params
+}) => {
     return get<UsersResponse>(url, { params });
 };
-
 
 export const getAllApps = async (options: string) => {
     try {

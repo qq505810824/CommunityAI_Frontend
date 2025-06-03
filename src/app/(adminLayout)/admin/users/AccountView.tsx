@@ -66,7 +66,6 @@ function AccountView(props: ViewProps) {
                                 />
                             ))
                         )}
-
                     </tbody>
                 </TableSheet>
             </div>
