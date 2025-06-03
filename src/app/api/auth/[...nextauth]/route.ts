@@ -59,7 +59,7 @@ const authOptions = {
             clientSecret: process.env.NEXT_PUBLIC_CLIENT_SECRET || '',
             authorization: {
                 params: {
-                    scope: 'profile  email openid',//https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file
+                    scope: 'profile  email openid', //https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file
                     prompt: 'consent',
                     access_type: 'offline'
                 }

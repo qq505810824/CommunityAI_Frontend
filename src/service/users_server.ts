@@ -1,5 +1,8 @@
 import { UserModel } from '@/hooks/useUserData';
+import { CommonResponse } from '@/models/common';
 import { createClient } from '@supabase/supabase-js';
+import { Fetcher } from 'swr';
+import { get } from './base';
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -7,6 +10,28 @@ const supabase = createClient(
 );
 
 const db = 'users';
+const baseURL = process.env.NEXT_PUBLIC_KONNECAI_URL;
+
+
+export type UsersResponse = CommonResponse & {
+    users: UserModel[];
+    meta: {
+        current_page: number;
+        next_page: number;
+        prev_page: number;
+        total_count: number;
+        total_pages: number;
+    };
+};
+
+export const get_users: Fetcher<
+    UsersResponse,
+    { url: string; params: Record<string, any> }
+> = ({ url, params }) => {
+    return get<UsersResponse>(url, { params });
+};
+
+
 export const getAllApps = async (options: string) => {
     try {
         // const key = '2025-04-29';
