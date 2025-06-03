@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
-export async function POST(req: Request) {
-    const apiUrl = process.env.NEXT_PUBLIC_KONNECAI_URL + '/users/sign_in.json';
+export async function GET(req: Request) {
+    const apiUrl = process.env.NEXT_PUBLIC_KONNECAI_URL + '/api/users';
     const headers = {
         'Content-Type': 'application/json'
     };

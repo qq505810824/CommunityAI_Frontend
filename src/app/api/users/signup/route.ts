@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
-    const apiUrl = 'https://schemai-backend.m2mda.com/users';
+    const apiUrl = process.env.NEXT_PUBLIC_KONNECAI_URL + '/users';
     const headers = {
         'Content-Type': 'application/json'
     };
