@@ -122,8 +122,7 @@ export default function ShareQRcodeModal(props: any) {
                                                     className="h-5 w-5 text-gray-400"
                                                     aria-hidden="true"
                                                 />
-                                                <span>{'複製'}</span>{' '}
-                                                {/* 使用翻譯 */}
+                                                <span>{'複製'}</span> {/* 使用翻譯 */}
                                             </button>
                                         </div>
                                     </div>

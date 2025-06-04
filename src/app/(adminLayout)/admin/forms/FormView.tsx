@@ -16,13 +16,11 @@ interface ViewProps {
 }
 
 function FormView(props: ViewProps) {
-    const { isLoading, products, handleSearch, searching, onDelete, onUpdataStatus } =
-        props;
+    const { isLoading, products, handleSearch, searching, onDelete, onUpdataStatus } = props;
     const router = useRouter();
     const { t } = useTranslation();
 
     return (
-
         <React.Fragment>
             <div className="w-full flex justify-between items-center my-4">
                 <Typography level="h3">表單列表</Typography>
@@ -76,7 +74,6 @@ function FormView(props: ViewProps) {
                 </Typography>
             )}
         </React.Fragment>
-
     );
 }
 

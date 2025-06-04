@@ -3,8 +3,6 @@ import GlobalStyles from '@mui/joy/GlobalStyles';
 import Sheet from '@mui/joy/Sheet';
 
 export default function HeaderView() {
-
-
     return (
         <>
             <Sheet

@@ -23,10 +23,10 @@ const ModalContext = createContext<{
     setShowShareQRcode: Dispatch<SetStateAction<ModalState<any> | null>>;
     setShowConfirmDelete: Dispatch<SetStateAction<ModalState<any> | null>>;
 }>({
-    setShowApiBasedExtensionModal: () => { },
-    setInputNameModal: () => { },
-    setShowShareQRcode: () => { },
-    setShowConfirmDelete: () => { }
+    setShowApiBasedExtensionModal: () => {},
+    setInputNameModal: () => {},
+    setShowShareQRcode: () => {},
+    setShowConfirmDelete: () => {}
 });
 
 export const useModalContext = () => useContext(ModalContext);

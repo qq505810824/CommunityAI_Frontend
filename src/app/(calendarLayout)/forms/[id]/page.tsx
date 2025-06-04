@@ -1,6 +1,5 @@
 'use client';
 
-
 import RunBatch, { UploadFilesToAzure } from '@/app/components/forms/run-batch';
 import { ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/theme-utils';
@@ -85,51 +84,45 @@ export default function FormDetail() {
     const CustomFileWidget = (props: WidgetProps) => {
         const { name, required, value, onChange, disabled } = props;
         // console.log('props', props);
-        const [loading, setLoading] = useState(false)
+        const [loading, setLoading] = useState(false);
 
         const [uploadFiles, setUploadFiles] = useState<File[]>([]);
-
 
         useEffect(() => {
             if (uploadFiles) {
                 // console.log('uploadFiles', uploadFiles);
-                uploadFileToServer(uploadFiles)
+                uploadFileToServer(uploadFiles);
             }
         }, [uploadFiles]);
 
         const uploadFileToServer = async (files: any[]) => {
-            let upload_file_urls = ''
+            let upload_file_urls = '';
             if (files.length > 0) {
-                setLoading(true)
+                setLoading(true);
                 upload_file_urls = await UploadFilesToAzure(files);
-                setLoading(false)
+                setLoading(false);
             }
             onChange(upload_file_urls);
-
-        }
-
+        };
 
         return (
-            <div >
-                <div className='flex flex-row items-center'>
+            <div>
+                <div className="flex flex-row items-center">
                     <label className="block text-md font-medium text-[#1a202c]">
                         {props.label}
                     </label>
-                    {required && <label className="block text-md font-medium text-[#e53e3e] ml-2">
-                        *
-                    </label>}
+                    {required && (
+                        <label className="block text-md font-medium text-[#e53e3e] ml-2">*</label>
+                    )}
                 </div>
-                <RunBatch
-                    loading={loading}
-                    setUploadFiles={setUploadFiles}
-                />
+                <RunBatch loading={loading} setUploadFiles={setUploadFiles} />
             </div>
         );
     };
 
     const showQrcode = () => {
-        return false
-    }
+        return false;
+    };
     if (loading) {
         return <div className="text-center mt-10">Loading...</div>;
     }
@@ -156,11 +149,14 @@ export default function FormDetail() {
                 {qrCode && (
                     <div className="mt-8 text-center flex flex-col items-center justify-center">
                         <h2 className="text-4xl font-extrabold text-green-600 mb-4">報名成功!</h2>
-                        {showQrcode() &&
+                        {showQrcode() && (
                             <>
-                                <p className="text-xl font-semibold mb-2">您很快將收到確認電子郵件。</p>
                                 <p className="text-xl font-semibold mb-2">
-                                    Registration successful! You will receive a confirmation email shortly.
+                                    您很快將收到確認電子郵件。
+                                </p>
+                                <p className="text-xl font-semibold mb-2">
+                                    Registration successful! You will receive a confirmation email
+                                    shortly.
                                 </p>
                                 <h3 className="text-xl font-semibold mb-2">您的電子門票 QR Code</h3>
                                 <QRCodeCanvas value={qrCode} size={256} />
@@ -169,7 +165,7 @@ export default function FormDetail() {
                                     Please show this QR code for entry on the day of the event.
                                 </p>
                             </>
-                        }
+                        )}
                     </div>
                 )}
             </div>

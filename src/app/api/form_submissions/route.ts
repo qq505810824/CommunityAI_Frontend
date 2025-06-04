@@ -10,7 +10,10 @@ export async function POST(req: Request) {
     try {
         const body = await req.json();
         // console.log('Received body:', body);
-        const { data, error } = await supabase.from('form_submissions').insert([body.form_submission]).select();
+        const { data, error } = await supabase
+            .from('form_submissions')
+            .insert([body.form_submission])
+            .select();
         // console.log('Fetched forms:', data);
 
         if (error) {

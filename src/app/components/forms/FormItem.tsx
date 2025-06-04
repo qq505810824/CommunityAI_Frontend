@@ -57,7 +57,7 @@ export default function FormItem(props: ViewProps) {
         if (product) {
             router.push(`/admin/forms/${product.id}/form_submissions`);
         }
-    }
+    };
 
     const handleCopy = () => {
         copy(`https://hkcalendar.vercel.app/forms/${product.id}`);
@@ -65,7 +65,7 @@ export default function FormItem(props: ViewProps) {
             message: '複製成功', // 使用翻譯
             type: 'success'
         });
-    }
+    };
     return (
         <>
             <tr>
@@ -100,10 +100,8 @@ export default function FormItem(props: ViewProps) {
                             className="flex flex-row items-center text-blue-500 cursor-pointer whitespace-nowrap px-2 py-1 rounded-md bg-blue-100 hover:bg-blue-200 text-xs"
                             onClick={handleCopy}
                         >
-                            <ClipboardDocumentIcon
-                                className="h-3 w-3 mr-1"
-                                aria-hidden="true"
-                            /> 複製連結
+                            <ClipboardDocumentIcon className="h-3 w-3 mr-1" aria-hidden="true" />{' '}
+                            複製連結
                         </label>
                         {/* <label
                             className="flex flex-row items-center text-red-500 cursor-pointer whitespace-nowrap px-2 py-1 rounded-md bg-red-100 hover:bg-red-200 text-xs"

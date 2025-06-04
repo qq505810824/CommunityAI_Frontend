@@ -1,31 +1,26 @@
-
 import { useState } from 'react';
 // import Form from '@rjsf/core';
-import {
-    ChakraProvider
-} from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import Form from '@rjsf/chakra-ui';
 import validator from '@rjsf/validator-ajv8';
-import { Editor } from '@tinymce/tinymce-react';
 import { ChevronLeft, PlusCircle, X } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
 import { FormField } from './FormEditContainer';
 
 interface ViewProps {
-    formTitle: string
+    formTitle: string;
     setFormTitle: any;
-    isActive: boolean
-    setIsActive: any
+    isActive: boolean;
+    setIsActive: any;
     generateSchemas: any;
     meta: any;
     setMeta: any;
     formDescription: string;
     setFormDescription: any;
-    fields: FormField[],
+    fields: FormField[];
     setFields: any;
     handleSave: any;
-    submitting: boolean
-
+    submitting: boolean;
 }
 
 function FormSubmissionsView(props: ViewProps) {
@@ -43,8 +38,7 @@ function FormSubmissionsView(props: ViewProps) {
         setFields,
         handleSave,
         submitting
-    } =
-        props;
+    } = props;
     const params = useParams();
     const [showFormDetails, setShowFormDetails] = useState(false);
     const router = useRouter();
@@ -119,19 +113,21 @@ function FormSubmissionsView(props: ViewProps) {
                                     <span className="text-sm">啟用表單</span>
                                 </label>
                             </div>
-                            <input
+                            {/* <input
                                 type="text"
                                 value={meta?.display?.title || ''}
-                                onChange={(e) => setMeta({
-                                    ...meta,
-                                    display: {
-                                        ...meta?.display,
-                                        title: e.target.value
-                                    }
-                                })}
+                                onChange={(e) =>
+                                    setMeta({
+                                        ...meta,
+                                        display: {
+                                            ...meta?.display,
+                                            title: e.target.value
+                                        }
+                                    })
+                                }
                                 className="w-full text-xl font-bold mb-2 p-2 border rounded"
                                 placeholder="副標題"
-                            />
+                            /> */}
                             <textarea
                                 value={formDescription}
                                 onChange={(e) => setFormDescription(e.target.value)}
@@ -139,9 +135,9 @@ function FormSubmissionsView(props: ViewProps) {
                                 placeholder="表單描述"
                                 rows={3}
                             />
-                            <p>表單簡介</p>
+                            {/* <p>表單簡介</p>
                             <Editor
-                                id='description'
+                                id="description"
                                 apiKey={process.env.NEXT_PUBLIC_TINYMCE_API_KEY}
                                 value={meta?.display?.description || ''}
                                 init={{
@@ -181,9 +177,9 @@ function FormSubmissionsView(props: ViewProps) {
                                             ...meta?.display,
                                             description: content
                                         }
-                                    })
+                                    });
                                 }}
-                            />
+                            /> */}
                         </div>
 
                         {fields.map((field, index) => (
@@ -236,7 +232,9 @@ function FormSubmissionsView(props: ViewProps) {
                                         <option value="file">文件</option>
                                     </select>
 
-                                    {['radio', 'checkboxes', 'select'].includes(field.widget || '') && (
+                                    {['radio', 'checkboxes', 'select'].includes(
+                                        field.widget || ''
+                                    ) && (
                                         <div className="space-y-2">
                                             <div className="flex items-center justify-between mb-2">
                                                 <span className="text-sm font-medium">
@@ -274,9 +272,9 @@ function FormSubmissionsView(props: ViewProps) {
                                                                 (opt, idx) =>
                                                                     idx === optionIndex
                                                                         ? {
-                                                                            ...opt,
-                                                                            value: e.target.value
-                                                                        }
+                                                                              ...opt,
+                                                                              value: e.target.value
+                                                                          }
                                                                         : opt
                                                             );
                                                             updateField(index, {
@@ -374,8 +372,9 @@ function FormSubmissionsView(props: ViewProps) {
                             <button
                                 onClick={handleSave}
                                 disabled={submitting}
-                                className={`bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition flex items-center ${submitting ? 'opacity-50 cursor-not-allowed' : ''
-                                    }`}
+                                className={`bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition flex items-center ${
+                                    submitting ? 'opacity-50 cursor-not-allowed' : ''
+                                }`}
                             >
                                 {submitting ? (
                                     <>
@@ -401,8 +400,7 @@ function FormSubmissionsView(props: ViewProps) {
                 </div>
             </div>
         </ChakraProvider>
-    )
+    );
 }
-
 
 export default FormSubmissionsView;

@@ -50,7 +50,7 @@ function processHtml(html: string) {
 function CalendarDetailView(props: ViewProps) {
     const { product } = props;
     const router = useRouter();
-    const { setShowShareQRcode } = useModalContext()
+    const { setShowShareQRcode } = useModalContext();
 
     const [description, setDescription] = useState(``);
     const handleClickShare = () => {
@@ -58,21 +58,23 @@ function CalendarDetailView(props: ViewProps) {
             payload: {
                 link: `https://hkcalendar.vercel.app/share/calendars/${product?.id}`,
                 name: product?.name
-            },
-        })
-    }
+            }
+        });
+    };
 
     return (
         <>
             <div className="w-full flex flex-col justify-center items-center">
                 <div className="w-full sm:max-w-7xl px-4 py-4 flex flex-col  ">
-
                     <div className="w-full  flex flex-col sm:flex-row justify-center space-y-4   sm:space-x-8 ">
                         <div className="w-full sm:2/3 space-y-4  overflow-x-auto">
-                            <div className='flex items-center justify-between space-x-4 flex-row'>
+                            <div className="flex items-center justify-between space-x-4 flex-row">
                                 <Typography level="h4">{product?.name}</Typography>
                                 <Tooltip title="Share">
-                                    <Share2Icon className=' text-[#f97316] text-md hover:text-orange-600 cursor-pointer w-10' onClick={handleClickShare} />
+                                    <Share2Icon
+                                        className=" text-[#f97316] text-md hover:text-orange-600 cursor-pointer w-10"
+                                        onClick={handleClickShare}
+                                    />
                                 </Tooltip>
                             </div>
                             <p className="text-sm font-semibold flex flex-row items-center text-orange-500 ">

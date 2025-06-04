@@ -36,7 +36,7 @@ function FormContainer() {
     const [products, setProducts] = useState<EventForm[]>([]);
     const { searchCalendar, deleteCalendar, updateCalendar } = useCalendarOperations();
     const [searching, setSearching] = useState(false);
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         fetchAllFormData();
@@ -54,8 +54,6 @@ function FormContainer() {
             alert(response.data.error?.toString() || 'error');
         }
     };
-
-
 
     const handleSearch = async (value: string) => {
         // console.log('search value', value);
@@ -87,7 +85,6 @@ function FormContainer() {
 
     const handleUpdateStatus = async (id: number, status: string) => {
         // console.log('id,status', id, status);
-
         // const res: any = await updateCalendar(id, { status });
         // console.log('res', res);
         // if (!res.error) {

@@ -133,7 +133,7 @@ export default function CreateForm() {
             title: '',
             description: ''
         }
-    })
+    });
     // 當表單欄位更新時，自動更新可用的變數列表
     useEffect(() => {
         if (emailEnabled) {
@@ -466,19 +466,21 @@ export default function CreateForm() {
                                                 <span className="text-sm">啟用表單</span>
                                             </label>
                                         </div>
-                                        <input
+                                        {/* <input
                                             type="text"
                                             value={meta?.display?.title || ''}
-                                            onChange={(e) => setMeta({
-                                                ...meta,
-                                                display: {
-                                                    ...meta.display,
-                                                    title: e.target.value
-                                                }
-                                            })}
+                                            onChange={(e) =>
+                                                setMeta({
+                                                    ...meta,
+                                                    display: {
+                                                        ...meta.display,
+                                                        title: e.target.value
+                                                    }
+                                                })
+                                            }
                                             className="w-full text-xl font-bold mb-2 p-2 border rounded"
                                             placeholder="副標題"
-                                        />
+                                        /> */}
                                         <textarea
                                             value={formDescription}
                                             onChange={(e) => setFormDescription(e.target.value)}
@@ -486,9 +488,9 @@ export default function CreateForm() {
                                             placeholder="表單描述"
                                             rows={3}
                                         />
-                                        <p>表單簡介</p>
+                                        {/* <p>表單簡介</p>
                                         <Editor
-                                            id='description'
+                                            id="description"
                                             apiKey={process.env.NEXT_PUBLIC_TINYMCE_API_KEY}
                                             value={meta?.display?.description || ''}
                                             init={{
@@ -528,13 +530,16 @@ export default function CreateForm() {
                                                         ...meta?.display,
                                                         description: content
                                                     }
-                                                })
+                                                });
                                             }}
-                                        />
+                                        /> */}
                                     </div>
 
                                     {fields.map((field, index) => (
-                                        <div key={index} className="bg-white p-4 rounded shadow relative">
+                                        <div
+                                            key={index}
+                                            className="bg-white p-4 rounded shadow relative"
+                                        >
                                             <button
                                                 onClick={() => removeField(index)}
                                                 className="absolute top-2 right-2 text-red-500"
@@ -546,7 +551,9 @@ export default function CreateForm() {
                                                     type="text"
                                                     value={field.title}
                                                     onChange={(e) =>
-                                                        updateField(index, { title: e.target.value })
+                                                        updateField(index, {
+                                                            title: e.target.value
+                                                        })
                                                     }
                                                     className="w-full p-2 border rounded"
                                                     placeholder="欄位標識符 (例如: first_name)"
@@ -555,7 +562,9 @@ export default function CreateForm() {
                                                     type="text"
                                                     value={field.display_title}
                                                     onChange={(e) =>
-                                                        updateField(index, { display_title: e.target.value })
+                                                        updateField(index, {
+                                                            display_title: e.target.value
+                                                        })
                                                     }
                                                     className="w-full p-2 border rounded"
                                                     placeholder="顯示標題 (例如: First Name 名字)"
@@ -583,82 +592,96 @@ export default function CreateForm() {
                                                     <option value="file">文件</option>
                                                 </select>
 
-                                                {['radio', 'checkboxes', 'select'].includes(field.widget || '') && (
-                                                    <div className="space-y-2">
-                                                        <div className="flex items-center justify-between mb-2">
-                                                            <span className="text-sm font-medium">
-                                                                選項列表
-                                                            </span>
-                                                            <button
-                                                                type="button"
-                                                                onClick={() => {
-                                                                    const newOptions = [
-                                                                        ...(field.options || []),
-                                                                        {
-                                                                            id: Math.random()
-                                                                                .toString(36)
-                                                                                .substr(2, 9),
-                                                                            value: ''
-                                                                        }
-                                                                    ];
-                                                                    updateField(index, { options: newOptions });
-                                                                }}
-                                                                className="text-blue-500 text-sm hover:text-blue-600"
-                                                            >
-                                                                + 添加選項
-                                                            </button>
-                                                        </div>
-                                                        {field.options?.map((option, optionIndex) => (
-                                                            <div
-                                                                key={option.id}
-                                                                className="flex items-center gap-2"
-                                                            >
-                                                                <input
-                                                                    type="text"
-                                                                    value={option.value}
-                                                                    onChange={(e) => {
-                                                                        const newOptions = field.options?.map(
-                                                                            (opt, idx) =>
-                                                                                idx === optionIndex
-                                                                                    ? {
-                                                                                        ...opt,
-                                                                                        value: e.target.value
-                                                                                    }
-                                                                                    : opt
-                                                                        );
-                                                                        updateField(index, {
-                                                                            options: newOptions
-                                                                        });
-                                                                    }}
-                                                                    className="flex-1 p-2 border rounded"
-                                                                    placeholder={`選項 ${optionIndex + 1}`}
-                                                                />
+                                                {['radio', 'checkboxes', 'select'].includes(
+                                                    field.widget || ''
+                                                ) && (
+                                                        <div className="space-y-2">
+                                                            <div className="flex items-center justify-between mb-2">
+                                                                <span className="text-sm font-medium">
+                                                                    選項列表
+                                                                </span>
                                                                 <button
                                                                     type="button"
                                                                     onClick={() => {
-                                                                        const newOptions =
-                                                                            field.options?.filter(
-                                                                                (_, idx) => idx !== optionIndex
-                                                                            );
+                                                                        const newOptions = [
+                                                                            ...(field.options || []),
+                                                                            {
+                                                                                id: Math.random()
+                                                                                    .toString(36)
+                                                                                    .substr(2, 9),
+                                                                                value: ''
+                                                                            }
+                                                                        ];
                                                                         updateField(index, {
                                                                             options: newOptions
                                                                         });
                                                                     }}
-                                                                    className="text-red-500 hover:text-red-600"
+                                                                    className="text-blue-500 text-sm hover:text-blue-600"
                                                                 >
-                                                                    <X className="w-4 h-4" />
+                                                                    + 添加選項
                                                                 </button>
                                                             </div>
-                                                        ))}
-                                                    </div>
-                                                )}
+                                                            {field.options?.map(
+                                                                (option, optionIndex) => (
+                                                                    <div
+                                                                        key={option.id}
+                                                                        className="flex items-center gap-2"
+                                                                    >
+                                                                        <input
+                                                                            type="text"
+                                                                            value={option.value}
+                                                                            onChange={(e) => {
+                                                                                const newOptions =
+                                                                                    field.options?.map(
+                                                                                        (opt, idx) =>
+                                                                                            idx ===
+                                                                                                optionIndex
+                                                                                                ? {
+                                                                                                    ...opt,
+                                                                                                    value: e
+                                                                                                        .target
+                                                                                                        .value
+                                                                                                }
+                                                                                                : opt
+                                                                                    );
+                                                                                updateField(index, {
+                                                                                    options: newOptions
+                                                                                });
+                                                                            }}
+                                                                            className="flex-1 p-2 border rounded"
+                                                                            placeholder={`選項 ${optionIndex + 1}`}
+                                                                        />
+                                                                        <button
+                                                                            type="button"
+                                                                            onClick={() => {
+                                                                                const newOptions =
+                                                                                    field.options?.filter(
+                                                                                        (_, idx) =>
+                                                                                            idx !==
+                                                                                            optionIndex
+                                                                                    );
+                                                                                updateField(index, {
+                                                                                    options: newOptions
+                                                                                });
+                                                                            }}
+                                                                            className="text-red-500 hover:text-red-600"
+                                                                        >
+                                                                            <X className="w-4 h-4" />
+                                                                        </button>
+                                                                    </div>
+                                                                )
+                                                            )}
+                                                        </div>
+                                                    )}
 
                                                 <label className="flex items-center">
                                                     <input
                                                         type="checkbox"
                                                         checked={field.required}
                                                         onChange={(e) =>
-                                                            updateField(index, { required: e.target.checked })
+                                                            updateField(index, {
+                                                                required: e.target.checked
+                                                            })
                                                         }
                                                         className="mr-2"
                                                     />
@@ -724,7 +747,9 @@ export default function CreateForm() {
                                                 <input
                                                     type="checkbox"
                                                     checked={emailEnabled}
-                                                    onChange={(e) => setEmailEnabled(e.target.checked)}
+                                                    onChange={(e) =>
+                                                        setEmailEnabled(e.target.checked)
+                                                    }
                                                     className="mr-2"
                                                 />
                                                 啟用郵件通知
@@ -755,13 +780,13 @@ export default function CreateForm() {
                                                         }}
                                                         className="w-full p-2 border rounded mb-4"
                                                     >
-                                                        {Object.entries(DEFAULT_EMAIL_TEMPLATES).map(
-                                                            ([key, template]) => (
-                                                                <option key={key} value={key}>
-                                                                    {template.name}
-                                                                </option>
-                                                            )
-                                                        )}
+                                                        {Object.entries(
+                                                            DEFAULT_EMAIL_TEMPLATES
+                                                        ).map(([key, template]) => (
+                                                            <option key={key} value={key}>
+                                                                {template.name}
+                                                            </option>
+                                                        ))}
                                                     </select>
                                                 </div>
 
@@ -790,26 +815,34 @@ export default function CreateForm() {
                                                     <div className="border rounded p-2 bg-gray-50">
                                                         <div className="mb-2 text-sm text-gray-600">
                                                             可用變數：
-                                                            {emailTemplate.placeholders.map((placeholder) => (
-                                                                <span
-                                                                    key={placeholder}
-                                                                    className="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs mr-2 mb-1 cursor-pointer"
-                                                                    onClick={() => {
-                                                                        const textToInsert = `{{${placeholder}}}`;
-                                                                        // 在編輯器中插入變數
-                                                                        setEmailTemplate((prev) => ({
-                                                                            ...prev,
-                                                                            html_content:
-                                                                                prev.html_content + textToInsert
-                                                                        }));
-                                                                    }}
-                                                                >
-                                                                    {`{{${placeholder}}}`}
-                                                                </span>
-                                                            ))}
+                                                            {emailTemplate.placeholders.map(
+                                                                (placeholder) => (
+                                                                    <span
+                                                                        key={placeholder}
+                                                                        className="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs mr-2 mb-1 cursor-pointer"
+                                                                        onClick={() => {
+                                                                            const textToInsert = `{{${placeholder}}}`;
+                                                                            // 在編輯器中插入變數
+                                                                            setEmailTemplate(
+                                                                                (prev) => ({
+                                                                                    ...prev,
+                                                                                    html_content:
+                                                                                        prev.html_content +
+                                                                                        textToInsert
+                                                                                })
+                                                                            );
+                                                                        }}
+                                                                    >
+                                                                        {`{{${placeholder}}}`}
+                                                                    </span>
+                                                                )
+                                                            )}
                                                         </div>
                                                         <Editor
-                                                            apiKey={process.env.NEXT_PUBLIC_TINYMCE_API_KEY}
+                                                            apiKey={
+                                                                process.env
+                                                                    .NEXT_PUBLIC_TINYMCE_API_KEY
+                                                            }
                                                             value={emailTemplate.html_content}
                                                             init={{
                                                                 height: 400,
@@ -868,7 +901,8 @@ export default function CreateForm() {
                                                         <ModalCloseButton />
                                                         <ModalBody className="p-6">
                                                             <div className="mb-4 p-2 bg-gray-100 rounded">
-                                                                <strong>主題：</strong> {emailTemplate.subject}
+                                                                <strong>主題：</strong>{' '}
+                                                                {emailTemplate.subject}
                                                             </div>
                                                             <div
                                                                 style={{
@@ -880,7 +914,8 @@ export default function CreateForm() {
                                                             >
                                                                 <div
                                                                     style={{
-                                                                        fontFamily: 'Arial, sans-serif',
+                                                                        fontFamily:
+                                                                            'Arial, sans-serif',
                                                                         lineHeight: 1.6,
                                                                         color: '#333',
                                                                         width: '80%',
@@ -935,6 +970,6 @@ export default function CreateForm() {
                     </ChakraProvider>
                 </div>
             </Box>
-        </CssVarsProvider >
+        </CssVarsProvider>
     );
 }

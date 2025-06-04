@@ -18,7 +18,6 @@ export interface Submission {
     check_in_at: string;
 }
 
-
 export interface EventForm {
     id: string;
     name: string;
@@ -39,7 +38,6 @@ export interface EventForm {
 }
 
 function FormSubmissionsContainer() {
-
     const router = useRouter();
     const [submissions, setSubmissions] = useState<Submission[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
@@ -161,7 +159,7 @@ function FormSubmissionsContainer() {
             } else {
                 alert('無法手動簽到');
             }
-        } catch (err: any) { }
+        } catch (err: any) {}
     };
 
     const handleCheckout = async (qrcode_id: string) => {
@@ -210,7 +208,7 @@ function FormSubmissionsContainer() {
             } else {
                 alert('無法刪除');
             }
-        } catch (err: any) { }
+        } catch (err: any) {}
     };
 
     const handleResendEmail = async (form_submission_id: string) => {
@@ -230,7 +228,7 @@ function FormSubmissionsContainer() {
             } else {
                 alert(response.data.message || '重發失敗');
             }
-        } catch (err: any) { }
+        } catch (err: any) {}
     };
 
     const handleSearch = async (query: string) => {
@@ -265,7 +263,9 @@ function FormSubmissionsContainer() {
     const fetchFormDetails = async () => {
         try {
             const formId = params['id'] || process.env.NEXT_PUBLIC_FORM_ID;
-            const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/forms/${formId}`);
+            const response = await axios.get(
+                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/forms/${formId}`
+            );
             if (response.data.success) {
                 console.log('Form Details:', response.data.form);
                 setFormDetails(response.data.form);
@@ -289,4 +289,4 @@ function FormSubmissionsContainer() {
     );
 }
 
-export default FormSubmissionsContainer; 
+export default FormSubmissionsContainer;

@@ -20,7 +20,7 @@ export function saveQuestions(
     question_id: number,
     articleEdited: boolean,
     articleTitleEdited: boolean,
-    saveForm: ({ }: any) => void
+    saveForm: ({}: any) => void
 ) {
     const { paperName, teacherName, selectedQuestions, ok } = getFormValues(formData) ?? {};
     if (!ok) return;
@@ -66,8 +66,8 @@ export function saveQuestions(
                     formData.get('answer_' + index) ||
                     formData.get(
                         `option_${
-                        // the correct option index for the question
-                        formData.get('correct_option_' + index)
+                            // the correct option index for the question
+                            formData.get('correct_option_' + index)
                         }_${index}`
                     ),
                 choices,
@@ -121,8 +121,8 @@ export function saveAsPDF(
                     formData.get('answer_' + index) ||
                     formData.get(
                         `option_${
-                        // the correct option index for the question
-                        formData.get('correct_option_' + index)
+                            // the correct option index for the question
+                            formData.get('correct_option_' + index)
                         }_${index}`
                     ),
                 options: options,
@@ -161,5 +161,3 @@ const readFileData = (file: Blob) => {
         reader.readAsDataURL(file);
     });
 };
-
-

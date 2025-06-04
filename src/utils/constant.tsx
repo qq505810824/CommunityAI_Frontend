@@ -383,8 +383,7 @@ export const AdminMeuns = [
         href: '/admin/calendars',
         icon: <DvrIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
         items: []
-    }
-    ,
+    },
     {
         name: '表單列表',
         href: '/admin/forms',

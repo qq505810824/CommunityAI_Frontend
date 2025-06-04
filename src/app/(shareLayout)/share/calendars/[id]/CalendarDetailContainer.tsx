@@ -49,7 +49,7 @@ function CalendarDetailContainer() {
             };
             setProduct(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     const get_drives = async () => {

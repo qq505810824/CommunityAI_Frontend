@@ -1,11 +1,4 @@
-
-import {
-    BarChart2,
-    Eye,
-    FileText,
-    Settings,
-    User
-} from 'lucide-react';
+import { BarChart2, Eye, FileText, Settings, User } from 'lucide-react';
 import moment from 'moment';
 import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -21,14 +14,7 @@ interface ViewProps {
 }
 
 function FormSubmissionsView(props: ViewProps) {
-    const {
-        submissions,
-        formDetails,
-        meta,
-        handleCheckin,
-        handleCheckout,
-        handleResendEmail
-    } =
+    const { submissions, formDetails, meta, handleCheckin, handleCheckout, handleResendEmail } =
         props;
     const params = useParams();
     const [showFormDetails, setShowFormDetails] = useState(false);
@@ -124,10 +110,10 @@ function FormSubmissionsView(props: ViewProps) {
                                                                 {formDetails.json_schema.required?.includes(
                                                                     key
                                                                 ) && (
-                                                                        <span className="text-red-500 ml-2">
-                                                                            必填
-                                                                        </span>
-                                                                    )}
+                                                                    <span className="text-red-500 ml-2">
+                                                                        必填
+                                                                    </span>
+                                                                )}
                                                             </span>
                                                             {field.enum && (
                                                                 <span className="text-sm text-gray-600">
@@ -185,7 +171,9 @@ function FormSubmissionsView(props: ViewProps) {
                             <tbody>
                                 {submissions?.map((submission, index) => (
                                     <tr key={submission.qrcode_id} className="hover:bg-gray-100">
-                                        <td className="border-b px-4 py-2 text-center">{index + 1}</td>
+                                        <td className="border-b px-4 py-2 text-center">
+                                            {index + 1}
+                                        </td>
                                         {formDetails?.json_schema?.properties &&
                                             Object.entries(formDetails.json_schema.properties).map(
                                                 ([key, field]: [string, any]) => {
@@ -239,8 +227,12 @@ function FormSubmissionsView(props: ViewProps) {
                                                     <span
                                                         className="text-blue-500 text-sm flex items-center cursor-pointer"
                                                         onClick={() => {
-                                                            if (window.confirm('確定要取消簽到嗎？')) {
-                                                                handleCheckout(submission.qrcode_id);
+                                                            if (
+                                                                window.confirm('確定要取消簽到嗎？')
+                                                            ) {
+                                                                handleCheckout(
+                                                                    submission.qrcode_id
+                                                                );
                                                             }
                                                         }}
                                                     >
@@ -289,8 +281,7 @@ function FormSubmissionsView(props: ViewProps) {
                 </div>
             </div>
         </>
-    )
+    );
 }
-
 
 export default FormSubmissionsView;

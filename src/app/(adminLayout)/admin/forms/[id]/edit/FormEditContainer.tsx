@@ -12,19 +12,19 @@ export interface FormField {
     required: boolean;
     options?: { id: string; value: string }[];
     widget?:
-    | 'text'
-    | 'textarea'
-    | 'select'
-    | 'radio'
-    | 'checkboxes'
-    | 'date'
-    | 'time'
-    | 'datetime'
-    | 'email'
-    | 'password'
-    | 'number'
-    | 'range'
-    | 'file';
+        | 'text'
+        | 'textarea'
+        | 'select'
+        | 'radio'
+        | 'checkboxes'
+        | 'date'
+        | 'time'
+        | 'datetime'
+        | 'email'
+        | 'password'
+        | 'number'
+        | 'range'
+        | 'file';
     format?: 'date' | 'time' | 'date-time' | 'email' | 'string' | 'uri' | 'uuid';
     minimum?: number;
     maximum?: number;
@@ -36,7 +36,6 @@ interface EmailTemplate {
     html_content: string;
     placeholders: string[];
 }
-
 
 const DEFAULT_EMAIL_TEMPLATES = {
     default: {
@@ -95,9 +94,7 @@ const DEFAULT_EMAIL_TEMPLATES = {
     }
 };
 
-
 function FormEditContainer() {
-
     const router = useRouter();
     const params = useParams();
     const [submitting, setSubmitting] = useState(false);
@@ -122,7 +119,7 @@ function FormEditContainer() {
             title: '',
             description: ''
         }
-    })
+    });
     useEffect(() => {
         fetchFormDataById();
     }, [params]);
@@ -138,7 +135,7 @@ function FormEditContainer() {
         // console.log('response', response.data);
 
         if (response.data.success) {
-            initForm(response.data.form)
+            initForm(response.data.form);
 
             // setFormData(response.data.form);
         } else {
@@ -151,7 +148,7 @@ function FormEditContainer() {
         setFormDescription(form.description || '');
         setIsActive(form.is_active || false);
         setEmailEnabled(form.email_enabled || false);
-        setMeta(form?.meta)
+        setMeta(form?.meta);
 
         // 解析 fields，按 display_order 排序
         if (form.json_schema && form.json_schema.properties) {
@@ -191,7 +188,6 @@ function FormEditContainer() {
                     };
                 }
 
-
                 return {
                     title: key,
                     display_title: value?.title || '',
@@ -200,9 +196,9 @@ function FormEditContainer() {
                     widget,
                     options: value?.enum
                         ? value?.enum.map((v: string, idx: number) => ({
-                            id: `${key}_opt_${idx}`,
-                            value: v
-                        }))
+                              id: `${key}_opt_${idx}`,
+                              value: v
+                          }))
                         : undefined,
                     minimum: value?.minimum,
                     maximum: value?.maximum
@@ -220,7 +216,7 @@ function FormEditContainer() {
                 placeholders: form.email_template.placeholders || []
             });
         }
-    }
+    };
 
     // 當表單欄位更新時，自動更新可用的變數列表
     useEffect(() => {
@@ -468,7 +464,7 @@ function FormEditContainer() {
 
             if (response.data.success) {
                 alert('表單更新成功！');
-                router.back()
+                router.back();
             }
         } catch (error: any) {
             console.error('更新表單錯誤:', error);
@@ -512,7 +508,6 @@ function FormEditContainer() {
         return examples[placeholder] || `[${placeholder}]`;
     };
 
-
     return (
         <FormEditView
             {...{
@@ -534,4 +529,4 @@ function FormEditContainer() {
     );
 }
 
-export default FormEditContainer; 
+export default FormEditContainer;
