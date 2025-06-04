@@ -35,7 +35,7 @@ function FormSubmissionsView(props: ViewProps) {
     const router = useRouter();
     return (
         <>
-            <div className="container mx-auto p-4">
+            <div className="mx-auto p-4">
                 <div className="flex flex-row items-center justify-between mb-4 hidden">
                     <div className="flex items-center gap-2">
                         <button

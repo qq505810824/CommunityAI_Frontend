@@ -6,18 +6,17 @@ const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-export async function GET(req: Request) {
+export async function POST(req: Request) {
     try {
-        const { data, error } = await supabase
-            .from('forms')
-            .select('*')
-            .order('created_at', { ascending: false });
+        const body = await req.json();
+        // console.log('Received body:', body);
+        const { data, error } = await supabase.from('form_submissions').insert([body.form_submission]).select();
         // console.log('Fetched forms:', data);
 
         if (error) {
             throw error;
         }
-        return NextResponse.json({ success: true, forms: data });
+        return NextResponse.json({ success: true, data });
     } catch (error) {
         return NextResponse.json({ error: 'Failed to fetch data' });
     }

@@ -44,10 +44,17 @@ export default function FormDetail() {
         const formId = params['id'] || process.env.NEXT_PUBLIC_FORM_ID;
         const response = await axios.get(
             `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/forms/${formId}`
+            // `/api/admin/forms/${formId}`
         );
         setLoading(false);
         if (response.data.success) {
-            setFormData(response.data.form);
+            const form = response.data.form;
+            form.ui_schema = {
+                ...form.ui_schema,
+                'ui:order': form.display_order
+            };
+            setFormData(form);
+            // setFormData(response.data.form);
         } else {
             alert(response.data.error?.toString() || 'error');
         }
@@ -62,10 +69,11 @@ export default function FormDetail() {
             const formId = params['id'] || process.env.NEXT_PUBLIC_FORM_ID;
             const response = await axios.post(
                 `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/form_submissions`,
+                // `/api/form_submissions`,
                 { form_submission: { form_id: formId, submission_data: submitData } }
             );
             setSubmitting(false);
-            setQrCode(response.data.form_submission.qrcode_id);
+            // setQrCode(response.data.form_submission.qrcode_id);
         } catch (error) {
             setSubmitting(false);
             console.error(error);

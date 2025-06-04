@@ -132,6 +132,7 @@ function FormEditContainer() {
         const formId = params['id'] || process.env.NEXT_PUBLIC_FORM_ID;
         const response = await axios.get(
             `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/forms/${formId}`
+            // `/api/admin/forms/${formId}`
         );
         setLoading(false);
         // console.log('response', response.data);
@@ -436,6 +437,7 @@ function FormEditContainer() {
 
             const response = await axios.put(
                 `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/admin/forms/${params['id']}`,
+                // `/api/admin/forms/${params['id']}`,
                 {
                     form: {
                         name: formTitle,
