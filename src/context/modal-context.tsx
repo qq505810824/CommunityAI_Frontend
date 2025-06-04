@@ -2,6 +2,7 @@
 
 import Confirm from '@/app/components/base/confirm';
 import InputNameModal from '@/app/components/common/Widget/modals/InputNameModal';
+import ShareQRcodeModal from '@/app/components/common/Widget/ShareQRcodeModal';
 import type { ApiBasedExtension } from '@/models/common';
 import { BaseInputExtension } from '@/models/modals';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -19,11 +20,13 @@ export type ModalState<T> = {
 const ModalContext = createContext<{
     setShowApiBasedExtensionModal: Dispatch<SetStateAction<ModalState<ApiBasedExtension> | null>>;
     setInputNameModal: Dispatch<SetStateAction<ModalState<BaseInputExtension> | null>>;
+    setShowShareQRcode: Dispatch<SetStateAction<ModalState<any> | null>>;
     setShowConfirmDelete: Dispatch<SetStateAction<ModalState<any> | null>>;
 }>({
-    setShowApiBasedExtensionModal: () => {},
-    setInputNameModal: () => {},
-    setShowConfirmDelete: () => {}
+    setShowApiBasedExtensionModal: () => { },
+    setInputNameModal: () => { },
+    setShowShareQRcode: () => { },
+    setShowConfirmDelete: () => { }
 });
 
 export const useModalContext = () => useContext(ModalContext);
@@ -39,6 +42,9 @@ export const ModalContextProvider = ({ children }: ModalContextProviderProps) =>
     const [showInputNameModal, setInputNameModal] = useState<ModalState<BaseInputExtension> | null>(
         null
     );
+
+    const [showShareQRcode, setShowShareQRcode] = useState<ModalState<any> | null>(null);
+
     const searchParams = useSearchParams();
     const router = useRouter();
 
@@ -66,6 +72,7 @@ export const ModalContextProvider = ({ children }: ModalContextProviderProps) =>
             value={{
                 setShowApiBasedExtensionModal,
                 setInputNameModal,
+                setShowShareQRcode,
                 setShowConfirmDelete
             }}
         >
@@ -89,6 +96,17 @@ export const ModalContextProvider = ({ children }: ModalContextProviderProps) =>
                         onClose={() => setShowConfirmDelete(null)}
                         onConfirm={onConfirmDelete}
                         onCancel={() => setShowConfirmDelete(null)}
+                    />
+                )}
+
+                {!!showShareQRcode && (
+                    <ShareQRcodeModal
+                        visable={showShareQRcode != null}
+                        link={`${showShareQRcode.payload?.link}`}
+                        name={showShareQRcode.payload.name}
+                        cancelClick={() => {
+                            setShowShareQRcode(null);
+                        }}
                     />
                 )}
                 {/* {
