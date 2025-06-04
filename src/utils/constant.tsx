@@ -386,7 +386,7 @@ export const AdminMeuns = [
     },
     {
         name: '用户列表',
-        href: '/admin/accounts',
+        href: '/admin/users',
         icon: <PeopleIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
         items: []
     }
