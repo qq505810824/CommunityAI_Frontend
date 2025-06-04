@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 // import Form from '@rjsf/core';
+import Header from '@/app/components/admin/Header';
+import Sidebar from '@/app/components/admin/Sidebar';
 import {
     ChakraProvider,
     Modal,
@@ -11,8 +13,10 @@ import {
     ModalHeader,
     ModalOverlay
 } from '@chakra-ui/react';
+import { Box, CssBaseline, CssVarsProvider } from '@mui/joy';
 import Form from '@rjsf/chakra-ui';
 import validator from '@rjsf/validator-ajv8';
+import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios';
 import { ChevronLeft, PlusCircle, X } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -24,18 +28,19 @@ interface FormField {
     required: boolean;
     options?: { id: string; value: string }[];
     widget?:
-        | 'text'
-        | 'textarea'
-        | 'select'
-        | 'radio'
-        | 'checkboxes'
-        | 'date'
-        | 'time'
-        | 'datetime'
-        | 'email'
-        | 'password'
-        | 'number'
-        | 'range';
+    | 'text'
+    | 'textarea'
+    | 'select'
+    | 'radio'
+    | 'checkboxes'
+    | 'date'
+    | 'time'
+    | 'datetime'
+    | 'email'
+    | 'password'
+    | 'number'
+    | 'range'
+    | 'file';
     format?: 'date' | 'time' | 'date-time' | 'email' | 'string' | 'uri' | 'uuid';
     minimum?: number;
     maximum?: number;
@@ -123,7 +128,12 @@ export default function CreateForm() {
     const [isPreviewOpen, setIsPreviewOpen] = useState(false);
     const [previewContent, setPreviewContent] = useState('');
     const [selectedTemplate, setSelectedTemplate] = useState<string>('default');
-
+    const [meta, setMeta] = useState({
+        display: {
+            title: '',
+            description: ''
+        }
+    })
     // 當表單欄位更新時，自動更新可用的變數列表
     useEffect(() => {
         if (emailEnabled) {
@@ -179,6 +189,8 @@ export default function CreateForm() {
                 return 'array';
             case 'radio':
                 return 'string';
+            case 'select':
+                return 'string';
             default:
                 return 'string';
         }
@@ -204,6 +216,7 @@ export default function CreateForm() {
             type: 'object',
             title: formTitle,
             description: formDescription,
+            meta: meta,
             properties: {},
             required: []
         };
@@ -257,6 +270,11 @@ export default function CreateForm() {
                     orderedProperties[fieldId].enum = field.options?.map((opt) => opt.value) || [];
                     uiSchema[fieldId] = {
                         'ui:widget': 'radio'
+                    };
+                } else if (field.widget === 'select') {
+                    orderedProperties[fieldId].enum = field.options?.map((opt) => opt.value) || [];
+                    uiSchema[fieldId] = {
+                        'ui:widget': 'select'
                     };
                 } else if (field.widget) {
                     uiSchema[fieldId] = {
@@ -329,18 +347,9 @@ export default function CreateForm() {
                 const fieldId = field.title.toLowerCase().replace(/\s+/g, '_');
                 formData[fieldId] = '';
             });
-            console.log('Form Data:', {
-                name: formTitle,
-                description: formDescription,
-                json_schema: jsonSchema,
-                ui_schema: uiSchema,
-                display_order: displayOrder,
-                email_enabled: emailEnabled,
-                is_active: isActive,
-                form_data: formData
-            });
+
             const response = await axios.post(
-                `/api/admin/forms/create`,
+                `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/admin/forms`,
                 {
                     form: {
                         name: formTitle,
@@ -351,6 +360,7 @@ export default function CreateForm() {
                         email_enabled: emailEnabled,
                         is_active: isActive,
                         form_data: formData,
+                        meta: meta,
                         ...(emailEnabled && {
                             email_template_attributes: {
                                 name: emailTemplate.name,
@@ -415,445 +425,515 @@ export default function CreateForm() {
     };
 
     return (
-        <ChakraProvider>
-            <div className="container mx-auto p-4">
-                <div className="flex items-center mb-6">
-                    <button
-                        onClick={() => router.back()}
-                        className="mr-4 hover:text-gray-600 transition-colors"
-                    >
-                        <ChevronLeft className="w-6 h-6" />
-                    </button>
-                    <h1 className="text-2xl font-bold">創建新表單</h1>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-4">
-                        <div className="bg-white p-4 rounded shadow">
-                            <div className="flex justify-between items-center mb-4">
-                                <input
-                                    type="text"
-                                    value={formTitle}
-                                    onChange={(e) => setFormTitle(e.target.value)}
-                                    className="w-full text-xl font-bold mb-2 p-2 border rounded"
-                                    placeholder="表單標題"
-                                />
-                                <label className="flex items-center cursor-pointer ml-4">
-                                    <input
-                                        type="checkbox"
-                                        checked={isActive}
-                                        onChange={(e) => setIsActive(e.target.checked)}
-                                        className="mr-2"
-                                    />
-                                    <span className="text-sm">啟用表單</span>
-                                </label>
-                            </div>
-                            <textarea
-                                value={formDescription}
-                                onChange={(e) => setFormDescription(e.target.value)}
-                                className="w-full p-2 border rounded"
-                                placeholder="表單描述"
-                                rows={3}
-                            />
-                        </div>
-
-                        {fields.map((field, index) => (
-                            <div key={index} className="bg-white p-4 rounded shadow relative">
+        <CssVarsProvider disableTransitionOnChange>
+            <CssBaseline />
+            <Box sx={{ display: 'flex', height: '100dvh' }}>
+                <Sidebar />
+                {/* <AgentList /> */}
+                <div className="w-full flex flex-col flex-1">
+                    <Header />
+                    <div className="w-full p-2 overflow-auto flex-1"></div>
+                    <ChakraProvider>
+                        <div className="container mx-auto p-4">
+                            <div className="flex items-center mb-6">
                                 <button
-                                    onClick={() => removeField(index)}
-                                    className="absolute top-2 right-2 text-red-500"
+                                    onClick={() => router.back()}
+                                    className="mr-4 hover:text-gray-600 transition-colors"
                                 >
-                                    <X className="w-5 h-5" />
+                                    <ChevronLeft className="w-6 h-6" />
                                 </button>
-                                <div className="space-y-2">
-                                    <input
-                                        type="text"
-                                        value={field.title}
-                                        onChange={(e) =>
-                                            updateField(index, { title: e.target.value })
-                                        }
-                                        className="w-full p-2 border rounded"
-                                        placeholder="欄位標識符 (例如: first_name)"
-                                    />
-                                    <input
-                                        type="text"
-                                        value={field.display_title}
-                                        onChange={(e) =>
-                                            updateField(index, { display_title: e.target.value })
-                                        }
-                                        className="w-full p-2 border rounded"
-                                        placeholder="顯示標題 (例如: First Name 名字)"
-                                    />
-                                    <select
-                                        value={field.widget}
-                                        onChange={(e) =>
-                                            updateField(index, {
-                                                widget: e.target.value as any,
-                                                type: getTypeForWidget(e.target.value)
-                                            })
-                                        }
-                                        className="w-full p-2 border rounded"
-                                    >
-                                        <option value="text">文字輸入</option>
-                                        <option value="textarea">多行文字</option>
-                                        <option value="number">數字</option>
-                                        <option value="date">日期</option>
-                                        <option value="time">時間</option>
-                                        <option value="datetime">日期時間</option>
-                                        <option value="email">電子郵件</option>
-                                        <option value="radio">單選按鈕</option>
-                                        <option value="checkboxes">多選框</option>
-                                    </select>
-
-                                    {['radio', 'checkboxes'].includes(field.widget || '') && (
-                                        <div className="space-y-2">
-                                            <div className="flex items-center justify-between mb-2">
-                                                <span className="text-sm font-medium">
-                                                    選項列表
-                                                </span>
-                                                <button
-                                                    type="button"
-                                                    onClick={() => {
-                                                        const newOptions = [
-                                                            ...(field.options || []),
-                                                            {
-                                                                id: Math.random()
-                                                                    .toString(36)
-                                                                    .substr(2, 9),
-                                                                value: ''
-                                                            }
-                                                        ];
-                                                        updateField(index, { options: newOptions });
-                                                    }}
-                                                    className="text-blue-500 text-sm hover:text-blue-600"
-                                                >
-                                                    + 添加選項
-                                                </button>
-                                            </div>
-                                            {field.options?.map((option, optionIndex) => (
-                                                <div
-                                                    key={option.id}
-                                                    className="flex items-center gap-2"
-                                                >
-                                                    <input
-                                                        type="text"
-                                                        value={option.value}
-                                                        onChange={(e) => {
-                                                            const newOptions = field.options?.map(
-                                                                (opt, idx) =>
-                                                                    idx === optionIndex
-                                                                        ? {
-                                                                              ...opt,
-                                                                              value: e.target.value
-                                                                          }
-                                                                        : opt
-                                                            );
-                                                            updateField(index, {
-                                                                options: newOptions
-                                                            });
-                                                        }}
-                                                        className="flex-1 p-2 border rounded"
-                                                        placeholder={`選項 ${optionIndex + 1}`}
-                                                    />
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => {
-                                                            const newOptions =
-                                                                field.options?.filter(
-                                                                    (_, idx) => idx !== optionIndex
-                                                                );
-                                                            updateField(index, {
-                                                                options: newOptions
-                                                            });
-                                                        }}
-                                                        className="text-red-500 hover:text-red-600"
-                                                    >
-                                                        <X className="w-4 h-4" />
-                                                    </button>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    )}
-
-                                    <label className="flex items-center">
-                                        <input
-                                            type="checkbox"
-                                            checked={field.required}
-                                            onChange={(e) =>
-                                                updateField(index, { required: e.target.checked })
-                                            }
-                                            className="mr-2"
-                                        />
-                                        必填欄位
-                                    </label>
-
-                                    {field.widget === 'number' && (
-                                        <div className="grid grid-cols-2 gap-2">
-                                            <div>
-                                                <label className="text-sm text-gray-600">
-                                                    最小值
-                                                </label>
-                                                <input
-                                                    type="number"
-                                                    value={field.minimum || ''}
-                                                    onChange={(e) =>
-                                                        updateField(index, {
-                                                            minimum: e.target.value
-                                                                ? Number(e.target.value)
-                                                                : undefined
-                                                        })
-                                                    }
-                                                    className="w-full p-2 border rounded"
-                                                    placeholder="最小值"
-                                                />
-                                            </div>
-                                            <div>
-                                                <label className="text-sm text-gray-600">
-                                                    最大值
-                                                </label>
-                                                <input
-                                                    type="number"
-                                                    value={field.maximum || ''}
-                                                    onChange={(e) =>
-                                                        updateField(index, {
-                                                            maximum: e.target.value
-                                                                ? Number(e.target.value)
-                                                                : undefined
-                                                        })
-                                                    }
-                                                    className="w-full p-2 border rounded"
-                                                    placeholder="最大值"
-                                                />
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
+                                <h1 className="text-2xl font-bold">創建新表單</h1>
                             </div>
-                        ))}
-
-                        <button
-                            onClick={addField}
-                            className="w-full p-4 border-2 border-dashed rounded-lg text-gray-500 hover:text-gray-700 hover:border-gray-400 flex items-center justify-center"
-                        >
-                            <PlusCircle className="w-6 h-6 mr-2" />
-                            添加新欄位
-                        </button>
-
-                        <div className="bg-white p-4 rounded shadow">
-                            <div className="flex items-center justify-between mb-4">
-                                <h3 className="text-lg font-semibold">郵件通知設置</h3>
-                                <label className="flex items-center cursor-pointer">
-                                    <input
-                                        type="checkbox"
-                                        checked={emailEnabled}
-                                        onChange={(e) => setEmailEnabled(e.target.checked)}
-                                        className="mr-2"
-                                    />
-                                    啟用郵件通知
-                                </label>
-                            </div>
-
-                            {emailEnabled && (
+                            <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                                            選擇預設模板
-                                        </label>
-                                        <select
-                                            value={selectedTemplate}
-                                            onChange={(e) => {
-                                                const template =
-                                                    DEFAULT_EMAIL_TEMPLATES[
-                                                        e.target
-                                                            .value as keyof typeof DEFAULT_EMAIL_TEMPLATES
-                                                    ];
-                                                setSelectedTemplate(e.target.value);
-                                                setEmailTemplate((prev) => ({
-                                                    ...prev,
-                                                    name: template.name,
-                                                    subject: template.subject,
-                                                    html_content: template.html_content
-                                                }));
-                                            }}
-                                            className="w-full p-2 border rounded mb-4"
-                                        >
-                                            {Object.entries(DEFAULT_EMAIL_TEMPLATES).map(
-                                                ([key, template]) => (
-                                                    <option key={key} value={key}>
-                                                        {template.name}
-                                                    </option>
-                                                )
-                                            )}
-                                        </select>
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                                            郵件主題
-                                        </label>
+                                    <div className="bg-white p-4 rounded shadow">
+                                        <div className="flex justify-between items-center mb-4">
+                                            <input
+                                                type="text"
+                                                value={formTitle}
+                                                onChange={(e) => setFormTitle(e.target.value)}
+                                                className="w-full text-xl font-bold mb-2 p-2 border rounded"
+                                                placeholder="表單標題"
+                                            />
+                                            <label className="flex items-center cursor-pointer ml-4">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={isActive}
+                                                    onChange={(e) => setIsActive(e.target.checked)}
+                                                    className="mr-2"
+                                                />
+                                                <span className="text-sm">啟用表單</span>
+                                            </label>
+                                        </div>
                                         <input
                                             type="text"
-                                            value={emailTemplate.subject}
-                                            onChange={(e) =>
-                                                setEmailTemplate((prev) => ({
-                                                    ...prev,
-                                                    subject: e.target.value
-                                                }))
-                                            }
+                                            value={meta?.display?.title || ''}
+                                            onChange={(e) => setMeta({
+                                                ...meta,
+                                                display: {
+                                                    ...meta.display,
+                                                    title: e.target.value
+                                                }
+                                            })}
+                                            className="w-full text-xl font-bold mb-2 p-2 border rounded"
+                                            placeholder="副標題"
+                                        />
+                                        <textarea
+                                            value={formDescription}
+                                            onChange={(e) => setFormDescription(e.target.value)}
                                             className="w-full p-2 border rounded"
-                                            placeholder="請輸入郵件主題"
+                                            placeholder="表單描述"
+                                            rows={3}
+                                        />
+                                        <p>表單簡介</p>
+                                        <Editor
+                                            id='description'
+                                            apiKey={process.env.NEXT_PUBLIC_TINYMCE_API_KEY}
+                                            value={meta?.display?.description || ''}
+                                            init={{
+                                                height: 400,
+                                                menubar: true,
+                                                plugins: [
+                                                    'advlist',
+                                                    'autolink',
+                                                    'lists',
+                                                    'link',
+                                                    'image',
+                                                    'charmap',
+                                                    'preview',
+                                                    'anchor',
+                                                    'searchreplace',
+                                                    'visualblocks',
+                                                    'code',
+                                                    'fullscreen',
+                                                    'insertdatetime',
+                                                    'media',
+                                                    'table',
+                                                    'help',
+                                                    'wordcount'
+                                                ],
+                                                toolbar:
+                                                    'undo redo | formatselect | ' +
+                                                    'bold italic backcolor | alignleft aligncenter ' +
+                                                    'alignright alignjustify | bullist numlist outdent indent | ' +
+                                                    'removeformat | help',
+                                                content_style:
+                                                    'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                                            }}
+                                            onEditorChange={(content: string) => {
+                                                setMeta({
+                                                    ...meta,
+                                                    display: {
+                                                        ...meta?.display,
+                                                        description: content
+                                                    }
+                                                })
+                                            }}
                                         />
                                     </div>
 
-                                    <div>
-                                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                                            郵件內容
-                                        </label>
-                                        <div className="border rounded p-2 bg-gray-50">
-                                            <div className="mb-2 text-sm text-gray-600">
-                                                可用變數：
-                                                {emailTemplate.placeholders.map((placeholder) => (
-                                                    <span
-                                                        key={placeholder}
-                                                        className="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs mr-2 mb-1 cursor-pointer"
-                                                        onClick={() => {
-                                                            const textToInsert = `{{${placeholder}}}`;
-                                                            // 在編輯器中插入變數
+                                    {fields.map((field, index) => (
+                                        <div key={index} className="bg-white p-4 rounded shadow relative">
+                                            <button
+                                                onClick={() => removeField(index)}
+                                                className="absolute top-2 right-2 text-red-500"
+                                            >
+                                                <X className="w-5 h-5" />
+                                            </button>
+                                            <div className="space-y-2">
+                                                <input
+                                                    type="text"
+                                                    value={field.title}
+                                                    onChange={(e) =>
+                                                        updateField(index, { title: e.target.value })
+                                                    }
+                                                    className="w-full p-2 border rounded"
+                                                    placeholder="欄位標識符 (例如: first_name)"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={field.display_title}
+                                                    onChange={(e) =>
+                                                        updateField(index, { display_title: e.target.value })
+                                                    }
+                                                    className="w-full p-2 border rounded"
+                                                    placeholder="顯示標題 (例如: First Name 名字)"
+                                                />
+                                                <select
+                                                    value={field.widget}
+                                                    onChange={(e) =>
+                                                        updateField(index, {
+                                                            widget: e.target.value as any,
+                                                            type: getTypeForWidget(e.target.value)
+                                                        })
+                                                    }
+                                                    className="w-full p-2 border rounded"
+                                                >
+                                                    <option value="text">文字輸入</option>
+                                                    <option value="textarea">多行文字</option>
+                                                    <option value="select">下拉選項</option>
+                                                    <option value="number">數字</option>
+                                                    <option value="date">日期</option>
+                                                    <option value="time">時間</option>
+                                                    <option value="datetime">日期時間</option>
+                                                    <option value="email">電子郵件</option>
+                                                    <option value="radio">單選按鈕</option>
+                                                    <option value="checkboxes">多選框</option>
+                                                    <option value="file">文件</option>
+                                                </select>
+
+                                                {['radio', 'checkboxes', 'select'].includes(field.widget || '') && (
+                                                    <div className="space-y-2">
+                                                        <div className="flex items-center justify-between mb-2">
+                                                            <span className="text-sm font-medium">
+                                                                選項列表
+                                                            </span>
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => {
+                                                                    const newOptions = [
+                                                                        ...(field.options || []),
+                                                                        {
+                                                                            id: Math.random()
+                                                                                .toString(36)
+                                                                                .substr(2, 9),
+                                                                            value: ''
+                                                                        }
+                                                                    ];
+                                                                    updateField(index, { options: newOptions });
+                                                                }}
+                                                                className="text-blue-500 text-sm hover:text-blue-600"
+                                                            >
+                                                                + 添加選項
+                                                            </button>
+                                                        </div>
+                                                        {field.options?.map((option, optionIndex) => (
+                                                            <div
+                                                                key={option.id}
+                                                                className="flex items-center gap-2"
+                                                            >
+                                                                <input
+                                                                    type="text"
+                                                                    value={option.value}
+                                                                    onChange={(e) => {
+                                                                        const newOptions = field.options?.map(
+                                                                            (opt, idx) =>
+                                                                                idx === optionIndex
+                                                                                    ? {
+                                                                                        ...opt,
+                                                                                        value: e.target.value
+                                                                                    }
+                                                                                    : opt
+                                                                        );
+                                                                        updateField(index, {
+                                                                            options: newOptions
+                                                                        });
+                                                                    }}
+                                                                    className="flex-1 p-2 border rounded"
+                                                                    placeholder={`選項 ${optionIndex + 1}`}
+                                                                />
+                                                                <button
+                                                                    type="button"
+                                                                    onClick={() => {
+                                                                        const newOptions =
+                                                                            field.options?.filter(
+                                                                                (_, idx) => idx !== optionIndex
+                                                                            );
+                                                                        updateField(index, {
+                                                                            options: newOptions
+                                                                        });
+                                                                    }}
+                                                                    className="text-red-500 hover:text-red-600"
+                                                                >
+                                                                    <X className="w-4 h-4" />
+                                                                </button>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                )}
+
+                                                <label className="flex items-center">
+                                                    <input
+                                                        type="checkbox"
+                                                        checked={field.required}
+                                                        onChange={(e) =>
+                                                            updateField(index, { required: e.target.checked })
+                                                        }
+                                                        className="mr-2"
+                                                    />
+                                                    必填欄位
+                                                </label>
+
+                                                {field.widget === 'number' && (
+                                                    <div className="grid grid-cols-2 gap-2">
+                                                        <div>
+                                                            <label className="text-sm text-gray-600">
+                                                                最小值
+                                                            </label>
+                                                            <input
+                                                                type="number"
+                                                                value={field.minimum || ''}
+                                                                onChange={(e) =>
+                                                                    updateField(index, {
+                                                                        minimum: e.target.value
+                                                                            ? Number(e.target.value)
+                                                                            : undefined
+                                                                    })
+                                                                }
+                                                                className="w-full p-2 border rounded"
+                                                                placeholder="最小值"
+                                                            />
+                                                        </div>
+                                                        <div>
+                                                            <label className="text-sm text-gray-600">
+                                                                最大值
+                                                            </label>
+                                                            <input
+                                                                type="number"
+                                                                value={field.maximum || ''}
+                                                                onChange={(e) =>
+                                                                    updateField(index, {
+                                                                        maximum: e.target.value
+                                                                            ? Number(e.target.value)
+                                                                            : undefined
+                                                                    })
+                                                                }
+                                                                className="w-full p-2 border rounded"
+                                                                placeholder="最大值"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    ))}
+
+                                    <button
+                                        onClick={addField}
+                                        className="w-full p-4 border-2 border-dashed rounded-lg text-gray-500 hover:text-gray-700 hover:border-gray-400 flex items-center justify-center"
+                                    >
+                                        <PlusCircle className="w-6 h-6 mr-2" />
+                                        添加新欄位
+                                    </button>
+
+                                    <div className="bg-white p-4 rounded shadow hidden">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <h3 className="text-lg font-semibold">郵件通知設置</h3>
+                                            <label className="flex items-center cursor-pointer">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={emailEnabled}
+                                                    onChange={(e) => setEmailEnabled(e.target.checked)}
+                                                    className="mr-2"
+                                                />
+                                                啟用郵件通知
+                                            </label>
+                                        </div>
+
+                                        {emailEnabled && (
+                                            <div className="space-y-4">
+                                                <div>
+                                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                                        選擇預設模板
+                                                    </label>
+                                                    <select
+                                                        value={selectedTemplate}
+                                                        onChange={(e) => {
+                                                            const template =
+                                                                DEFAULT_EMAIL_TEMPLATES[
+                                                                e.target
+                                                                    .value as keyof typeof DEFAULT_EMAIL_TEMPLATES
+                                                                ];
+                                                            setSelectedTemplate(e.target.value);
                                                             setEmailTemplate((prev) => ({
                                                                 ...prev,
-                                                                html_content:
-                                                                    prev.html_content + textToInsert
+                                                                name: template.name,
+                                                                subject: template.subject,
+                                                                html_content: template.html_content
                                                             }));
                                                         }}
+                                                        className="w-full p-2 border rounded mb-4"
                                                     >
-                                                        {`{{${placeholder}}}`}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                            {/* <Editor
-                                                apiKey={process.env.NEXT_PUBLIC_TINYMCE_API_KEY}
-                                                value={emailTemplate.html_content}
-                                                init={{
-                                                    height: 400,
-                                                    menubar: true,
-                                                    plugins: [
-                                                        'advlist',
-                                                        'autolink',
-                                                        'lists',
-                                                        'link',
-                                                        'image',
-                                                        'charmap',
-                                                        'preview',
-                                                        'anchor',
-                                                        'searchreplace',
-                                                        'visualblocks',
-                                                        'code',
-                                                        'fullscreen',
-                                                        'insertdatetime',
-                                                        'media',
-                                                        'table',
-                                                        'help',
-                                                        'wordcount'
-                                                    ],
-                                                    toolbar:
-                                                        'undo redo | formatselect | ' +
-                                                        'bold italic backcolor | alignleft aligncenter ' +
-                                                        'alignright alignjustify | bullist numlist outdent indent | ' +
-                                                        'removeformat | help',
-                                                    content_style:
-                                                        'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-                                                }}
-                                                onEditorChange={handleEditorChange}
-                                            /> */}
-                                        </div>
-                                    </div>
-
-                                    <div className="flex justify-end">
-                                        <button
-                                            type="button"
-                                            onClick={handlePreview}
-                                            className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition mr-2"
-                                        >
-                                            預覽郵件
-                                        </button>
-                                    </div>
-
-                                    {/* 郵件預覽模態框 */}
-                                    <Modal
-                                        isOpen={isPreviewOpen}
-                                        onClose={() => setIsPreviewOpen(false)}
-                                        size="4xl"
-                                    >
-                                        <ModalOverlay />
-                                        <ModalContent maxWidth="900px">
-                                            <ModalHeader>郵件預覽</ModalHeader>
-                                            <ModalCloseButton />
-                                            <ModalBody className="p-6">
-                                                <div className="mb-4 p-2 bg-gray-100 rounded">
-                                                    <strong>主題：</strong> {emailTemplate.subject}
+                                                        {Object.entries(DEFAULT_EMAIL_TEMPLATES).map(
+                                                            ([key, template]) => (
+                                                                <option key={key} value={key}>
+                                                                    {template.name}
+                                                                </option>
+                                                            )
+                                                        )}
+                                                    </select>
                                                 </div>
-                                                <div
-                                                    style={{
-                                                        border: '1px solid #ddd',
-                                                        borderRadius: '5px',
-                                                        padding: '20px',
-                                                        backgroundColor: '#fff'
-                                                    }}
-                                                >
-                                                    <div
-                                                        style={{
-                                                            fontFamily: 'Arial, sans-serif',
-                                                            lineHeight: 1.6,
-                                                            color: '#333',
-                                                            width: '80%',
-                                                            margin: '0 auto',
-                                                            padding: '20px',
-                                                            border: '1px solid #ddd',
-                                                            borderRadius: '5px',
-                                                            backgroundColor: '#f9f9f9'
-                                                        }}
-                                                        dangerouslySetInnerHTML={{
-                                                            __html: previewContent
-                                                        }}
+
+                                                <div>
+                                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                                        郵件主題
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        value={emailTemplate.subject}
+                                                        onChange={(e) =>
+                                                            setEmailTemplate((prev) => ({
+                                                                ...prev,
+                                                                subject: e.target.value
+                                                            }))
+                                                        }
+                                                        className="w-full p-2 border rounded"
+                                                        placeholder="請輸入郵件主題"
                                                     />
                                                 </div>
-                                            </ModalBody>
-                                        </ModalContent>
-                                    </Modal>
+
+                                                <div>
+                                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                                        郵件內容
+                                                    </label>
+                                                    <div className="border rounded p-2 bg-gray-50">
+                                                        <div className="mb-2 text-sm text-gray-600">
+                                                            可用變數：
+                                                            {emailTemplate.placeholders.map((placeholder) => (
+                                                                <span
+                                                                    key={placeholder}
+                                                                    className="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs mr-2 mb-1 cursor-pointer"
+                                                                    onClick={() => {
+                                                                        const textToInsert = `{{${placeholder}}}`;
+                                                                        // 在編輯器中插入變數
+                                                                        setEmailTemplate((prev) => ({
+                                                                            ...prev,
+                                                                            html_content:
+                                                                                prev.html_content + textToInsert
+                                                                        }));
+                                                                    }}
+                                                                >
+                                                                    {`{{${placeholder}}}`}
+                                                                </span>
+                                                            ))}
+                                                        </div>
+                                                        <Editor
+                                                            apiKey={process.env.NEXT_PUBLIC_TINYMCE_API_KEY}
+                                                            value={emailTemplate.html_content}
+                                                            init={{
+                                                                height: 400,
+                                                                menubar: true,
+                                                                plugins: [
+                                                                    'advlist',
+                                                                    'autolink',
+                                                                    'lists',
+                                                                    'link',
+                                                                    'image',
+                                                                    'charmap',
+                                                                    'preview',
+                                                                    'anchor',
+                                                                    'searchreplace',
+                                                                    'visualblocks',
+                                                                    'code',
+                                                                    'fullscreen',
+                                                                    'insertdatetime',
+                                                                    'media',
+                                                                    'table',
+                                                                    'help',
+                                                                    'wordcount'
+                                                                ],
+                                                                toolbar:
+                                                                    'undo redo | formatselect | ' +
+                                                                    'bold italic backcolor | alignleft aligncenter ' +
+                                                                    'alignright alignjustify | bullist numlist outdent indent | ' +
+                                                                    'removeformat | help',
+                                                                content_style:
+                                                                    'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                                                            }}
+                                                            onEditorChange={handleEditorChange}
+                                                        />
+                                                    </div>
+                                                </div>
+
+                                                <div className="flex justify-end">
+                                                    <button
+                                                        type="button"
+                                                        onClick={handlePreview}
+                                                        className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 transition mr-2"
+                                                    >
+                                                        預覽郵件
+                                                    </button>
+                                                </div>
+
+                                                {/* 郵件預覽模態框 */}
+                                                <Modal
+                                                    isOpen={isPreviewOpen}
+                                                    onClose={() => setIsPreviewOpen(false)}
+                                                    size="4xl"
+                                                >
+                                                    <ModalOverlay />
+                                                    <ModalContent maxWidth="900px">
+                                                        <ModalHeader>郵件預覽</ModalHeader>
+                                                        <ModalCloseButton />
+                                                        <ModalBody className="p-6">
+                                                            <div className="mb-4 p-2 bg-gray-100 rounded">
+                                                                <strong>主題：</strong> {emailTemplate.subject}
+                                                            </div>
+                                                            <div
+                                                                style={{
+                                                                    border: '1px solid #ddd',
+                                                                    borderRadius: '5px',
+                                                                    padding: '20px',
+                                                                    backgroundColor: '#fff'
+                                                                }}
+                                                            >
+                                                                <div
+                                                                    style={{
+                                                                        fontFamily: 'Arial, sans-serif',
+                                                                        lineHeight: 1.6,
+                                                                        color: '#333',
+                                                                        width: '80%',
+                                                                        margin: '0 auto',
+                                                                        padding: '20px',
+                                                                        border: '1px solid #ddd',
+                                                                        borderRadius: '5px',
+                                                                        backgroundColor: '#f9f9f9'
+                                                                    }}
+                                                                    dangerouslySetInnerHTML={{
+                                                                        __html: previewContent
+                                                                    }}
+                                                                />
+                                                            </div>
+                                                        </ModalBody>
+                                                    </ModalContent>
+                                                </Modal>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    <div className="fixed bottom-6 right-6">
+                                        <button
+                                            onClick={handleSave}
+                                            disabled={submitting}
+                                            className={`bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition flex items-center ${submitting ? 'opacity-50 cursor-not-allowed' : ''
+                                                }`}
+                                        >
+                                            {submitting ? (
+                                                <>
+                                                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                                                    保存中...
+                                                </>
+                                            ) : (
+                                                <>保存表單</>
+                                            )}
+                                        </button>
+                                    </div>
                                 </div>
-                            )}
-                        </div>
 
-                        <div className="fixed bottom-6 right-6">
-                            <button
-                                onClick={handleSave}
-                                disabled={submitting}
-                                className={`bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition flex items-center ${
-                                    submitting ? 'opacity-50 cursor-not-allowed' : ''
-                                }`}
-                            >
-                                {submitting ? (
-                                    <>
-                                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                                        保存中...
-                                    </>
-                                ) : (
-                                    <>保存表單</>
-                                )}
-                            </button>
+                                <div>
+                                    <h2 className="text-xl mb-2">表單預覽</h2>
+                                    <Form
+                                        schema={generateSchemas().jsonSchema}
+                                        uiSchema={generateSchemas().uiSchema}
+                                        validator={validator}
+                                        disabled={submitting}
+                                    />
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
-                    <div>
-                        <h2 className="text-xl mb-2">表單預覽</h2>
-                        <Form
-                            schema={generateSchemas().jsonSchema}
-                            uiSchema={generateSchemas().uiSchema}
-                            validator={validator}
-                            disabled={submitting}
-                        />
-                    </div>
+                    </ChakraProvider>
                 </div>
-            </div>
-        </ChakraProvider>
+            </Box>
+        </CssVarsProvider >
     );
 }

@@ -15,11 +15,11 @@ export default function UserItem(props: ViewProps) {
     const { updatePrompt } = usePromptOperations();
     const { setShowConfirmDelete } = useModalContext();
     const handleClick = () => {
-        if (user) router.push(`/accounts/${user.id}`);
+        // if (user) router.push(`/accounts/${user.id}`);
     };
 
     const handleEdit = () => {
-        if (user) router.push(`/admin/accounts/${user.id}/edit`);
+        // if (user) router.push(`/admin/accounts/${user.id}/edit`);
     };
 
     const handleDelete = () => {
