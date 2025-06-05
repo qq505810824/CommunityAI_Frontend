@@ -154,6 +154,9 @@ function CalendarDetailView(props: ViewProps) {
                                     </Button>
                                 )}
                             </div>
+                            {product?.form_url &&
+                                <iframe src={product?.form_url} width="100%" height="800"  >正在加載...</iframe>
+                            }
                         </div>
                         <div className="w-full sm:1/3">
                             <img

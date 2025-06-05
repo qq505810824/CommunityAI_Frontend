@@ -81,8 +81,8 @@ export const CalendarFormData = {
         pre_date_range: { type: 'string', title: '報名日期範圍', required: false, tip: '(選填)' },
         date_range: { type: 'string', title: '活動日期範圍', required: true, tip: '' },
         region: { type: 'string', title: '地區', required: true, tip: '' },
+        form_url: { type: 'string', title: '表單連結', required: false, tip: '(選填)' },
         reference_url: { type: 'string', title: '相關網址', required: false, tip: '(選填)' },
-        // pdf_url: { type: 'string', title: '相關文件地址(PDF文件)', required: false, tip: '(選填)' },
         files_url: { type: 'string', title: '相關文件', required: false, tip: '(選填)' },
         description: { type: 'string', title: '描述', required: true, tip: '' }
     },
@@ -124,7 +124,7 @@ export const CalendarFormData = {
             'ui:keys': { start_date: 'pre_from_date', end_date: 'pre_to_date' }
         },
         reference_url: { 'ui:widget': 'text' },
-        files_url: { 'ui:widget': 'upload' }
-        // pdf_urls: { 'ui:widget': 'upload' }
+        files_url: { 'ui:widget': 'upload' },
+        form_url: { 'ui:widget': 'text' }
     }
 };

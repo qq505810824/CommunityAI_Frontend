@@ -30,6 +30,7 @@ export interface CalendarModel {
     created_at: string;
     updated_at: string;
     region?: string;
+    form_url?: string;
 
     is_collected?: boolean;
     uploadFiles?: File[];
