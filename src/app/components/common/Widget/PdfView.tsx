@@ -17,7 +17,7 @@ export default function PdfView(props: { content: string }) {
             <iframe
                 src={embedUrl}
                 width="100%"
-                height="842px"
+                height="600px"
                 allow="autoplay"
                 style={{ border: 'none' }}
                 title="Google Drive PDF"
