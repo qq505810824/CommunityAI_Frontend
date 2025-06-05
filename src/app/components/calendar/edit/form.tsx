@@ -222,12 +222,13 @@ function CalendarEditForm(props: ViewProps) {
                                     'link',
                                     'wordcount',
                                     'preview',
-                                    'image'
+                                    'image',
+                                    'media'
                                     // 'imagetools'
                                 ],
                                 toolbar:
                                     'undo redo | blocks | ' +
-                                    'bold italic underline forecolor | link image alignleft aligncenter ' +
+                                    'bold italic underline forecolor | link image media alignleft aligncenter ' +
                                     'alignright alignjustify | bullist numlist outdent indent | ' +
                                     'removeformat',
                                 file_picker_types: 'image',
