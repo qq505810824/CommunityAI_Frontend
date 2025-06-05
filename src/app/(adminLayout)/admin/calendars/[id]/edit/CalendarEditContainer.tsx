@@ -40,10 +40,10 @@ const CalendarEditContainer = () => {
         const newFormData = {
             ...product,
             ...formData,
-            pdf_url:
+            files_url:
                 formData?.uploadFiles && formData?.uploadFiles.length > 0
                     ? upload_file_urls
-                    : formData?.pdf_url
+                    : formData?.files_url
             // user: localStorage?.getItem('user_id') || null
         };
 

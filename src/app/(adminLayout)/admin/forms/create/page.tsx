@@ -28,19 +28,19 @@ interface FormField {
     required: boolean;
     options?: { id: string; value: string }[];
     widget?:
-    | 'text'
-    | 'textarea'
-    | 'select'
-    | 'radio'
-    | 'checkboxes'
-    | 'date'
-    | 'time'
-    | 'datetime'
-    | 'email'
-    | 'password'
-    | 'number'
-    | 'range'
-    | 'file';
+        | 'text'
+        | 'textarea'
+        | 'select'
+        | 'radio'
+        | 'checkboxes'
+        | 'date'
+        | 'time'
+        | 'datetime'
+        | 'email'
+        | 'password'
+        | 'number'
+        | 'range'
+        | 'file';
     format?: 'date' | 'time' | 'date-time' | 'email' | 'string' | 'uri' | 'uuid';
     minimum?: number;
     maximum?: number;
@@ -595,84 +595,84 @@ export default function CreateForm() {
                                                 {['radio', 'checkboxes', 'select'].includes(
                                                     field.widget || ''
                                                 ) && (
-                                                        <div className="space-y-2">
-                                                            <div className="flex items-center justify-between mb-2">
-                                                                <span className="text-sm font-medium">
-                                                                    選項列表
-                                                                </span>
-                                                                <button
-                                                                    type="button"
-                                                                    onClick={() => {
-                                                                        const newOptions = [
-                                                                            ...(field.options || []),
-                                                                            {
-                                                                                id: Math.random()
-                                                                                    .toString(36)
-                                                                                    .substr(2, 9),
-                                                                                value: ''
-                                                                            }
-                                                                        ];
-                                                                        updateField(index, {
-                                                                            options: newOptions
-                                                                        });
-                                                                    }}
-                                                                    className="text-blue-500 text-sm hover:text-blue-600"
-                                                                >
-                                                                    + 添加選項
-                                                                </button>
-                                                            </div>
-                                                            {field.options?.map(
-                                                                (option, optionIndex) => (
-                                                                    <div
-                                                                        key={option.id}
-                                                                        className="flex items-center gap-2"
-                                                                    >
-                                                                        <input
-                                                                            type="text"
-                                                                            value={option.value}
-                                                                            onChange={(e) => {
-                                                                                const newOptions =
-                                                                                    field.options?.map(
-                                                                                        (opt, idx) =>
-                                                                                            idx ===
-                                                                                                optionIndex
-                                                                                                ? {
-                                                                                                    ...opt,
-                                                                                                    value: e
-                                                                                                        .target
-                                                                                                        .value
-                                                                                                }
-                                                                                                : opt
-                                                                                    );
-                                                                                updateField(index, {
-                                                                                    options: newOptions
-                                                                                });
-                                                                            }}
-                                                                            className="flex-1 p-2 border rounded"
-                                                                            placeholder={`選項 ${optionIndex + 1}`}
-                                                                        />
-                                                                        <button
-                                                                            type="button"
-                                                                            onClick={() => {
-                                                                                const newOptions =
-                                                                                    field.options?.filter(
-                                                                                        (_, idx) =>
-                                                                                            idx !==
-                                                                                            optionIndex
-                                                                                    );
-                                                                                updateField(index, {
-                                                                                    options: newOptions
-                                                                                });
-                                                                            }}
-                                                                            className="text-red-500 hover:text-red-600"
-                                                                        >
-                                                                            <X className="w-4 h-4" />
-                                                                        </button>
-                                                                    </div>
-                                                                )
-                                                            )}
+                                                    <div className="space-y-2">
+                                                        <div className="flex items-center justify-between mb-2">
+                                                            <span className="text-sm font-medium">
+                                                                選項列表
+                                                            </span>
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => {
+                                                                    const newOptions = [
+                                                                        ...(field.options || []),
+                                                                        {
+                                                                            id: Math.random()
+                                                                                .toString(36)
+                                                                                .substr(2, 9),
+                                                                            value: ''
+                                                                        }
+                                                                    ];
+                                                                    updateField(index, {
+                                                                        options: newOptions
+                                                                    });
+                                                                }}
+                                                                className="text-blue-500 text-sm hover:text-blue-600"
+                                                            >
+                                                                + 添加選項
+                                                            </button>
                                                         </div>
-                                                    )}
+                                                        {field.options?.map(
+                                                            (option, optionIndex) => (
+                                                                <div
+                                                                    key={option.id}
+                                                                    className="flex items-center gap-2"
+                                                                >
+                                                                    <input
+                                                                        type="text"
+                                                                        value={option.value}
+                                                                        onChange={(e) => {
+                                                                            const newOptions =
+                                                                                field.options?.map(
+                                                                                    (opt, idx) =>
+                                                                                        idx ===
+                                                                                        optionIndex
+                                                                                            ? {
+                                                                                                  ...opt,
+                                                                                                  value: e
+                                                                                                      .target
+                                                                                                      .value
+                                                                                              }
+                                                                                            : opt
+                                                                                );
+                                                                            updateField(index, {
+                                                                                options: newOptions
+                                                                            });
+                                                                        }}
+                                                                        className="flex-1 p-2 border rounded"
+                                                                        placeholder={`選項 ${optionIndex + 1}`}
+                                                                    />
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => {
+                                                                            const newOptions =
+                                                                                field.options?.filter(
+                                                                                    (_, idx) =>
+                                                                                        idx !==
+                                                                                        optionIndex
+                                                                                );
+                                                                            updateField(index, {
+                                                                                options: newOptions
+                                                                            });
+                                                                        }}
+                                                                        className="text-red-500 hover:text-red-600"
+                                                                    >
+                                                                        <X className="w-4 h-4" />
+                                                                    </button>
+                                                                </div>
+                                                            )
+                                                        )}
+                                                    </div>
+                                                )}
 
                                                 <label className="flex items-center">
                                                     <input
@@ -767,8 +767,8 @@ export default function CreateForm() {
                                                         onChange={(e) => {
                                                             const template =
                                                                 DEFAULT_EMAIL_TEMPLATES[
-                                                                e.target
-                                                                    .value as keyof typeof DEFAULT_EMAIL_TEMPLATES
+                                                                    e.target
+                                                                        .value as keyof typeof DEFAULT_EMAIL_TEMPLATES
                                                                 ];
                                                             setSelectedTemplate(e.target.value);
                                                             setEmailTemplate((prev) => ({
@@ -941,8 +941,9 @@ export default function CreateForm() {
                                         <button
                                             onClick={handleSave}
                                             disabled={submitting}
-                                            className={`bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition flex items-center ${submitting ? 'opacity-50 cursor-not-allowed' : ''
-                                                }`}
+                                            className={`bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition flex items-center ${
+                                                submitting ? 'opacity-50 cursor-not-allowed' : ''
+                                            }`}
                                         >
                                             {submitting ? (
                                                 <>

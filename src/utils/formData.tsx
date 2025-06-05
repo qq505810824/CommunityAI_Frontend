@@ -83,7 +83,7 @@ export const CalendarFormData = {
         region: { type: 'string', title: '地區', required: true, tip: '' },
         reference_url: { type: 'string', title: '相關網址', required: false, tip: '(選填)' },
         // pdf_url: { type: 'string', title: '相關文件地址(PDF文件)', required: false, tip: '(選填)' },
-        pdf_url: { type: 'string', title: '相關文件', required: false, tip: '(選填)' },
+        files_url: { type: 'string', title: '相關文件', required: false, tip: '(選填)' },
         description: { type: 'string', title: '描述', required: true, tip: '' }
     },
     uiSchema: {
@@ -124,7 +124,7 @@ export const CalendarFormData = {
             'ui:keys': { start_date: 'pre_from_date', end_date: 'pre_to_date' }
         },
         reference_url: { 'ui:widget': 'text' },
-        pdf_url: { 'ui:widget': 'upload' }
+        files_url: { 'ui:widget': 'upload' }
         // pdf_urls: { 'ui:widget': 'upload' }
     }
 };

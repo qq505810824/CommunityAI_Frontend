@@ -68,7 +68,7 @@ function CalendarEditForm(props: ViewProps) {
 
     useEffect(() => {
         if (uploadFileUrls) {
-            setValue('pdf_url', uploadFileUrls.join(','));
+            setValue('files_url', uploadFileUrls.join(','));
             console.log('uploadFileUrls', uploadFileUrls);
         }
     }, [uploadFileUrls]);
@@ -88,7 +88,7 @@ function CalendarEditForm(props: ViewProps) {
             setValue('category', product.category || 'course'); // 默认值为 'course'
             setValue('region', product.region || 'hk'); // 默认值为 'mo'
 
-            setUploadFileUrls(product.pdf_url ? product.pdf_url.split(',') : []);
+            setUploadFileUrls(product.files_url ? product.files_url.split(',') : []);
         }
     }, [product]);
 

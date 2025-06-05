@@ -10,7 +10,8 @@ import CalendarCreateEditView from './CalendarCreateEditView';
 
 const CalendarCreateContainer = () => {
     const params = useParams();
-    const user_id = localStorage.getItem('user_id');
+    const token = localStorage.getItem('authorization');
+    const email = localStorage.getItem('email');
     const [product, setProduct] = useState<CalendarModel | null>(null);
     const [submitting, setSubmitting] = useState(false);
     const { setAlert } = useAlert();
@@ -29,7 +30,11 @@ const CalendarCreateContainer = () => {
         const newFormData = {
             ...formData,
             status: 'draft',
-            pdf_url: upload_file_urls
+            files_url: upload_file_urls,
+            owner: {
+                token: token || '',
+                email: email || ''
+            }
             // user: localStorage?.getItem('user_id') || null
         };
         // console.log(_.omit(newFormData, 'uploadFiles'));
