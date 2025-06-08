@@ -54,11 +54,23 @@ export default function Home() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const handleDownload = () => {
+        const title = '我的事件';
+        const start = '20250608T000000Z'; // 开始时间 (UTC)
+        const end = '20250610T160000Z'; // 结束时间 (UTC)
+        const description = '这是一个描述';
+        const location = '活动地点';
+
+        const url = `/api/generate-calendar?title=${encodeURIComponent(title)}&start=${start}&end=${end}&description=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}`;
+        window.location.href = url;
+    };
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-950 to-gray-900">
             <Head>
                 <title>科技公司官网</title>
             </Head>
+            <button onClick={handleDownload}>下载日历</button>
 
             {/* Header */}
             <header className="fixed w-full bg-black/60 backdrop-blur-md z-50">
@@ -108,11 +120,10 @@ export default function Home() {
                             <a
                                 key={section.id}
                                 href={`#${section.id}`}
-                                className={`text-lg font-medium transition-all duration-300 ${
-                                    activeSection === section.id
-                                        ? 'text-blue-400 border-b-2 border-blue-400'
-                                        : 'text-white hover:text-blue-300 hover:translate-y-[-2px]'
-                                }`}
+                                className={`text-lg font-medium transition-all duration-300 ${activeSection === section.id
+                                    ? 'text-blue-400 border-b-2 border-blue-400'
+                                    : 'text-white hover:text-blue-300 hover:translate-y-[-2px]'
+                                    }`}
                             >
                                 {section.name}
                             </a>
@@ -132,11 +143,10 @@ export default function Home() {
                                     key={section.id}
                                     href={`#${section.id}`}
                                     onClick={() => setIsMenuOpen(false)}
-                                    className={`text-xl font-medium ${
-                                        activeSection === section.id
-                                            ? 'text-blue-400'
-                                            : 'text-white hover:text-blue-300'
-                                    }`}
+                                    className={`text-xl font-medium ${activeSection === section.id
+                                        ? 'text-blue-400'
+                                        : 'text-white hover:text-blue-300'
+                                        }`}
                                 >
                                     {section.name}
                                 </a>
