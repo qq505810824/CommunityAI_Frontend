@@ -41,6 +41,7 @@ export default function AuthCallback() {
                 localStorage.setItem('authorization', '');
                 localStorage.setItem('email', user.email || '');
                 localStorage.setItem('user_id', user.id || '');
+                localStorage.setItem('account', JSON.stringify(user));
 
                 localStorage.setItem('supabase_user', JSON.stringify(user));
                 router.replace('/');

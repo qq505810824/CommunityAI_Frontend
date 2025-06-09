@@ -1,6 +1,7 @@
 'use client';
 import Button from '@/app/components/base/button';
 import { useUsersOperations } from '@/hooks/useUserData';
+import { Divider, Tooltip } from '@mui/joy';
 import { createClient } from '@supabase/supabase-js';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -99,6 +100,7 @@ const UnlessForm = () => {
             if (data && data.user && data.user.id) {
                 localStorage?.setItem('email', data.user.email || '');
                 localStorage?.setItem('user_id', data.user.id || '');
+                localStorage.setItem('account', JSON.stringify(data.user));
             }
             if (error) {
                 Toast.notify({
@@ -219,10 +221,13 @@ const UnlessForm = () => {
                                 {t('login.signBtn')}
                             </Button>
                         </div>
-                        <div className="mb-2">
-                            <button type="button" onClick={handleGoogleLogin}>
-                                Sign in with Google
-                            </button>
+                        <Divider>使用其他登錄</Divider>
+                        <div className="mb-2 flex justify-center my-2">
+                            <Tooltip title="Google">
+                                <button type="button" onClick={handleGoogleLogin}>
+                                    <img src="./google.svg" alt="" className="w-8" />
+                                </button>
+                            </Tooltip>
                         </div>
                     </form>
                 </div>

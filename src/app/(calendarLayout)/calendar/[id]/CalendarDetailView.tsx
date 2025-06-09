@@ -30,7 +30,7 @@ function CalendarDetailView(props: ViewProps) {
                         }}
                     />
                     <div className="w-full  flex flex-col sm:flex-row justify-center space-y-4   sm:space-x-8 ">
-                        <div className="w-full sm:2/3 space-y-4  overflow-x-auto">
+                        <div className="w-full sm:3/4 space-y-4  overflow-x-auto">
                             <div className="flex items-center justify-between space-x-2 flex-row ">
                                 <Typography
                                     sx={{
@@ -45,14 +45,13 @@ function CalendarDetailView(props: ViewProps) {
                             <DateView {...{ product }} />
                             <ContentView {...{ product }} />
                             <ReferenceFilesView {...{ product }} />
-                            <ReferenceFilesView {...{ product }} />
                             <ReferenceUrlView {...{ product }} />
                             <ReferenceFormView {...{ product }} />
                         </div>
-                        <div className="w-full sm:1/3">
+                        <div className="w-full sm:1/4">
                             <img
                                 src={product?.image_url}
-                                className="w-[400px] h-auto object-cover"
+                                className="w-[350px] h-auto object-cover"
                                 alt=""
                             />
                         </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import Loading from '@/app/components/base/loading';
+import { useAppContext } from '@/context/app-context';
 import { useModalContext } from '@/context/modal-context';
 import useAlert from '@/hooks/useAlert';
 import { CalendarModel, useCalendarDetailData } from '@/hooks/useCalendarData';
@@ -16,14 +17,14 @@ function CalendarDetailContainer() {
     const params = useParams();
     const user_id = localStorage.getItem('user_id');
     const [product, setProduct] = useState<CalendarModel>();
+    const { userProfile } = useAppContext();
 
     const { data, isLoading, isError } = useCalendarDetailData(Number(params['id']), user_id || '');
     // const { data: calendars } = useMyCollectCalendarsData(user_id || '');
     const { setShowConfirmDelete } = useModalContext();
 
     useEffect(() => {
-        const storedEmail = localStorage.getItem('email') || '';
-        if (storedEmail === '') {
+        if (!user_id) {
             router.push('/signin?redirect=' + window.location.href);
         }
     }, []);

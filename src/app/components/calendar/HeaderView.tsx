@@ -57,7 +57,7 @@ export default function HeaderView() {
                     <MenuItem
                         sx={{ display: 'none' }}
                         onClick={() => {
-                            if (userProfile.id == '') {
+                            if (userProfile?.id == '') {
                                 router.push('/signin?url=calendar');
                             } else {
                                 router.push(`/profile`);
@@ -67,13 +67,13 @@ export default function HeaderView() {
                         <PermIdentityIcon />
                         Profile
                     </MenuItem>
-                    {userProfile.id != '' && (
+                    {userProfile?.id != '' && (
                         <>
                             <Divider />
                             <MenuItem
                                 color="danger"
                                 onClick={() => {
-                                    if (userProfile.id == '') {
+                                    if (userProfile?.id == '') {
                                         router.push('/signin');
                                     } else {
                                         logout();

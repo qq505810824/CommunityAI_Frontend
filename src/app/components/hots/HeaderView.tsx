@@ -16,7 +16,7 @@ import MenuButton from './MenuButton';
 export default function HeaderView() {
     const { userProfile } = useAppContext();
     const supabase = createClientComponentClient();
-    useEffect(() => {}, []);
+    useEffect(() => { }, []);
     const router = useRouter();
     const [email, setEmail] = useState('222');
 
@@ -44,7 +44,7 @@ export default function HeaderView() {
                 <Menu size="sm" sx={{ minWidth: 140 }}>
                     <MenuItem
                         onClick={() => {
-                            if (userProfile.id == '') {
+                            if (userProfile?.id == '') {
                                 router.push('/login?url=prompts');
                             } else {
                                 router.push(`/profile`);
@@ -54,13 +54,13 @@ export default function HeaderView() {
                         <PermIdentityIcon />
                         Profile
                     </MenuItem>
-                    {userProfile.id != '' && (
+                    {userProfile?.id != '' && (
                         <>
                             <Divider />
                             <MenuItem
                                 color="danger"
                                 onClick={() => {
-                                    if (userProfile.id == '') {
+                                    if (userProfile?.id == '') {
                                         router.push('/login?url=prompts');
                                     } else {
                                         logout();
@@ -110,9 +110,9 @@ export default function HeaderView() {
                     </div>
 
                     <div className="flex flex-row items-center gap-2 hidden">
-                        {userProfile.id != '' ? (
+                        {userProfile?.id != '' ? (
                             <div className="flex justify-end items-center col-span-3 md:col-span-4">
-                                <MenuButton email={userProfile.email} logout={logout} />
+                                <MenuButton email={userProfile?.email} logout={logout} />
                             </div>
                         ) : (
                             <div className="flex flex-row gap-8 items-center justify-end col-span-3">

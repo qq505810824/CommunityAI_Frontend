@@ -1,3 +1,4 @@
+import { useAppContext } from '@/context/app-context';
 import { useModalContext } from '@/context/modal-context';
 import { useAccountOperations } from '@/hooks/useAccountData';
 import { CalendarModel } from '@/hooks/useCalendarData';
@@ -17,24 +18,24 @@ export default function OperationView(props: ViewProps) {
     const router = useRouter();
     const [collect, setCollect] = useState(product?.is_collected || false);
     const [focus, setFocus] = useState(false);
-    const isLogin = localStorage?.getItem('email') || '';
     const { collectCalendarById } = useAccountOperations();
     const { setShowShareQRcode } = useModalContext();
+    const { userProfile } = useAppContext();
+    const user_id = localStorage.getItem('user_id');
 
     useEffect(() => {
         setCollect(product?.is_collected || false);
     }, [product?.is_collected]);
 
     const handleCollect = async () => {
-        if (!isLogin) {
+        if (!userProfile?.id) {
             router.push(`/signin?redirect=${window.location.href}`);
             return;
         }
         setCollect(!collect);
-        const userId = localStorage?.getItem('user_id');
-        if (!userId || !product?.id) return;
+        if (!userProfile?.id || !product?.id) return;
 
-        const res = await collectCalendarById(product.id, userId);
+        const res = await collectCalendarById(product.id, userProfile?.id);
         // if (res.success) {
         //     setCollect(res.action === 'collect');
         // }
@@ -52,7 +53,7 @@ export default function OperationView(props: ViewProps) {
     return (
         <>
             <div className="flex   flex-row items-center justify-end  space-x-2">
-                <Tooltip title={'收藏'} placement="top">
+                <Tooltip title={!collect ? '收藏' : '取消收藏'} placement="top">
                     <IconButton onClick={handleCollect}>
                         {collect && <StarIcon sx={{ width: '20px', color: 'red' }} />}
                         {!collect && <StarBorderOutlinedIcon sx={{ width: '20px' }} />}

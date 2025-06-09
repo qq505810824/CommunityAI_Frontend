@@ -12,11 +12,11 @@ interface ViewProps {
 export default function CalendarCard(props: ViewProps) {
     const { product } = props;
     const router = useRouter();
+    const user_id = localStorage.getItem('user_id');
     const { setShowConfirmDelete } = useModalContext();
 
     const handleClick = () => {
-        const storedEmail = localStorage.getItem('email') || '';
-        if (storedEmail === '') {
+        if (user_id === '') {
             setShowConfirmDelete({
                 payload: {
                     title: '溫馨提示',
@@ -29,7 +29,6 @@ export default function CalendarCard(props: ViewProps) {
                 },
                 onCancelCallback() {}
             });
-            //
         } else {
             router.push(`/calendar/${product.id}`);
         }

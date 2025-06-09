@@ -10,7 +10,7 @@ import { createContext, useContext, useContextSelector } from 'use-context-selec
 
 export type AppContextValue = {
     tags?: any;
-    userProfile: AccountModel;
+    userProfile: AccountModel | null;
     pageContainerRef: React.RefObject<HTMLDivElement>;
     langeniusVersionInfo?: LangGeniusVersionResponse;
     useSelector: typeof useSelector;
@@ -60,14 +60,7 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
     const supabase = createClientComponentClient();
 
     const pageContainerRef = useRef<HTMLDivElement>(null);
-    const [userProfile, setUserProfile] = useState<AccountModel>({
-        id: '',
-        name: '',
-        email: '',
-        avatar: '',
-        nickname: '',
-        created_at: ''
-    });
+    const [userProfile, setUserProfile] = useState<AccountModel | null>(null);
 
     useEffect(() => {}, []);
 

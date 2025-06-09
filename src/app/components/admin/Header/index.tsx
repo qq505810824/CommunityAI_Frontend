@@ -61,9 +61,9 @@ export default function Header() {
                 <MenuIcon />
             </IconButton>
             <div className="flex   items-center">
-                {userProfile.id != '' ? (
+                {userProfile?.id != '' ? (
                     <div className="flex justify-end items-center col-span-3 md:col-span-4">
-                        <MenuButton email={userProfile.email} logout={logout} />
+                        <MenuButton email={userProfile?.email} logout={logout} />
                     </div>
                 ) : (
                     <div className="flex flex-row gap-8 items-center justify-end col-span-3">
