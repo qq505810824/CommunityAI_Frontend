@@ -1,11 +1,22 @@
 'use client';
 
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import Toast from '@/app/components/base/toast';
+// import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@supabase/supabase-js';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+
+const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
 export default function Profile() {
-    const supabase = createClientComponentClient();
+    const router = useRouter()
     const [loading, setLoading] = useState(false);
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [profile, setProfile] = useState({
         name: '',
         nickname: '',
@@ -22,6 +33,11 @@ export default function Profile() {
     async function getProfile() {
         try {
             setLoading(false);
+
+            const supabase_user = localStorage.getItem('supabase_user');
+            // console.log('supabase_user', supabase_user);
+
+
             const {
                 data: { user }
             } = await supabase.auth.getUser();
@@ -35,11 +51,15 @@ export default function Profile() {
                 .single();
 
             if (error) throw error;
+            // console.log('user', user);
+            // console.log('data', data);
+
+
 
             if (data) {
                 setProfile({
                     name: data.name || '',
-                    nickname: data.nickname || '',
+                    nickname: data.nickname || data.name || '',
                     age: data.age || '',
                     description: data.description || '',
                     sex: data.sex || 'male',
@@ -55,24 +75,60 @@ export default function Profile() {
 
     async function updateProfile() {
         try {
+            if (password && password !== confirmPassword) {
+                Toast.notify({
+                    type: 'error',
+                    message: '两次輸入密碼不一致'
+                });
+                setLoading(false);
+                return;
+            }
+
+
             setLoading(true);
             const {
                 data: { user }
             } = await supabase.auth.getUser();
 
             if (!user) throw new Error('未找到用户');
+            const ageValue = profile.age === '' ? null : Number(profile.age);
+
+
+
+            // 2. 如果填写了新密码且两次一致，则修改密码
+            if (password && password === confirmPassword) {
+                const { error } = await supabase.auth.updateUser({
+                    password
+                });
+                if (error) {
+                    Toast.notify({
+                        type: 'error',
+                        message: error.message || ''
+                    });
+                    return
+                }
+            }
 
             const { error } = await supabase.from('account').upsert({
                 id: user.id,
                 ...profile,
+                age: ageValue,
                 updated_at: new Date().toISOString()
             });
 
             if (error) throw error;
-            alert('个人资料已更新！');
+            Toast.notify({
+                type: 'success',
+                message: '更新成功!'
+            });
+            router.push('/')
+            // alert('个人资料已更新！');
         } catch (error) {
             console.error('Error:', error);
-            alert('更新失败！');
+            Toast.notify({
+                type: 'error',
+                message: '更新失败！!'
+            });
         } finally {
             setLoading(false);
         }
@@ -218,7 +274,37 @@ export default function Profile() {
                         <option value="other">其他</option>
                     </select>
                 </div>
+
                 <div>
+                    <label
+                        htmlFor="password"
+                        className="block text-sm font-medium text-gray-700"
+                    >
+                        密码
+                    </label>
+                    <input
+                        id="password"
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2"
+                    />
+                </div>
+
+                <div>
+                    <label htmlFor="password" className="block text-sm font-medium">
+                        確認密碼
+                    </label>
+                    <input
+                        id="re_password"
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        className="mt-1 block w-full rounded-md border p-2"
+                    />
+                </div>
+
+                <div className='hidden'>
                     <label className="block mb-2">个人简介</label>
                     <textarea
                         value={profile.description}

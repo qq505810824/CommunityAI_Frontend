@@ -34,7 +34,8 @@ export default function HeaderView() {
     const logout = async () => {
         localStorage.setItem('email', '');
         localStorage?.setItem('user_id', '');
-        // const res = await supabase.auth.signOut();
+        localStorage.setItem('supabase_user', '');
+        const res = await supabase.auth.signOut();
         router.push(`/signin?redirect=${window.location.href}`);
     };
 

@@ -9,12 +9,21 @@ export default function SignUp() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
+    const [name, setName] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     const router = useRouter();
     const supabase = createClientComponentClient();
 
     const handleSignUp = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        if (password !== confirmPassword) {
+            setError('兩次輸入的密碼不一樣');
+            setLoading(false);
+            return;
+        }
+
         setLoading(true);
         setError(null);
 
@@ -45,7 +54,9 @@ export default function SignUp() {
                     .insert([
                         {
                             id: user.id,
-                            email: email
+                            email: email,
+                            name: name,
+                            nickname: name
                         }
                     ])
                     .select()
@@ -57,7 +68,7 @@ export default function SignUp() {
                     throw new Error('创建用户档案失败，请重试');
                 }
 
-                router.push('/login');
+                router.push('/signin');
             }
         } catch (error: any) {
             setError(error.message);
@@ -69,6 +80,14 @@ export default function SignUp() {
     return (
         <div className="flex min-h-screen items-center justify-center">
             <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
+                <p
+                    className="text-blue-500 text-md hover:underline cursor-pointer"
+                    onClick={() => {
+                        router.push('/signin');
+                    }}
+                >
+                    {'< 返回'}
+                </p>
                 <h1 className="text-2xl font-bold text-center">注册账号</h1>
 
                 {error && (
@@ -78,6 +97,16 @@ export default function SignUp() {
                 )}
 
                 <form onSubmit={handleSignUp} className="space-y-4">
+                    <div>
+                        <label className="block text-sm font-medium">暱稱</label>
+                        <input
+                            type="text"
+                            required
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="mt-1 block w-full rounded-md border p-2"
+                        />
+                    </div>
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                             邮箱
@@ -106,6 +135,20 @@ export default function SignUp() {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                             className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2"
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="password" className="block text-sm font-medium">
+                            確認密碼
+                        </label>
+                        <input
+                            id="re_password"
+                            type="password"
+                            required
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            className="mt-1 block w-full rounded-md border p-2"
                         />
                     </div>
 

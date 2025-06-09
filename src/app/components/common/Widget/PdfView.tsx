@@ -106,7 +106,7 @@ export default function PdfView(props: { content: string }) {
             >
                 <Page pageNumber={pageNumber} width={pageWidth ? pageWidth * scale : undefined} />
             </Document>
-            {!loading &&
+            {!loading && !isMobile &&
                 <div className=" absolute top-2 right-2 z-30 space-x-2 flex flex-row items-center">
                     <button
                         onClick={zoomOut}

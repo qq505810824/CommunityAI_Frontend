@@ -1,79 +1,22 @@
 'use client';
 import Button from '@/app/components/base/button';
-import I18n from '@/context/i18n';
 import { useUsersOperations } from '@/hooks/useUserData';
+import { createClient } from '@supabase/supabase-js';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useContext } from 'use-context-selector';
 import Toast from '../components/base/toast';
-
 const validEmailReg = /^[\w\.-]+@([\w-]+\.)+[\w-]{2,}$/;
 
-type IState = {
-    formValid: boolean;
-    github: boolean;
-    google: boolean;
-};
+const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
 
-type IAction = {
-    type:
-        | 'login'
-        | 'login_failed'
-        | 'github_login'
-        | 'github_login_failed'
-        | 'google_login'
-        | 'google_login_failed';
-};
-
-function reducer(state: IState, action: IAction) {
-    switch (action.type) {
-        case 'login':
-            return {
-                ...state,
-                formValid: true
-            };
-        case 'login_failed':
-            return {
-                ...state,
-                formValid: true
-            };
-        case 'github_login':
-            return {
-                ...state,
-                github: true
-            };
-        case 'github_login_failed':
-            return {
-                ...state,
-                github: false
-            };
-        case 'google_login':
-            return {
-                ...state,
-                google: true
-            };
-        case 'google_login_failed':
-            return {
-                ...state,
-                google: false
-            };
-        default:
-            throw new Error('Unknown action.');
-    }
-}
 
 const UnlessForm = () => {
     const { t } = useTranslation();
     const router = useRouter();
-    const { locale } = useContext(I18n);
-
-    const [state, dispatch] = useReducer(reducer, {
-        formValid: false,
-        github: false,
-        google: false
-    });
-
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -82,14 +25,22 @@ const UnlessForm = () => {
     const searchParams = useSearchParams();
     const [redirect, setRedirect] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-
+    const [session, setSession] = useState<any>('')
     useEffect(() => {
         if (searchParams) {
             setRedirect(searchParams.get('redirect') || '');
         }
     }, [router, searchParams]);
-
-    const handleEmailPasswordLogin = async () => {
+    useEffect(() => {
+        if (session && session.accessToken) {
+            console.log('session.accessToken', session.accessToken);
+            // getFiles()
+            // axios('/api/drive?token=' + session.accessToken).then((res) => {
+            //     console.log('res', res.data);
+            // })
+        }
+    }, [session])
+    const handleEmailPasswordLoginWithKonnecAI = async () => {
         if (!validEmailReg.test(email)) {
             Toast.notify({
                 type: 'error',
@@ -132,52 +83,54 @@ const UnlessForm = () => {
                     message: data.message || data.error
                 });
             }
-
-            // 调用登录操作
-            // const { data, error } = await detailById(email, password);
-
-            // if (error) {
-            //     console.log('登录错误', error);
-            //     setError('登錄失敗');
-            //     setIsLoading(false);
-            //     return;
-            // }
-            // if (data) {
-            //     // 登录成功后，保存用户ID到本地存储
-            //     localStorage?.setItem('user_id', data.id);
-            //     localStorage?.setItem('user_email', data.email);
-
-            //     setIsLoading(false);
-            //     router.push(redirect || '/'); // 登录成功后跳转到指定页面或默认的仪表板页面
-            //     router.refresh(); // 刷新路由以更新状态
-            //     return;
-            //     // 跳转到指定页面或默认的仪表板页面
-            // }
-
-            // const res = await login({
-            //     url: '/users/sign_in.json',
-            //     body: {
-            //         user: {
-            //             email,
-            //             password
-            //         }
-            //     }
-            // });
-            // const data = await res.json();
-            // if (data.success) {
-            //     const token = res.headers.get('authorization');
-            //     localStorage.setItem('authorization', token);
-            //     router.replace('/');
-            // } else {
-            //     Toast.notify({
-            //         type: 'error',
-            //         message: data.message
-            //     });
-            // }
         } finally {
             setIsLoading(false);
         }
     };
+
+    const handleEmailPasswordLoginWithSupabse = async () => {
+        try {
+            setIsLoading(true);
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email,
+                password
+            });
+            setIsLoading(false);
+            // console.log('user data', data);
+            if (data && data.user && data.user.id) {
+                localStorage?.setItem('email', data.user.email || '');
+            }
+            if (error) {
+                Toast.notify({
+                    type: 'error',
+                    message: "Invalid login credentials"
+                });
+                setError(error.message);
+            } else {
+                router.push(redirect || '/'); // 登录成功后跳转到仪表板页面
+                router.refresh();
+            }
+        } catch (err) {
+            console.log('err', err);
+
+        }
+
+    };
+    const handleGoogleLogin = async () => {
+        const { data, error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+                redirectTo: `${window.location.origin}/auth/callback`
+            }
+        });
+        // console.log('data', data);
+
+        if (error) {
+            alert('Google 登錄失敗: ' + error.message);
+        }
+        // 登录后会自动跳转到 redirectTo
+    };
+
 
     return (
         <>
@@ -188,7 +141,7 @@ const UnlessForm = () => {
 
             <div className="w-full mx-auto mt-8">
                 <div className="bg-white ">
-                    <form onSubmit={() => {}}>
+                    <form onSubmit={handleEmailPasswordLoginWithSupabse}>
                         <div className="mb-5">
                             <label
                                 htmlFor="email"
@@ -224,7 +177,7 @@ const UnlessForm = () => {
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     onKeyDown={(e) => {
-                                        if (e.key === 'Enter') handleEmailPasswordLogin();
+                                        if (e.key === 'Enter') handleEmailPasswordLoginWithSupabse();
                                     }}
                                     type={showPassword ? 'text' : 'password'}
                                     autoComplete="current-password"
@@ -248,7 +201,7 @@ const UnlessForm = () => {
                         <div className="flex items-center mb-5 justify-between">
                             <div className="text-sm">
                                 <a
-                                    href="/register"
+                                    href="/signup"
                                     className="font-medium text-blue-600 hover:text-blue-500 underline"
                                 >
                                     免費註冊
@@ -260,12 +213,18 @@ const UnlessForm = () => {
                             <Button
                                 tabIndex={0}
                                 type="primary"
-                                onClick={handleEmailPasswordLogin}
+                                onClick={handleEmailPasswordLoginWithSupabse}
                                 disabled={isLoading}
                                 className="w-full !fone-medium !text-sm"
                             >
                                 {t('login.signBtn')}
                             </Button>
+                        </div>
+                        <div className="mb-2">
+                            <button
+                                type="button"
+                                onClick={handleGoogleLogin}>
+                                Sign in with Google</button>
                         </div>
                     </form>
                 </div>
