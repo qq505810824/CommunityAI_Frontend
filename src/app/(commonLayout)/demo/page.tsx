@@ -120,10 +120,11 @@ export default function Home() {
                             <a
                                 key={section.id}
                                 href={`#${section.id}`}
-                                className={`text-lg font-medium transition-all duration-300 ${activeSection === section.id
-                                    ? 'text-blue-400 border-b-2 border-blue-400'
-                                    : 'text-white hover:text-blue-300 hover:translate-y-[-2px]'
-                                    }`}
+                                className={`text-lg font-medium transition-all duration-300 ${
+                                    activeSection === section.id
+                                        ? 'text-blue-400 border-b-2 border-blue-400'
+                                        : 'text-white hover:text-blue-300 hover:translate-y-[-2px]'
+                                }`}
                             >
                                 {section.name}
                             </a>
@@ -143,10 +144,11 @@ export default function Home() {
                                     key={section.id}
                                     href={`#${section.id}`}
                                     onClick={() => setIsMenuOpen(false)}
-                                    className={`text-xl font-medium ${activeSection === section.id
-                                        ? 'text-blue-400'
-                                        : 'text-white hover:text-blue-300'
-                                        }`}
+                                    className={`text-xl font-medium ${
+                                        activeSection === section.id
+                                            ? 'text-blue-400'
+                                            : 'text-white hover:text-blue-300'
+                                    }`}
                                 >
                                     {section.name}
                                 </a>

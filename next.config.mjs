@@ -9,6 +9,7 @@ const nextConfig = {
     },
     webpack: (config) => {
         // load worker files as a urls with `file-loader`
+        // config.resolve.alias.canvas = false;
         config.module.rules.unshift({
             test: /pdf.worker\.(min\.)?js/,
             use: [
