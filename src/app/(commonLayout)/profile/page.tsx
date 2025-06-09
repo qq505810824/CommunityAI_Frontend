@@ -6,14 +6,13 @@ import { createClient } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
 export default function Profile() {
-    const router = useRouter()
+    const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -37,7 +36,6 @@ export default function Profile() {
             const supabase_user = localStorage.getItem('supabase_user');
             // console.log('supabase_user', supabase_user);
 
-
             const {
                 data: { user }
             } = await supabase.auth.getUser();
@@ -53,8 +51,6 @@ export default function Profile() {
             if (error) throw error;
             // console.log('user', user);
             // console.log('data', data);
-
-
 
             if (data) {
                 setProfile({
@@ -84,7 +80,6 @@ export default function Profile() {
                 return;
             }
 
-
             setLoading(true);
             const {
                 data: { user }
@@ -92,8 +87,6 @@ export default function Profile() {
 
             if (!user) throw new Error('未找到用户');
             const ageValue = profile.age === '' ? null : Number(profile.age);
-
-
 
             // 2. 如果填写了新密码且两次一致，则修改密码
             if (password && password === confirmPassword) {
@@ -105,7 +98,7 @@ export default function Profile() {
                         type: 'error',
                         message: error.message || ''
                     });
-                    return
+                    return;
                 }
             }
 
@@ -121,7 +114,7 @@ export default function Profile() {
                 type: 'success',
                 message: '更新成功!'
             });
-            router.push('/')
+            router.push('/');
             // alert('个人资料已更新！');
         } catch (error) {
             console.error('Error:', error);
@@ -276,10 +269,7 @@ export default function Profile() {
                 </div>
 
                 <div>
-                    <label
-                        htmlFor="password"
-                        className="block text-sm font-medium text-gray-700"
-                    >
+                    <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                         密码
                     </label>
                     <input
@@ -304,7 +294,7 @@ export default function Profile() {
                     />
                 </div>
 
-                <div className='hidden'>
+                <div className="hidden">
                     <label className="block mb-2">个人简介</label>
                     <textarea
                         value={profile.description}

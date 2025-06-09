@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { createClient } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -13,7 +13,9 @@ export default function AuthCallback() {
 
     useEffect(() => {
         const syncUser = async () => {
-            const { data: { user } } = await supabase.auth.getUser();
+            const {
+                data: { user }
+            } = await supabase.auth.getUser();
             if (user) {
                 // 检查/同步到自定义 user 表
                 const { data: exist } = await supabase
@@ -24,7 +26,6 @@ export default function AuthCallback() {
 
                 console.log('exist', exist);
                 console.log('user', user);
-
 
                 if (!exist) {
                     // 新建用户

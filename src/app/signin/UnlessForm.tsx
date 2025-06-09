@@ -13,7 +13,6 @@ const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-
 const UnlessForm = () => {
     const { t } = useTranslation();
     const router = useRouter();
@@ -25,7 +24,7 @@ const UnlessForm = () => {
     const searchParams = useSearchParams();
     const [redirect, setRedirect] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [session, setSession] = useState<any>('')
+    const [session, setSession] = useState<any>('');
     useEffect(() => {
         if (searchParams) {
             setRedirect(searchParams.get('redirect') || '');
@@ -39,7 +38,7 @@ const UnlessForm = () => {
             //     console.log('res', res.data);
             // })
         }
-    }, [session])
+    }, [session]);
     const handleEmailPasswordLoginWithKonnecAI = async () => {
         if (!validEmailReg.test(email)) {
             Toast.notify({
@@ -103,7 +102,7 @@ const UnlessForm = () => {
             if (error) {
                 Toast.notify({
                     type: 'error',
-                    message: "Invalid login credentials"
+                    message: 'Invalid login credentials'
                 });
                 setError(error.message);
             } else {
@@ -112,9 +111,7 @@ const UnlessForm = () => {
             }
         } catch (err) {
             console.log('err', err);
-
         }
-
     };
     const handleGoogleLogin = async () => {
         const { data, error } = await supabase.auth.signInWithOAuth({
@@ -131,7 +128,6 @@ const UnlessForm = () => {
         // 登录后会自动跳转到 redirectTo
     };
 
-
     return (
         <>
             <div className="w-full mx-auto">
@@ -141,7 +137,11 @@ const UnlessForm = () => {
 
             <div className="w-full mx-auto mt-8">
                 <div className="bg-white ">
-                    <form onSubmit={handleEmailPasswordLoginWithSupabse}>
+                    <form onSubmit={handleEmailPasswordLoginWithSupabse}
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter')
+                                handleEmailPasswordLoginWithSupabse();
+                        }}>
                         <div className="mb-5">
                             <label
                                 htmlFor="email"
@@ -176,9 +176,7 @@ const UnlessForm = () => {
                                     id="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    onKeyDown={(e) => {
-                                        if (e.key === 'Enter') handleEmailPasswordLoginWithSupabse();
-                                    }}
+
                                     type={showPassword ? 'text' : 'password'}
                                     autoComplete="current-password"
                                     placeholder={t('login.passwordPlaceholder') || ''}
@@ -221,10 +219,9 @@ const UnlessForm = () => {
                             </Button>
                         </div>
                         <div className="mb-2">
-                            <button
-                                type="button"
-                                onClick={handleGoogleLogin}>
-                                Sign in with Google</button>
+                            <button type="button" onClick={handleGoogleLogin}>
+                                Sign in with Google
+                            </button>
                         </div>
                     </form>
                 </div>

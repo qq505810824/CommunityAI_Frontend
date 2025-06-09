@@ -78,10 +78,10 @@ export default function PdfView(props: { content: string }) {
     const [scale, setScale] = useState<number>(1);
     const containerRef = useRef<HTMLDivElement>(null);
     const [pageWidth, setPageWidth] = useState<number | undefined>(undefined);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
     function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
-        setLoading(false)
+        setLoading(false);
         setNumPages(numPages);
         setPageNumber(1); // 每次加载新文档时重置到第一页
     }
@@ -96,17 +96,19 @@ export default function PdfView(props: { content: string }) {
     return (
         <div ref={containerRef} className="w-full relative overflow-auto mb-2">
             <Document
-                className='min-h-[250px]'
+                className="min-h-[250px]"
                 file={`/api/proxy-pdf?url=${encodeURIComponent(content)}`}
                 onLoadSuccess={onDocumentLoadSuccess}
-                onLoadStart={() => { setLoading(true) }}
+                onLoadStart={() => {
+                    setLoading(true);
+                }}
                 onLoadError={(error) => (
                     <div className="text-red-500 text-center">PDF fail: {error.message}</div>
                 )}
             >
                 <Page pageNumber={pageNumber} width={pageWidth ? pageWidth * scale : undefined} />
             </Document>
-            {!loading && !isMobile &&
+            {!loading && !isMobile && (
                 <div className=" absolute top-2 right-2 z-30 space-x-2 flex flex-row items-center">
                     <button
                         onClick={zoomOut}
@@ -132,8 +134,8 @@ export default function PdfView(props: { content: string }) {
                         <MagnifyingGlassPlusIcon className="w-5 h-5" />
                     </button>
                 </div>
-            }
-            {!loading &&
+            )}
+            {!loading && (
                 <div className=" absolute bottom-1 z-30  w-full">
                     <div className="flex items-center justify-center space-x-2">
                         <button
@@ -155,7 +157,7 @@ export default function PdfView(props: { content: string }) {
                         </button>
                     </div>
                 </div>
-            }
+            )}
         </div>
     );
 }
