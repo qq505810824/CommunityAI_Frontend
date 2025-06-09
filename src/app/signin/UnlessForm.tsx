@@ -137,11 +137,12 @@ const UnlessForm = () => {
 
             <div className="w-full mx-auto mt-8">
                 <div className="bg-white ">
-                    <form onSubmit={handleEmailPasswordLoginWithSupabse}
+                    <form
+                        onSubmit={handleEmailPasswordLoginWithSupabse}
                         onKeyDown={(e) => {
-                            if (e.key === 'Enter')
-                                handleEmailPasswordLoginWithSupabse();
-                        }}>
+                            if (e.key === 'Enter') handleEmailPasswordLoginWithSupabse();
+                        }}
+                    >
                         <div className="mb-5">
                             <label
                                 htmlFor="email"
@@ -176,7 +177,6 @@ const UnlessForm = () => {
                                     id="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-
                                     type={showPassword ? 'text' : 'password'}
                                     autoComplete="current-password"
                                     placeholder={t('login.passwordPlaceholder') || ''}
