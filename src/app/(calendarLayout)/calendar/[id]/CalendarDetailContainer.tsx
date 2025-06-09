@@ -18,29 +18,23 @@ function CalendarDetailContainer() {
     const [product, setProduct] = useState<CalendarModel>();
 
     const { data, isLoading, isError } = useCalendarDetailData(Number(params['id']), user_id || '');
+    // const { data: calendars } = useMyCollectCalendarsData(user_id || '');
     const { setShowConfirmDelete } = useModalContext();
 
     useEffect(() => {
         const storedEmail = localStorage.getItem('email') || '';
         if (storedEmail === '') {
             router.push('/signin?redirect=' + window.location.href);
-            // setShowConfirmDelete({
-            //     payload: {
-            //         title: '溫馨提示',
-            //         content: '免費註冊以瀏覽全部內容，立即註冊或登入。',
-            //         confirmText: '註冊/登入',
-            //         cancelText: '取消'
-            //     },
-            //     onSaveCallback: () => {
-            //         router.push('/login?redirect=' + window.location.href);
-            //     },
-            //     onCancelCallback() {
-
-            //     },
-            // });
-            //
         }
     }, []);
+
+    // useEffect(() => {
+    //     if (calendars) {
+    //         console.log('calendars', calendars);
+
+    //     }
+    //     return () => { };
+    // }, [router, calendars]);
 
     useEffect(() => {
         if (data) {

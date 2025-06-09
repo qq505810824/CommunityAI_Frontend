@@ -1,4 +1,4 @@
-import { useAccontOperations } from '@/hooks/useAccountData';
+import { useAccountOperations } from '@/hooks/useAccountData';
 import { PromptModel, usePromptOperations } from '@/hooks/usePromptData';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import StarIcon from '@mui/icons-material/Star';
@@ -21,7 +21,7 @@ export default function OperationView(props: ViewProps) {
     const [focus, setFocus] = useState(false);
     const isLogin = localStorage?.getItem('user_id') || '';
     const { updatePrompt } = usePromptOperations();
-    const { collectPromptById } = useAccontOperations();
+    const { collectPromptById } = useAccountOperations();
 
     useEffect(() => {
         // 当 prompt 数据更新时，更新收藏状态

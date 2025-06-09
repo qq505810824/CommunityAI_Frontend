@@ -40,6 +40,7 @@ export default function AuthCallback() {
                 // 本地存储
                 localStorage.setItem('authorization', '');
                 localStorage.setItem('email', user.email || '');
+                localStorage.setItem('user_id', user.id || '');
 
                 localStorage.setItem('supabase_user', JSON.stringify(user));
                 router.replace('/');

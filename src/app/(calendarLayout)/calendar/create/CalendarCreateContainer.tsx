@@ -12,6 +12,7 @@ const CalendarCreateContainer = () => {
     const params = useParams();
     const token = localStorage.getItem('authorization');
     const email = localStorage.getItem('email');
+    const user_id = localStorage.getItem('user_id');
     const [product, setProduct] = useState<CalendarModel | null>(null);
     const [submitting, setSubmitting] = useState(false);
     const { setAlert } = useAlert();
@@ -33,7 +34,8 @@ const CalendarCreateContainer = () => {
             files_url: upload_file_urls,
             owner: {
                 token: token || '',
-                email: email || ''
+                email: email || '',
+                id: user_id || ''
             }
             // user: localStorage?.getItem('user_id') || null
         };

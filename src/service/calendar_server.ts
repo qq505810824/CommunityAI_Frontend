@@ -60,8 +60,20 @@ export const getAppDetail = async (id: number, accountId?: string) => {
             supabase.from(db).select('*').eq('id', id).single()
         ];
 
+        // 如果有用户ID，添加收藏状态查询
+        if (accountId) {
+            tasks.push(
+                supabase
+                    .from('account_calendar')
+                    .select('*')
+                    .eq('calendar_id', id)
+                    .eq('account_id', accountId)
+                // .single()
+            );
+        }
+
         // 并行执行所有操作
-        const [viewResult, detailResult] = await Promise.all(tasks);
+        const [viewResult, detailResult, collectResult] = await Promise.all(tasks);
         // console.log('collectResult', collectResult);
 
         if (detailResult.error) {
@@ -70,8 +82,8 @@ export const getAppDetail = async (id: number, accountId?: string) => {
 
         return {
             data: {
-                ...detailResult.data
-                // is_collected: collectResult ? collectResult?.data?.length > 0 : false
+                ...detailResult.data,
+                is_collected: collectResult ? collectResult?.data?.length > 0 : false
             },
             error: null
         };

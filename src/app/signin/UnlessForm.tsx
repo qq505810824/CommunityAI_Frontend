@@ -98,6 +98,7 @@ const UnlessForm = () => {
             // console.log('user data', data);
             if (data && data.user && data.user.id) {
                 localStorage?.setItem('email', data.user.email || '');
+                localStorage?.setItem('user_id', data.user.id || '');
             }
             if (error) {
                 Toast.notify({
