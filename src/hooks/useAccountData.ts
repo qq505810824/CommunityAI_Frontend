@@ -1,8 +1,10 @@
 import { AccountModel } from '@/models/Account';
 import {
+    AccountCalendarEnrollModel,
     collectCalendar,
     collectPrompt,
     deleteApp,
+    enrollCalendar,
     getAllAccounts,
     getAppDetail,
     getMyCollectCalendars,
@@ -120,7 +122,13 @@ export const useAccountOperations = () => {
         }
     };
 
-    return { updateAccount, deleteAccount, searchAccount, collectCalendarById, collectPromptById };
+
+    const enrollCalendarById = async (appData: Omit<AccountCalendarEnrollModel, 'id'>) => {
+        return handleAppOperation(async () => {
+            return await enrollCalendar(appData);
+        });
+    };
+    return { updateAccount, deleteAccount, searchAccount, collectCalendarById, collectPromptById, enrollCalendarById };
 };
 
 // 处理应用操作的通用函数

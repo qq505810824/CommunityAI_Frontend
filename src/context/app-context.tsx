@@ -10,6 +10,7 @@ import { createContext, useContext, useContextSelector } from 'use-context-selec
 
 export type AppContextValue = {
     tags?: any;
+    user_id: any;
     userProfile: AccountModel | null;
     pageContainerRef: React.RefObject<HTMLDivElement>;
     langeniusVersionInfo?: LangGeniusVersionResponse;
@@ -28,6 +29,7 @@ const initialLangeniusVersionInfo = {
 
 const AppContext = createContext<AppContextValue>({
     tags: [],
+    user_id: 0,
     userProfile: {
         id: '',
         name: '',
@@ -61,8 +63,9 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
 
     const pageContainerRef = useRef<HTMLDivElement>(null);
     const [userProfile, setUserProfile] = useState<AccountModel | null>(null);
+    const user_id = localStorage.getItem('user_id');
 
-    useEffect(() => {}, []);
+    useEffect(() => { }, []);
 
     useEffect(() => {
         // 从本地存储中获取用户信息
@@ -133,6 +136,7 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
     return (
         <AppContext.Provider
             value={{
+                user_id,
                 userProfile,
                 pageContainerRef,
                 useSelector

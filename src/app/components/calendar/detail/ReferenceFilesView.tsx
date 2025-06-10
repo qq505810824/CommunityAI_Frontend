@@ -1,3 +1,4 @@
+import { useAppContext } from '@/context/app-context';
 import { useModalContext } from '@/context/modal-context';
 import { CalendarModel } from '@/hooks/useCalendarData';
 import { useRouter } from 'next/navigation';
@@ -10,7 +11,7 @@ interface ViewProps {
 
 export default function ReferenceFilesView(props: ViewProps) {
     const { product, isShare } = props;
-    const user_id = localStorage.getItem('user_id');
+    const { user_id } = useAppContext();
     const { setShowConfirmDelete } = useModalContext();
     const router = useRouter();
 

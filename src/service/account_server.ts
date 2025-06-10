@@ -8,6 +8,15 @@ const supabase = createClient(
 
 const db = 'account';
 
+export interface AccountCalendarEnrollModel {
+    id?: string;
+    account_id?: string;
+    calendar_id?: number;
+    meta?: any
+    source?: string;
+    status?: string
+}
+
 export const collectPrompt = async (promptId: number, accountId: string) => {
     try {
         const { data: existingCollects, error: checkError } = await supabase
@@ -86,6 +95,26 @@ export const collectCalendar = async (id: number, accountId: string) => {
         }
     } catch (error) {
         console.error('收藏操作失败:', error);
+        return { success: false, error };
+    }
+};
+
+export const enrollCalendar = async (appData: Omit<AccountCalendarEnrollModel, 'id'>) => {
+    try {
+        try {
+            const { data, error } = await supabase.from('calendar_enroll').insert([appData]).select();
+            if (error) {
+                throw error;
+            }
+
+            return { success: true, data };
+        } catch (error) {
+            console.error('创建应用失败:', error);
+            return { success: false, error };
+        }
+
+    } catch (error) {
+        console.error('操作失败:', error);
         return { success: false, error };
     }
 };

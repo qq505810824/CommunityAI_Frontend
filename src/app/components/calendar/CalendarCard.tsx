@@ -12,7 +12,6 @@ interface ViewProps {
 export default function CalendarCard(props: ViewProps) {
     const { product } = props;
     const router = useRouter();
-    const user_id = localStorage.getItem('user_id');
     const { setShowConfirmDelete } = useModalContext();
 
     const handleClick = () => {

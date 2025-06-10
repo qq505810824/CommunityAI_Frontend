@@ -20,8 +20,7 @@ export default function OperationView(props: ViewProps) {
     const [focus, setFocus] = useState(false);
     const { collectCalendarById } = useAccountOperations();
     const { setShowShareQRcode } = useModalContext();
-    const { userProfile } = useAppContext();
-    const user_id = localStorage.getItem('user_id');
+    const { user_id, userProfile } = useAppContext();
 
     useEffect(() => {
         if (product)

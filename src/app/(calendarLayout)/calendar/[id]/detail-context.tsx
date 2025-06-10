@@ -1,5 +1,6 @@
 'use client';
 
+import { useAppContext } from '@/context/app-context';
 // import { updateTableById } from '@/apis/airtable/AirtableSchema';
 import { useModalContext } from '@/context/modal-context';
 import { CalendarModel, useCalendarDetailData } from '@/hooks/useCalendarData';
@@ -37,7 +38,7 @@ export const AppDetailContextProvider: FC<AppContextProviderProps> = ({
     const params = useParams();
     const { setShowConfirmDelete } = useModalContext();
     const [isShare, setIsShare] = useState(false);
-    const user_id = localStorage.getItem('user_id');
+    const { user_id } = useAppContext();
     // const { data } = useSWR(
     //     () => params['id'] ? { table_id: params['id'] } : null,
     //     getSchema,
@@ -50,7 +51,7 @@ export const AppDetailContextProvider: FC<AppContextProviderProps> = ({
 
     useEffect(() => {
         if (data) {
-            console.log('appData data ', data);
+            // console.log('appData data ', data);
             setAppData(data)
         }
     }, [data]);

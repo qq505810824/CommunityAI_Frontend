@@ -11,7 +11,6 @@ interface ViewProps {
 export default function EnrollButton(props: ViewProps) {
     const { product, enrollUrl } = props;
     const router = useRouter()
-    const user_id = localStorage.getItem('user_id');
     const { setShowConfirmDelete } = useModalContext();
     const handleClick = () => {
         router.push(enrollUrl || `/calendar/${product?.id}/enroll`);

@@ -1,3 +1,5 @@
+import { useAppContext } from '@/context/app-context';
+import { useAccountOperations } from '@/hooks/useAccountData';
 import { CalendarModel } from '@/hooks/useCalendarData';
 import { useEffect, useRef } from 'react';
 
@@ -9,6 +11,8 @@ export default function ReferenceFormView(props: ViewProps) {
     const { product } = props;
 
     const iframeRef = useRef<HTMLIFrameElement>(null);
+    const { user_id } = useAppContext()
+    const { enrollCalendarById } = useAccountOperations()
 
     useEffect(() => {
         function handleResize() {
@@ -35,6 +39,31 @@ export default function ReferenceFormView(props: ViewProps) {
         };
     }, [product?.form_url]);
 
+    useEffect(() => {
+        function handleMessage(event: MessageEvent) {
+            // 可加 event.origin 校验安全性
+            if (event.data && event.data.type === 'form_submit_success') {
+                // 这里就是表单提交成功的回调
+                // alert('表单提交成功！');
+
+                handleEnrollSuccess(event.data)
+                // 你可以做任何后续处理
+            }
+        }
+        window.addEventListener('message', handleMessage);
+        return () => window.removeEventListener('message', handleMessage);
+    }, []);
+
+    const handleEnrollSuccess = async (data: any) => {
+        // console.log('event.data', data);
+        const res = await enrollCalendarById({
+            account_id: user_id,
+            calendar_id: product?.id,
+            meta: data,
+            source: 'konnect_ai',
+            status: 'pedding'
+        })
+    }
     return (
         <>
             {product?.form_url && (
