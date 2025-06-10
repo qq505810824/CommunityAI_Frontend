@@ -21,7 +21,7 @@ function EnrollDetailView(props: ViewProps) {
                     <BackView
                         title="Back"
                         onClick={() => {
-                            router.back()
+                            router.back();
                         }}
                     />
                     <div className="w-full  flex flex-col justify-center space-y-4   sm:space-x-8 ">
@@ -38,7 +38,6 @@ function EnrollDetailView(props: ViewProps) {
                         </div>
                         <DateView {...{ product }} />
                         <ReferenceFormView {...{ product }} />
-
                     </div>
                 </div>
             </div>

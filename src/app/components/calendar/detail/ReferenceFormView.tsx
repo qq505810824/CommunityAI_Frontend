@@ -11,8 +11,8 @@ export default function ReferenceFormView(props: ViewProps) {
     const { product } = props;
 
     const iframeRef = useRef<HTMLIFrameElement>(null);
-    const { user_id } = useAppContext()
-    const { enrollCalendarById } = useAccountOperations()
+    const { user_id } = useAppContext();
+    const { enrollCalendarById } = useAccountOperations();
 
     useEffect(() => {
         function handleResize() {
@@ -23,8 +23,7 @@ export default function ReferenceFormView(props: ViewProps) {
                     const height = doc.body.scrollHeight;
                     iframe.style.height = height + 'px';
                 } catch (e) {
-                    // 跨域會報錯，忽略 
-
+                    // 跨域會報錯，忽略
                 }
             }
         }
@@ -46,7 +45,7 @@ export default function ReferenceFormView(props: ViewProps) {
                 // 这里就是表单提交成功的回调
                 // alert('表单提交成功！');
 
-                handleEnrollSuccess(event.data)
+                handleEnrollSuccess(event.data);
                 // 你可以做任何后续处理
             }
         }
@@ -62,19 +61,14 @@ export default function ReferenceFormView(props: ViewProps) {
             meta: data,
             source: 'konnect_ai',
             status: 'pedding'
-        })
-    }
+        });
+    };
     return (
         <>
             {product?.form_url && (
                 <div className="  my-4">
                     <p className="text-md font-semibold">報名表單:</p>
-                    <iframe
-                        ref={iframeRef}
-                        src={product?.form_url}
-                        width="100%"
-                        height="800"
-                    >
+                    <iframe ref={iframeRef} src={product?.form_url} width="100%" height="800">
                         正在加載...
                     </iframe>
                 </div>

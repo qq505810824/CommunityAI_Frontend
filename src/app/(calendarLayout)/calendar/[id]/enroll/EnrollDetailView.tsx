@@ -38,7 +38,6 @@ function EnrollDetailView(props: ViewProps) {
                         </div>
                         <DateView {...{ product }} />
                         <ReferenceFormView {...{ product }} />
-
                     </div>
                 </div>
             </div>

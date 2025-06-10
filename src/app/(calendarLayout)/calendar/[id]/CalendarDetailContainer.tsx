@@ -23,7 +23,7 @@ function CalendarDetailContainer() {
     // const { data, isLoading, isError } = useCalendarDetailData(Number(params['id']), user_id || '');
     // const { data: calendars } = useMyCollectCalendarsData(user_id || '');
     const { setShowConfirmDelete } = useModalContext();
-    const { appData } = useAppDetailContext()
+    const { appData } = useAppDetailContext();
 
     // useEffect(() => {
     //     if (!user_id) {
@@ -41,10 +41,9 @@ function CalendarDetailContainer() {
 
     useEffect(() => {
         if (appData) {
-
             setProduct(appData);
         }
-        return () => { };
+        return () => {};
     }, [appData]);
 
     if (!product) return <Loading type="app" />;

@@ -122,13 +122,19 @@ export const useAccountOperations = () => {
         }
     };
 
-
     const enrollCalendarById = async (appData: Omit<AccountCalendarEnrollModel, 'id'>) => {
         return handleAppOperation(async () => {
             return await enrollCalendar(appData);
         });
     };
-    return { updateAccount, deleteAccount, searchAccount, collectCalendarById, collectPromptById, enrollCalendarById };
+    return {
+        updateAccount,
+        deleteAccount,
+        searchAccount,
+        collectCalendarById,
+        collectPromptById,
+        enrollCalendarById
+    };
 };
 
 // 处理应用操作的通用函数

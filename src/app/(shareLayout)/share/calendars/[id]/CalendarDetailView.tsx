@@ -39,7 +39,13 @@ function CalendarDetailView(props: ViewProps) {
                                 </Typography>
                                 <OperationView {...{ product }} />
                             </div>
-                            <DateView {...{ product, visibleEnroll: true, enrollUrl: `/share/calendars/${product?.id}/enroll` }} />
+                            <DateView
+                                {...{
+                                    product,
+                                    visibleEnroll: true,
+                                    enrollUrl: `/share/calendars/${product?.id}/enroll`
+                                }}
+                            />
                             <ContentView {...{ product }} />
                             <ReferenceFilesView {...{ product, isShare: true }} />
                             <ReferenceUrlView {...{ product }} />

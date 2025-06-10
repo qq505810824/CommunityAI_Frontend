@@ -23,13 +23,12 @@ export default function OperationView(props: ViewProps) {
     const { user_id, userProfile } = useAppContext();
 
     useEffect(() => {
-        if (product)
-            setCollect(product?.is_collected || false);
+        if (product) setCollect(product?.is_collected || false);
     }, [product]);
 
     const showCollectView = () => {
-        return user_id !== ''
-    }
+        return user_id !== '';
+    };
 
     const handleCollect = async () => {
         if (!userProfile?.id) {
@@ -57,14 +56,14 @@ export default function OperationView(props: ViewProps) {
     return (
         <>
             <div className="flex   flex-row items-center justify-end  space-x-2">
-                {showCollectView() &&
+                {showCollectView() && (
                     <Tooltip title={!collect ? '收藏' : '取消收藏'} placement="top">
                         <IconButton onClick={handleCollect}>
                             {collect && <StarIcon sx={{ width: '20px', color: 'red' }} />}
                             {!collect && <StarBorderOutlinedIcon sx={{ width: '20px' }} />}
                         </IconButton>
                     </Tooltip>
-                }
+                )}
                 <Tooltip title={'分享'} placement="top">
                     <IconButton onClick={handleClickShare}>
                         <Share2Icon

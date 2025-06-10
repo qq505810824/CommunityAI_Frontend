@@ -12,9 +12,9 @@ export interface AccountCalendarEnrollModel {
     id?: string;
     account_id?: string;
     calendar_id?: number;
-    meta?: any
+    meta?: any;
     source?: string;
-    status?: string
+    status?: string;
 }
 
 export const collectPrompt = async (promptId: number, accountId: string) => {
@@ -102,7 +102,10 @@ export const collectCalendar = async (id: number, accountId: string) => {
 export const enrollCalendar = async (appData: Omit<AccountCalendarEnrollModel, 'id'>) => {
     try {
         try {
-            const { data, error } = await supabase.from('calendar_enroll').insert([appData]).select();
+            const { data, error } = await supabase
+                .from('calendar_enroll')
+                .insert([appData])
+                .select();
             if (error) {
                 throw error;
             }
@@ -112,7 +115,6 @@ export const enrollCalendar = async (appData: Omit<AccountCalendarEnrollModel, '
             console.error('创建应用失败:', error);
             return { success: false, error };
         }
-
     } catch (error) {
         console.error('操作失败:', error);
         return { success: false, error };

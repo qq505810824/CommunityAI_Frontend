@@ -52,6 +52,23 @@ export const getAllApps = async (options?: any) => {
     }
 };
 
+export const getRandomApps = async (options?: any) => {
+    try {
+        // console.log('options', options);
+
+        let query = supabase.rpc('random_calendars', options);
+        const { data, error } = await query;
+        if (error) {
+            throw error;
+        }
+
+        return { data, error: null };
+    } catch (error) {
+        console.error('获取应用列表失败:', error);
+        return { data: null, error };
+    }
+};
+
 export const getAppDetail = async (id: number, accountId?: string) => {
     try {
         // 构建查询任务数组

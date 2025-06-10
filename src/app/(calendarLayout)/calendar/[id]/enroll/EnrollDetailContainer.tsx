@@ -16,14 +16,13 @@ function EnrollDetailContainer() {
     const params = useParams();
     const user_id = localStorage.getItem('user_id');
     const [product, setProduct] = useState<CalendarModel>();
-    const { appData } = useAppDetailContext()
+    const { appData } = useAppDetailContext();
 
     useEffect(() => {
         if (appData) {
-
             setProduct(appData);
         }
-        return () => { };
+        return () => {};
     }, [appData]);
 
     if (!product) return <Loading type="app" />;

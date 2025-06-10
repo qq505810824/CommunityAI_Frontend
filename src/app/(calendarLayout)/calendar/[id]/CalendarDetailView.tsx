@@ -2,6 +2,7 @@ import BackView from '@/app/components/base/back/BackView';
 import ContentView from '@/app/components/calendar/detail/ContentView';
 import DateView from '@/app/components/calendar/detail/DateView';
 import OperationView from '@/app/components/calendar/detail/OperationView';
+import RecommodCalendarView from '@/app/components/calendar/detail/RecommodCalendarView';
 import ReferenceFilesView from '@/app/components/calendar/detail/ReferenceFilesView';
 import ReferenceUrlView from '@/app/components/calendar/detail/ReferenceUrlView';
 import { CalendarModel } from '@/hooks/useCalendarData';
@@ -52,6 +53,7 @@ function CalendarDetailView(props: ViewProps) {
                                 className="w-full h-auto object-cover"
                                 alt=""
                             />
+                            <RecommodCalendarView />
                         </div>
                     </div>
                 </div>

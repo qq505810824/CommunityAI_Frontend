@@ -5,12 +5,12 @@ import { Button } from '@mui/joy';
 import { useRouter } from 'next/navigation';
 interface ViewProps {
     product?: CalendarModel;
-    enrollUrl?: string
+    enrollUrl?: string;
 }
 
 export default function EnrollButton(props: ViewProps) {
     const { product, enrollUrl } = props;
-    const router = useRouter()
+    const router = useRouter();
     const { setShowConfirmDelete } = useModalContext();
     const handleClick = () => {
         router.push(enrollUrl || `/calendar/${product?.id}/enroll`);
@@ -27,17 +27,17 @@ export default function EnrollButton(props: ViewProps) {
         //         },
         //         onCancelCallback() {}
         //     });
-        // } 
-    }
+        // }
+    };
     return (
         <>
             {product?.form_url && (
                 <Button
-                    size='sm'
+                    size="sm"
                     sx={{
                         bgcolor: '#f97316',
-                        ":hover": {
-                            bgcolor: '#ea580c',
+                        ':hover': {
+                            bgcolor: '#ea580c'
                         }
                     }}
                     startDecorator={<ArrowForwardOutlinedIcon />}
@@ -45,8 +45,7 @@ export default function EnrollButton(props: ViewProps) {
                 >
                     立即報名
                 </Button>
-            )
-            }
+            )}
         </>
     );
 }

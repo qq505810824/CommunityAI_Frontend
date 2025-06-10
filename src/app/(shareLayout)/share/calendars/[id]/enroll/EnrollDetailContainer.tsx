@@ -15,14 +15,13 @@ function EnrollDetailContainer() {
     const router = useRouter();
     const params = useParams();
     const [product, setProduct] = useState<CalendarModel>();
-    const { appData } = useAppDetailContext()
+    const { appData } = useAppDetailContext();
 
     useEffect(() => {
         if (appData) {
-
             setProduct(appData);
         }
-        return () => { };
+        return () => {};
     }, [appData]);
 
     if (!product) return <Loading type="app" />;

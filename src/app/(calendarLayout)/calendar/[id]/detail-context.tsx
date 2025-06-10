@@ -19,7 +19,7 @@ export type AppContextValue = {
 const AppDetailContext = createContext<AppContextValue>({
     appData: null,
     isShare: false,
-    submitting: false,
+    submitting: false
     // handleUpdateTable: () => {},
     // handleDeleteTable: () => {}
 });
@@ -52,7 +52,7 @@ export const AppDetailContextProvider: FC<AppContextProviderProps> = ({
     useEffect(() => {
         if (data) {
             // console.log('appData data ', data);
-            setAppData(data)
+            setAppData(data);
         }
     }, [data]);
 
@@ -63,7 +63,6 @@ export const AppDetailContextProvider: FC<AppContextProviderProps> = ({
     useEffect(() => {
         setIsShare(share);
     }, [share]);
-
 
     // if (!appData) return <Loading type="app" />;
 
