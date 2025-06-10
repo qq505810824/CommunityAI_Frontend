@@ -16,22 +16,23 @@ export default function CalendarCard(props: ViewProps) {
     const { setShowConfirmDelete } = useModalContext();
 
     const handleClick = () => {
-        if (user_id === '') {
-            setShowConfirmDelete({
-                payload: {
-                    title: '溫馨提示',
-                    content: '免費註冊以瀏覽全部內容，立即註冊或登入。',
-                    confirmText: '註冊/登入',
-                    cancelText: '取消'
-                },
-                onSaveCallback: () => {
-                    router.push('/signin?redirect=' + window.location.href);
-                },
-                onCancelCallback() {}
-            });
-        } else {
-            router.push(`/calendar/${product.id}`);
-        }
+        // if (user_id === '') {
+        //     setShowConfirmDelete({
+        //         payload: {
+        //             title: '溫馨提示',
+        //             content: '免費註冊以瀏覽全部內容，立即註冊或登入。',
+        //             confirmText: '註冊/登入',
+        //             cancelText: '取消'
+        //         },
+        //         onSaveCallback: () => {
+        //             router.push('/signin?redirect=' + window.location.href);
+        //         },
+        //         onCancelCallback() {}
+        //     });
+        // } else {
+        //     router.push(`/calendar/${product.id}`);
+        // }
+        router.push(`/calendar/${product.id}`);
     };
 
     return (

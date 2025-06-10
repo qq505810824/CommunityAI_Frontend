@@ -4,11 +4,12 @@ import Loading from '@/app/components/base/loading';
 import { useAppContext } from '@/context/app-context';
 import { useModalContext } from '@/context/modal-context';
 import useAlert from '@/hooks/useAlert';
-import { CalendarModel, useCalendarDetailData } from '@/hooks/useCalendarData';
+import { CalendarModel } from '@/hooks/useCalendarData';
 import useLoad from '@/hooks/useLoad';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import CalendarDetailView from './CalendarDetailView';
+import { useAppDetailContext } from './detail-context';
 
 function CalendarDetailContainer() {
     const { setAlert } = useAlert();
@@ -19,15 +20,16 @@ function CalendarDetailContainer() {
     const [product, setProduct] = useState<CalendarModel>();
     const { userProfile } = useAppContext();
 
-    const { data, isLoading, isError } = useCalendarDetailData(Number(params['id']), user_id || '');
+    // const { data, isLoading, isError } = useCalendarDetailData(Number(params['id']), user_id || '');
     // const { data: calendars } = useMyCollectCalendarsData(user_id || '');
     const { setShowConfirmDelete } = useModalContext();
+    const { appData } = useAppDetailContext()
 
-    useEffect(() => {
-        if (!user_id) {
-            router.push('/signin?redirect=' + window.location.href);
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (!user_id) {
+    //         router.push('/signin?redirect=' + window.location.href);
+    //     }
+    // }, []);
 
     // useEffect(() => {
     //     if (calendars) {
@@ -38,30 +40,18 @@ function CalendarDetailContainer() {
     // }, [router, calendars]);
 
     useEffect(() => {
-        if (data) {
-            const newData = {
-                ...data
-            };
-            setProduct(newData);
+        if (appData) {
+
+            setProduct(appData);
         }
-        return () => {};
-    }, [router, data]);
+        return () => { };
+    }, [appData]);
 
-    const get_drives = async () => {
-        // const session: any = await getSession()
-        // if (!session) return router.push('/api/auth/signin')
-        // console.log('session', session);
-    };
-    useEffect(() => {
-        get_drives();
-    }, []);
-
-    if (!data) return <Loading type="app" />;
+    if (!product) return <Loading type="app" />;
 
     return (
         <CalendarDetailView
             {...{
-                data,
                 product
             }}
         />
