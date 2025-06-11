@@ -101,20 +101,24 @@ export const collectCalendar = async (id: number, accountId: string) => {
 
 export const enrollCalendar = async (appData: Omit<AccountCalendarEnrollModel, 'id'>) => {
     try {
-        try {
-            const { data, error } = await supabase
-                .from('calendar_enroll')
-                .insert([appData])
-                .select();
-            if (error) {
-                throw error;
-            }
 
-            return { success: true, data };
-        } catch (error) {
-            console.error('创建应用失败:', error);
-            return { success: false, error };
+        const tasks = [
+            supabase.rpc('increment_calendar_enroll', { calendar_id: appData.calendar_id }),
+            supabase.from('calendar_enroll').insert([appData]).select(),
+        ];
+        // 并行执行所有操作
+        const [enrollResult, addResult] = await Promise.all(tasks);
+        console.log('enrollResult', enrollResult);
+
+
+        if (addResult.error) {
+            throw addResult.error;
         }
+
+        return {
+            data: addResult.data,
+            error: null
+        };
     } catch (error) {
         console.error('操作失败:', error);
         return { success: false, error };

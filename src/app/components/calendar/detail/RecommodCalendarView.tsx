@@ -2,13 +2,11 @@ import { CalendarModel, randomCalendarData, showCalendarValues } from '@/hooks/u
 import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-interface ViewProps {
-}
+interface ViewProps {}
 
 export default function RecommodCalendarView(props: ViewProps) {
-
     const router = useRouter();
-    const [products, setProducts] = useState<CalendarModel[]>([])
+    const [products, setProducts] = useState<CalendarModel[]>([]);
     const [filters, setFilters] = useState<any>({
         p_limit: 5,
         category: '',
@@ -25,7 +23,7 @@ export default function RecommodCalendarView(props: ViewProps) {
             });
             setProducts(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     const handleClick = (product: CalendarModel) => {
@@ -34,7 +32,7 @@ export default function RecommodCalendarView(props: ViewProps) {
 
     return (
         <>
-            <div className='mt-10 w-full flex items-center rounded-md text-white text-sm font-medium bg-orange-500 p-2 '>
+            <div className="mt-10 w-full flex items-center rounded-md text-white text-sm font-medium bg-orange-500 p-2 ">
                 <LocalFireDepartmentOutlinedIcon sx={{ color: 'white' }} /> 其他精彩活動
             </div>
             <div className="flex-col  space-y-1  my-2  w-full ">
