@@ -4,7 +4,6 @@ import { Button } from '@mui/joy';
 import { createClient } from '@supabase/supabase-js';
 import { Editor } from '@tinymce/tinymce-react';
 import { useEffect, useRef, useState } from 'react';
-import 'react-calendar/dist/Calendar.css';
 import { useForm } from 'react-hook-form';
 import Select, { Item } from '../../base/select';
 import RunBatch from '../../common/Widget/run-batch';

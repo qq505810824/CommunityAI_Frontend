@@ -76,7 +76,7 @@ const appsFetcher = async (options?: {}) => {
 
 // 自定义 hook 使用 SWR 获取所有应用
 export const useCalendarData = (options = {}) => {
-    const { data, error, isLoading, mutate } = useSWR(() => options, appsFetcher, {
+    const { data, error, isLoading, mutate } = useSWR("calendars", () => appsFetcher(options), {
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
         dedupingInterval: 60000 // 1分钟内不重复请求
