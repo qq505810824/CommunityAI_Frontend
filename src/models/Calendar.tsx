@@ -19,6 +19,10 @@ export const CalendarFormData = {
                 type: 'string',
                 title: '活動名稱'
             },
+            description: {
+                type: 'string',
+                title: '描述'
+            },
             category: {
                 type: 'string',
                 title: '类型',
@@ -27,10 +31,7 @@ export const CalendarFormData = {
                     { const: 'activity', title: '活動' }
                 ]
             },
-            description: {
-                type: 'string',
-                title: '描述'
-            },
+
 
             // "date_range": {
             //     "type": "object",
