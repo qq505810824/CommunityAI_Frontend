@@ -71,6 +71,7 @@ const BookEditContainer = () => {
                     type: 'success'
                 });
                 router.push('/admin/books');
+                router.refresh()
                 // router.back()
             }
         } catch (error) {

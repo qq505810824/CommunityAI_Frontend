@@ -89,7 +89,8 @@ export const BookFormData = {
         "properties": {
             "cover_url": {
                 "type": "string",
-                "title": "封面"
+                "title": "封面",
+                "tip": "建議上傳圖片比例5:6,限6M內"
             },
             "title": {
                 "type": "string",
@@ -128,12 +129,12 @@ export const BookFormData = {
                 "title": "出版社"
             },
             "publish_date": {
-                "type": "string",
+                "type": ["string", "null"],
                 "title": "出版日期"
             },
             "file_url": {
                 "type": "string",
-                "title": "文件"
+                "title": "教材文件"
             }
         },
 
@@ -193,7 +194,6 @@ export const BookFormData = {
         "is_free": true,
         "author": "",
         "publisher": "",
-        "publish_date": ""
     },
     // "display_order": [
     //     "title",

@@ -1,5 +1,5 @@
 import { Editor } from '@tinymce/tinymce-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface ViewProps {
     key: string;
@@ -15,14 +15,24 @@ export default function FormEditor(props: any) {
     //     setValue
     // } = props
 
-    const { name, required, value, onChange, disabled } = props;
+    const { name, label, required, value, onChange, disabled } = props;
 
-    const [initValue, setInitValue] = useState(value)
+    const [initValue, setInitValue] = useState("")
+    const [isInit, setIsInit] = useState(false)
     const [blobToBase64Map, setBlobToBase64Map] = useState<{ [blobUri: string]: string }>({});
+    useEffect(() => {
+        // console.log('formData', name);
+        // console.log('editor value', value);
+        if (value && !isInit) {
+            setInitValue(value)
+            setIsInit(true)
+        }
+    }, [value, isInit]);
+
     return (
         <>
             <div className="   w-full  min-h-[100px]">
-                <p>{name}</p>
+                <p className=' font-semibold pr-3 pb-2'>{label}</p>
                 <Editor
                     key={name}
                     id="output_editor"

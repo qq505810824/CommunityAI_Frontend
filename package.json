@@ -44,7 +44,6 @@
         "@react-pdf/renderer": "^3.4.2",
         "@rjsf/chakra-ui": "^5.23.2",
         "@rjsf/core": "^5.23.2",
-        "@rjsf/utils": "^5.23.2",
         "@rjsf/validator-ajv8": "^5.23.2",
         "@sentry/react": "^7.54.0",
         "@sentry/utils": "^7.54.0",

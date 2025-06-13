@@ -3,6 +3,7 @@
 import useAlert from '@/hooks/useAlert';
 import { useBookOperations } from '@/hooks/useBookData';
 import { BookModel } from '@/models/Book';
+import _ from 'lodash';
 import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import BooksCreateView from './BooksCreateView';
@@ -39,7 +40,7 @@ const BooksCreateContainer = () => {
         // // console.log(_.omit(newFormData, 'uploadFiles'));
 
         try {
-            const { data, error } = await addBook(newFormData);
+            const { data, error } = await addBook(_.omit(newFormData, 'uploadFiles'));
             if (error) {
                 console.error('發佈錯誤:', error);
                 setAlert({

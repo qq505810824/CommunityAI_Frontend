@@ -34,12 +34,22 @@ function BooksEditForm(props: ViewProps) {
 
     }, []);
 
+    const onSubmit = async (form_data: any) => {
+        const data = { ...form_data };
+        if (data.publish_date === "") {
+            data.publish_date = null;
+        }
+        // 其它处理...
+        submit(data);
+    };
+
     return (
         <>
             <FormDetailView
                 formData={formData}
                 disabled={submitting}
                 onSubmit={submit}
+                storageName={"books"}
             />
         </>
     );

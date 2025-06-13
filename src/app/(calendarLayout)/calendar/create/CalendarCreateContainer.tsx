@@ -39,7 +39,7 @@ const CalendarCreateContainer = () => {
             }
             // user: localStorage?.getItem('user_id') || null
         };
-        // console.log(_.omit(newFormData, 'uploadFiles'));
+        console.log(_.omit(newFormData, 'uploadFiles'));
 
         try {
             const { data, error } = await addCalendar(_.omit(newFormData, 'uploadFiles'));

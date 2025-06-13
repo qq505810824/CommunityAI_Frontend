@@ -13,16 +13,13 @@ const supabase = createClient(
 
 
 export default function FormImage(props: any) {
-    const { setValue, key_url, storage, name, required, value, onChange, disabled } = props;
+    const { setValue, key_url, storage, name, label, schema, required, value, onChange, disabled } = props;
+    // console.log(props);
 
     const [selectedImage, setSelectedImage] = useState<string | null>(value);
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [showReplaceButton, setShowReplaceButton] = useState(false);
     const [uploadImageLoading, setUploadImageLoading] = useState(false);
-
-    console.log('storage', storage);
-    console.log('value', value);
-
 
     const handleClickFile = (e: any) => {
         e.stopPropagation();
@@ -153,8 +150,8 @@ export default function FormImage(props: any) {
                         </>
                     ) : (
                         <>
-                            <p>上傳圖片</p>
-                            <p className="text-xs">(建議上傳圖片比例5:6,限6M內)</p>
+                            <p>上傳{label}圖片</p>
+                            <p className="text-xs">({schema?.['tip'] || '建議上傳圖片比例5:6,限6M內'})</p>
                         </>
                     )}
 
