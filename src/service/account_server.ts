@@ -101,15 +101,13 @@ export const collectCalendar = async (id: number, accountId: string) => {
 
 export const enrollCalendar = async (appData: Omit<AccountCalendarEnrollModel, 'id'>) => {
     try {
-
         const tasks = [
             supabase.rpc('increment_calendar_enroll', { calendar_id: appData.calendar_id }),
-            supabase.from('calendar_enroll').insert([appData]).select(),
+            supabase.from('calendar_enroll').insert([appData]).select()
         ];
         // 并行执行所有操作
         const [enrollResult, addResult] = await Promise.all(tasks);
         console.log('enrollResult', enrollResult);
-
 
         if (addResult.error) {
             throw addResult.error;

@@ -40,11 +40,14 @@ export default function MyForm<T extends FieldValues = any>(props: ViewProps<T>)
                             {...register(key as unknown as import('react-hook-form').Path<T>)}
                             key={key}
                             setValue={(content: any) => {
-                                setValue(key as unknown as import('react-hook-form').Path<T>, content)
+                                setValue(
+                                    key as unknown as import('react-hook-form').Path<T>,
+                                    content
+                                );
                             }}
                         />
                     </>
-                )
+                );
             case 'select':
                 return (
                     <Select
@@ -54,7 +57,10 @@ export default function MyForm<T extends FieldValues = any>(props: ViewProps<T>)
                         bgClassName=" bg-white rounded-sm"
                         items={uiSchema['ui:options']?.enumOptions || []}
                         onSelect={(item: Item) => {
-                            setValue(key as unknown as import('react-hook-form').Path<T>, item?.value as any);
+                            setValue(
+                                key as unknown as import('react-hook-form').Path<T>,
+                                item?.value as any
+                            );
                         }}
                     />
                 );
@@ -74,7 +80,7 @@ export default function MyForm<T extends FieldValues = any>(props: ViewProps<T>)
                         {...register(key as unknown as import('react-hook-form').Path<T>)}
                         setValue={setValue}
                     />
-                )
+                );
             default:
                 return (
                     <>
@@ -86,9 +92,9 @@ export default function MyForm<T extends FieldValues = any>(props: ViewProps<T>)
                             className="border p-2 w-full rounded-md"
                         />
                     </>
-                )
+                );
         }
-    }
+    };
     return (
         <form onSubmit={handleSubmit(submit)} className="w-full overflow-auto">
             {Object.keys(formFieldData.fieldSchema).map((key) => {
@@ -97,8 +103,7 @@ export default function MyForm<T extends FieldValues = any>(props: ViewProps<T>)
                 return (
                     <div key={key} className="mb-4">
                         <p className=" font-medium text-sm">
-                            {field.title}{' '}
-                            <span className="text-sm text-gray-400">{field.tip}</span>
+                            {field.title} <span className="text-sm text-gray-400">{field.tip}</span>
                         </p>
                         {renderField(key, field, uiSchema)}
                     </div>

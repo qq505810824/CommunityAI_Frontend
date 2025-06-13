@@ -13,7 +13,7 @@ export interface BookModel {
 
     price: number;
     is_free: boolean;
-    status: string
+    status: string;
 
     created_at: string;
     updated_at: string;
@@ -31,7 +31,7 @@ export const BookFormData2 = {
 
         author: { type: 'string', title: '作者', required: false, tip: '(選填)' },
         publisher: { type: 'string', title: '出版社', required: false, tip: '(選填)' },
-        publish_date: { type: 'string', title: '出版日期', required: false, tip: '(選填)' },
+        publish_date: { type: 'string', title: '出版日期', required: false, tip: '(選填)' }
     },
     uiSchema: {
         title: { 'ui:widget': 'text' },
@@ -75,102 +75,96 @@ export const BookFormData2 = {
     }
 };
 
-
-
 export const BookFormData = {
-    "json_schema": {
-        "type": "object",
-        "title": "教材資料",
-        "description": "",
-        "required": [
-            "title",
-            "description"
-        ],
-        "properties": {
-            "cover_url": {
-                "type": "string",
-                "title": "封面",
-                "tip": "建議上傳圖片比例5:6,限6M內"
+    json_schema: {
+        type: 'object',
+        title: '教材資料',
+        description: '',
+        required: ['title', 'description'],
+        properties: {
+            cover_url: {
+                type: 'string',
+                title: '封面',
+                tip: '建議上傳圖片比例5:6,限6M內'
             },
-            "title": {
-                "type": "string",
-                "title": "名稱"
+            title: {
+                type: 'string',
+                title: '名稱'
             },
 
-            "description": {
-                "type": "string",
-                "title": "簡介"
+            description: {
+                type: 'string',
+                title: '簡介'
             },
 
-            "category": {
-                "type": "string",
-                "title": "分類"
+            category: {
+                type: 'string',
+                title: '分類'
             },
-            "price": {
-                "type": "number",
-                "title": "價格"
+            price: {
+                type: 'number',
+                title: '價格'
             },
-            "is_free": {
-                "type": "boolean",
-                "title": "是否免費",
+            is_free: {
+                type: 'boolean',
+                title: '是否免費',
                 // "enum": [true, false],
                 // "enumNames": ["是", "否"]
-                "oneOf": [
-                    { "const": true, "title": "是" },
-                    { "const": false, "title": "否" }
+                oneOf: [
+                    { const: true, title: '是' },
+                    { const: false, title: '否' }
                 ]
             },
-            "author": {
-                "type": "string",
-                "title": "作者"
+            author: {
+                type: 'string',
+                title: '作者'
             },
-            "publisher": {
-                "type": "string",
-                "title": "出版社"
+            publisher: {
+                type: 'string',
+                title: '出版社'
             },
-            "publish_date": {
-                "type": ["string", "null"],
-                "title": "出版日期"
+            publish_date: {
+                type: ['string', 'null'],
+                title: '出版日期'
             },
-            "file_url": {
-                "type": "string",
-                "title": "教材文件"
+            file_url: {
+                type: 'string',
+                title: '教材文件'
             }
-        },
-
+        }
     },
-    "ui_schema": {
-        "title": {
-            "ui:widget": "text"
+    ui_schema: {
+        title: {
+            'ui:widget': 'text'
         },
-        "category": {
-            "ui:widget": "text",
+        category: {
+            'ui:widget': 'text'
             // "ui:description": "Hint: Make it strong!"
         },
-        "description": {
-            "ui:widget": "textarea"
+        description: {
+            'ui:widget': 'textarea'
         },
-        "cover_url": {
-            "ui:widget": "image"
+        cover_url: {
+            'ui:widget': 'image'
         },
-        "price": {
-            "ui:widget": "updown"
+        price: {
+            'ui:widget': 'updown'
         },
-        "is_free": {
-            "ui:widget": "radio"
+        is_free: {
+            'ui:widget': 'radio'
         },
-        "author": {
-            "ui:widget": "text"
+        author: {
+            'ui:widget': 'text'
         },
-        "publisher": {
-            "ui:widget": "text"
+        publisher: {
+            'ui:widget': 'text'
         },
-        "publish_date": {
-            "ui:widget": "date"
+        publish_date: {
+            'ui:widget': 'date'
         },
-        "file_url": {
-            "ui:widget": "file"
-        },
+        file_url: {
+            'ui:widget': 'file'
+        }
 
         // "ui:order": [
         //     "cover_url",
@@ -185,15 +179,15 @@ export const BookFormData = {
         //     "publish_date",
         // ],
     },
-    "form_data": {
-        "title": "",
-        "category": "",
-        "description": "",
-        "cover_url": "",
-        "price": 0,
-        "is_free": true,
-        "author": "",
-        "publisher": "",
+    form_data: {
+        title: '',
+        category: '',
+        description: '',
+        cover_url: '',
+        price: 0,
+        is_free: true,
+        author: '',
+        publisher: ''
     },
     // "display_order": [
     //     "title",
@@ -206,5 +200,5 @@ export const BookFormData = {
     //     "publisher",
     //     "publish_date",
     // ],
-    "meta": {},
-}
+    meta: {}
+};

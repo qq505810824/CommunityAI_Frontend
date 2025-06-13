@@ -3,10 +3,9 @@ import { useEffect, useState } from 'react';
 
 interface ViewProps {
     key: string;
-    initialValue?: any
+    initialValue?: any;
     setValue?: any;
 }
-
 
 export default function FormEditor(props: any) {
     // const {
@@ -17,22 +16,22 @@ export default function FormEditor(props: any) {
 
     const { name, label, required, value, onChange, disabled } = props;
 
-    const [initValue, setInitValue] = useState("")
-    const [isInit, setIsInit] = useState(false)
+    const [initValue, setInitValue] = useState('');
+    const [isInit, setIsInit] = useState(false);
     const [blobToBase64Map, setBlobToBase64Map] = useState<{ [blobUri: string]: string }>({});
     useEffect(() => {
         // console.log('formData', name);
         // console.log('editor value', value);
         if (value && !isInit) {
-            setInitValue(value)
-            setIsInit(true)
+            setInitValue(value);
+            setIsInit(true);
         }
     }, [value, isInit]);
 
     return (
         <>
             <div className="   w-full  min-h-[100px]">
-                <p className=' font-semibold pr-3 pb-2'>{label}</p>
+                <p className=" font-semibold pr-3 pb-2">{label}</p>
                 <Editor
                     key={name}
                     id="output_editor"
@@ -77,9 +76,7 @@ export default function FormEditor(props: any) {
                                     var blobCache = (window as any).tinymce.activeEditor
                                         .editorUpload.blobCache;
                                     // 检查 reader.result 是否为 null，若为 null 则使用空字符串代替
-                                    var base64 = reader.result
-                                        ? reader.result.toString()
-                                        : '';
+                                    var base64 = reader.result ? reader.result.toString() : '';
                                     var blobInfo = blobCache.create(id, file, base64);
                                     blobCache.add(blobInfo);
 
@@ -113,11 +110,11 @@ export default function FormEditor(props: any) {
                             /(data:image\/jpeg;base64,)+/g,
                             'data:image/jpeg;base64,'
                         );
-                        onChange(newContent)
+                        onChange(newContent);
                         // setValue(newContent);
                     }}
                 />
             </div>
         </>
-    )
+    );
 }

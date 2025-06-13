@@ -63,15 +63,9 @@ export default function BookItem(props: ViewProps) {
                 </td>
                 <td>{product.category}</td>
                 <td>{product.price}</td>
-                <td className={``}>
-                    {product.is_free ? '是' : '否'}
-                </td>
-                <td>
-                    {product.author}
-                </td>
-                <td>
-                    {product.publisher}
-                </td>
+                <td className={``}>{product.is_free ? '是' : '否'}</td>
+                <td>{product.author}</td>
+                <td>{product.publisher}</td>
                 <td>{product.updated_at}</td>
                 <td>
                     <div className="flex flex-row items-center overflow-hidden space-x-2">

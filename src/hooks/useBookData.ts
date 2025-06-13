@@ -12,10 +12,7 @@ import {
 
 import useSWR from 'swr';
 
-
-export const showCalendarValues = (item: BookModel) => {
-
-};
+export const showCalendarValues = (item: BookModel) => {};
 
 // 应用数据 fetcher 函数
 const appsFetcher = async (options?: {}) => {
@@ -26,7 +23,7 @@ const appsFetcher = async (options?: {}) => {
 
 // 自定义 hook 使用 SWR 获取所有应用
 export const useBookData = (options = {}) => {
-    const { data, error, isLoading, mutate } = useSWR("boos", () => appsFetcher(options), {
+    const { data, error, isLoading, mutate } = useSWR('boos', () => appsFetcher(options), {
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
         dedupingInterval: 60000 // 1分钟内不重复请求

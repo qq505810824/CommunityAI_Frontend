@@ -25,28 +25,22 @@ function CalendarEditForm(props: ViewProps) {
             setFormData({
                 ...formData,
                 form_data: product
-            })
-
+            });
         }
     }, [product]); // 添加依赖项
 
     const onSubmit = async (form_data: any) => {
         const data = { ...form_data };
-        ['pre_from_date', 'pre_to_date'].forEach(field => {
-            if (data[field] === "") data[field] = null;
+        ['pre_from_date', 'pre_to_date'].forEach((field) => {
+            if (data[field] === '') data[field] = null;
         });
         // 其它处理...
         submit(data);
     };
 
-
     return (
         <>
-            <FormDetailView
-                formData={formData}
-                disabled={submitting}
-                onSubmit={submit}
-            />
+            <FormDetailView formData={formData} disabled={submitting} onSubmit={submit} />
         </>
     );
 }

@@ -248,8 +248,9 @@ const RunBatch: FC<EssayUploaderProps> = ({
             {/* <p className="mt-4 text-gray-900 text-sm font-medium">Upload images/PDF file(s):</p> */}
             <div
                 {...getRootProps()}
-                className={`flex w-full mt-2 flex-wrap border-2 border-dashed rounded-lg p-4 bg-white ${isDragging ? 'border-red-600 bg-red-50' : ''
-                    }`}
+                className={`flex w-full mt-2 flex-wrap border-2 border-dashed rounded-lg p-4 bg-white ${
+                    isDragging ? 'border-red-600 bg-red-50' : ''
+                }`}
                 onDragOver={(e) => {
                     e.preventDefault();
                     setIsDragging(true);
@@ -280,68 +281,68 @@ const RunBatch: FC<EssayUploaderProps> = ({
                 )}
                 {previewFiles.length > 0
                     ? previewFiles.map((src, index) => {
-                        const isPdf =
-                            src.toLowerCase().endsWith('.pdf') ||
-                            src.toLowerCase().includes('.pdf') ||
-                            (src.startsWith('blob:') &&
-                                selectedFiles[index]?.type === 'application/pdf');
-                        return (
-                            <div key={index} className="relative">
-                                <div
-                                    className="absolute -top-2 -left-2 bg-white rounded-full p-1 shadow cursor-pointer hover:bg-gray-100"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        setSelectedFiles((prev) => [
-                                            ...prev.slice(0, index),
-                                            ...prev.slice(index + 1)
-                                        ]);
-                                        setPreviewFiles((prev) => [
-                                            ...prev.slice(0, index),
-                                            ...prev.slice(index + 1)
-                                        ]);
-                                        setUploadFileUrls &&
-                                            setUploadFileUrls((prev: any) => [
-                                                ...prev.slice(0, index),
-                                                ...prev.slice(index + 1)
-                                            ]);
-                                    }}
-                                >
-                                    <XCircleIcon className="h-6 text-red-500" />
-                                </div>
-                                <div className="cursor-pointer">
-                                    {isPdf ? (
-                                        <embed
-                                            src={src}
-                                            type="application/pdf"
-                                            className="mb-4 mx-auto h-48 rounded-lg border"
-                                            width="100%"
-                                            height="192px"
-                                        />
-                                    ) : (
-                                        <img
-                                            src={src}
-                                            className="mb-4 mx-auto h-48 rounded-lg border"
-                                            alt="Preview"
-                                        />
-                                    )}
-                                </div>
-                            </div>
-                        );
-                    })
+                          const isPdf =
+                              src.toLowerCase().endsWith('.pdf') ||
+                              src.toLowerCase().includes('.pdf') ||
+                              (src.startsWith('blob:') &&
+                                  selectedFiles[index]?.type === 'application/pdf');
+                          return (
+                              <div key={index} className="relative">
+                                  <div
+                                      className="absolute -top-2 -left-2 bg-white rounded-full p-1 shadow cursor-pointer hover:bg-gray-100"
+                                      onClick={(e) => {
+                                          e.stopPropagation();
+                                          setSelectedFiles((prev) => [
+                                              ...prev.slice(0, index),
+                                              ...prev.slice(index + 1)
+                                          ]);
+                                          setPreviewFiles((prev) => [
+                                              ...prev.slice(0, index),
+                                              ...prev.slice(index + 1)
+                                          ]);
+                                          setUploadFileUrls &&
+                                              setUploadFileUrls((prev: any) => [
+                                                  ...prev.slice(0, index),
+                                                  ...prev.slice(index + 1)
+                                              ]);
+                                      }}
+                                  >
+                                      <XCircleIcon className="h-6 text-red-500" />
+                                  </div>
+                                  <div className="cursor-pointer">
+                                      {isPdf ? (
+                                          <embed
+                                              src={src}
+                                              type="application/pdf"
+                                              className="mb-4 mx-auto h-48 rounded-lg border"
+                                              width="100%"
+                                              height="192px"
+                                          />
+                                      ) : (
+                                          <img
+                                              src={src}
+                                              className="mb-4 mx-auto h-48 rounded-lg border"
+                                              alt="Preview"
+                                          />
+                                      )}
+                                  </div>
+                              </div>
+                          );
+                      })
                     : uploadProgress === 0 && (
-                        <>
-                            {/* <input {...getInputProps()} /> */}
-                            {isDragging ? (
-                                <p className="text-lg font-medium text-red-600 ">
-                                    Release to drop images here
-                                </p>
-                            ) : (
-                                <p className="text-lg font-medium text-gray-500 ">
-                                    Drag and drop images/pdf here or click to select
-                                </p>
-                            )}
-                        </>
-                    )}
+                          <>
+                              {/* <input {...getInputProps()} /> */}
+                              {isDragging ? (
+                                  <p className="text-lg font-medium text-red-600 ">
+                                      Release to drop images here
+                                  </p>
+                              ) : (
+                                  <p className="text-lg font-medium text-gray-500 ">
+                                      Drag and drop images/pdf here or click to select
+                                  </p>
+                              )}
+                          </>
+                      )}
                 <input {...getInputProps()} />
             </div>
             <div className="w-full mt-4 hidden">

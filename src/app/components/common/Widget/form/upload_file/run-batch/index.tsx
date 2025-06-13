@@ -11,7 +11,7 @@ import Image from 'next/image';
 import ProgressModal from './ProgressModal';
 
 export type EssayUploaderProps = {
-    loading?: boolean
+    loading?: boolean;
     setOrcText?: any;
     setUploadFiles: (files: File[]) => void;
 };
@@ -32,11 +32,7 @@ export const UploadFilesToAzure = async (files?: File[]) => {
     return '';
 };
 
-const RunBatch: FC<EssayUploaderProps> = ({
-    loading,
-    setOrcText,
-    setUploadFiles
-}) => {
+const RunBatch: FC<EssayUploaderProps> = ({ loading, setOrcText, setUploadFiles }) => {
     // processModal:
     const [isOpen, setIsOpen] = useState(false);
     const [progressTitle, setProgressTitle] = useState('AI is working on it');
@@ -83,87 +79,83 @@ const RunBatch: FC<EssayUploaderProps> = ({
         }
     };
 
-    const handleDrop =
-        async (acceptedFiles: File[]) => {
-            setIsDragging(false);
-            const totalFiles = acceptedFiles.length;
-            let uploadedFiles = 0;
+    const handleDrop = async (acceptedFiles: File[]) => {
+        setIsDragging(false);
+        const totalFiles = acceptedFiles.length;
+        let uploadedFiles = 0;
 
-            for (let i = 0; i < totalFiles; i++) {
-                const file = acceptedFiles[i];
-                const fileProgress = (i + 1) / totalFiles;
-                uploadedFiles++;
-                setUploadProgress((uploadedFiles / totalFiles) * 100);
+        for (let i = 0; i < totalFiles; i++) {
+            const file = acceptedFiles[i];
+            const fileProgress = (i + 1) / totalFiles;
+            uploadedFiles++;
+            setUploadProgress((uploadedFiles / totalFiles) * 100);
 
-                if (file.type.startsWith('image/') || file.type.endsWith('pdf')) {
-                    let fileURL;
-                    let optimizedFile = file; // 默认使用原始文件
+            if (file.type.startsWith('image/') || file.type.endsWith('pdf')) {
+                let fileURL;
+                let optimizedFile = file; // 默认使用原始文件
 
-                    if (file.size > MAX_SIZE_MB * 1024 * 1024) {
-                        if (
-                            file.type.endsWith('heic') ||
-                            file.name.toLowerCase().endsWith('.heic')
-                        ) {
-                            fileURL = URL.createObjectURL(
-                                (await heic2any({ blob: file, toType: 'image/jpg' })) as Blob
-                            );
-                            const response = await fetch(fileURL);
-                            const blob = await response.blob();
-                            const compressedBlob = await optimizeImage(blob);
-                            optimizedFile = new File(
-                                [compressedBlob],
-                                file.name.replace(/\.heic$/i, '.jpg'),
-                                { type: 'image/jpeg' }
-                            );
-                        }
-                        // else if (
-                        //     file.type.endsWith('pdf') ||
-                        //     file.name.toLowerCase().endsWith('.pdf')
-                        // ) {
-                        //     const convertPdfToImages = (await import('./utils/Functions'))
-                        //         .convertPdfToImages;
-                        //     const fileURLs = await convertPdfToImages(file);
-                        //     const files: File[] = [];
-                        //     for (let j = 0; j < fileURLs.length; j++) {
-                        //         const fetchedFile = await fetch(fileURLs[j]).then((r) => r.blob());
-                        //         if (fetchedFile.size > MAX_SIZE_MB * 1024 * 1024) {
-                        //             const compressedBlob = await optimizeImage(fetchedFile);
-                        //             files.push(
-                        //                 new File([compressedBlob], `${j + 1}_${file.name}.png`, {
-                        //                     type: 'image/png'
-                        //                 })
-                        //             );
-                        //         } else {
-                        //             files.push(
-                        //                 new File([fetchedFile], `${j + 1}_${file.name}.png`, {
-                        //                     type: 'image/png'
-                        //                 })
-                        //             );
-                        //         }
-                        //     }
-                        //     setSelectedFiles((prev) => [...prev, ...files]);
-                        //     setPreviewFiles((prev) => [...prev, ...fileURLs]);
-                        //     continue;
-                        // } else {
-                        //     const compressedBlob = await optimizeImage(file);
-                        //     optimizedFile = new File([compressedBlob], file.name, {
-                        //         type: file.type
-                        //     });
-                        // }
+                if (file.size > MAX_SIZE_MB * 1024 * 1024) {
+                    if (file.type.endsWith('heic') || file.name.toLowerCase().endsWith('.heic')) {
+                        fileURL = URL.createObjectURL(
+                            (await heic2any({ blob: file, toType: 'image/jpg' })) as Blob
+                        );
+                        const response = await fetch(fileURL);
+                        const blob = await response.blob();
+                        const compressedBlob = await optimizeImage(blob);
+                        optimizedFile = new File(
+                            [compressedBlob],
+                            file.name.replace(/\.heic$/i, '.jpg'),
+                            { type: 'image/jpeg' }
+                        );
                     }
-
-                    fileURL = URL.createObjectURL(optimizedFile);
-
-                    setSelectedFiles([optimizedFile]);
-                    setPreviewFiles([fileURL]);
+                    // else if (
+                    //     file.type.endsWith('pdf') ||
+                    //     file.name.toLowerCase().endsWith('.pdf')
+                    // ) {
+                    //     const convertPdfToImages = (await import('./utils/Functions'))
+                    //         .convertPdfToImages;
+                    //     const fileURLs = await convertPdfToImages(file);
+                    //     const files: File[] = [];
+                    //     for (let j = 0; j < fileURLs.length; j++) {
+                    //         const fetchedFile = await fetch(fileURLs[j]).then((r) => r.blob());
+                    //         if (fetchedFile.size > MAX_SIZE_MB * 1024 * 1024) {
+                    //             const compressedBlob = await optimizeImage(fetchedFile);
+                    //             files.push(
+                    //                 new File([compressedBlob], `${j + 1}_${file.name}.png`, {
+                    //                     type: 'image/png'
+                    //                 })
+                    //             );
+                    //         } else {
+                    //             files.push(
+                    //                 new File([fetchedFile], `${j + 1}_${file.name}.png`, {
+                    //                     type: 'image/png'
+                    //                 })
+                    //             );
+                    //         }
+                    //     }
+                    //     setSelectedFiles((prev) => [...prev, ...files]);
+                    //     setPreviewFiles((prev) => [...prev, ...fileURLs]);
+                    //     continue;
+                    // } else {
+                    //     const compressedBlob = await optimizeImage(file);
+                    //     optimizedFile = new File([compressedBlob], file.name, {
+                    //         type: file.type
+                    //     });
+                    // }
                 }
+
+                fileURL = URL.createObjectURL(optimizedFile);
+
+                setSelectedFiles([optimizedFile]);
+                setPreviewFiles([fileURL]);
             }
-            setUploadProgress(0);
-            // 手动重置输入框，确保可以再次上传
-            // if (fileInputRef.current) {
-            //     fileInputRef.current.value = '';
-            // }
         }
+        setUploadProgress(0);
+        // 手动重置输入框，确保可以再次上传
+        // if (fileInputRef.current) {
+        //     fileInputRef.current.value = '';
+        // }
+    };
 
     const { getRootProps, getInputProps } = useDropzone({
         onDrop: handleDrop,
@@ -173,7 +165,6 @@ const RunBatch: FC<EssayUploaderProps> = ({
         },
         multiple: false
     });
-
 
     return (
         <>
@@ -189,19 +180,20 @@ const RunBatch: FC<EssayUploaderProps> = ({
             {/* <p className="mt-4 text-gray-900 text-sm font-medium">Upload images/PDF file(s):</p> */}
             <div
                 {...getRootProps()}
-                className={`flex relative w-[300px] h-[300px] mt-2 flex-wrap border-2 border-dashed rounded-lg p-4 ${isDragging ? 'border-red-600 bg-red-50' : ''
-                    }`}
+                className={`flex relative w-[300px] h-[300px] mt-2 flex-wrap border-2 border-dashed rounded-lg p-4 ${
+                    isDragging ? 'border-red-600 bg-red-50' : ''
+                }`}
                 onDragOver={(e) => {
                     e.preventDefault();
                     setIsDragging(true);
                 }}
                 onDragLeave={() => setIsDragging(false)}
             >
-                {loading &&
+                {loading && (
                     <div className="absolute inset-0 z-50 flex items-center justify-center bg-white bg-opacity-70">
                         <Spinner size="xl" color="blue.500" thickness="4px" speed="0.65s" />
                     </div>
-                }
+                )}
                 {uploadProgress > 0 && (
                     <div className="relative w-full pt-1">
                         <div className="flex mb-2 items-center justify-between">
@@ -277,8 +269,8 @@ const RunBatch: FC<EssayUploaderProps> = ({
                             Release to drop file here
                         </p>
                     ) : (
-                        <div className='w-full flex items-center justify-center flex-col '>
-                            <PlusIcon className='w-10 text-gray-500 cursor-pointer hover:text-gray-700' />
+                        <div className="w-full flex items-center justify-center flex-col ">
+                            <PlusIcon className="w-10 text-gray-500 cursor-pointer hover:text-gray-700" />
                         </div>
                     )}
                 </>

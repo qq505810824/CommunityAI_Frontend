@@ -5,19 +5,19 @@ interface FormField {
     required: boolean;
     options?: { id: string; value: string }[];
     widget?:
-    | 'text'
-    | 'textarea'
-    | 'select'
-    | 'radio'
-    | 'checkboxes'
-    | 'date'
-    | 'time'
-    | 'datetime'
-    | 'email'
-    | 'password'
-    | 'number'
-    | 'range'
-    | 'file';
+        | 'text'
+        | 'textarea'
+        | 'select'
+        | 'radio'
+        | 'checkboxes'
+        | 'date'
+        | 'time'
+        | 'datetime'
+        | 'email'
+        | 'password'
+        | 'number'
+        | 'range'
+        | 'file';
     format?: 'date' | 'time' | 'date-time' | 'email' | 'string' | 'uri' | 'uuid';
     minimum?: number;
     maximum?: number;

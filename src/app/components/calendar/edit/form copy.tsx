@@ -440,16 +440,11 @@ function CalendarEditForm(props: ViewProps) {
 
     const onSubmit = (data: any) => {
         console.log('data calendar ', data);
-
-    }
+    };
 
     return (
         <>
-            <FormDetailView
-                formData={formData}
-                disabled={submitting}
-                onSubmit={submit}
-            />
+            <FormDetailView formData={formData} disabled={submitting} onSubmit={submit} />
 
             {/* <form onSubmit={handleSubmit(submit)} className="w-full overflow-auto">
                 {Object.keys(formData.fieldSchema).map((key) => {

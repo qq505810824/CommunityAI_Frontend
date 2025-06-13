@@ -25,18 +25,15 @@ function BooksEditForm(props: ViewProps) {
             setFormData({
                 ...formData,
                 form_data: product
-            })
-
+            });
         }
     }, [product]); // 添加依赖项
 
-    useEffect(() => {
-
-    }, []);
+    useEffect(() => {}, []);
 
     const onSubmit = async (form_data: any) => {
         const data = { ...form_data };
-        if (data.publish_date === "") {
+        if (data.publish_date === '') {
             data.publish_date = null;
         }
         // 其它处理...
@@ -49,7 +46,7 @@ function BooksEditForm(props: ViewProps) {
                 formData={formData}
                 disabled={submitting}
                 onSubmit={submit}
-                storageName={"books"}
+                storageName={'books'}
             />
         </>
     );

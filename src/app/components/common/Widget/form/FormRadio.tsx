@@ -6,16 +6,15 @@ interface ViewProps {
     setValue?: any;
 }
 
-
 export default function FormRadio(props: ViewProps) {
-    const {
-        setValue
-    } = props
+    const { setValue } = props;
     return (
         <>
-            <FormControl sx={{
-                width: '100%'
-            }}>
+            <FormControl
+                sx={{
+                    width: '100%'
+                }}
+            >
                 <RadioGroup defaultValue="outlined" name="radio-buttons-group">
                     <Radio value="outlined" label="Outlined" variant="outlined" />
                     <Radio value="outlined2" label="Outlined" variant="outlined" />
@@ -23,5 +22,5 @@ export default function FormRadio(props: ViewProps) {
                 </RadioGroup>
             </FormControl>
         </>
-    )
+    );
 }

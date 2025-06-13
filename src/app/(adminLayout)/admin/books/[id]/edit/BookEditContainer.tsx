@@ -1,10 +1,7 @@
 'use client';
 
 import useAlert from '@/hooks/useAlert';
-import {
-    useBookDetailByIdData,
-    useBookOperations
-} from '@/hooks/useBookData';
+import { useBookDetailByIdData, useBookOperations } from '@/hooks/useBookData';
 import { BookModel } from '@/models/Book';
 import _ from 'lodash';
 import { useParams, useRouter } from 'next/navigation';
@@ -46,12 +43,10 @@ const BookEditContainer = () => {
         //     // user: localStorage?.getItem('user_id') || null
         // };
 
-
-
         const newFormData = {
             ...product,
-            ...formData,
-        }
+            ...formData
+        };
 
         console.log(formData);
         try {
@@ -71,7 +66,7 @@ const BookEditContainer = () => {
                     type: 'success'
                 });
                 router.push('/admin/books');
-                router.refresh()
+                router.refresh();
                 // router.back()
             }
         } catch (error) {

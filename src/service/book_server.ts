@@ -1,4 +1,3 @@
-
 import { BookModel } from '@/models/Book';
 import { createClient } from '@supabase/supabase-js';
 
@@ -151,7 +150,6 @@ export const updateApp = async (id: number, appData: Partial<BookModel>) => {
 
         if (error) throw error;
         result = { data, error: null };
-
 
         return { success: true, data: result.data };
     } catch (error) {

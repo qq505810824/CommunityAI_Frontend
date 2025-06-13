@@ -1,9 +1,9 @@
 import { createClient } from '@supabase/supabase-js';
-import { useRef, useState } from "react";
+import { useRef, useState } from 'react';
 
 interface ViewProps {
     setValue?: any;
-    key_url: string
+    key_url: string;
 }
 
 const supabase = createClient(
@@ -11,9 +11,9 @@ const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-
 export default function FormImage(props: any) {
-    const { setValue, key_url, storage, name, label, schema, required, value, onChange, disabled } = props;
+    const { setValue, key_url, storage, name, label, schema, required, value, onChange, disabled } =
+        props;
     // console.log(props);
 
     const [selectedImage, setSelectedImage] = useState<string | null>(value);
@@ -96,11 +96,10 @@ export default function FormImage(props: any) {
             // 获取完整的公共 URL
             const imageUrl = getImageUrl(filePath);
             setValue && setValue(key_url, imageUrl);
-            onChange && onChange(imageUrl)
+            onChange && onChange(imageUrl);
             setSelectedImage(imageUrl);
             setUploadImageLoading(false);
-            if (fileInputRef.current)
-                fileInputRef.current.value = ""
+            if (fileInputRef.current) fileInputRef.current.value = '';
         }
     };
 
@@ -118,9 +117,7 @@ export default function FormImage(props: any) {
 
     return (
         <>
-            <div
-                className="w-full flex justify-center relative"
-            >
+            <div className="w-full flex justify-center relative">
                 <div
                     className="bg-gray-200 font-semibold rounded-sm flex justify-center flex-col items-center text-center w-[250px] h-[300px] cursor-pointer relative"
                     onClick={(e) => handleClickFile(e)}
@@ -151,7 +148,9 @@ export default function FormImage(props: any) {
                     ) : (
                         <>
                             <p>上傳{label}圖片</p>
-                            <p className="text-xs">({schema?.['tip'] || '建議上傳圖片比例5:6,限6M內'})</p>
+                            <p className="text-xs">
+                                ({schema?.['tip'] || '建議上傳圖片比例5:6,限6M內'})
+                            </p>
                         </>
                     )}
 
@@ -190,5 +189,5 @@ export default function FormImage(props: any) {
                 onChange={handleFileChange}
             />
         </>
-    )
+    );
 }
