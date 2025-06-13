@@ -57,7 +57,7 @@ export default function PdfView(props: { content: string }) {
 
     if (!isPdf) {
         return (
-            <img src={content} className="mb-2 mx-auto w-full rounded-lg border" alt="Preview" />
+            <img src={content} className="mb-2 mx-auto w-auto rounded-lg border" alt="Preview" />
         );
     }
 

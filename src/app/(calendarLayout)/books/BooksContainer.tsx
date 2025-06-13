@@ -2,15 +2,15 @@
 
 import useAlert from '@/hooks/useAlert';
 import {
-    CalendarModel,
-    showCalendarValues,
-    useCalendarData,
-    useCalendarOperations
-} from '@/hooks/useCalendarData';
+    showBookValues,
+    useBookData,
+    useBookOperations
+} from '@/hooks/useBookData';
 import useLoad from '@/hooks/useLoad';
+import { BookModel } from '@/models/Book';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import CalendarView from './BooksView';
+import BookView from './BooksView';
 
 function BooksContainer() {
     const { setAlert } = useAlert();
@@ -18,7 +18,7 @@ function BooksContainer() {
     const router = useRouter();
 
     const [products, setProducts] = useState<any[]>([]);
-    const { searchCalendar } = useCalendarOperations();
+    const { searchBook } = useBookOperations();
     const [searching, setSearching] = useState(false);
     const [filters, setFilters] = useState<any>({
         keyword: '',
@@ -26,35 +26,19 @@ function BooksContainer() {
         order: 'created_at',
         direction: 'desc',
         status: 'success',
-        region: 'hk'
     });
 
-    const { data, isLoading, isError, mutate } = useCalendarData({ ...filters });
+    const { data, isLoading, isError, mutate } = useBookData({ ...filters });
 
     useEffect(() => {
         if (data) {
             const newData = data?.map((item) => {
-                return showCalendarValues(item);
+                return showBookValues(item);
             });
             setProducts(newData);
         }
-        return () => {};
+        return () => { };
     }, [router, data]);
-
-    useEffect(() => {
-        fetch(`/api/ipaddress`)
-            .then((res) => res.json())
-            .then((data) => {
-                console.log('Address data:', data);
-                if (data?.region) {
-                    setFilters({
-                        ...filters,
-                        region: data.region
-                    });
-                }
-            })
-            .catch(() => console.log('无法获取具体地区信息'));
-    }, [router]);
 
     const handleSearch = async (value: string) => {
         // console.log('search value', value);
@@ -64,15 +48,15 @@ function BooksContainer() {
         });
 
         // setSearching(true);
-        // const res: any = await searchCalendar({
+        // const res: any = await searchBook({
         //     ...filters,
         //     keyword: value
         // });
         // setSearching(false);
 
         // if (res.data) {
-        //     const newData = res.data?.map((item: CalendarModel) => {
-        //         return showCalendarValues(item);
+        //     const newData = res.data?.map((item: BookModel) => {
+        //         return showBookValues(item);
         //     });
         //     setProducts(newData);
         // }
@@ -80,7 +64,7 @@ function BooksContainer() {
 
     const handleSwitchCategory = async (category: string) => {
         setSearching(true);
-        const res: any = await searchCalendar({
+        const res: any = await searchBook({
             ...filters,
             category: category
         });
@@ -88,14 +72,14 @@ function BooksContainer() {
         // console.log('res3', res);
 
         if (res.data) {
-            const newData = res.data?.map((item: CalendarModel) => {
-                return showCalendarValues(item);
+            const newData = res.data?.map((item: BookModel) => {
+                return showBookValues(item);
             });
             setProducts(newData);
         }
     };
     return (
-        <CalendarView
+        <BookView
             {...{
                 data,
                 isLoading,

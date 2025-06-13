@@ -32,7 +32,6 @@ export const CalendarFormData = {
                 ]
             },
 
-
             // "date_range": {
             //     "type": "object",
             //     "properties": {

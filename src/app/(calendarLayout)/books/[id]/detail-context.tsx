@@ -3,13 +3,14 @@
 import { useAppContext } from '@/context/app-context';
 // import { updateTableById } from '@/apis/airtable/AirtableSchema';
 import { useModalContext } from '@/context/modal-context';
-import { CalendarModel, useCalendarDetailData } from '@/hooks/useCalendarData';
+import { useBookDetailData } from '@/hooks/useBookData';
+import { BookModel } from '@/models/Book';
 import { useParams, useRouter } from 'next/navigation';
 import { FC, ReactNode, createContext, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export type AppContextValue = {
-    appData: CalendarModel | null;
+    appData: BookModel | null;
     isShare?: boolean;
     submitting?: boolean;
     // handleUpdateTable: (data: any, columns: any) => void;
@@ -39,14 +40,9 @@ export const AppDetailContextProvider: FC<AppContextProviderProps> = ({
     const { setShowConfirmDelete } = useModalContext();
     const [isShare, setIsShare] = useState(false);
     const { user_id } = useAppContext();
-    // const { data } = useSWR(
-    //     () => params['id'] ? { table_id: params['id'] } : null,
-    //     getSchema,
-    //     {}
-    // );
-    const { data, isLoading, isError } = useCalendarDetailData(Number(params['id']), user_id || '');
+    const { data, isLoading, isError } = useBookDetailData(Number(params['id']), user_id || '');
 
-    const [appData, setAppData] = useState<CalendarModel | null>(null);
+    const [appData, setAppData] = useState<BookModel | null>(null);
     const [submitting, setSubmitting] = useState(false);
 
     useEffect(() => {

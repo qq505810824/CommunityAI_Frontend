@@ -9,10 +9,20 @@ import {
     searchApp,
     updateApp
 } from '@/service/book_server';
+import moment from 'moment';
 
 import useSWR from 'swr';
 
-export const showCalendarValues = (item: BookModel) => {};
+export const showBookValues = (item: BookModel) => {
+    let status = '';
+
+    return {
+        ...item,
+        created_at: moment(item.created_at).fromNow(),
+        updated_at: moment(item.updated_at).fromNow()
+    };
+};
+
 
 // 应用数据 fetcher 函数
 const appsFetcher = async (options?: {}) => {

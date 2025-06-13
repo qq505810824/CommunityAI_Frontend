@@ -1,12 +1,11 @@
-import CalendarCard from '@/app/components/calendar/CalendarCard';
-import FilterView from '@/app/components/calendar/FilterView';
+import BookCard from '@/app/components/books/BookCard';
 import LoadView from '@/app/components/prompts/LoadView';
-import { CalendarModel } from '@/hooks/useCalendarData';
+import { BookModel } from '@/models/Book';
 import { Box, Typography } from '@mui/joy';
 interface ViewProps {
     data: any;
     isLoading: any;
-    products: CalendarModel[];
+    products: BookModel[];
     onClose: () => void;
     handleSearch: any;
     onSwitchCategory: any;
@@ -38,14 +37,6 @@ function BooksView(props: ViewProps) {
                         width: '100%'
                     }}
                 >
-                    {/* {DemoHeroGeometric()} */}
-                    <FilterView
-                        onSearch={handleSearch}
-                        onSwitchCategory={onSwitchCategory}
-                        onClose={onClose}
-                        filters={filters}
-                        setFilters={setFilters}
-                    />
 
                     {/* {(isLoading || searching) && <LoadView />} */}
                     <div>{(isLoading || searching) && <LoadView />}</div>
@@ -54,9 +45,9 @@ function BooksView(props: ViewProps) {
                             No Data.
                         </Typography>
                     )}
-                    <div className="flex-row   pb-10 px-4 grid my-4  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full sm:max-w-7xl">
+                    <div className="flex-row   pb-10 px-4 grid my-4  sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 gap-4 w-full sm:max-w-7xl">
                         {products?.map((product, index) => (
-                            <CalendarCard product={product} key={index} />
+                            <BookCard product={product} key={index} />
                         ))}
                     </div>
                 </Box>

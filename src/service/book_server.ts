@@ -185,7 +185,7 @@ export const searchApp = async (options?: any) => {
             query = query.or(`status.like.%${options?.status || ''}`);
         }
         query = query.or(
-            `name.ilike.%${options?.keyword || ''}%,description.ilike.%${options?.keyword || ''}%`
+            `title.ilike.%${options?.keyword || ''}%,description.ilike.%${options?.keyword || ''}%`
         );
 
         const { data, error } = await query;

@@ -2,7 +2,7 @@ import BookItem from '@/app/components/admin/books/BookItem';
 import TableSheet from '@/app/components/base/table';
 import SearchInputView from '@/app/components/common/Views/SearchInputView';
 import { BookModel } from '@/models/Book';
-import { Typography } from '@mui/joy';
+import { Button, Typography } from '@mui/joy';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -27,13 +27,13 @@ function BookView(props: ViewProps) {
         <React.Fragment>
             <div className="w-full flex justify-between items-center my-4">
                 <Typography level="h3">Books 列表</Typography>
-                {/* <Button
+                <Button
                     variant="solid"
                     color="primary"
-                    onClick={() => router.push('/admin/prompts/create')}
+                    onClick={() => router.push('/admin/books/create')}
                 >
                     +新增
-                </Button> */}
+                </Button>
             </div>
             <div>
                 <SearchInputView
