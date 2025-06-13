@@ -10,7 +10,8 @@ import { createContext, useContext, useContextSelector } from 'use-context-selec
 
 export type AppContextValue = {
     tags?: any;
-    userProfile: AccountModel;
+    user_id: any;
+    userProfile: AccountModel | null;
     pageContainerRef: React.RefObject<HTMLDivElement>;
     langeniusVersionInfo?: LangGeniusVersionResponse;
     useSelector: typeof useSelector;
@@ -28,6 +29,7 @@ const initialLangeniusVersionInfo = {
 
 const AppContext = createContext<AppContextValue>({
     tags: [],
+    user_id: 0,
     userProfile: {
         id: '',
         name: '',
@@ -49,18 +51,21 @@ export type AppContextProviderProps = {
     children: ReactNode;
 };
 
+export async function getIpLocation() {
+    // const res = await fetch('https://ip-api.com/json/');
+    // const data = await res.json();
+    // // data.country, data.regionName, data.city 等字段
+    // return data;
+}
+
 export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) => {
     const supabase = createClientComponentClient();
 
     const pageContainerRef = useRef<HTMLDivElement>(null);
-    const [userProfile, setUserProfile] = useState<AccountModel>({
-        id: '',
-        name: '',
-        email: '',
-        avatar: '',
-        nickname: '',
-        created_at: ''
-    });
+    const [userProfile, setUserProfile] = useState<AccountModel | null>(null);
+    const user_id = localStorage.getItem('user_id');
+
+    useEffect(() => {}, []);
 
     useEffect(() => {
         // 从本地存储中获取用户信息
@@ -89,41 +94,41 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
         }
 
         // 实时监听用户信息更新
-        const realtime = supabase
-            .channel('user-updates')
-            .on(
-                'postgres_changes',
-                {
-                    event: 'UPDATE',
-                    schema: 'public',
-                    table: 'account',
-                    filter: `id=eq.${account?.id}`
-                },
-                (payload) => {
-                    const accountData = payload.new;
-                    // console.log('new', accountData);
-                    // 确保accountData符合AccountModel类型
-                    if (
-                        accountData &&
-                        'id' in accountData &&
-                        'email' in accountData &&
-                        'name' in accountData &&
-                        'avatar' in accountData
-                    ) {
-                        setUserProfile(accountData as AccountModel);
-                    } else {
-                        console.error(
-                            'Received account data does not match AccountModel:',
-                            accountData
-                        );
-                    }
-                    localStorage.setItem('account', JSON.stringify(accountData));
-                }
-            )
-            .subscribe();
-        return () => {
-            realtime.unsubscribe();
-        };
+        // const realtime = supabase
+        //     .channel('user-updates')
+        //     .on(
+        //         'postgres_changes',
+        //         {
+        //             event: 'UPDATE',
+        //             schema: 'public',
+        //             table: 'account',
+        //             filter: `id=eq.${account?.id}`
+        //         },
+        //         (payload) => {
+        //             const accountData = payload.new;
+        //             // console.log('new', accountData);
+        //             // 确保accountData符合AccountModel类型
+        //             if (
+        //                 accountData &&
+        //                 'id' in accountData &&
+        //                 'email' in accountData &&
+        //                 'name' in accountData &&
+        //                 'avatar' in accountData
+        //             ) {
+        //                 setUserProfile(accountData as AccountModel);
+        //             } else {
+        //                 console.error(
+        //                     'Received account data does not match AccountModel:',
+        //                     accountData
+        //                 );
+        //             }
+        //             localStorage.setItem('account', JSON.stringify(accountData));
+        //         }
+        //     )
+        //     .subscribe();
+        // return () => {
+        //     realtime.unsubscribe();
+        // };
     }, []);
 
     // if (!userProfile) return <Loading type="app" />;
@@ -131,6 +136,7 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
     return (
         <AppContext.Provider
             value={{
+                user_id,
                 userProfile,
                 pageContainerRef,
                 useSelector
@@ -140,7 +146,7 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
                 {/* {globalThis.document?.body?.getAttribute('data-public-maintenance-notice') && <MaintenanceNotice />} */}
                 <div
                     ref={pageContainerRef}
-                    className="grow relative flex flex-col overflow-y-auto overflow-x-hidden bg-gray-100"
+                    className="grow   flex flex-col overflow-y-auto overflow-x-hidden bg-gray-100"
                 >
                     {children}
                 </div>

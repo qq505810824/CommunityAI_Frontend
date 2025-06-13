@@ -16,8 +16,9 @@ export default function Header() {
     const logout = async () => {
         localStorage.setItem('account', '');
         localStorage?.setItem('user_id', '');
+        localStorage?.setItem('admin_authorization', '');
         const res = await supabase.auth.signOut();
-        router.push(`/login?redirect=${window.location.href}`);
+        router.push(`/admin/login?redirect=${window.location.href}`);
     };
 
     return (
@@ -60,14 +61,14 @@ export default function Header() {
                 <MenuIcon />
             </IconButton>
             <div className="flex   items-center">
-                {userProfile.id != '' ? (
+                {userProfile?.id != '' ? (
                     <div className="flex justify-end items-center col-span-3 md:col-span-4">
-                        <MenuButton email={userProfile.email} logout={logout} />
+                        <MenuButton email={userProfile?.email} logout={logout} />
                     </div>
                 ) : (
                     <div className="flex flex-row gap-8 items-center justify-end col-span-3">
                         <Link
-                            href={`/login?redirect=${window.location.href}`}
+                            href={`/admin/login?redirect=${window.location.href}`}
                             className="text-purple-900 hover:underline"
                         >
                             Login

@@ -1,29 +1,17 @@
 import { AccountModel } from '@/models/Account';
 import {
+    AccountCalendarEnrollModel,
+    collectCalendar,
     collectPrompt,
     deleteApp,
+    enrollCalendar,
     getAllAccounts,
     getAppDetail,
+    getMyCollectCalendars,
     searchApp,
     updateApp
 } from '@/service/account_server';
 import useSWR from 'swr';
-
-export const useAccontOperations = () => {
-    // const { mutate } = usePromptData(); // 移动到顶层
-    const collectPromptById = async (promptId: number, accountId: string) => {
-        try {
-            const result = await collectPrompt(promptId, accountId);
-            // 直接返回 service 层的结果，不再包装
-            return result;
-        } catch (error) {
-            console.error('收藏操作失败:', error);
-            return { success: false, error };
-        }
-    };
-
-    return { collectPromptById };
-};
 
 // 应用数据 fetcher 函数
 const appsFetcher = async () => {
@@ -42,6 +30,26 @@ export const useAccountData = (options = {}) => {
 
     return {
         data: data as AccountModel[],
+        isLoading,
+        isError: error,
+        mutate
+    };
+};
+
+export const useMyCollectCalendarsData = (account_id: string, options = {}) => {
+    const { data, error, isLoading, mutate } = useSWR(
+        'my_calendars_' + account_id,
+        () => getMyCollectCalendars(account_id),
+        {
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false,
+            dedupingInterval: 60000, // 1分钟内不重复请求
+            ...options
+        }
+    );
+
+    return {
+        data: data,
         isLoading,
         isError: error,
         mutate
@@ -91,7 +99,42 @@ export const useAccountOperations = () => {
             return await searchApp(key);
         });
     };
-    return { updateAccount, deleteAccount, searchAccount };
+
+    const collectCalendarById = async (id: number, accountId: string) => {
+        try {
+            const result = await collectCalendar(id, accountId);
+            // 直接返回 service 层的结果，不再包装
+            return result;
+        } catch (error) {
+            console.error('收藏操作失败:', error);
+            return { success: false, error };
+        }
+    };
+
+    const collectPromptById = async (id: number, accountId: string) => {
+        try {
+            const result = await collectPrompt(id, accountId);
+            // 直接返回 service 层的结果，不再包装
+            return result;
+        } catch (error) {
+            console.error('收藏操作失败:', error);
+            return { success: false, error };
+        }
+    };
+
+    const enrollCalendarById = async (appData: Omit<AccountCalendarEnrollModel, 'id'>) => {
+        return handleAppOperation(async () => {
+            return await enrollCalendar(appData);
+        });
+    };
+    return {
+        updateAccount,
+        deleteAccount,
+        searchAccount,
+        collectCalendarById,
+        collectPromptById,
+        enrollCalendarById
+    };
 };
 
 // 处理应用操作的通用函数

@@ -3,12 +3,13 @@ const nextConfig = {
     reactStrictMode: false,
     images: {
         domains: ['inews.gtimg.com'],
-      },
+    },
     experimental: {
         missingSuspenseWithCSRBailout: false,
     },
     webpack: (config) => {
         // load worker files as a urls with `file-loader`
+        // config.resolve.alias.canvas = false;
         config.module.rules.unshift({
             test: /pdf.worker\.(min\.)?js/,
             use: [
@@ -25,15 +26,15 @@ const nextConfig = {
 
         return config;
     },
-    async redirects() {
-        return [
-            {
-                source: '/',
-                destination: '/home',
-                permanent: false,
-            },
-        ]
-    },
+    // async redirects() {
+    //     return [
+    //         {
+    //             source: '/',
+    //             destination: '/',
+    //             permanent: false,
+    //         },
+    //     ]
+    // },
 };
 
 export default nextConfig;

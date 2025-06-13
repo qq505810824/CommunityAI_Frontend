@@ -22,7 +22,7 @@ function Footerdemo() {
     return (
         <footer className="relative border-t bg-background text-foreground transition-colors duration-300">
             <div className="w-full sm:max-w-7xl  mx-auto px-4 py-12 md:px-6 lg:px-8">
-                <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+                <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4 hidden">
                     <div className="relative">
                         <h2 className="mb-4 text-3xl font-bold tracking-tight">AI Apps</h2>
                         <p className="mb-6 text-muted-foreground">
@@ -148,11 +148,11 @@ function Footerdemo() {
                         </div>
                     </div>
                 </div>
-                <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 text-center md:flex-row">
+                <div className="mt-2 flex flex-col items-center justify-between gap-4  pt-2 text-center md:flex-row">
                     <p className="text-sm text-muted-foreground">
-                        © {moment().year()} Your Company. All rights reserved.
+                        © {moment().year()} AI Company. All rights reserved.
                     </p>
-                    <nav className="flex gap-4 text-sm">
+                    <nav className="flex gap-4 text-sm hidden">
                         <a href="#" className="transition-colors hover:text-primary">
                             Privacy Policy
                         </a>

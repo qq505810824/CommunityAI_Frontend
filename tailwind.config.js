@@ -91,6 +91,16 @@ module.exports = {
                     3: 'hsl(var(--chart-3))',
                     4: 'hsl(var(--chart-4))',
                     5: 'hsl(var(--chart-5))'
+                },
+                gold: {
+                    400: '#D4AF37',
+                    500: '#B8860B',
+                    600: '#9A7209'
+                },
+                platinum: {
+                    50: '#F8F9FA',
+                    100: '#E9ECEF',
+                    900: '#212529'
                 }
             },
             screens: {

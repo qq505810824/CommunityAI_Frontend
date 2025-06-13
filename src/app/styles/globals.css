@@ -150,4 +150,8 @@ button:focus-within {
     bottom: 0;
 }
 
+.word-break {
+    word-break: break-word;
+}
+
 @import '../components/base/button/index.css';

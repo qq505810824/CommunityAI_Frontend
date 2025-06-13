@@ -7,13 +7,26 @@ const supabase = createClient(
 );
 
 const db = 'hots';
-export const getAllApps = async () => {
+export const getAllApps = async (options: string) => {
     try {
-        const { data, error } = await supabase
-            .from(db)
-            .select('*, account(id,name,email,avatar)')
-            .order('updated_at', { ascending: true });
+        // const key = '2025-04-29';
+        let query = supabase.from(db).select('*').order('rankPosition', { ascending: true });
+        // const { data, error } = await supabase
+        //     .from(db)
+        //     .select('*')
+        //     .order('rankPosition', { ascending: true });
+        if (options) {
+            const optionConditions = options.split(',');
+            optionConditions.forEach((condition) => {
+                const [column, operator, value] = condition.split('.');
+                const trimmedColumn = column.trim();
+                const trimmedOperator = operator.trim();
+                const trimmedValue = value.trim().replace(/^['"]|['"]$/g, '');
+                query = query.ilike(trimmedColumn, trimmedValue);
+            });
+        }
 
+        const { data, error } = await query;
         if (error) {
             throw error;
         }
@@ -106,25 +119,25 @@ export const updateApp = async (id: number, appData: Partial<HotModel>) => {
     try {
         let result;
         // 如果是更新 focus，使用 RPC
-        if ('focus' in appData) {
-            const { data, error } = await supabase
-                .rpc(appData.focus == 1 ? 'increment_focus' : 'decrement_focus', { row_id: id })
-                .single();
+        // if ('focus' in appData) {
+        //     const { data, error } = await supabase
+        //         .rpc(appData.focus == 1 ? 'increment_focus' : 'decrement_focus', { row_id: id })
+        //         .single();
 
-            if (error) throw error;
-            result = { data, error: null };
-        } else if ('copy' in appData) {
-            const { data, error } = await supabase.rpc('increment_copy', { row_id: id }).single();
+        //     if (error) throw error;
+        //     result = { data, error: null };
+        // } else if ('copy' in appData) {
+        //     const { data, error } = await supabase.rpc('increment_copy', { row_id: id }).single();
 
-            if (error) throw error;
-            result = { data, error: null };
-        } else {
-            // 其他更新操作保持不变
-            const { data, error } = await supabase.from(db).update(appData).eq('id', id).select();
+        //     if (error) throw error;
+        //     result = { data, error: null };
+        // } else {
+        //     // 其他更新操作保持不变
+        const { data, error } = await supabase.from(db).update(appData).eq('id', id).select();
 
-            if (error) throw error;
-            result = { data, error: null };
-        }
+        if (error) throw error;
+        result = { data, error: null };
+        // }
 
         return { success: true, data: result.data };
     } catch (error) {
@@ -148,14 +161,53 @@ export const deleteApp = async (id: number) => {
     }
 };
 
-export const searchApp = async (key: string) => {
+export const searchApp = async (key: string, options?: string) => {
     try {
-        const { data, error } = await supabase
-            .from(db)
-            .select('*')
-            .or(
-                `title.ilike.%${key}%,description.ilike.%${key}%,prompt.ilike.%${key}%,tags.ilike.%${key}%`
-            );
+        let query = supabase.from(db).select('*');
+
+        // 如果 key 存在，添加 title 的模糊查询条件
+        if (key) {
+            query = query.ilike('title', `%${key}%`);
+        }
+
+        // 如果 options 存在，解析并添加条件
+        if (options) {
+            const optionConditions = options.split(',');
+            optionConditions.forEach((condition) => {
+                const [column, operator, value] = condition.split('.');
+                const trimmedColumn = column.trim();
+                const trimmedOperator = operator.trim();
+                const trimmedValue = value.trim().replace(/^['"]|['"]$/g, '');
+                switch (trimmedOperator) {
+                    case 'like':
+                        query = query.like(trimmedColumn, trimmedValue);
+                        break;
+                    case 'ilike':
+                        query = query.ilike(trimmedColumn, trimmedValue);
+                        break;
+                    case 'eq':
+                        query = query.eq(trimmedColumn, trimmedValue);
+                        break;
+                    case 'gt':
+                        query = query.gt(trimmedColumn, trimmedValue);
+                        break;
+                    case 'lt':
+                        query = query.lt(trimmedColumn, trimmedValue);
+                        break;
+                    case 'gte':
+                        query = query.gte(trimmedColumn, trimmedValue);
+                        break;
+                    case 'lte':
+                        query = query.lte(trimmedColumn, trimmedValue);
+                        break;
+                    default:
+                        console.warn(`不支持的操作符: ${trimmedOperator}`);
+                }
+            });
+        }
+        console.log('query', query);
+
+        const { data, error } = await query;
 
         if (error) {
             throw error;

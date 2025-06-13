@@ -1,4 +1,4 @@
-import { AppMeuns, PromptTags } from './constant';
+import { AppMeuns, PromptTags, RegionFilters } from './constant';
 
 export const AppFormData = {
     fieldSchema: {
@@ -70,5 +70,61 @@ export const AccountFormData = {
         nickname: { 'ui:widget': 'text' },
         password: { 'ui:widget': 'password' },
         avatar: { 'ui:widget': 'text' }
+    }
+};
+
+export const CalendarFormData = {
+    fieldSchema: {
+        image_url: { type: 'file', title: '', required: true, tip: '' },
+        name: { type: 'string', title: '活動名稱', required: true, tip: '' },
+        category: { type: 'string', title: '类型', required: true, tip: '' },
+        pre_date_range: { type: 'string', title: '報名日期範圍', required: false, tip: '(選填)' },
+        date_range: { type: 'string', title: '活動日期範圍', required: true, tip: '' },
+        region: { type: 'string', title: '地區', required: true, tip: '' },
+        form_url: { type: 'string', title: '報名表單連結', required: false, tip: '(選填)' },
+        reference_url: { type: 'string', title: '相關網址', required: false, tip: '(選填)' },
+        files_url: { type: 'string', title: '相關文件', required: false, tip: '(選填)' },
+        description: { type: 'string', title: '描述', required: true, tip: '' }
+    },
+    uiSchema: {
+        name: { 'ui:widget': 'text' },
+        category: {
+            'ui:widget': 'select',
+            'ui:options': {
+                enumOptions: [
+                    {
+                        name: '課程',
+                        value: 'course'
+                    },
+                    {
+                        name: '活動',
+                        value: 'activity'
+                    }
+                ]
+            }
+        },
+        region: {
+            'ui:widget': 'select',
+            'ui:options': {
+                enumOptions: RegionFilters
+            }
+        },
+        // tags: {
+        //     'ui:widget': 'tag',
+        //     'ui:options': { enumOptions: [...PromptTags] }
+        // },
+        description: { 'ui:widget': 'textarea' },
+        image_url: { 'ui:widget': 'file' },
+        date_range: {
+            'ui:widget': 'date_range',
+            'ui:keys': { start_date: 'from_date', end_date: 'to_date' }
+        },
+        pre_date_range: {
+            'ui:widget': 'date_range',
+            'ui:keys': { start_date: 'pre_from_date', end_date: 'pre_to_date' }
+        },
+        reference_url: { 'ui:widget': 'text' },
+        files_url: { 'ui:widget': 'upload' },
+        form_url: { 'ui:widget': 'text' }
     }
 };

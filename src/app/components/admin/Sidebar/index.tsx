@@ -131,7 +131,7 @@ export default function Sidebar() {
                             fontSize: 24
                         }}
                     >
-                        {'AI 工具导航'}
+                        {'管理後台'}
                     </Typography>
                 </div>
                 <div className="flex-1 overflow-y-auto">

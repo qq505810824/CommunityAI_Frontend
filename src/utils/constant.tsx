@@ -14,6 +14,7 @@ import AirplayOutlinedIcon from '@mui/icons-material/AirplayOutlined';
 import DvrIcon from '@mui/icons-material/Dvr';
 import GroupsIcon from '@mui/icons-material/Groups';
 import LanguageIcon from '@mui/icons-material/Language';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PeopleIcon from '@mui/icons-material/People';
 import SendOutlinedIcon from '@mui/icons-material/SendOutlined';
 
@@ -379,9 +380,21 @@ export const PromptTags = [
 
 export const AdminMeuns = [
     {
-        name: 'Prompt列表',
-        href: '/admin/prompts',
+        name: 'Calendar列表',
+        href: '/admin/calendars',
         icon: <DvrIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
+        items: []
+    },
+    // {
+    //     name: '表單列表',
+    //     href: '/admin/forms',
+    //     icon: <PeopleIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
+    //     items: []
+    // },
+    {
+        name: 'Books列表',
+        href: '/admin/books',
+        icon: <MenuBookIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
         items: []
     },
     {
@@ -502,5 +515,46 @@ export const HotsFatherTags = [
     },
     {
         name: '旅游'
+    }
+];
+
+export const CalendarCategorys = [
+    {
+        name: '全部',
+        value: ''
+    },
+    {
+        name: '課程',
+        value: 'course'
+    },
+    {
+        name: '活動',
+        value: 'activity'
+    }
+];
+
+export const CalendarFilters = [
+    {
+        name: '按最近更新排序',
+        value: 'created_at'
+    },
+    {
+        name: '按活動時間排序',
+        value: 'from_date'
+    }
+    // {
+    //     name: '按瀏覽數',
+    //     value: 'view_count'
+    // }
+];
+
+export const RegionFilters = [
+    {
+        name: '香港',
+        value: 'hk'
+    },
+    {
+        name: '澳門',
+        value: 'mo'
     }
 ];

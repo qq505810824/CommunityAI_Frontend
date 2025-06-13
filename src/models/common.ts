@@ -1,4 +1,5 @@
 import type { I18nText } from '@/i18n/language';
+import { ChanHotsModel } from './ChanHots';
 
 export type CommonResponse = {
     success: true | false;
@@ -270,3 +271,9 @@ export type ModerationService = (
         text: string;
     }
 ) => Promise<ModerateResponse>;
+
+export type ChanHotsResponse = {
+    data: {
+        list: ChanHotsModel[];
+    };
+};
