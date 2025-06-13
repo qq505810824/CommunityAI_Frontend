@@ -2344,10 +2344,10 @@
     nanoid "^3.3.7"
     prop-types "^15.8.1"
 
-"@rjsf/utils@^5.23.2":
-  version "5.24.10"
-  resolved "https://registry.yarnpkg.com/@rjsf/utils/-/utils-5.24.10.tgz#085501732e7eb9b811dd0adf60fd8bde79dec48e"
-  integrity sha512-afsi+oKNV12p6OnBydJ0R4M87h7SaArqAhqJPqVXbMldnbPnW632THCtod5GG+IYtkqUkx0iQq2xpHw1OBf+3A==
+"@rjsf/utils@^5.24.11":
+  version "5.24.11"
+  resolved "https://registry.yarnpkg.com/@rjsf/utils/-/utils-5.24.11.tgz#309d8ee538d9b2b30ee48298f65d5f81e82af103"
+  integrity sha512-2OyQM4Eum67jr4GJly6eflZhD8qoWkl7brCvCZ10z+pW6dgsGEusqRvTioK0L7thWJ5LwbJ2i4SFqJjiChZGxA==
   dependencies:
     json-schema-merge-allof "^0.8.1"
     jsonpointer "^5.0.1"
