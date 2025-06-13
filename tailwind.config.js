@@ -103,6 +103,9 @@ module.exports = {
                     900: '#212529'
                 }
             },
+            fontFamily: {
+                'luxury': ['Playfair Display', 'serif'],
+            },
             screens: {
                 mobile: '100px',
                 tablet: '640px',
