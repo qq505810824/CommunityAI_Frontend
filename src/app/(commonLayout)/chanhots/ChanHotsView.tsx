@@ -19,7 +19,7 @@ function ChanHotsView(props: ViewProps) {
 
     return (
         <>
-            <div className="flex w-full h-full flex-col">
+            <div className="flex w-full h-full flex-col items-start justify-start">
                 <div className="mb-8">
                     <h1 className="text-4xl font-luxury font- bold text-gold-400 mb-2">
                         Trend Signal
@@ -36,7 +36,6 @@ function ChanHotsView(props: ViewProps) {
                         width: '100%'
                     }}
                 >
-                    {/* {DemoHeroGeometric()} */}
                     <FilterView
                         onSearch={handleSearch}
                         onClose={onClose}

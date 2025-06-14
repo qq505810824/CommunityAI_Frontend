@@ -7,7 +7,7 @@ export default function DashboardView(props: any) {
         <>
             <div id="dashboard" className="section">
                 <div className="mb-8">
-                    <h1 className="text-4xl font-luxury font- bold text-gold-400 mb-2">
+                    <h1 className="text-4xl font-luxury font-bold text-gold-400 mb-2">
                         Network Portfolio
                     </h1>
                     <p className="text-gray-300">

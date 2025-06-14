@@ -23,7 +23,7 @@ export default function NexusEliteView(props: any) {
 
     return (
         <>
-            <div className="bg-gray-900 text-white font-sans h-full overflow-y-auto pb-4 mb-4 min-h-screen flex flex-col pt-16 md:pt-16">
+            <div className="bg-gray-900 text-white font-sans  h-full  pb-4 mb-4 min-h-screen flex flex-col pt-16 md:pt-16">
                 <HeaderView
                     {...{
                         title: 'Nexus Elite',
@@ -32,13 +32,15 @@ export default function NexusEliteView(props: any) {
                         setSection
                     }}
                 />
-                <div className="max-w-7xl mx-auto px-6 py-8">
-                    {section == 'dashboard' && <DashboardView />}
-                    {section == 'marketplace' && <MarketplaceView />}
-                    {section == 'events' && <EventsView />}
-                    {section == 'legacy' && <LegacyView />}
-                    {section == 'messages' && <MessagingView />}
-                    {section == 'trend_signal' && <ChanHotsContainer />}
+                <div className="w-full items-center justify-center overflow-y-auto">
+                    <div className=' max-w-7xl mx-auto  px-6 py-8 '>
+                        {section == 'dashboard' && <DashboardView />}
+                        {section == 'marketplace' && <MarketplaceView />}
+                        {section == 'events' && <EventsView />}
+                        {section == 'legacy' && <LegacyView />}
+                        {section == 'messages' && <MessagingView />}
+                        {section == 'trend_signal' && <ChanHotsContainer />}
+                    </div>
                 </div>
             </div>
         </>
