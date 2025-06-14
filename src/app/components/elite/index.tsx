@@ -1,4 +1,5 @@
 'use client';
+import ChanHotsContainer from '@/app/(commonLayout)/chanhots/ChanHotsContainer';
 import { useState } from 'react';
 import DashboardView from './DashboardView';
 import EventsView from './EventsView';
@@ -15,7 +16,8 @@ export default function NexusEliteView(props: any) {
         { label: 'Dashboard', href: 'dashboard' },
         { label: 'Marketplace', href: 'marketplace' },
         { label: 'Events', href: 'events' },
-        { label: 'Legacy', href: 'legacy' },
+        // { label: 'Legacy', href: 'legacy' },
+        { label: 'Trend Signal', href: 'trend_signal' },
         { label: 'Messages', href: 'messages' }
     ];
 
@@ -36,6 +38,7 @@ export default function NexusEliteView(props: any) {
                     {section == 'events' && <EventsView />}
                     {section == 'legacy' && <LegacyView />}
                     {section == 'messages' && <MessagingView />}
+                    {section == 'trend_signal' && <ChanHotsContainer />}
                 </div>
             </div>
         </>
