@@ -50,6 +50,7 @@ export default function UserView(props: ViewProps) {
                 sx={{
                     color: 'white',
                     fontSize: 12,
+                    whiteSpace: 'wrap',
                     ...textClassName
                 }}
             >

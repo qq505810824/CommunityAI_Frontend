@@ -1,5 +1,5 @@
 import FilterView from '@/app/components/chan_hots/FilterView';
-import HotsCard from '@/app/components/chan_hots/HotsCard';
+import HotsImageCard from '@/app/components/chan_hots/HotsImageCard';
 import { ChanHotsModel } from '@/models/ChanHots';
 import { Box } from '@mui/joy';
 
@@ -42,9 +42,9 @@ function ChanHotsView(props: ViewProps) {
                         changeCategory={changeCategory}
                         categorys={categorys}
                     />
-                    <div className="  grid flex-row   pb-10 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full sm:max-w-7xl">
+                    <div className="  grid flex-row   pb-10 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-5 gap-4 w-full sm:max-w-7xl">
                         {products?.map((product, index) => (
-                            <HotsCard product={product} key={index} />
+                            <HotsImageCard product={product} key={index} />
                         ))}
                     </div>
                     <div className=" hidden sm:block w-full sm:max-w-7xl px-4 overflow-auto">
