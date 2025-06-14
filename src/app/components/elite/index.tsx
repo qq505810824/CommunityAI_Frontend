@@ -40,5 +40,4 @@ export default function NexusEliteView(props: any) {
             </div>
         </>
     );
-
 }

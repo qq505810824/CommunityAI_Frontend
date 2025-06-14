@@ -26,22 +26,22 @@ export default function MarketplaceView(props: any) {
                             icon={faGraduationCap}
                             className="text-gold-400 text-2xl mb-2"
                         />
-                        <div className="text-white text- sm">Education</div>
+                        <div className="text-white text-sm">Education</div>
                     </button>
                     <button className="category-btn bg-gray-800 hover:bg-gray-700 rounded-lg p-4 border border-gold-400/20 text-center">
                         <FontAwesomeIcon icon={faGem} className="text-gold-400 text-2xl mb-2" />
-                        <div className="text-white text- sm">Luxury</div>
+                        <div className="text-white text-sm">Luxury</div>
                     </button>
                     <button className="category-btn bg-gray-800 hover:bg-gray-700 rounded-lg p-4 border border-gold-400/20 text-center">
                         <FontAwesomeIcon
                             icon={faHeartbeat}
                             className="text-gold-400 text-2xl mb-2"
                         />
-                        <div className="text-white text- sm">Wellness</div>
+                        <div className="text-white text-sm">Wellness</div>
                     </button>
                     <button className="category-btn bg-gray-800 hover:bg-gray-700 rounded-lg p-4 border border-gold-400/20 text-center">
                         <FontAwesomeIcon icon={faPlane} className="text-gold-400 text-2xl mb-2" />
-                        <div className="text-white text- sm">Travel</div>
+                        <div className="text-white text-sm">Travel</div>
                     </button>
                     <button className="category-btn bg-gray-800 hover:bg-gray-700 rounded-lg p-4 border border-gold-400/20 text-center">
                         <FontAwesomeIcon
