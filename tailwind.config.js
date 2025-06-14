@@ -104,7 +104,7 @@ module.exports = {
                 }
             },
             fontFamily: {
-                'luxury': ['Playfair Display', 'serif'],
+                luxury: ['Playfair Display', 'serif']
             },
             screens: {
                 mobile: '100px',

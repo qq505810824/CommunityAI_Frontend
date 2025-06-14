@@ -1,9 +1,4 @@
-import {
-    faChartLine,
-    faHandshake,
-    faStar,
-    faUser
-} from '@fortawesome/free-solid-svg-icons';
+import { faChartLine, faHandshake, faStar, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ChartsAndInsightsView from './ChartsAndInsightsView';
 import RecentView from './RecentView';
@@ -24,10 +19,7 @@ export default function DashboardView(props: any) {
                         <div className="flex items-center justify-between mb-4">
                             <div className="text-gold-400">
                                 {' '}
-                                <FontAwesomeIcon
-                                    icon={faChartLine}
-                                    className="text-2xl"
-                                />{' '}
+                                <FontAwesomeIcon icon={faChartLine} className="text-2xl" />{' '}
                             </div>
                             <div className="text-green-400 text-sm"> +12.5%</div>
                         </div>
@@ -59,10 +51,7 @@ export default function DashboardView(props: any) {
                         <div className="flex items-center justify-between mb-4">
                             <div className="text-gold-400">
                                 {' '}
-                                <FontAwesomeIcon
-                                    icon={faHandshake}
-                                    className=" text-2xl"
-                                />{' '}
+                                <FontAwesomeIcon icon={faHandshake} className=" text-2xl" />{' '}
                             </div>
                             <div className="text-green-400 text-sm"> +15.3%</div>
                         </div>
@@ -73,9 +62,7 @@ export default function DashboardView(props: any) {
 
                 <ChartsAndInsightsView />
                 <RecentView />
-
             </div>
-
         </>
-    )
+    );
 }
