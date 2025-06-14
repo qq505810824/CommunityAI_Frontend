@@ -7,7 +7,7 @@ import type { Viewport } from 'next';
 import './styles/globals.css';
 
 export const metadata = {
-    title: 'AI Apps'
+    title: 'Nexus Elite'
 };
 
 export const viewport: Viewport = {

@@ -12,7 +12,7 @@ export default function MessagingView(props: any) {
                         End-to- end encrypted messaging with AI assistance
                     </p>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-96">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full">
                     {/* <!-- Contacts List --> */}
                     <div className="bg-gray-800 rounded-xl p-4 border border-gold-400/20">
                         <h3 className="text-lg font-semibold text-gold-400 mb-4">

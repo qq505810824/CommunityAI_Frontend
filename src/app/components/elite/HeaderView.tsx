@@ -4,22 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from '@mui/joy';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import '../../style.css';
+import './style.css';
 
 interface ViewProps {
-    title: string,
+    title: string;
     section: string;
     setSection: any;
-    links: any[]
+    links: any[];
 }
 
 export default function HeaderView(props: ViewProps) {
-    const {
-        title,
-        section,
-        setSection,
-        links
-    } = props
+    const { title, section, setSection, links } = props;
 
     const [isMenuOpen, setIsMenuOpen] = useState(false); // 移動端選單狀態
     const pathname = usePathname(); // 獲取當前路徑
@@ -31,9 +26,7 @@ export default function HeaderView(props: ViewProps) {
             <header
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-gray-800 border-b border-gold-400/20 px-4 md:px-8 py-4`}
             >
-
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
-
                     <div className="flex items-center space-x-2 md:space-x-4">
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -64,9 +57,7 @@ export default function HeaderView(props: ViewProps) {
                                 )}
                             </svg>
                         </button>
-                        <div className="text-2xl font-luxury font-bold text-gold-400">
-                            {title}
-                        </div>
+                        <div className="text-2xl font-luxury font-bold text-gold-400">{title}</div>
                         <nav className="hidden md:flex space-x-6 ml-8">
                             {links.map((link) => {
                                 return (
@@ -79,10 +70,8 @@ export default function HeaderView(props: ViewProps) {
                                     >
                                         {link.label}
                                     </button>
-                                )
-                            }
-                            )}
-
+                                );
+                            })}
                         </nav>
                     </div>
                     <div className="flex items-center space- x-4">
@@ -97,7 +86,6 @@ export default function HeaderView(props: ViewProps) {
                         </div>{' '}
                     </div>
                 </div>
-
 
                 {/* 移動端下拉選單 */}
                 <div
@@ -116,7 +104,10 @@ export default function HeaderView(props: ViewProps) {
                                     // href={link.href}
                                     className={`block px-3 py-2 rounded-md text-base font-medium transition-colors 
                               ${isActive ? 'text-white bg-gold-500' : 'text-gold-400'} `}
-                                    onClick={() => { showSection(link.href); setIsMenuOpen(false) }}
+                                    onClick={() => {
+                                        showSection(link.href);
+                                        setIsMenuOpen(false);
+                                    }}
                                 >
                                     {link.label}
                                 </Link>
@@ -126,5 +117,5 @@ export default function HeaderView(props: ViewProps) {
                 </div>
             </header>
         </>
-    )
+    );
 }

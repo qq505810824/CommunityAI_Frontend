@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function ChatWindow(props: any) {
     return (
         <>
-            <div className="lg:col-span-2 bg-gray-800 rounded-xl border border-gold-400/20 flex flex-col">
+            <div className="lg:col-span-2 bg-gray-800 rounded-xl border border-gold-400/20  flex flex-col">
                 <div className="p-4 border-b border-gray-700 ">
                     <div className="flex items-center space-x-3">
                         <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
@@ -49,7 +49,7 @@ export default function ChatWindow(props: any) {
                         </div>
                     </div>
                 </div>
-                <div className="p-4 border-t border-gray-700">
+                <div className="p-4 border-t border-gray-700 ">
                     <div className="flex space-x-2">
                         <input
                             type="text"
