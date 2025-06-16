@@ -48,7 +48,7 @@ export default function HotsImageCard(props: ViewProps) {
                 <div className="w-full relative  min-w-[70px] gradient-gold">
                     <img
                         src={product.aweme_info.aweme_cover}
-                        className="w-full h-[300px] object-cover rounded-md"
+                        className="w-full h-[300px] object-cover rounded-t-md"
                         alt=""
                         onError={(e) => {
                             e.currentTarget.src = ''; // 如果加载失败，使用默认图像
