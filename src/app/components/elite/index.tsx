@@ -33,7 +33,7 @@ export default function NexusEliteView(props: any) {
                     }}
                 />
                 <div className="w-full items-center justify-center overflow-y-auto">
-                    <div className=' max-w-7xl mx-auto  px-6 py-8 '>
+                    <div className=" max-w-7xl mx-auto  px-6 py-8 ">
                         {section == 'dashboard' && <DashboardView />}
                         {section == 'marketplace' && <MarketplaceView />}
                         {section == 'events' && <EventsView />}

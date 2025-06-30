@@ -30,12 +30,14 @@ export default function HotsImageCard(props: ViewProps) {
         // }
     };
 
-    const getIconImage = (category: string) => { };
+    const getIconImage = (category: string) => {};
 
     return (
         <>
-            <div className=" relative bg-gray-800 rounded-xl overflow-hidden card-hover border border-gold-400/20"
-                onClick={handleClick}>
+            <div
+                className=" relative bg-gray-800 rounded-xl overflow-hidden card-hover border border-gold-400/20"
+                onClick={handleClick}
+            >
                 <label className=" absolute z-10 left-2 top-1 text-sm">
                     {product.aweme_info.is_hot == 1 && (
                         <img
@@ -54,7 +56,7 @@ export default function HotsImageCard(props: ViewProps) {
                             e.currentTarget.src = ''; // 如果加载失败，使用默认图像
                         }}
                     />
-                    <div className=' absolute w-full bottom-0 p-2 flex flex-row items-center justify-between'>
+                    <div className=" absolute w-full bottom-0 p-2 flex flex-row items-center justify-between">
                         <UserView
                             user={{
                                 name: product.author_info.nickname,
@@ -62,21 +64,24 @@ export default function HotsImageCard(props: ViewProps) {
                             }}
                             imgClassName={'w-5 h-5 '}
                         />
-                        <label className=' text-gray-300 text-sm  whitespace-nowrap'>
+                        <label className=" text-gray-300 text-sm  whitespace-nowrap">
                             {moment(product?.aweme_info.aweme_create_time).format('MM/DD HH:mm')}
                         </label>
                     </div>
                 </div>
                 <div className="p-4">
-                    <p className="text-gray-300 text-sm mb-4"
+                    <p
+                        className="text-gray-300 text-sm mb-4"
                         style={{
                             display: '-webkit-box',
                             WebkitBoxOrient: 'vertical',
                             overflow: 'hidden',
                             WebkitLineClamp: 2,
                             height: '3em' // 根据行高设置最大高度
-                        }}>
-                        {product.aweme_info.is_hot}{product?.aweme_info.aweme_title || ''}
+                        }}
+                    >
+                        {product.aweme_info.is_hot}
+                        {product?.aweme_info.aweme_title || ''}
                     </p>
                     <div className="flex items-center justify-between">
                         <Typography
@@ -99,8 +104,6 @@ export default function HotsImageCard(props: ViewProps) {
                         >
                             {formatK(product?.aweme_info.comment_count || 0)}
                         </Typography>
-
-
                     </div>
                 </div>
             </div>

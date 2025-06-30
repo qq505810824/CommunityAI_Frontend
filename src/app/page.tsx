@@ -1,9 +1,9 @@
 'use client';
-import NexusEliteView from './components/elite';
+import CommunityPlatform from './(communityLayout)/community/page';
 export default function index() {
     return (
         <>
-            <NexusEliteView />
+            <CommunityPlatform />
         </>
     );
 }

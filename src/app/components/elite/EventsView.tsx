@@ -12,16 +12,16 @@ export type EventModel = {
         date: string; //日期
         location: string; //地点
         attendees: number; //参与人数
-        accounts?: number //共同联系人
-    }
-}
+        accounts?: number; //共同联系人
+    };
+};
 
 export default function EventsView(props: any) {
-    const [products, setProducts] = useState<EventModel[]>([])
+    const [products, setProducts] = useState<EventModel[]>([]);
 
     useEffect(() => {
-        getEventsData()
-    }, [])
+        getEventsData();
+    }, []);
 
     const getEventsData = () => {
         setProducts([
@@ -38,7 +38,8 @@ export default function EventsView(props: any) {
                     accounts: 89
                 },
                 status: 'begin'
-            }, {
+            },
+            {
                 id: 2,
                 title: 'Next-Gen Wealth Symposium',
                 description: `Intimate roundtable discussions for heirs and next-generation leaders on
@@ -51,8 +52,8 @@ export default function EventsView(props: any) {
                 },
                 status: 'wait'
             }
-        ])
-    }
+        ]);
+    };
 
     return (
         <>
@@ -67,7 +68,10 @@ export default function EventsView(props: any) {
                 <div className="space-y-6">
                     {products?.map((product, index) => {
                         return (
-                            <div key={product.id} className="bg-gray-800 rounded-xl p-6 border border-gold-400/20 card-hover">
+                            <div
+                                key={product.id}
+                                className="bg-gray-800 rounded-xl p-6 border border-gold-400/20 card-hover"
+                            >
                                 <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
                                     <div>
                                         <h3 className="text-2xl font-semibold text-white mb-2">
@@ -76,12 +80,18 @@ export default function EventsView(props: any) {
                                         <div className="flex items-center space-x-4 text-gray-300">
                                             <span>
                                                 {' '}
-                                                <FontAwesomeIcon icon={faCalendar} className="mr-2" />
+                                                <FontAwesomeIcon
+                                                    icon={faCalendar}
+                                                    className="mr-2"
+                                                />
                                                 {product.meta.date}
                                             </span>
                                             <span>
                                                 {' '}
-                                                <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
+                                                <FontAwesomeIcon
+                                                    icon={faMapMarkerAlt}
+                                                    className="mr-2"
+                                                />
                                                 {product.meta.location}
                                             </span>
                                             <span>
@@ -92,23 +102,20 @@ export default function EventsView(props: any) {
                                         </div>
                                     </div>
                                     <div className="mt-4 md:mt-0">
-                                        {product.status == 'begin' &&
+                                        {product.status == 'begin' && (
                                             <button className="bg-gold-400 hover:bg-gold-500 text-gray-900 px-6 py-3 rounded-lg font-medium">
                                                 RSVP
                                             </button>
-                                        }
-                                        {
-                                            product.status == 'wait' &&
+                                        )}
+                                        {product.status == 'wait' && (
                                             <button className="bg-gray-600 hover:bg-gray-500 text-white px-6 py-3 rounded-lg font-medium">
                                                 Waitlist
                                             </button>
-                                        }
+                                        )}
                                     </div>
                                 </div>
-                                <p className="text-gray-300 mb-4">
-                                    {product.description}
-                                </p>
-                                {product.status == 'begin' &&
+                                <p className="text-gray-300 mb-4">{product.description}</p>
+                                {product.status == 'begin' && (
                                     <div className="flex items-center space-x-4">
                                         <div className="flex -space-x-2">
                                             <div className="w-8 h-8 bg-blue-500 rounded-full border-2 border-gray-800"></div>
@@ -120,18 +127,19 @@ export default function EventsView(props: any) {
                                             89 mutual connections attending
                                         </span>
                                     </div>
-                                }
-                                {
-                                    product.status == 'wait' &&
+                                )}
+                                {product.status == 'wait' && (
                                     <div className="flex items-center space-x-4">
                                         <span className="bg-red-500 text- white text-xs px-2 py-1 rounded">
                                             Exclusive
                                         </span>
-                                        <span className="text-gray-400 text-sm">Invitation only</span>
+                                        <span className="text-gray-400 text-sm">
+                                            Invitation only
+                                        </span>
                                     </div>
-                                }
+                                )}
                             </div>
-                        )
+                        );
                     })}
                 </div>
             </div>
