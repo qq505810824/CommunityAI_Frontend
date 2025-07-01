@@ -2,8 +2,8 @@
 
 import Loading from '@/app/components/base/loading';
 import useAlert from '@/hooks/useAlert';
-import { CalendarModel } from '@/hooks/useCalendarData';
 import useLoad from '@/hooks/useLoad';
+import { CalendarModel } from '@/models/Calendar';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useAppDetailContext } from '../detail-context';
@@ -22,7 +22,7 @@ function EnrollDetailContainer() {
         if (appData) {
             setProduct(appData);
         }
-        return () => {};
+        return () => { };
     }, [appData]);
 
     if (!product) return <Loading type="app" />;

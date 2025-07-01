@@ -1,3 +1,27 @@
+
+export interface CalendarModel {
+    id: number;
+    name: string;
+    category: string;
+    image_url: string;
+    description: string;
+    from_date: string | null;
+    to_date: string | null;
+    pre_from_date: string | null;
+    pre_to_date: string | null;
+    view_count: number;
+    reference_url: string;
+    files_url: string;
+    status: string;
+    created_at: string;
+    updated_at: string;
+    region: string;
+    form_url: string;
+
+    is_collected?: boolean;
+    uploadFiles?: File[];
+}
+
 export const CalendarFormData = {
     json_schema: {
         type: 'object',

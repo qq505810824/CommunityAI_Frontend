@@ -2,7 +2,8 @@ import BackView from '@/app/components/base/back/BackView';
 import DateView from '@/app/components/calendar/detail/DateView';
 import OperationView from '@/app/components/calendar/detail/OperationView';
 import ReferenceFormView from '@/app/components/calendar/detail/ReferenceFormView';
-import { CalendarModel } from '@/hooks/useCalendarData';
+import { CalendarModel } from '@/models/Calendar';
+
 import { Typography } from '@mui/joy';
 import { useRouter } from 'next/navigation';
 

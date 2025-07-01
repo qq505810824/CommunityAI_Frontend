@@ -1,6 +1,6 @@
 import CalendarCard from '@/app/components/calendar/CalendarCard';
 import FilterView from '@/app/components/calendar/FilterView';
-import { CalendarModel } from '@/hooks/useCalendarData';
+import { CalendarModel } from '@/models/Calendar';
 import { Box, Typography } from '@mui/joy';
 interface ViewProps {
     data: any;

@@ -1,6 +1,6 @@
 import CoursesView from '@/app/components/community/detail/CoursesView';
-import EventsView from '@/app/components/community/detail/EventsView';
 import TextChannelsView from '@/app/components/community/detail/TextChannelsView';
+import { CommunityModel } from '@/models/Community';
 import {
     BookOpen,
     Calendar as CalendarIcon,
@@ -8,12 +8,14 @@ import {
 } from 'lucide-react';
 import { useEffect } from 'react';
 import ChannelDetailContainter from '../../channels/[id]/ChannelDetailContainter';
+import ChannelContainter from '../../channels/ChannelContainter';
 import CourseDetailContainter from '../../courses/[id]/CourseDetailContainter';
 import EventDetailContainter from '../../events/[id]/EventDetailContainter';
+import EventContainter from '../../events/EventContainter';
 import { useAppDetailContext } from './detail-context';
 
 interface ViewProps {
-    community: any;
+    community: CommunityModel;
 }
 
 export default function CommunityDetailView({
@@ -24,12 +26,15 @@ export default function CommunityDetailView({
     // const [activeTab, setActiveTab] = useState('discussions');
 
     useEffect(() => {
+        if (community) {
+            console.log('community', community);
 
-    }, [])
+        }
+    }, [community])
     const renderActiveTab = () => {
         switch (activeTab) {
             case 'channels':
-                return <TextChannelsView />;
+                return <ChannelContainter />;
             case 'channel-detail':
                 return <ChannelDetailContainter />;
             case 'courses':
@@ -37,7 +42,7 @@ export default function CommunityDetailView({
             case 'course-detail':
                 return <CourseDetailContainter />;
             case 'events':
-                return <EventsView />;
+                return <EventContainter />;
             case 'event-detail':
                 return <EventDetailContainter />;
             default:
@@ -59,7 +64,7 @@ export default function CommunityDetailView({
                             <div>
                                 <h1 className="text-3xl font-bold">{community?.name}</h1>
                                 <p className="text-gray-500 text-opacity-90">
-                                    {community?.members} members
+                                    {community?.accounts_count} members
                                 </p>
                             </div>
                         </div>

@@ -1,7 +1,8 @@
-import CalendarItem from '@/app/components/admin/calendars/CalendarItem';
+
+import CommunityItem from '@/app/components/admin/communitys/CommunityItem';
 import TableSheet from '@/app/components/base/table';
 import SearchInputView from '@/app/components/common/Views/SearchInputView';
-import { CalendarModel } from '@/models/Calendar';
+import { CommunityModel } from '@/models/Community';
 import { Typography } from '@mui/joy';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -9,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 interface ViewProps {
     data: any;
     isLoading: any;
-    products: CalendarModel[];
+    products: CommunityModel[];
     onClose: () => void;
     handleSearch: any;
     searching?: boolean;
@@ -17,7 +18,7 @@ interface ViewProps {
     onUpdataStatus: (id: number, status: string) => void;
 }
 
-function CalendarView(props: ViewProps) {
+function CommunityView(props: ViewProps) {
     const { isLoading, products, onClose, handleSearch, searching, onDelete, onUpdataStatus } =
         props;
     const router = useRouter();
@@ -26,7 +27,7 @@ function CalendarView(props: ViewProps) {
     return (
         <React.Fragment>
             <div className="w-full flex justify-between items-center my-4">
-                <Typography level="h3">Career calendar 列表</Typography>
+                <Typography level="h3">Community 列表</Typography>
                 {/* <Button
                     variant="solid"
                     color="primary"
@@ -51,20 +52,20 @@ function CalendarView(props: ViewProps) {
                 <TableSheet>
                     <thead>
                         <tr>
-                            <th className="text-center w-[200px]">活動名稱</th>
-                            <th className="text-center w-[60px]">類型</th>
-                            <th className="text-center w-[60px]">地區</th>
-                            <th className="text-center whitespace-nowrap w-[60px]">浏览数</th>
-                            <th className="text-center w-[60px]">狀態</th>
-                            <th className="text-center whitespace-nowrap w-[100px]">報名時間</th>
-                            <th className="text-center whitespace-nowrap w-[100px]">活動時間</th>
+                            <th className="text-center w-[200px]">名稱</th>
+                            {/* <th className="text-center w-[60px]">類型</th> */}
+                            <th className="text-center w-[60px]">channels</th>
+                            <th className="text-center w-[60px]">courses</th>
+                            <th className="text-center w-[60px]">events</th>
+                            <th className="text-center w-[60px]">公开</th>
+                            <th className="text-center w-[100px]">拥有者</th>
                             <th className="text-center whitespace-nowrap w-[100px]">更新时间</th>
                             <th className="text-center whitespace-nowrap w-[200px]">操作</th>
                         </tr>
                     </thead>
                     <tbody>
                         {products.map((row) => (
-                            <CalendarItem
+                            <CommunityItem
                                 product={row}
                                 key={row.id}
                                 onDelete={() => onDelete(row.id)}
@@ -84,4 +85,4 @@ function CalendarView(props: ViewProps) {
     );
 }
 
-export default CalendarView;
+export default CommunityView;

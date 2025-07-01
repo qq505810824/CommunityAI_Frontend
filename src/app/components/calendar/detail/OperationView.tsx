@@ -1,7 +1,7 @@
 import { useAppContext } from '@/context/app-context';
 import { useModalContext } from '@/context/modal-context';
 import { useAccountOperations } from '@/hooks/useAccountData';
-import { CalendarModel } from '@/hooks/useCalendarData';
+import { CalendarModel } from '@/models/Calendar';
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
 import { IconButton, Tooltip } from '@mui/joy';

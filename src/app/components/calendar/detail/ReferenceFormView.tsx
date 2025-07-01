@@ -1,6 +1,6 @@
 import { useAppContext } from '@/context/app-context';
 import { useAccountOperations } from '@/hooks/useAccountData';
-import { CalendarModel } from '@/hooks/useCalendarData';
+import { CalendarModel } from '@/models/Calendar';
 import { useEffect, useRef } from 'react';
 
 interface ViewProps {

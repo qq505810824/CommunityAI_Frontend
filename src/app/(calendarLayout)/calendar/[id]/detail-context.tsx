@@ -3,7 +3,8 @@
 import { useAppContext } from '@/context/app-context';
 // import { updateTableById } from '@/apis/airtable/AirtableSchema';
 import { useModalContext } from '@/context/modal-context';
-import { CalendarModel, useCalendarDetailData } from '@/hooks/useCalendarData';
+import { useCalendarDetailData } from '@/hooks/useCalendarData';
+import { CalendarModel } from '@/models/Calendar';
 import { useParams, useRouter } from 'next/navigation';
 import { FC, ReactNode, createContext, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';

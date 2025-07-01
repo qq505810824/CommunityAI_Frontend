@@ -1,6 +1,6 @@
 import BackView from '@/app/components/base/back/BackView';
 import CalendarEditForm from '@/app/components/calendar/edit/form';
-import { CalendarModel } from '@/hooks/useCalendarData';
+import { CalendarModel } from '@/models/Calendar';
 
 interface ViewProps {
     product: CalendarModel | null;

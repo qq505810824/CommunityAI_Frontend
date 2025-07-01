@@ -1,5 +1,6 @@
 
 import { useAppDetailContext } from '@/app/(communityLayout)/communitys/[id]/detail-context';
+import { useCalendarData } from '@/hooks/useCalendarData';
 import {
     Calendar as CalendarIcon,
     Clock,
@@ -15,6 +16,17 @@ export default function EventsView() {
 
     const { activeTab, setActiveTab } = useAppDetailContext()
     const [selectedEvent, setSelectedEvent] = useState<any>(null);
+
+    const [filters, setFilters] = useState<any>({
+        keyword: '',
+        category: '',
+        order: 'created_at',
+        direction: 'desc',
+        status: 'success',
+        region: ''
+    });
+
+    const { data, isLoading, isError, mutate } = useCalendarData({ ...filters });
 
     const events = [
         {

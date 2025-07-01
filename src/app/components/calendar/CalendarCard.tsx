@@ -1,5 +1,5 @@
 import { useModalContext } from '@/context/modal-context';
-import { CalendarModel } from '@/hooks/useCalendarData';
+import { CalendarModel } from '@/models/Calendar';
 import { formatK } from '@/utils/stringUtil';
 import { CalendarIcon } from '@heroicons/react/24/outline';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';

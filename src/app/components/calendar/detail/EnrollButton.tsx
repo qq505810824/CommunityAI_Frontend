@@ -1,5 +1,5 @@
 import { useModalContext } from '@/context/modal-context';
-import { CalendarModel } from '@/hooks/useCalendarData';
+import { CalendarModel } from '@/models/Calendar';
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 import { Button } from '@mui/joy';
 import { useRouter } from 'next/navigation';

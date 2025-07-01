@@ -3,7 +3,8 @@
 import { useAppContext } from '@/context/app-context';
 // import { updateTableById } from '@/apis/airtable/AirtableSchema';
 import { useModalContext } from '@/context/modal-context';
-import { CalendarModel } from '@/hooks/useCalendarData';
+import { useCommunityDetailData } from '@/hooks/useCommunityData';
+import { CommunityModel } from '@/models/Community';
 import { useParams, useRouter } from 'next/navigation';
 import { FC, ReactNode, createContext, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -40,14 +41,10 @@ export const AppDetailContextProvider: FC<AppContextProviderProps> = ({
     const params = useParams();
     const { setShowConfirmDelete } = useModalContext();
     const { user_id } = useAppContext();
-    // const { data } = useSWR(
-    //     () => params['id'] ? { table_id: params['id'] } : null,
-    //     getSchema,
-    //     {}
-    // );
-    // const { data, isLoading, isError } = useCalendarDetailData(Number(params['id']), user_id || '');
 
-    const [appData, setAppData] = useState<CalendarModel | null>(null);
+    const { data, isLoading, isError } = useCommunityDetailData(Number(params['id']), user_id || '');
+
+    const [appData, setAppData] = useState<CommunityModel | null>(null);
     const [submitting, setSubmitting] = useState(false);
 
     const [activeTab, setActiveTab] = useState('channels');
@@ -55,12 +52,12 @@ export const AppDetailContextProvider: FC<AppContextProviderProps> = ({
     useEffect(() => {
 
     }, [])
-    // useEffect(() => {
-    //     if (data) {
-    //         // console.log('appData data ', data);
-    //         setAppData(data);
-    //     }
-    // }, [data]);
+    useEffect(() => {
+        if (data) {
+            console.log('appData data ', data);
+            setAppData(data);
+        }
+    }, [data]);
 
     useEffect(() => {
         // if (appData) console.log('appData', appData);

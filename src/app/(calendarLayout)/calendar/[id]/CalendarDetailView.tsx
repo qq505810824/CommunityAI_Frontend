@@ -5,7 +5,8 @@ import OperationView from '@/app/components/calendar/detail/OperationView';
 import RecommodCalendarView from '@/app/components/calendar/detail/RecommodCalendarView';
 import ReferenceFilesView from '@/app/components/calendar/detail/ReferenceFilesView';
 import ReferenceUrlView from '@/app/components/calendar/detail/ReferenceUrlView';
-import { CalendarModel } from '@/hooks/useCalendarData';
+
+import { CalendarModel } from '@/models/Calendar';
 import { Typography } from '@mui/joy';
 import { useRouter } from 'next/navigation';
 import './style.css';

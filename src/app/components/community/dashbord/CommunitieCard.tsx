@@ -1,10 +1,10 @@
 
 
+import { CommunityModel } from "@/models/Community";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 
 interface ViewProps {
-    community: any;
+    community: CommunityModel;
 }
 
 export default function CommunitieCard({
@@ -12,8 +12,6 @@ export default function CommunitieCard({
 }: ViewProps) {
 
     const router = useRouter()
-    const [selectedCommunity, setSelectedCommunity] = useState<any>(null);
-    const [currentView, setCurrentView] = useState('dashboard');
 
     const handleClickCommuity = (commuity: any) => {
         router.push(`/communitys/${commuity?.id}`)
@@ -35,7 +33,7 @@ export default function CommunitieCard({
                             {community.name}
                         </h3>
                         <p className="text-sm text-gray-500">
-                            {community.members} members
+                            {community.accounts_count} members
                         </p>
                     </div>
                 </div>
@@ -43,19 +41,19 @@ export default function CommunitieCard({
                 <div className="grid grid-cols-3 gap-2 mb-4 text-center">
                     <div className="p-2 bg-gray-50 rounded-lg">
                         <div className="text-lg font-bold text-blue-600">
-                            {community.channels}
+                            {community.channels_count}
                         </div>
                         <div className="text-xs text-gray-500">Channels</div>
                     </div>
                     <div className="p-2 bg-gray-50 rounded-lg">
                         <div className="text-lg font-bold text-green-600">
-                            {community.courses}
+                            {community.courses_count}
                         </div>
                         <div className="text-xs text-gray-500">Courses</div>
                     </div>
                     <div className="p-2 bg-gray-50 rounded-lg">
                         <div className="text-lg font-bold text-purple-600">
-                            {community.events}
+                            {community.events_count}
                         </div>
                         <div className="text-xs text-gray-500">Events</div>
                     </div>
@@ -65,13 +63,13 @@ export default function CommunitieCard({
                     <div className="flex justify-between items-center">
                         <span className="text-sm text-gray-600">Unread posts</span>
                         <span className="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs">
-                            {community.unreadPosts}
+                            {community.unreadPosts || 0}
                         </span>
                     </div>
                     <div className="flex justify-between items-center">
                         <span className="text-sm text-gray-600">Revenue (30d)</span>
                         <span className="text-green-600 font-medium">
-                            ${community.revenue}
+                            ${community.revenue || 0}
                         </span>
                     </div>
                 </div>

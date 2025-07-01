@@ -1,6 +1,6 @@
 import { useAppContext } from '@/context/app-context';
 import { useModalContext } from '@/context/modal-context';
-import { CalendarModel } from '@/hooks/useCalendarData';
+import { CalendarModel } from '@/models/Calendar';
 import { useRouter } from 'next/navigation';
 import PdfView from '../../common/Widget/PdfView';
 

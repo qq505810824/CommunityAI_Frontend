@@ -1,6 +1,12 @@
 import CommunitiesLayout from '@/app/components/community/dashbord/CommunitiesLayout';
+import { CommunityModel } from '@/models/Community';
+interface ViewProps {
+    communities: CommunityModel[]
+}
 
-export default function CommunityView() {
+export default function CommunityView({
+    communities
+}: ViewProps) {
 
     return (
         <>
@@ -12,7 +18,7 @@ export default function CommunityView() {
                     </div>
 
                     {/* Enhanced Community Overview Cards */}
-                    <CommunitiesLayout />
+                    <CommunitiesLayout communities={communities} />
 
                     {/* Enhanced Newsfeed */}
                     {/* <NewsfeedLayout /> */}

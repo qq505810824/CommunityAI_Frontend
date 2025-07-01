@@ -1,4 +1,4 @@
-import { CalendarModel } from '@/models/Calendar';
+import { CommunityModel } from '@/models/Community';
 import {
     createApp,
     deleteApp,
@@ -9,7 +9,7 @@ import {
     searchApp,
     statisticsApp,
     updateApp
-} from '@/service/calendar_server';
+} from '@/service/community_server';
 import moment from 'moment';
 
 import useSWR from 'swr';
@@ -21,25 +21,11 @@ export enum EnumRegion {
     hk = '香港'
 }
 
-export const showCalendarValues = (item: CalendarModel) => {
+export const showCommunityValues = (item: CommunityModel) => {
     let status = '';
-    const nowDate = moment().format('YYYY-MM-DD');
-    // console.log('nowDate', nowDate);
-    const from_date = moment(item.from_date).format('YYYY-MM-DD');
-    const to_date = moment(item.to_date).format('YYYY-MM-DD');
-    const diffDay = moment(item.from_date).diff(nowDate, 'day');
 
-    if (nowDate < from_date) {
-        status = '尚餘' + diffDay + '天';
-    } else if (nowDate >= from_date && nowDate <= to_date) {
-        status = '進行中';
-    } else if (nowDate > to_date) {
-        status = '已結束';
-    }
     return {
         ...item,
-        from_date: moment(item.from_date).format('MM月DD日'),
-        to_date: moment(item.to_date).format('MM月DD日'),
         status: status,
         created_at: moment(item.created_at).fromNow(),
         updated_at: moment(item.updated_at).fromNow()
@@ -54,15 +40,15 @@ const appsFetcher = async (options?: {}) => {
 };
 
 // 自定义 hook 使用 SWR 获取所有应用
-export const useCalendarData = (options = {}) => {
-    const { data, error, isLoading, mutate } = useSWR('calendars', () => appsFetcher(options), {
+export const useCommunityData = (options = {}) => {
+    const { data, error, isLoading, mutate } = useSWR('communitys', () => appsFetcher(options), {
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
         dedupingInterval: 60000 // 1分钟内不重复请求
     });
 
     return {
-        data: data as CalendarModel[],
+        data: data as CommunityModel[],
         isLoading,
         isError: error,
         mutate
@@ -70,7 +56,7 @@ export const useCalendarData = (options = {}) => {
 };
 
 // 自定义 hook 使用 SWR 获取所有应用
-export const randomCalendarData = (options = {}) => {
+export const randomCommunityData = (options = {}) => {
     const { data, error, isLoading, mutate } = useSWR(() => options, getRandomApps, {
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
@@ -78,7 +64,7 @@ export const randomCalendarData = (options = {}) => {
     });
 
     return {
-        data: data?.data as CalendarModel[],
+        data: data?.data as CommunityModel[],
         isLoading,
         isError: error,
         mutate
@@ -91,9 +77,9 @@ const appDetailFetcher = async (id: number, accountId?: string) => {
     return data || [];
 };
 
-export const useCalendarDetailData = (id: number, accountId?: string, options = {}) => {
+export const useCommunityDetailData = (id: number, accountId?: string, options = {}) => {
     const { data, error, isLoading, mutate } = useSWR(
-        'detail_calendar_' + id,
+        'detail_community_' + id,
         () => appDetailFetcher(id, accountId),
         {
             revalidateOnFocus: false,
@@ -103,7 +89,7 @@ export const useCalendarDetailData = (id: number, accountId?: string, options = 
         }
     );
     return {
-        data: data as CalendarModel | undefined,
+        data: data as CommunityModel | undefined,
         isLoading,
         isError: error,
         mutate
@@ -116,9 +102,9 @@ const appDetailByIdFetcher = async (id: number) => {
     return data || [];
 };
 
-export const useCalendarDetailByIdData = (id: number, options = {}) => {
+export const useCommunityDetailByIdData = (id: number, options = {}) => {
     const { data, error, isLoading, mutate } = useSWR(
-        'detail_calendar_by_id_' + id,
+        'detail_community_by_id_' + id,
         () => appDetailByIdFetcher(id),
         {
             revalidateOnFocus: false,
@@ -128,7 +114,7 @@ export const useCalendarDetailByIdData = (id: number, options = {}) => {
         }
     );
     return {
-        data: data as CalendarModel | undefined,
+        data: data as CommunityModel | undefined,
         isLoading,
         isError: error,
         mutate
@@ -141,9 +127,9 @@ const appStatisticsFetcher = async () => {
     return data || [];
 };
 
-export const useCalendarStatisticsData = (options = {}) => {
+export const useCommunityStatisticsData = (options = {}) => {
     const { data, error, isLoading, mutate } = useSWR(
-        'detail_calendar_statistics',
+        'detail_community_statistics',
         () => appStatisticsFetcher(),
         {
             revalidateOnFocus: false,
@@ -153,31 +139,31 @@ export const useCalendarStatisticsData = (options = {}) => {
         }
     );
     return {
-        data: data as CalendarModel | undefined,
+        data: data as CommunityModel | undefined,
         isLoading,
         isError: error,
         mutate
     };
 };
 
-export const useCalendarOperations = () => {
-    const addCalendar = async (appData: Omit<CalendarModel, 'id'>) => {
+export const useCommunityOperations = () => {
+    const addCommunity = async (appData: Omit<CommunityModel, 'id'>) => {
         return handleAppOperation(async () => {
             return await createApp(appData);
         });
     };
 
-    const updateCalendar = async (id: number, updatedData: Partial<CalendarModel>) => {
+    const updateCommunity = async (id: number, updatedData: Partial<CommunityModel>) => {
         return handleAppOperation(async () => {
             return await updateApp(id, updatedData);
         });
     };
 
-    const deleteCalendar = async (id: number) => {
+    const deleteCommunity = async (id: number) => {
         return await deleteApp(id);
     };
 
-    const searchCalendar = async (options?: any) => {
+    const searchCommunity = async (options?: any) => {
         return handleAppOperation(async () => {
             return await searchApp(options);
         });
@@ -185,10 +171,10 @@ export const useCalendarOperations = () => {
 
     const mutate = async (options?: any) => {
         return handleAppOperation(async () => {
-            return useCalendarData(options);
+            return useCommunityData(options);
         });
     };
-    return { addCalendar, updateCalendar, deleteCalendar, searchCalendar, mutate };
+    return { addCommunity, updateCommunity, deleteCommunity, searchCommunity, mutate };
 };
 
 // 处理应用操作的通用函数

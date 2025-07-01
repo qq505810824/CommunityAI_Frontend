@@ -1,5 +1,5 @@
-import { CalendarModel } from '@/hooks/useCalendarData';
-import { CalendarFormData } from '@/models/Calendar';
+
+import { CalendarFormData, CalendarModel } from '@/models/Calendar';
 import { createClient } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
 import FormDetailView from '../../common/Widget/form';

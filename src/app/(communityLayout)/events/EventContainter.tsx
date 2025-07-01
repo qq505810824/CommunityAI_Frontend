@@ -10,9 +10,9 @@ import useLoad from '@/hooks/useLoad';
 import { CalendarModel } from '@/models/Calendar';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import CalendarView from './CalendarView';
+import EventView from './EventView';
 
-function CalendarContainer() {
+function EventContainter() {
     const { setAlert } = useAlert();
     const { setLoad } = useLoad();
     const router = useRouter();
@@ -26,7 +26,7 @@ function CalendarContainer() {
         order: 'created_at',
         direction: 'desc',
         status: 'success',
-        region: 'hk'
+        region: ''
     });
 
     const { data, isLoading, isError, mutate } = useCalendarData({ ...filters });
@@ -42,19 +42,26 @@ function CalendarContainer() {
     }, [router, data]);
 
     useEffect(() => {
-        fetch(`/api/ipaddress`)
-            .then((res) => res.json())
-            .then((data) => {
-                console.log('Address data:', data);
-                if (data?.region) {
-                    setFilters({
-                        ...filters,
-                        region: data.region
-                    });
-                }
-            })
-            .catch(() => console.log('无法获取具体地区信息'));
-    }, [router]);
+        if (filters) {
+            console.log('filters', filters);
+            mutate()
+        }
+    }, [filters])
+
+    // useEffect(() => {
+    //     fetch(`/api/ipaddress`)
+    //         .then((res) => res.json())
+    //         .then((data) => {
+    //             console.log('Address data:', data);
+    //             if (data?.region) {
+    //                 setFilters({
+    //                     ...filters,
+    //                     region: data.region
+    //                 });
+    //             }
+    //         })
+    //         .catch(() => console.log('无法获取具体地区信息'));
+    // }, [router]);
 
     const handleSearch = async (value: string) => {
         // console.log('search value', value);
@@ -95,7 +102,7 @@ function CalendarContainer() {
         }
     };
     return (
-        <CalendarView
+        <EventView
             {...{
                 data,
                 isLoading,
@@ -111,4 +118,4 @@ function CalendarContainer() {
     );
 }
 
-export default CalendarContainer;
+export default EventContainter;

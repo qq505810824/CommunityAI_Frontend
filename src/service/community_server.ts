@@ -1,5 +1,5 @@
 
-import { CalendarModel } from '@/models/Calendar';
+import { CommunityModel } from '@/models/Community';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -7,12 +7,12 @@ const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-const db = 'calendars';
+const db = 'communitys';
 export const getAllApps = async (options?: any) => {
     try {
         // console.log('options', options);
 
-        let query = supabase.from(db).select('*');
+        let query = supabase.from(db).select('*,owner(id,name)');
 
         if (options && options.category) {
             query = query.eq('category', options.category);
@@ -57,7 +57,7 @@ export const getRandomApps = async (options?: any) => {
     try {
         // console.log('options', options);
 
-        let query = supabase.rpc('random_calendars', options);
+        let query = supabase.rpc('random_communitys', options);
         const { data, error } = await query;
         if (error) {
             throw error;
@@ -74,24 +74,24 @@ export const getAppDetail = async (id: number, accountId?: string) => {
     try {
         // 构建查询任务数组
         const tasks = [
-            supabase.rpc('increment_view', { row_id: id }),
+            // supabase.rpc('increment_view', { row_id: id }),
             supabase.from(db).select('*').eq('id', id).single()
         ];
 
         // 如果有用户ID，添加收藏状态查询
         if (accountId) {
-            tasks.push(
-                supabase
-                    .from('account_calendar')
-                    .select('*')
-                    .eq('calendar_id', id)
-                    .eq('account_id', accountId)
-                // .single()
-            );
+            // tasks.push(
+            //     supabase
+            //         .from('account_community')
+            //         .select('*')
+            //         .eq('community_id', id)
+            //         .eq('account_id', accountId)
+            //     // .single()
+            // );
         }
 
         // 并行执行所有操作
-        const [viewResult, detailResult, collectResult] = await Promise.all(tasks);
+        const [detailResult, collectResult] = await Promise.all(tasks);
         // console.log('collectResult', collectResult);
 
         if (detailResult.error) {
@@ -127,7 +127,7 @@ export const getAppDetailById = async (id: number) => {
     }
 };
 
-export const createApp = async (appData: Omit<CalendarModel, 'id'>) => {
+export const createApp = async (appData: Omit<CommunityModel, 'id'>) => {
     try {
         const { data, error } = await supabase.from(db).insert([appData]).select();
 
@@ -142,7 +142,7 @@ export const createApp = async (appData: Omit<CalendarModel, 'id'>) => {
     }
 };
 
-export const updateApp = async (id: number, appData: Partial<CalendarModel>) => {
+export const updateApp = async (id: number, appData: Partial<CommunityModel>) => {
     try {
         let result;
         // 如果是更新 focus，使用 RPC

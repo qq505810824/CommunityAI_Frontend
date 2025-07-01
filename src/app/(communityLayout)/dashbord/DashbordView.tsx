@@ -1,7 +1,16 @@
 import CommunitiesLayout from '@/app/components/community/dashbord/CommunitiesLayout';
 import NewsfeedLayout from '@/app/components/community/dashbord/NewsfeedLayout';
+import { CommunityModel } from '@/models/Community';
 
-export default function DashbordView() {
+
+interface ViewProps {
+    communities: CommunityModel[]
+}
+
+
+export default function DashbordView({
+    communities
+}: ViewProps) {
 
 
 
@@ -15,7 +24,7 @@ export default function DashbordView() {
                     </div>
 
                     {/* Enhanced Community Overview Cards */}
-                    <CommunitiesLayout />
+                    <CommunitiesLayout communities={communities} />
 
                     {/* Enhanced Newsfeed */}
                     <NewsfeedLayout />

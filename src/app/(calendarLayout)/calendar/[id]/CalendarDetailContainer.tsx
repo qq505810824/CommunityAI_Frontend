@@ -4,8 +4,8 @@ import Loading from '@/app/components/base/loading';
 import { useAppContext } from '@/context/app-context';
 import { useModalContext } from '@/context/modal-context';
 import useAlert from '@/hooks/useAlert';
-import { CalendarModel } from '@/hooks/useCalendarData';
 import useLoad from '@/hooks/useLoad';
+import { CalendarModel } from '@/models/Calendar';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import CalendarDetailView from './CalendarDetailView';
@@ -43,7 +43,7 @@ function CalendarDetailContainer() {
         if (appData) {
             setProduct(appData);
         }
-        return () => {};
+        return () => { };
     }, [appData]);
 
     if (!product) return <Loading type="app" />;
