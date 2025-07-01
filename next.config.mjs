@@ -26,15 +26,15 @@ const nextConfig = {
 
         return config;
     },
-    // async redirects() {
-    //     return [
-    //         {
-    //             source: '/',
-    //             destination: '/',
-    //             permanent: false,
-    //         },
-    //     ]
-    // },
+    async redirects() {
+        return [
+            {
+                source: '/',
+                destination: '/dashbord',
+                permanent: false,
+            },
+        ]
+    },
 };
 
 export default nextConfig;

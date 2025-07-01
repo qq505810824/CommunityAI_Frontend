@@ -1,9 +1,9 @@
 'use client';
-import CommunityPlatform from './(communityLayout)/community/page';
+import DashbordContainer from './(communityLayout)/communitys/CommunityContainter';
 export default function index() {
     return (
         <>
-            <CommunityPlatform />
+            <DashbordContainer />
         </>
     );
 }
