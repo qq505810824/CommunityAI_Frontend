@@ -97,7 +97,7 @@ export default function TextChannelsView() {
                         onClick={() => {
                             // handleClickChannel(channel)
                             setSelectedChannel(channel);
-                            setActiveTab('channel-detail');
+                            setActiveTab({ name: 'channel-detail' });
                         }}
                         className="bg-white border rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer"
                     >

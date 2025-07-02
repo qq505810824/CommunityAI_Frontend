@@ -1,4 +1,5 @@
 
+import { CourseModel } from '@/models/Course';
 import {
     ArrowLeft,
     Bookmark,
@@ -10,13 +11,17 @@ import {
     Star,
     Users
 } from 'lucide-react';
-import { useState } from "react";
 import { useAppDetailContext } from '../../communitys/[id]/detail-context';
 
-export default function CourseDetailView() {
+interface ViewProps {
+    course: CourseModel | undefined
+}
+
+export default function CourseDetailView({
+    course
+}: ViewProps) {
 
 
-    const [selectedCourse, setSelectedCourse] = useState<any>(null);
 
     const { activeTab, setActiveTab } = useAppDetailContext()
 
@@ -134,20 +139,21 @@ export default function CourseDetailView() {
         }
     ];
 
-
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                     <button
-                        onClick={() => setActiveTab('courses')}
+                        onClick={() => setActiveTab({
+                            name: 'courses'
+                        })}
                         className="p-2 hover:bg-gray-100 rounded-lg"
                     >
                         <ArrowLeft className="w-5 h-5" />
                     </button>
                     <div>
-                        <h3 className="text-xl font-semibold">{selectedCourse?.title}</h3>
-                        <p className="text-gray-600 text-sm">by {selectedCourse?.instructor}</p>
+                        <h3 className="text-xl font-semibold">{course?.title}</h3>
+                        <p className="text-gray-600 text-sm">by {course?.owner.name}</p>
                     </div>
                 </div>
 
@@ -168,25 +174,25 @@ export default function CourseDetailView() {
                         <div className="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg flex items-center justify-center mb-4">
                             <PlayCircle className="w-16 h-16 text-blue-500" />
                         </div>
-                        <h4 className="font-semibold text-lg mb-2">{selectedCourse?.title}</h4>
-                        <p className="text-gray-600 mb-4">{selectedCourse?.description}</p>
+                        <h4 className="font-semibold text-lg mb-2">{course?.title}</h4>
+                        <p className="text-gray-600 mb-4">{course?.description}</p>
 
                         <div className="flex items-center space-x-6 text-sm text-gray-500 mb-4">
                             <span className="flex items-center space-x-1">
                                 <Clock className="w-4 h-4" />
-                                <span>{selectedCourse?.duration}</span>
+                                <span>{course?.duration || 0}</span>
                             </span>
                             <span className="flex items-center space-x-1">
                                 <BookOpen className="w-4 h-4" />
-                                <span>{selectedCourse?.lessons} lessons</span>
+                                <span>{course?.lessons || 0} lessons</span>
                             </span>
                             <span className="flex items-center space-x-1">
                                 <Users className="w-4 h-4" />
-                                <span>{selectedCourse?.enrolled} students</span>
+                                <span>{course?.enrolled_count || 0} students</span>
                             </span>
                         </div>
 
-                        {selectedCourse?.progress > 0 && (
+                        {/* {selectedCourse?.progress > 0 && (
                             <div className="mb-4">
                                 <div className="flex justify-between text-sm mb-2">
                                     <span>Your Progress</span>
@@ -199,14 +205,14 @@ export default function CourseDetailView() {
                                     ></div>
                                 </div>
                             </div>
-                        )}
+                        )} */}
                     </div>
 
                     {/* Course Modules */}
-                    <div className="bg-white border rounded-lg p-6">
+                    <div className="bg-white border rounded-lg p-6 hidden">
                         <h4 className="font-semibold text-lg mb-4">Course Content</h4>
                         <div className="space-y-3">
-                            {selectedCourse?.modules.map((module: any, index: number) => (
+                            {/* {selectedCourse?.modules.map((module: any, index: number) => (
                                 <div key={module.id} className="border rounded-lg p-4">
                                     <div className="flex items-center justify-between mb-2">
                                         <h5 className="font-medium flex items-center space-x-2">
@@ -230,47 +236,48 @@ export default function CourseDetailView() {
                                         </button>
                                     </div>
                                 </div>
-                            ))}
+                            ))} */}
                         </div>
                     </div>
                 </div>
 
                 {/* Course Sidebar */}
-                <div className="space-y-6">
+                <div className="space-y-6 ">
                     <div className="bg-white border rounded-lg p-6">
                         <div className="text-center mb-4">
                             <div className="text-3xl font-bold text-green-600 mb-1">
-                                {selectedCourse?.price === 0 ? 'Free' : `$${selectedCourse?.price}`}
+                                {course?.price === 0 ? 'Free' : `$${course?.price}`}
                             </div>
-                            {selectedCourse?.tier !== 'all' && (
+                            {/* {selectedCourse?.tier !== 'all' && (
                                 <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
                                     {selectedCourse?.tier} members only
                                 </span>
-                            )}
+                            )} */}
                         </div>
 
                         <button className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 font-medium mb-4">
-                            {selectedCourse?.progress > 0 ? 'Continue Learning' : 'Enroll Now'}
+                            {/* {selectedCourse?.progress > 0 ? 'Continue Learning' : 'Enroll Now'} */}
+                            Enroll Now
                         </button>
 
                         <div className="space-y-3 text-sm">
                             <div className="flex justify-between">
                                 <span className="text-gray-600">Duration</span>
-                                <span className="font-medium">{selectedCourse?.duration}</span>
+                                <span className="font-medium">{course?.duration || 0}</span>
                             </div>
                             <div className="flex justify-between">
                                 <span className="text-gray-600">Lessons</span>
-                                <span className="font-medium">{selectedCourse?.lessons}</span>
+                                <span className="font-medium">{course?.lessons || 0}</span>
                             </div>
                             <div className="flex justify-between">
                                 <span className="text-gray-600">Students</span>
-                                <span className="font-medium">{selectedCourse?.enrolled}</span>
+                                <span className="font-medium">{course?.enrolled_count || 0}</span>
                             </div>
                             <div className="flex justify-between">
                                 <span className="text-gray-600">Rating</span>
                                 <div className="flex items-center space-x-1">
                                     <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                                    <span className="font-medium">{selectedCourse?.rating}</span>
+                                    <span className="font-medium">{course?.rating || 1}</span>
                                 </div>
                             </div>
                         </div>

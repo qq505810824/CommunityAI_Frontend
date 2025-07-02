@@ -163,7 +163,7 @@ export default function CoursesView() {
                         onClick={() => {
                             // handleClickCourse(course)
                             setSelectedCourse(course);
-                            setActiveTab('course-detail');
+                            setActiveTab({ name: 'course-detail' });
                         }}
                         className="bg-white border rounded-lg overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
                     >

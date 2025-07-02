@@ -1,5 +1,3 @@
-import CoursesView from '@/app/components/community/detail/CoursesView';
-import TextChannelsView from '@/app/components/community/detail/TextChannelsView';
 import { CommunityModel } from '@/models/Community';
 import {
     BookOpen,
@@ -10,6 +8,7 @@ import { useEffect } from 'react';
 import ChannelDetailContainter from '../../channels/[id]/ChannelDetailContainter';
 import ChannelContainter from '../../channels/ChannelContainter';
 import CourseDetailContainter from '../../courses/[id]/CourseDetailContainter';
+import CourseContainter from '../../courses/CourseContainter';
 import EventDetailContainter from '../../events/[id]/EventDetailContainter';
 import EventContainter from '../../events/EventContainter';
 import { useAppDetailContext } from './detail-context';
@@ -27,26 +26,26 @@ export default function CommunityDetailView({
 
     useEffect(() => {
         if (community) {
-            console.log('community', community);
+            // console.log('community', community);
 
         }
     }, [community])
     const renderActiveTab = () => {
-        switch (activeTab) {
+        switch (activeTab.name) {
             case 'channels':
                 return <ChannelContainter />;
             case 'channel-detail':
-                return <ChannelDetailContainter />;
+                return <ChannelDetailContainter meta={activeTab.meta} />;
             case 'courses':
-                return <CoursesView />;
+                return <CourseContainter />;
             case 'course-detail':
-                return <CourseDetailContainter />;
+                return <CourseDetailContainter meta={activeTab.meta} />;
             case 'events':
                 return <EventContainter />;
             case 'event-detail':
                 return <EventDetailContainter />;
             default:
-                return <TextChannelsView />;
+                return <ChannelContainter />;
         }
     };
     return (
@@ -71,22 +70,22 @@ export default function CommunityDetailView({
 
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-black">
                             <button
-                                onClick={() => setActiveTab('channels')}
-                                className={`shadow-sm border  rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab.includes('channel') ? 'bg-white' : 'bg-gray-100'}`}
+                                onClick={() => setActiveTab({ name: 'channels' })}
+                                className={`shadow-sm border  rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab?.name?.includes('channel') ? 'bg-white' : 'bg-gray-100'}`}
                             >
                                 <Hash className="w-6 h-6 mx-auto mb-2" />
                                 <span className="text-sm">Channels</span>
                             </button>
                             <button
-                                onClick={() => setActiveTab('courses')}
-                                className={` shadow-sm border   rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab.includes('course') ? 'bg-white' : 'bg-gray-100'}`}
+                                onClick={() => setActiveTab({ name: 'courses' })}
+                                className={` shadow-sm border   rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab?.name?.includes('course') ? 'bg-white' : 'bg-gray-100'}`}
                             >
                                 <BookOpen className="w-6 h-6 mx-auto mb-2" />
                                 <span className="text-sm">Courses</span>
                             </button>
                             <button
-                                onClick={() => setActiveTab('events')}
-                                className={` shadow-sm border  rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab.includes('event') ? 'bg-white' : 'bg-gray-100'}`}
+                                onClick={() => setActiveTab({ name: 'events' })}
+                                className={` shadow-sm border  rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab?.name?.includes('event') ? 'bg-white' : 'bg-gray-100'}`}
                             >
                                 <CalendarIcon className="w-6 h-6 mx-auto mb-2" />
                                 <span className="text-sm">Events</span>

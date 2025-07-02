@@ -7,10 +7,12 @@ export type PostModel = {
     description: string;
 
     owner: AccountModel
-    channel_id: string;
     channel: ChannelModel;
+    favorit_count: number
+    attachments?: []
 
     meta?: any;
+    role?: string;
 
     created_at: string;
     updated_at: string;

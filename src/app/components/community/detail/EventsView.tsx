@@ -153,7 +153,7 @@ export default function EventsView() {
                         onClick={() => {
                             // handleClickEvent(event)
                             setSelectedEvent(event);
-                            setActiveTab('event-detail');
+                            setActiveTab({ name: 'event-detail' });
                         }}
                         className="bg-white border rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer"
                     >

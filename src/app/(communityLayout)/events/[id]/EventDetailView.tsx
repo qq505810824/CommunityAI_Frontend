@@ -101,7 +101,9 @@ export default function EventDetailView() {
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                     <button
-                        onClick={() => setActiveTab('events')}
+                        onClick={() => setActiveTab({
+                            name: 'events'
+                        })}
                         className="p-2 hover:bg-gray-100 rounded-lg"
                     >
                         <ArrowLeft className="w-5 h-5" />

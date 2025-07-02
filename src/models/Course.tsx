@@ -1,4 +1,5 @@
 import { AccountModel } from "./Account";
+import { ChannelModel } from "./Channel";
 
 export interface CourseModel {
     id: number;
@@ -10,10 +11,17 @@ export interface CourseModel {
     category: string;
 
     owner: AccountModel;
+    channel: ChannelModel
 
     price: number;
     is_free: boolean;
     status: string;
+
+    duration: string
+    lessons: number
+    rating: number
+
+    enrolled_count: number
 
     enroll_start_at: string;
     enroll_end_at: string

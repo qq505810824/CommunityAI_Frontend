@@ -12,7 +12,10 @@ import { useTranslation } from 'react-i18next';
 export type AppContextValue = {
     appData: any;
     submitting?: boolean;
-    activeTab: string;
+    activeTab: {
+        name: string,
+        meta?: any
+    };
     setActiveTab: any
     // handleUpdateTable: (data: any, columns: any) => void;
     // handleDeleteTable: (id: string, onCallback?: any) => void;
@@ -21,7 +24,7 @@ export type AppContextValue = {
 const AppDetailContext = createContext<AppContextValue>({
     appData: null,
     submitting: false,
-    activeTab: '',
+    activeTab: { name: '' },
     setActiveTab: () => { }
     // handleUpdateTable: () => {},
     // handleDeleteTable: () => {}
@@ -47,14 +50,14 @@ export const AppDetailContextProvider: FC<AppContextProviderProps> = ({
     const [appData, setAppData] = useState<CommunityModel | null>(null);
     const [submitting, setSubmitting] = useState(false);
 
-    const [activeTab, setActiveTab] = useState('channels');
+    const [activeTab, setActiveTab] = useState<any>({ name: 'channels' });
 
     useEffect(() => {
 
     }, [])
     useEffect(() => {
         if (data) {
-            console.log('appData data ', data);
+            // console.log('appData data ', data);
             setAppData(data);
         }
     }, [data]);

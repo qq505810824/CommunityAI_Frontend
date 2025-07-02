@@ -1,7 +1,8 @@
 import { ChannelModel } from '@/models/Channel';
 import {
     Hash,
-    Plus
+    Plus,
+    Shield
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -52,7 +53,12 @@ export default function ChannelView({
                             onClick={() => {
                                 // handleClickChannel(channel)
                                 setSelectedChannel(channel);
-                                setActiveTab('channel-detail');
+                                setActiveTab({
+                                    name: 'channel-detail',
+                                    meta: {
+                                        channel: channel
+                                    }
+                                });
                             }}
                             className="bg-white border rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer"
                         >
@@ -63,9 +69,9 @@ export default function ChannelView({
                                         <h4 className="font-semibold flex items-center space-x-2">
                                             <Hash className="w-4 h-4 text-gray-500" />
                                             <span>{channel.name}</span>
-                                            {/* {channel.isPrivate && (
+                                            {!channel.publish && (
                                                 <Shield className="w-4 h-4 text-orange-500" />
-                                            )} */}
+                                            )}
                                         </h4>
                                         <p className="text-sm text-gray-600">{channel.description}</p>
                                     </div>

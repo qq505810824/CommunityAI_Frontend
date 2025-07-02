@@ -1,23 +1,27 @@
 
 
+import PostItem from '@/app/components/community/channels/posts/PostItem';
+import { ChannelModel } from '@/models/Channel';
+import { PostModel } from '@/models/Post';
 import {
     ArrowLeft,
     Hash,
-    Heart,
-    Image,
-    Link,
     Plus,
-    Share2,
     Shield
 } from 'lucide-react';
-import { useState } from "react";
 import { useAppDetailContext } from '../../communitys/[id]/detail-context';
 
-export default function ChannelDetailView() {
+interface ViewProps {
+    channel: ChannelModel | undefined
+    posts: PostModel[]
+}
+
+export default function ChannelDetailView({
+    channel,
+    posts
+}: ViewProps) {
 
 
-    const [selectedChannel, setSelectedChannel] = useState<any>(null);
-    // const [activeTab, setActiveTab] = useState('discussions');
     const { activeTab, setActiveTab } = useAppDetailContext()
 
     const channelPosts = [
@@ -54,9 +58,9 @@ export default function ChannelDetailView() {
             likes: 31,
             attachments: [
                 {
-                    type: 'link',
-                    name: 'Social Media Planning Guide',
-                    url: 'https://example.com/guide'
+                    "type": "link",
+                    "name": "Social Media Planning Guide",
+                    "url": "https://example.com/guide"
                 }
             ]
         }
@@ -68,22 +72,22 @@ export default function ChannelDetailView() {
                 <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                         <button
-                            onClick={() => setActiveTab('channels')}
+                            onClick={() => setActiveTab({ name: 'channels' })}
                             className="p-2 hover:bg-gray-100 rounded-lg"
                         >
                             <ArrowLeft className="w-5 h-5" />
                         </button>
                         <div className="flex items-center space-x-3">
-                            <div className="text-2xl">{selectedChannel?.icon}</div>
+                            <div className="text-2xl">{channel?.logo}</div>
                             <div>
                                 <h3 className="text-xl font-semibold flex items-center space-x-2">
                                     <Hash className="w-5 h-5 text-gray-500" />
-                                    <span>{selectedChannel?.name}</span>
-                                    {selectedChannel?.isPrivate && (
+                                    <span>{channel?.name}</span>
+                                    {!channel?.publish && (
                                         <Shield className="w-4 h-4 text-orange-500" />
                                     )}
                                 </h3>
-                                <p className="text-gray-600 text-sm">{selectedChannel?.description}</p>
+                                <p className="text-gray-600 text-sm">{channel?.description}</p>
                             </div>
                         </div>
                     </div>
@@ -96,67 +100,8 @@ export default function ChannelDetailView() {
 
                 {/* Channel Posts */}
                 <div className="space-y-4">
-                    {channelPosts.map((post) => (
-                        <div key={post.id} className="bg-white border rounded-lg p-6">
-                            <div className="flex items-start space-x-4">
-                                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                                    <span className="font-medium text-blue-700">
-                                        {post.author
-                                            .split(' ')
-                                            .map((n) => n[0])
-                                            .join('')}
-                                    </span>
-                                </div>
-
-                                <div className="flex-1">
-                                    <div className="flex items-center space-x-2 mb-2">
-                                        <span className="font-semibold">{post.author}</span>
-                                        <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs">
-                                            {post.role}
-                                        </span>
-                                        <span className="text-sm text-gray-500">{post.timestamp}</span>
-                                    </div>
-
-                                    <p className="text-gray-700 mb-4">{post.content}</p>
-
-                                    {/* Attachments */}
-                                    {post.attachments.length > 0 && (
-                                        <div className="space-y-2 mb-4">
-                                            {post.attachments.map((attachment, index) => (
-                                                <div
-                                                    key={index}
-                                                    className="flex items-center space-x-2 p-3 bg-gray-50 rounded-lg"
-                                                >
-                                                    {attachment.type === 'image' && (
-                                                        <Image className="w-4 h-4 text-gray-500" />
-                                                    )}
-                                                    {attachment.type === 'link' && (
-                                                        <Link className="w-4 h-4 text-gray-500" />
-                                                    )}
-                                                    <span className="text-sm font-medium">
-                                                        {attachment.name}
-                                                    </span>
-                                                    <button className="text-blue-500 hover:underline text-sm">
-                                                        {attachment.type === 'image' ? 'View' : 'Open'}
-                                                    </button>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    )}
-
-                                    <div className="flex items-center space-x-4">
-                                        <button className="flex items-center space-x-2 text-gray-500 hover:text-red-500">
-                                            <Heart className="w-4 h-4" />
-                                            <span>{post.likes}</span>
-                                        </button>
-                                        <button className="flex items-center space-x-2 text-gray-500 hover:text-blue-500">
-                                            <Share2 className="w-4 h-4" />
-                                            <span>Share</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    {posts?.map((post, index) => (
+                        <PostItem post={post} key={index} />
                     ))}
                 </div>
             </div>
