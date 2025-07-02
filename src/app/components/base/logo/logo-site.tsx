@@ -15,7 +15,7 @@ const LogoSite: FC<LogoSiteProps> = ({ className }) => {
                     router.push('/');
                 }}
             >
-                Career calendar
+                Community AI
             </p>
         </>
         // <img

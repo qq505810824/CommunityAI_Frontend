@@ -36,7 +36,7 @@ export const LanguagesSupported = languages
     .map((item) => item.value);
 
 export const getLanguage = (locale: string) => {
-    if (locale === 'zh-Hans') return locale.replace('-', '_');
+    if (locale === 'en-US') return locale.replace('-', '_');
 
     return LanguagesSupported[0].replace('-', '_');
 };

@@ -32,9 +32,13 @@ export default function PostCreateView({ channels }: ViewProps) {
                         </button>
                     </div>
 
-                    <PostFormView payload={undefined} cancel={undefined} submit={function (): {} {
-                        throw new Error('Function not implemented.');
-                    }} />
+                    <PostFormView
+                        payload={undefined}
+                        cancel={undefined}
+                        submit={function (): {} {
+                            throw new Error('Function not implemented.');
+                        }}
+                    />
                 </div>
             </div>
         </>

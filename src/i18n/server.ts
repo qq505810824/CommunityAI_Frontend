@@ -19,7 +19,7 @@ const initI18next = async (lng: Locale, ns: string) => {
             )
         )
         .init({
-            lng: lng === 'zh-Hant' ? 'zh-Hant' : lng,
+            lng: lng === 'en-US' ? 'en-US' : lng,
             ns,
             fallbackLng: 'en-US'
         });

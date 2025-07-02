@@ -36,7 +36,7 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
 
     const handleRefresh = () => {
         mutate();
-    }
+    };
     return (
         <>
             <ChannelDetailView

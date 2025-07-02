@@ -12,21 +12,19 @@ import { useAppDetailContext } from '../../communitys/[id]/detail-context';
 interface ViewProps {
     channel: ChannelModel | undefined;
     posts: PostModel[];
-    handleRefresh: () => void
+    handleRefresh: () => void;
 }
 
 export default function ChannelDetailView({ channel, posts, handleRefresh }: ViewProps) {
-
-    const router = useRouter()
+    const router = useRouter();
     const { activeTab, setActiveTab } = useAppDetailContext();
-    const [visibleCreatePost, setVisibleCreatePost] = useState(false)
+    const [visibleCreatePost, setVisibleCreatePost] = useState(false);
     const { user_id } = useAppContext();
 
     const handleClickNewPost = () => {
-        setVisibleCreatePost(true)
+        setVisibleCreatePost(true);
         // router.push(`/channels/${channel?.id}/posts/create`)
-    }
-
+    };
 
     return (
         <>
@@ -54,8 +52,10 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
                         </div>
                     </div>
 
-                    <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
-                        onClick={handleClickNewPost}>
+                    <button
+                        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
+                        onClick={handleClickNewPost}
+                    >
                         <Plus className="w-4 h-4" />
                         <span>New Post</span>
                     </button>
@@ -69,7 +69,9 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
                 ) : (
                     <div className="flex flex-col items-center justify-center py-16 text-gray-400">
                         <div className="text-lg font-semibold mb-1">No posts yet</div>
-                        <div className="text-sm">Be the first to create a post in this channel!</div>
+                        <div className="text-sm">
+                            Be the first to create a post in this channel!
+                        </div>
                     </div>
                 )}
             </div>
@@ -77,18 +79,21 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
                 isShow={visibleCreatePost}
                 className="!w-[480px] !max-w-[480px] !p-0 !rounded-2xl"
                 wrapperClassName="z-40"
-                onClose={() => { setVisibleCreatePost(false) }}
+                onClose={() => {
+                    setVisibleCreatePost(false);
+                }}
             >
                 <PostFormView
                     payload={{
                         channel: channel?.id,
                         owner: user_id
                     }}
-                    cancel={() => { setVisibleCreatePost(false); }}
-                    submit={() => {
-                        handleRefresh()
+                    cancel={() => {
                         setVisibleCreatePost(false);
-
+                    }}
+                    submit={() => {
+                        handleRefresh();
+                        setVisibleCreatePost(false);
                     }}
                 />
             </Modal>

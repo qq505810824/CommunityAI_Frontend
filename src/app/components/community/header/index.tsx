@@ -1,13 +1,29 @@
+import { useAppContext } from '@/context/app-context';
 import { toggleSidebar } from '@/utils/utils';
 import MenuIcon from '@mui/icons-material/Menu';
-import { GlobalStyles, IconButton, Sheet } from '@mui/joy';
+import { GlobalStyles, IconButton, Link, Sheet } from '@mui/joy';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Bell, ChevronDown, Home, Plus, Search } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import MenuButton from '../../calendar/MenuButton';
 
 export default function HeaderView() {
     const [selectedCommunity, setSelectedCommunity] = useState<any>(null);
     const [showCommunityDropdown, setShowCommunityDropdown] = useState(false);
     const [currentView, setCurrentView] = useState('dashboard');
+    const { userProfile } = useAppContext();
+
+    const supabase = createClientComponentClient();
+    const router = useRouter();
+
+    const logout = async () => {
+        localStorage.setItem('email', '');
+        localStorage?.setItem('user_id', '');
+        localStorage.setItem('supabase_user', '');
+        const res = await supabase.auth.signOut();
+        router.push(`/signin?redirect=${window.location.href}`);
+    };
 
     const userCommunities = [
         {
@@ -52,7 +68,6 @@ export default function HeaderView() {
     ];
 
     const NavBar = () => (
-
         <Sheet
             sx={{
                 display: { xs: 'flex', md: 'flex' },
@@ -93,7 +108,6 @@ export default function HeaderView() {
                     <MenuIcon />
                 </IconButton>
                 <div className="w-full flex items-center justify-between px-4 py-0">
-
                     <div className="flex items-center space-x-4">
                         <h1 className="text-xl sm:text-2xl font-bold text-gray-800">CommunityAI</h1>
                         <div className="relative hidden">
@@ -140,7 +154,9 @@ export default function HeaderView() {
                                                     <span>{community.logo}</span>
                                                 </div>
                                                 <div>
-                                                    <div className="font-medium">{community.name}</div>
+                                                    <div className="font-medium">
+                                                        {community.name}
+                                                    </div>
                                                     <div className="text-sm text-gray-500">
                                                         {community.members} members
                                                     </div>
@@ -174,16 +190,28 @@ export default function HeaderView() {
                         <button className="p-2 text-gray-600 hover:text-gray-800">
                             <Plus className="w-5 h-5" />
                         </button>
+
+                        {userProfile?.id != '' ? (
+                            <div className="flex justify-end items-center col-span-3 md:col-span-4">
+                                <MenuButton email={userProfile?.email} logout={logout} />
+                            </div>
+                        ) : (
+                            <div className="flex flex-row gap-8 items-center justify-end col-span-3">
+                                <Link
+                                    href={`/login?redirect=${window.location.href}`}
+                                    className="text-purple-900 hover:underline"
+                                >
+                                    Login
+                                </Link>
+                            </div>
+                        )}
                     </div>
                 </div>
-
             </div>
 
             <nav className="bg-white shadow-sm border-b px-6 py-4 w-full z-50 hidden">
                 <div className="flex items-center justify-between">
-
                     <div className="flex items-center space-x-4">
-
                         <IconButton
                             onClick={() => toggleSidebar()}
                             variant="outlined"
@@ -240,7 +268,9 @@ export default function HeaderView() {
                                                     <span>{community.logo}</span>
                                                 </div>
                                                 <div>
-                                                    <div className="font-medium">{community.name}</div>
+                                                    <div className="font-medium">
+                                                        {community.name}
+                                                    </div>
                                                     <div className="text-sm text-gray-500">
                                                         {community.members} members
                                                     </div>

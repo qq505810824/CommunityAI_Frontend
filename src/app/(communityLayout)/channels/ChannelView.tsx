@@ -90,15 +90,16 @@ export default function ChannelView({ channels }: ViewProps) {
                                 </span> */}
                             </div>
                         </div>
-                    ))
-                    }
+                    ))}
                 </div>
-                {channels?.length == 0 &&
+                {channels?.length == 0 && (
                     <div className="w-full flex flex-col items-center justify-center py-16 text-gray-400">
                         <div className="text-lg font-semibold mb-1">No channel yet</div>
-                        <div className="text-sm">Be the first to create a text channel in this community!</div>
+                        <div className="text-sm">
+                            Be the first to create a text channel in this community!
+                        </div>
                     </div>
-                }
+                )}
             </div>
         </>
     );

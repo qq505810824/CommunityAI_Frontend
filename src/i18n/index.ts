@@ -5,7 +5,7 @@ import { changeLanguage } from '@/i18n/i18next-config';
 import { LanguagesSupported } from '@/i18n/language';
 
 export const i18n = {
-    defaultLocale: 'zh-Hant',
+    defaultLocale: 'en-US',
     locales: LanguagesSupported
 } as const;
 

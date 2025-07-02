@@ -44,12 +44,14 @@ export default function CourseView({ courses }: ViewProps) {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {courses?.map((course, index) => <CourseCard course={course} key={index} />)}
                 </div>
-                {courses?.length == 0 &&
+                {courses?.length == 0 && (
                     <div className="w-full flex flex-col items-center justify-center py-16 text-gray-400">
                         <div className="text-lg font-semibold mb-1">No course yet</div>
-                        <div className="text-sm">Be the first to create a course in this community!</div>
+                        <div className="text-sm">
+                            Be the first to create a course in this community!
+                        </div>
                     </div>
-                }
+                )}
             </div>
         </>
     );
