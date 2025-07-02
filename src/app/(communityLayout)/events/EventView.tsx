@@ -58,7 +58,7 @@ function EventView(props: ViewProps) {
                         onClick={() => {
                             handleCreatCourse();
                         }}
-                        className="bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
+                        className="hidden bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
                     >
                         <Plus className="w-4 h-4" />
                         <span>New Event</span>

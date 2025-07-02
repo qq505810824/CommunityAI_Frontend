@@ -1,8 +1,7 @@
 import CourseCard from '@/app/components/community/courses/CourseCard';
 import { CourseModel } from '@/models/Course';
 import { Plus } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 import { useAppDetailContext } from '../communitys/[id]/detail-context';
 
 interface ViewProps {
@@ -11,12 +10,10 @@ interface ViewProps {
 
 export default function CourseView({ courses }: ViewProps) {
     const router = useRouter();
-
+    const params = useParams();
     const { activeTab, setActiveTab } = useAppDetailContext();
-
-    const [selectedCourse, setSelectedCourse] = useState<any>(null);
     const handleCreatCourse = () => {
-        router.push(`/courses/create`);
+        router.push(`/courses/create?community_id=${params['id']}`);
     };
 
     return (

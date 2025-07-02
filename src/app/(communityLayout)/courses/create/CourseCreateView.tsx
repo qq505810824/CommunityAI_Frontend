@@ -1,28 +1,29 @@
+import { CourseModel } from '@/models/Course';
 import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-
-export default function CourseCreateView() {
+interface ViewProps {
+    submitting: boolean;
+    handleSubmit: (data: CourseModel) => void;
+}
+export default function CourseCreateView({ submitting, handleSubmit }: ViewProps) {
     const router = useRouter();
 
-    const [selectedCommunity, setSelectedCommunity] = useState<any>(null);
-    const [showCommunityDropdown, setShowCommunityDropdown] = useState(false);
-    const [forumView, setForumView] = useState('categories');
-    const [selectedCategory, setSelectedCategory] = useState<any>(null);
-    const [selectedThread, setSelectedThread] = useState<any>(null);
-    const [selectedChannel, setSelectedChannel] = useState<any>(null);
-    const [selectedCourse, setSelectedCourse] = useState<any>(null);
-    const [selectedEvent, setSelectedEvent] = useState<any>(null);
-    const [activeTab, setActiveTab] = useState('discussions');
-    const [showCreateForm, setShowCreateForm] = useState(false);
-    const [createType, setCreateType] = useState('');
+    const [data, setData] = useState<CourseModel>({
+        title: '',
+        description: '',
+        price: 0,
+        rating: 1,
+        duration: '1h',
+        lessons: 0,
+        is_free: true
+    });
 
-    const [newCourseTitle, setNewCourseTitle] = useState('');
-
-    // Form states
-    const [newChannelName, setNewChannelName] = useState('');
-    const [newChannelDescription, setNewChannelDescription] = useState('');
-
+    const onSubmit = (e: React.FormEvent) => {
+        e.preventDefault(); // 阻止表单自动跳转和刷新
+        console.log('data', data);
+        handleSubmit(data);
+    };
     return (
         <>
             <div className="flex-1  bg-gray-50">
@@ -35,7 +36,7 @@ export default function CourseCreateView() {
                             <ArrowLeft className="w-5 h-5" />
                         </button>
                     </div>
-                    <div className="bg-white border rounded-lg p-6">
+                    <form className="bg-white border rounded-lg p-6" onSubmit={onSubmit}>
                         <h4 className="font-semibold mb-4">Create New Course</h4>
                         <div className="space-y-4">
                             <div>
@@ -44,8 +45,9 @@ export default function CourseCreateView() {
                                 </label>
                                 <input
                                     type="text"
-                                    value={newCourseTitle}
-                                    onChange={(e) => setNewCourseTitle(e.target.value)}
+                                    required={true}
+                                    value={data.title}
+                                    onChange={(e) => setData({ ...data, title: e.target.value })}
                                     placeholder="e.g. Advanced Marketing Strategies"
                                     className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
@@ -57,10 +59,44 @@ export default function CourseCreateView() {
                                 <textarea
                                     placeholder="What will students learn?"
                                     rows={3}
+                                    value={data.description}
+                                    onChange={(e) =>
+                                        setData({ ...data, description: e.target.value })
+                                    }
                                     className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
                             </div>
                             <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">
+                                        Duration
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder="1h"
+                                        value={data.duration}
+                                        onChange={(e) =>
+                                            setData({ ...data, duration: e.target.value })
+                                        }
+                                        className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium mb-2">
+                                        Lessons
+                                    </label>
+                                    <input
+                                        type="number"
+                                        placeholder="0"
+                                        value={data.lessons}
+                                        onChange={(e) =>
+                                            setData({ ...data, lessons: Number(e.target.value) })
+                                        }
+                                        className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
+                                </div>
+                            </div>
+                            <div className="">
                                 <div>
                                     <label className="block text-sm font-medium mb-2">
                                         Price ($)
@@ -68,10 +104,14 @@ export default function CourseCreateView() {
                                     <input
                                         type="number"
                                         placeholder="0"
+                                        value={data.price}
+                                        onChange={(e) =>
+                                            setData({ ...data, price: Number(e.target.value) })
+                                        }
                                         className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
                                 </div>
-                                <div>
+                                <div className="hidden">
                                     <label className="block text-sm font-medium mb-2">
                                         Access Level
                                     </label>
@@ -84,17 +124,21 @@ export default function CourseCreateView() {
                             </div>
                             <div className="flex justify-end space-x-3">
                                 <button
-                                    onClick={() => setShowCreateForm(false)}
+                                    disabled={submitting}
                                     className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg"
                                 >
                                     Cancel
                                 </button>
-                                <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                                <button
+                                    type="submit"
+                                    disabled={submitting}
+                                    className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                                >
                                     Create Course
                                 </button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </>

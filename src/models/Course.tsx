@@ -1,33 +1,33 @@
 import { AccountModel } from './Account';
-import { ChannelModel } from './Channel';
+import { CommunityModel } from './Community';
 
 export interface CourseModel {
-    id: number;
+    id?: number;
     title: string;
     description: string;
-    cover_url: string;
-    file_url: string;
+    cover_url?: string;
+    file_url?: string;
 
-    category: string;
+    category?: string;
 
-    owner: AccountModel;
-    channel: ChannelModel;
+    owner?: AccountModel;
+    community?: CommunityModel;
 
     price: number;
     is_free: boolean;
-    status: string;
+    status?: string;
 
     duration: string;
     lessons: number;
     rating: number;
 
-    enrolled_count: number;
+    enrolled_count?: number;
 
-    enroll_start_at: string;
-    enroll_end_at: string;
+    enroll_start_at?: string;
+    enroll_end_at?: string;
 
-    created_at: string;
-    updated_at: string;
+    created_at?: string;
+    updated_at?: string;
 }
 
 export const BookFormData = {

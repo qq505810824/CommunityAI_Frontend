@@ -50,7 +50,7 @@ export default function PostFormView({ payload, submit, cancel }: ViewProps) {
                                 className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
                         </div>
-                        <div>
+                        <div className="hidden">
                             <label className="block text-sm font-medium mb-2">Description</label>
                             <textarea
                                 name={'description'}
@@ -65,6 +65,7 @@ export default function PostFormView({ payload, submit, cancel }: ViewProps) {
                             <button
                                 type="button"
                                 disabled={submitting}
+                                onClick={cancel}
                                 className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg"
                             >
                                 Cancel

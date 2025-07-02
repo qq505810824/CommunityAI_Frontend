@@ -19,7 +19,7 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
 
     useEffect(() => {
         if (meta) {
-            console.log('meta', meta);
+            // console.log('meta', meta);
             setFilters({
                 ...filters,
                 channel_id: meta?.channel?.id

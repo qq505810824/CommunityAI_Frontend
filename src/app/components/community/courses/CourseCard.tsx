@@ -43,7 +43,7 @@ export default function CourseCard({ course }: ViewProps) {
                         </div>
                         <div className="flex justify-between text-sm text-gray-500">
                             <span>{course.enrolled_count || 0} enrolled</span>
-                            <span>by {course.owner.name}</span>
+                            <span>by {course?.owner?.name}</span>
                         </div>
                     </div>
 

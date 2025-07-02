@@ -1,3 +1,4 @@
+import Toast from '@/app/components/base/toast';
 import { CourseModel } from '@/models/Course';
 import {
     ArrowLeft,
@@ -133,6 +134,13 @@ export default function CourseDetailView({ course }: ViewProps) {
         }
     ];
 
+    const handleEnroll = () => {
+        Toast.notify({
+            type: 'warning',
+            message: 'Registration is not open yet'
+        });
+    };
+
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between">
@@ -149,11 +157,11 @@ export default function CourseDetailView({ course }: ViewProps) {
                     </button>
                     <div>
                         <h3 className="text-xl font-semibold">{course?.title}</h3>
-                        <p className="text-gray-600 text-sm">by {course?.owner.name}</p>
+                        <p className="text-gray-600 text-sm">by {course?.owner?.name}</p>
                     </div>
                 </div>
 
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-3 hidden">
                     <button className="p-2 hover:bg-gray-100 rounded-lg">
                         <Bookmark className="w-5 h-5" />
                     </button>
@@ -242,7 +250,7 @@ export default function CourseDetailView({ course }: ViewProps) {
                     <div className="bg-white border rounded-lg p-6">
                         <div className="text-center mb-4">
                             <div className="text-3xl font-bold text-green-600 mb-1">
-                                {course?.price === 0 ? 'Free' : `$${course?.price}`}
+                                {course?.price === 0 ? 'Free' : `$${course?.price || ''}`}
                             </div>
                             {/* {selectedCourse?.tier !== 'all' && (
                                 <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
@@ -251,7 +259,12 @@ export default function CourseDetailView({ course }: ViewProps) {
                             )} */}
                         </div>
 
-                        <button className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 font-medium mb-4">
+                        <button
+                            className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 font-medium mb-4"
+                            onClick={() => {
+                                handleEnroll();
+                            }}
+                        >
                             {/* {selectedCourse?.progress > 0 ? 'Continue Learning' : 'Enroll Now'} */}
                             Enroll Now
                         </button>

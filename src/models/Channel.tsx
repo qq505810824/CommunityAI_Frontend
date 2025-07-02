@@ -2,23 +2,23 @@ import { AccountModel } from './Account';
 import { CommunityModel } from './Community';
 
 export type ChannelModel = {
-    id: number;
+    id?: number;
     name: string;
     description: string;
-    logo: string;
+    logo?: string;
 
-    owner: AccountModel;
+    owner?: AccountModel;
 
-    community: CommunityModel;
+    community?: CommunityModel;
 
     category?: string;
 
     publish: boolean;
 
-    posts_count: number;
+    posts_count?: number;
 
     meta?: any;
 
-    created_at: string;
-    updated_at: string;
+    created_at?: string;
+    updated_at?: string;
 };

@@ -1,5 +1,6 @@
 import { CommunityModel } from '@/models/Community';
 import { BookOpen, Calendar as CalendarIcon, Hash } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import ChannelDetailContainter from '../../channels/[id]/ChannelDetailContainter';
 import ChannelContainter from '../../channels/ChannelContainter';
@@ -15,6 +16,7 @@ interface ViewProps {
 
 export default function CommunityDetailView({ community }: ViewProps) {
     const { activeTab, setActiveTab } = useAppDetailContext();
+    const searchParams = useSearchParams();
     // const [activeTab, setActiveTab] = useState('discussions');
 
     useEffect(() => {
@@ -22,8 +24,17 @@ export default function CommunityDetailView({ community }: ViewProps) {
             // console.log('community', community);
         }
     }, [community]);
-    const renderActiveTab = () => {
-        switch (activeTab.name) {
+
+    useEffect(() => {
+        const tab = searchParams?.get('activeTab');
+        if (tab) {
+            setActiveTab({ name: tab });
+        }
+        // 你可以根据需要同步 meta 等其它信息
+    }, [searchParams, setActiveTab]);
+
+    const renderActiveTab = (name?: string) => {
+        switch (name || activeTab.name) {
             case 'channels':
                 return <ChannelContainter />;
             case 'channel-detail':

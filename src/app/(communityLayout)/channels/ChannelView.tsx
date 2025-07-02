@@ -1,6 +1,6 @@
 import { ChannelModel } from '@/models/Channel';
 import { Hash, Plus, Shield } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useAppDetailContext } from '../communitys/[id]/detail-context';
 
@@ -10,12 +10,13 @@ interface ViewProps {
 
 export default function ChannelView({ channels }: ViewProps) {
     const router = useRouter();
+    const params = useParams();
 
     const { activeTab, setActiveTab } = useAppDetailContext();
 
     const [selectedChannel, setSelectedChannel] = useState<any>(null);
     const handleCreatChannel = () => {
-        router.push(`/channels/create`);
+        router.push(`/channels/create?community_id=${params['id']}`);
     };
 
     return (
@@ -58,7 +59,7 @@ export default function ChannelView({ channels }: ViewProps) {
                         >
                             <div className="flex items-start justify-between mb-4">
                                 <div className="flex items-center space-x-3">
-                                    <div className="text-2xl">{channel.logo}</div>
+                                    <div className="text-2xl">{channel.logo || '💡'}</div>
                                     <div>
                                         <h4 className="font-semibold flex items-center space-x-2">
                                             <Hash className="w-4 h-4 text-gray-500" />

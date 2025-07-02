@@ -1,11 +1,12 @@
 'use client';
 
 import { useChannelData } from '@/hooks/useChannelData';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import ChannelView from './ChannelView';
 
 export default function ChannelContainter() {
+    const router = useRouter();
     const params = useParams();
     const { data, isLoading, isError, mutate } = useChannelData({ community_id: params['id'] });
 
@@ -14,6 +15,12 @@ export default function ChannelContainter() {
             // mutate()
         }
     }, [params]);
+
+    useEffect(() => {
+        if (router) {
+            mutate();
+        }
+    }, [router]);
 
     return (
         <>
