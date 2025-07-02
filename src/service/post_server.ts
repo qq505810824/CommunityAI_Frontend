@@ -1,4 +1,3 @@
-
 import { PostModel } from '@/models/Post';
 import { createClient } from '@supabase/supabase-js';
 

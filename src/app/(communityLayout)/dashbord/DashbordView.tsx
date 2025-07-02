@@ -2,18 +2,11 @@ import CommunitiesLayout from '@/app/components/community/dashbord/CommunitiesLa
 import NewsfeedLayout from '@/app/components/community/dashbord/NewsfeedLayout';
 import { CommunityModel } from '@/models/Community';
 
-
 interface ViewProps {
-    communities: CommunityModel[]
+    communities: CommunityModel[];
 }
 
-
-export default function DashbordView({
-    communities
-}: ViewProps) {
-
-
-
+export default function DashbordView({ communities }: ViewProps) {
     return (
         <>
             <div className="flex-1 p-6 bg-gray-50 ">
@@ -31,5 +24,5 @@ export default function DashbordView({
                 </div>
             </div>
         </>
-    )
+    );
 }

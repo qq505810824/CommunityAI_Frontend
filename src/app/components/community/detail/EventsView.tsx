@@ -1,20 +1,13 @@
-
 import { useAppDetailContext } from '@/app/(communityLayout)/communitys/[id]/detail-context';
 import { useCalendarData } from '@/hooks/useCalendarData';
-import {
-    Calendar as CalendarIcon,
-    Clock,
-    Globe,
-    MapPin,
-    Plus
-} from 'lucide-react';
+import { Calendar as CalendarIcon, Clock, Globe, MapPin, Plus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function EventsView() {
-    const router = useRouter()
+    const router = useRouter();
 
-    const { activeTab, setActiveTab } = useAppDetailContext()
+    const { activeTab, setActiveTab } = useAppDetailContext();
     const [selectedEvent, setSelectedEvent] = useState<any>(null);
 
     const [filters, setFilters] = useState<any>({
@@ -103,12 +96,12 @@ export default function EventsView() {
     ];
 
     const handleClickEvent = (event: any) => {
-        router.push(`/events/${event?.id}`)
-    }
+        router.push(`/events/${event?.id}`);
+    };
 
     const handleCreatEvent = () => {
-        router.push(`/events/create`)
-    }
+        router.push(`/events/create`);
+    };
     return (
         <div className="space-y-6">
             <div className="flex justify-between items-center">
@@ -120,7 +113,7 @@ export default function EventsView() {
                 </div>
                 <button
                     onClick={() => {
-                        handleCreatEvent()
+                        handleCreatEvent();
                     }}
                     className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
                 >
@@ -194,12 +187,13 @@ export default function EventsView() {
 
                             <div className="ml-4">
                                 <span
-                                    className={`px-2 py-1 rounded-full text-xs ${event.status === 'upcoming'
-                                        ? 'bg-green-100 text-green-700'
-                                        : event.status === 'completed'
-                                            ? 'bg-gray-100 text-gray-700'
-                                            : 'bg-blue-100 text-blue-700'
-                                        }`}
+                                    className={`px-2 py-1 rounded-full text-xs ${
+                                        event.status === 'upcoming'
+                                            ? 'bg-green-100 text-green-700'
+                                            : event.status === 'completed'
+                                              ? 'bg-gray-100 text-gray-700'
+                                              : 'bg-blue-100 text-blue-700'
+                                    }`}
                                 >
                                     {event.status}
                                 </span>
@@ -223,10 +217,11 @@ export default function EventsView() {
                                         e.stopPropagation();
                                         // Handle registration
                                     }}
-                                    className={`px-4 py-2 rounded-lg text-sm ${event.status === 'upcoming'
-                                        ? 'bg-blue-500 text-white hover:bg-blue-600'
-                                        : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                                        }`}
+                                    className={`px-4 py-2 rounded-lg text-sm ${
+                                        event.status === 'upcoming'
+                                            ? 'bg-blue-500 text-white hover:bg-blue-600'
+                                            : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                                    }`}
                                     disabled={event.status !== 'upcoming'}
                                 >
                                     {event.status === 'upcoming' ? 'Register' : 'View Details'}

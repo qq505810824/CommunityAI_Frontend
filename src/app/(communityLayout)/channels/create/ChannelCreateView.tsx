@@ -1,18 +1,13 @@
-
-import {
-    ArrowLeft
-} from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function ChannelCreateView() {
-
-    const router = useRouter()
+    const router = useRouter();
 
     // Form states
     const [newChannelName, setNewChannelName] = useState('');
     const [newChannelDescription, setNewChannelDescription] = useState('');
-
 
     return (
         <>
@@ -31,7 +26,9 @@ export default function ChannelCreateView() {
                         <h4 className="font-semibold mb-4">Create New Channel</h4>
                         <div className="space-y-4">
                             <div>
-                                <label className="block text-sm font-medium mb-2">Channel Name</label>
+                                <label className="block text-sm font-medium mb-2">
+                                    Channel Name
+                                </label>
                                 <input
                                     type="text"
                                     value={newChannelName}
@@ -41,7 +38,9 @@ export default function ChannelCreateView() {
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium mb-2">Description</label>
+                                <label className="block text-sm font-medium mb-2">
+                                    Description
+                                </label>
                                 <textarea
                                     value={newChannelDescription}
                                     onChange={(e) => setNewChannelDescription(e.target.value)}
@@ -86,5 +85,5 @@ export default function ChannelCreateView() {
                 </div>
             </div>
         </>
-    )
+    );
 }

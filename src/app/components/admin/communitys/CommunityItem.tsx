@@ -67,9 +67,7 @@ export default function CommunityItem(props: ViewProps) {
                 <td>{product.courses_count}</td>
                 <td>{product.events_count}</td>
                 <td>{product.publish ? '是' : '否'} </td>
-                <td className={``}>
-                    {product?.owner?.name}
-                </td>
+                <td className={``}>{product?.owner?.name}</td>
                 <td>{product.updated_at}</td>
                 <td>
                     <div className="flex flex-row items-center overflow-hidden space-x-2">

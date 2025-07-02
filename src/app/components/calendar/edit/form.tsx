@@ -1,4 +1,3 @@
-
 import { CalendarFormData, CalendarModel } from '@/models/Calendar';
 import { createClient } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';

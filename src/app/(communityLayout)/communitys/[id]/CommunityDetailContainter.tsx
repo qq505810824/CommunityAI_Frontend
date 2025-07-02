@@ -1,10 +1,10 @@
-"use client"
+'use client';
 
-import CommunityDetailView from "./CommunityDetailView";
-import { useAppDetailContext } from "./detail-context";
+import CommunityDetailView from './CommunityDetailView';
+import { useAppDetailContext } from './detail-context';
 
 export default function CommunityDetailContainter() {
-    const { appData } = useAppDetailContext()
+    const { appData } = useAppDetailContext();
     return (
         <>
             <CommunityDetailView
@@ -13,5 +13,5 @@ export default function CommunityDetailContainter() {
                 }}
             />
         </>
-    )
+    );
 }

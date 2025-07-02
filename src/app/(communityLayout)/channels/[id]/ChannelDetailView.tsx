@@ -1,28 +1,16 @@
-
-
 import PostItem from '@/app/components/community/channels/posts/PostItem';
 import { ChannelModel } from '@/models/Channel';
 import { PostModel } from '@/models/Post';
-import {
-    ArrowLeft,
-    Hash,
-    Plus,
-    Shield
-} from 'lucide-react';
+import { ArrowLeft, Hash, Plus, Shield } from 'lucide-react';
 import { useAppDetailContext } from '../../communitys/[id]/detail-context';
 
 interface ViewProps {
-    channel: ChannelModel | undefined
-    posts: PostModel[]
+    channel: ChannelModel | undefined;
+    posts: PostModel[];
 }
 
-export default function ChannelDetailView({
-    channel,
-    posts
-}: ViewProps) {
-
-
-    const { activeTab, setActiveTab } = useAppDetailContext()
+export default function ChannelDetailView({ channel, posts }: ViewProps) {
+    const { activeTab, setActiveTab } = useAppDetailContext();
 
     const channelPosts = [
         {
@@ -58,9 +46,9 @@ export default function ChannelDetailView({
             likes: 31,
             attachments: [
                 {
-                    "type": "link",
-                    "name": "Social Media Planning Guide",
-                    "url": "https://example.com/guide"
+                    type: 'link',
+                    name: 'Social Media Planning Guide',
+                    url: 'https://example.com/guide'
                 }
             ]
         }
@@ -100,11 +88,9 @@ export default function ChannelDetailView({
 
                 {/* Channel Posts */}
                 <div className="space-y-4">
-                    {posts?.map((post, index) => (
-                        <PostItem post={post} key={index} />
-                    ))}
+                    {posts?.map((post, index) => <PostItem post={post} key={index} />)}
                 </div>
             </div>
         </>
-    )
+    );
 }

@@ -1,28 +1,18 @@
-
-
 import { useAppDetailContext } from '@/app/(communityLayout)/communitys/[id]/detail-context';
 import { PostModel } from '@/models/Post';
-import {
-    Heart,
-    Share2
-} from 'lucide-react';
+import { Heart, Share2 } from 'lucide-react';
 import moment from 'moment';
 
 interface ViewProps {
-    post: PostModel
+    post: PostModel;
 }
 
-export default function PostItem({
-    post
-}: ViewProps) {
-    const { activeTab, setActiveTab } = useAppDetailContext()
-
+export default function PostItem({ post }: ViewProps) {
+    const { activeTab, setActiveTab } = useAppDetailContext();
 
     return (
         <>
-
-            <div
-                className="bg-white border rounded-lg p-6">
+            <div className="bg-white border rounded-lg p-6">
                 <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                         <span className="font-medium text-blue-700">
@@ -39,7 +29,9 @@ export default function PostItem({
                             <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs">
                                 {post.role}
                             </span>
-                            <span className="text-sm text-gray-500">{moment(post.created_at).fromNow()}</span>
+                            <span className="text-sm text-gray-500">
+                                {moment(post.created_at).fromNow()}
+                            </span>
                         </div>
 
                         <p className="text-gray-700 mb-4">{post.title}</p>
@@ -83,5 +75,5 @@ export default function PostItem({
                 </div>
             </div>
         </>
-    )
+    );
 }

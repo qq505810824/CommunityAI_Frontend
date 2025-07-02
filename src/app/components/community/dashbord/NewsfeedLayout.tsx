@@ -1,10 +1,6 @@
-
-
-import NewsfeedCard from "./NewsfeedCard";
+import NewsfeedCard from './NewsfeedCard';
 
 export default function NewsfeedLayout() {
-
-
     const newsfeedData = [
         {
             id: 1,
@@ -47,7 +43,6 @@ export default function NewsfeedLayout() {
         }
     ];
 
-
     return (
         <>
             <div className="bg-white rounded-xl shadow-sm border ">
@@ -62,5 +57,5 @@ export default function NewsfeedLayout() {
                 </div>
             </div>
         </>
-    )
+    );
 }

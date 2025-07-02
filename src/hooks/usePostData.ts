@@ -14,7 +14,6 @@ import moment from 'moment';
 
 import useSWR from 'swr';
 
-
 export const showPostValues = (item: PostModel) => {
     let status = '';
 

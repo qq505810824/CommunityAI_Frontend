@@ -1,4 +1,3 @@
-
 import { CommunityModel } from '@/models/Community';
 import { createClient } from '@supabase/supabase-js';
 

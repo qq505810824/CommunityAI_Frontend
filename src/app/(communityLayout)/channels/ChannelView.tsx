@@ -1,28 +1,22 @@
 import { ChannelModel } from '@/models/Channel';
-import {
-    Hash,
-    Plus,
-    Shield
-} from 'lucide-react';
+import { Hash, Plus, Shield } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useAppDetailContext } from '../communitys/[id]/detail-context';
 
 interface ViewProps {
-    channels: ChannelModel[]
+    channels: ChannelModel[];
 }
 
-export default function ChannelView({
-    channels
-}: ViewProps) {
-    const router = useRouter()
+export default function ChannelView({ channels }: ViewProps) {
+    const router = useRouter();
 
-    const { activeTab, setActiveTab } = useAppDetailContext()
+    const { activeTab, setActiveTab } = useAppDetailContext();
 
     const [selectedChannel, setSelectedChannel] = useState<any>(null);
     const handleCreatChannel = () => {
-        router.push(`/channels/create`)
-    }
+        router.push(`/channels/create`);
+    };
 
     return (
         <>
@@ -36,7 +30,7 @@ export default function ChannelView({
                     </div>
                     <button
                         onClick={() => {
-                            handleCreatChannel()
+                            handleCreatChannel();
                         }}
                         className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
                     >
@@ -73,7 +67,9 @@ export default function ChannelView({
                                                 <Shield className="w-4 h-4 text-orange-500" />
                                             )}
                                         </h4>
-                                        <p className="text-sm text-gray-600">{channel.description}</p>
+                                        <p className="text-sm text-gray-600">
+                                            {channel.description}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -98,5 +94,5 @@ export default function ChannelView({
                 </div>
             </div>
         </>
-    )
+    );
 }

@@ -1,14 +1,7 @@
-import {
-    BookOpen,
-    Calendar as CalendarIcon,
-    Crown,
-    DollarSign,
-    Heart
-} from 'lucide-react';
-import { useState } from "react";
+import { BookOpen, Calendar as CalendarIcon, Crown, DollarSign, Heart } from 'lucide-react';
+import { useState } from 'react';
 
 export default function MonetizationView() {
-
     const [currentView, setCurrentView] = useState('dashboard');
     const [selectedCommunity, setSelectedCommunity] = useState<any>(null);
     const [showCommunityDropdown, setShowCommunityDropdown] = useState(false);
@@ -114,7 +107,6 @@ export default function MonetizationView() {
         }
     ];
 
-
     return (
         <>
             <div className="flex-1 p-6 bg-gray-50">
@@ -189,7 +181,9 @@ export default function MonetizationView() {
                                     </p>
                                     <div className="flex justify-between text-sm">
                                         <span>156 subscribers</span>
-                                        <button className="text-blue-500 hover:underline">Edit</button>
+                                        <button className="text-blue-500 hover:underline">
+                                            Edit
+                                        </button>
                                     </div>
                                 </div>
 
@@ -199,12 +193,14 @@ export default function MonetizationView() {
                                         <span className="text-lg font-bold">$29.99/mo</span>
                                     </div>
                                     <p className="text-sm text-gray-600 mb-3">
-                                        All basic features plus premium courses, private channels, and
-                                        exclusive events
+                                        All basic features plus premium courses, private channels,
+                                        and exclusive events
                                     </p>
                                     <div className="flex justify-between text-sm">
                                         <span>186 subscribers</span>
-                                        <button className="text-blue-500 hover:underline">Edit</button>
+                                        <button className="text-blue-500 hover:underline">
+                                            Edit
+                                        </button>
                                     </div>
                                 </div>
 
@@ -274,5 +270,5 @@ export default function MonetizationView() {
                 </div>
             </div>
         </>
-    )
+    );
 }

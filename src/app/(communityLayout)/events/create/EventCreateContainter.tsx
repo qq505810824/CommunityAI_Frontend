@@ -1,15 +1,11 @@
-"use client"
+'use client';
 
-import EventCreateView from "./EventCreateView";
+import EventCreateView from './EventCreateView';
 
 export default function EventCreateContainter() {
-
     return (
         <>
-            <EventCreateView
-                {...{
-                }}
-            />
+            <EventCreateView {...{}} />
         </>
-    )
+    );
 }

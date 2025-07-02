@@ -1,4 +1,3 @@
-
 export interface CalendarModel {
     id: number;
     name: string;

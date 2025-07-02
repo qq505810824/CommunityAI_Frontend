@@ -1,4 +1,3 @@
-
 import { CalendarModel } from '@/models/Calendar';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import { Button } from '@mui/joy';

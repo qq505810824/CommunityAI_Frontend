@@ -2,9 +2,7 @@ import CalendarCard from '@/app/components/calendar/CalendarCard';
 import { CalendarModel } from '@/models/Calendar';
 import { CalendarCategorys } from '@/utils/constant';
 import { Typography } from '@mui/joy';
-import {
-    Plus
-} from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -32,8 +30,7 @@ function EventView(props: ViewProps) {
         setFilters
     } = props;
 
-
-    const router = useRouter()
+    const router = useRouter();
 
     const [menu, setMenu] = useState('');
     const [keyword, setKeyword] = useState('');
@@ -44,8 +41,8 @@ function EventView(props: ViewProps) {
     };
 
     const handleCreatCourse = () => {
-        router.push(`/courses/create`)
-    }
+        router.push(`/courses/create`);
+    };
 
     return (
         <>
@@ -59,7 +56,7 @@ function EventView(props: ViewProps) {
                     </div>
                     <button
                         onClick={() => {
-                            handleCreatCourse()
+                            handleCreatCourse();
                         }}
                         className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
                     >

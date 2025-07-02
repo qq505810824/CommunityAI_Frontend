@@ -2,10 +2,7 @@
 
 import { UploadFilesToAzure } from '@/app/components/common/Widget/run-batch';
 import useAlert from '@/hooks/useAlert';
-import {
-    useCalendarDetailByIdData,
-    useCalendarOperations
-} from '@/hooks/useCalendarData';
+import { useCalendarDetailByIdData, useCalendarOperations } from '@/hooks/useCalendarData';
 import { CalendarModel } from '@/models/Calendar';
 import _ from 'lodash';
 import { useParams, useRouter } from 'next/navigation';

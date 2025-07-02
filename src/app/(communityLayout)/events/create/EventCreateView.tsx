@@ -1,18 +1,13 @@
-
-import {
-    ArrowLeft
-} from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function EventCreateView() {
-
-    const router = useRouter()
+    const router = useRouter();
     const [showCreateForm, setShowCreateForm] = useState(false);
     const [newEventTitle, setNewEventTitle] = useState('');
     const [eventDate, setEventDate] = useState('');
     const [eventTime, setEventTime] = useState('');
-
 
     return (
         <>
@@ -30,7 +25,9 @@ export default function EventCreateView() {
                         <h4 className="font-semibold mb-4">Create New Event</h4>
                         <div className="space-y-4">
                             <div>
-                                <label className="block text-sm font-medium mb-2">Event Title</label>
+                                <label className="block text-sm font-medium mb-2">
+                                    Event Title
+                                </label>
                                 <input
                                     type="text"
                                     value={newEventTitle}
@@ -40,7 +37,9 @@ export default function EventCreateView() {
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium mb-2">Description</label>
+                                <label className="block text-sm font-medium mb-2">
+                                    Description
+                                </label>
                                 <textarea
                                     placeholder="What is this event about?"
                                     rows={3}
@@ -76,7 +75,9 @@ export default function EventCreateView() {
                                     </select>
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium mb-2">Price ($)</label>
+                                    <label className="block text-sm font-medium mb-2">
+                                        Price ($)
+                                    </label>
                                     <input
                                         type="number"
                                         placeholder="0"
@@ -100,5 +101,5 @@ export default function EventCreateView() {
                 </div>
             </div>
         </>
-    )
+    );
 }

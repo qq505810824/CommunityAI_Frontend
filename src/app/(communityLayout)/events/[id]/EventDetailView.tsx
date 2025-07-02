@@ -1,5 +1,3 @@
-
-
 import {
     ArrowLeft,
     Calendar as CalendarIcon,
@@ -12,15 +10,13 @@ import {
     User,
     Users
 } from 'lucide-react';
-import { useState } from "react";
+import { useState } from 'react';
 import { useAppDetailContext } from '../../communitys/[id]/detail-context';
 
 export default function EventDetailView() {
-
-
     const [selectedEvent, setSelectedEvent] = useState<any>(null);
 
-    const { activeTab, setActiveTab } = useAppDetailContext()
+    const { activeTab, setActiveTab } = useAppDetailContext();
 
     const events = [
         {
@@ -101,9 +97,11 @@ export default function EventDetailView() {
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                     <button
-                        onClick={() => setActiveTab({
-                            name: 'events'
-                        })}
+                        onClick={() =>
+                            setActiveTab({
+                                name: 'events'
+                            })
+                        }
                         className="p-2 hover:bg-gray-100 rounded-lg"
                     >
                         <ArrowLeft className="w-5 h-5" />
@@ -223,10 +221,11 @@ export default function EventDetailView() {
                                 {selectedEvent?.price === 0 ? 'Free' : `$${selectedEvent?.price}`}
                             </div>
                             <span
-                                className={`px-3 py-1 rounded-full text-sm ${selectedEvent?.status === 'upcoming'
-                                    ? 'bg-green-100 text-green-700'
-                                    : 'bg-gray-100 text-gray-700'
-                                    }`}
+                                className={`px-3 py-1 rounded-full text-sm ${
+                                    selectedEvent?.status === 'upcoming'
+                                        ? 'bg-green-100 text-green-700'
+                                        : 'bg-gray-100 text-gray-700'
+                                }`}
                             >
                                 {selectedEvent?.status}
                             </span>

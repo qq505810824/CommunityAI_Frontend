@@ -1,7 +1,7 @@
-"use client"
+'use client';
 
-import { useCommunityData } from "@/hooks/useCommunityData";
-import DashbordView from "./DashbordView";
+import { useCommunityData } from '@/hooks/useCommunityData';
+import DashbordView from './DashbordView';
 
 export default function DashbordContainer() {
     const { data, isLoading, isError, mutate } = useCommunityData();
@@ -14,5 +14,5 @@ export default function DashbordContainer() {
                 }}
             />
         </>
-    )
+    );
 }

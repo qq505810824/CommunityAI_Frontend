@@ -1,4 +1,3 @@
-
 import {
     BookOpen,
     Calendar as CalendarIcon,
@@ -13,13 +12,9 @@ interface ViewProps {
     item: any;
 }
 
-export default function NewsfeedCard({
-    item
-}: ViewProps) {
-
+export default function NewsfeedCard({ item }: ViewProps) {
     return (
         <>
-
             <div className="p-6">
                 {item.isAIGenerated ? (
                     <div className="flex items-start space-x-3">
@@ -28,17 +23,13 @@ export default function NewsfeedCard({
                         </div>
                         <div className="flex-1">
                             <div className="flex items-center space-x-2 mb-2">
-                                <span className="font-medium text-gray-800">
-                                    AI Summary
-                                </span>
+                                <span className="font-medium text-gray-800">AI Summary</span>
                                 <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs">
                                     AI Generated
                                 </span>
                             </div>
                             <p className="text-gray-700 mb-2">{item.content}</p>
-                            <span className="text-sm text-gray-500">
-                                {item.timestamp}
-                            </span>
+                            <span className="text-sm text-gray-500">{item.timestamp}</span>
                         </div>
                     </div>
                 ) : (
@@ -58,21 +49,15 @@ export default function NewsfeedCard({
                                 {item.author || item.community}
                             </span>
                             <span className="text-gray-400">•</span>
-                            <span className="text-sm text-gray-500">
-                                {item.community}
-                            </span>
+                            <span className="text-sm text-gray-500">{item.community}</span>
                             {item.channel && (
                                 <>
                                     <span className="text-gray-400">•</span>
-                                    <span className="text-sm text-gray-500">
-                                        #{item.channel}
-                                    </span>
+                                    <span className="text-sm text-gray-500">#{item.channel}</span>
                                 </>
                             )}
                             <span className="text-gray-400">•</span>
-                            <span className="text-sm text-gray-500">
-                                {item.timestamp}
-                            </span>
+                            <span className="text-sm text-gray-500">{item.timestamp}</span>
                         </div>
                         <p className="text-gray-700 mb-4">{item.content}</p>
                         <div className="flex items-center space-x-6">
@@ -93,5 +78,5 @@ export default function NewsfeedCard({
                 )}
             </div>
         </>
-    )
+    );
 }

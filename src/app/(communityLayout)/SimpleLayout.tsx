@@ -12,7 +12,14 @@ function SimpleLayout(props: { children: React.ReactNode }) {
     return (
         <CssVarsProvider disableTransitionOnChange>
             <CssBaseline />
-            <Box sx={{ display: 'flex', flexDirection: 'column', height: '100dvh', paddingBottom: 4 }}>
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100dvh',
+                    paddingBottom: 4
+                }}
+            >
                 <HeaderView />
                 <div className="w-full flex   h-full ">
                     <Sidebar />

@@ -31,7 +31,7 @@ function CommunityContainer() {
             });
             setProducts(newData);
         }
-        return () => { };
+        return () => {};
     }, [data]);
 
     const handleSearch = async (value: string) => {
@@ -64,8 +64,6 @@ function CommunityContainer() {
 
     const handleUpdateStatus = async (id: number, status: string) => {
         console.log('id,status', id, status);
-
-
     };
 
     return (

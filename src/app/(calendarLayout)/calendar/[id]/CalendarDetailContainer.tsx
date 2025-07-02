@@ -43,7 +43,7 @@ function CalendarDetailContainer() {
         if (appData) {
             setProduct(appData);
         }
-        return () => { };
+        return () => {};
     }, [appData]);
 
     if (!product) return <Loading type="app" />;

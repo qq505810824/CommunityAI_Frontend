@@ -13,10 +13,10 @@ export type AppContextValue = {
     appData: any;
     submitting?: boolean;
     activeTab: {
-        name: string,
-        meta?: any
+        name: string;
+        meta?: any;
     };
-    setActiveTab: any
+    setActiveTab: any;
     // handleUpdateTable: (data: any, columns: any) => void;
     // handleDeleteTable: (id: string, onCallback?: any) => void;
 };
@@ -25,7 +25,7 @@ const AppDetailContext = createContext<AppContextValue>({
     appData: null,
     submitting: false,
     activeTab: { name: '' },
-    setActiveTab: () => { }
+    setActiveTab: () => {}
     // handleUpdateTable: () => {},
     // handleDeleteTable: () => {}
 });
@@ -45,16 +45,17 @@ export const AppDetailContextProvider: FC<AppContextProviderProps> = ({
     const { setShowConfirmDelete } = useModalContext();
     const { user_id } = useAppContext();
 
-    const { data, isLoading, isError } = useCommunityDetailData(Number(params['id']), user_id || '');
+    const { data, isLoading, isError } = useCommunityDetailData(
+        Number(params['id']),
+        user_id || ''
+    );
 
     const [appData, setAppData] = useState<CommunityModel | null>(null);
     const [submitting, setSubmitting] = useState(false);
 
     const [activeTab, setActiveTab] = useState<any>({ name: 'channels' });
 
-    useEffect(() => {
-
-    }, [])
+    useEffect(() => {}, []);
     useEffect(() => {
         if (data) {
             // console.log('appData data ', data);

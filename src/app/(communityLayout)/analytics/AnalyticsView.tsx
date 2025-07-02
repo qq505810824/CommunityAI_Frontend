@@ -7,10 +7,9 @@ import {
     Users,
     Zap
 } from 'lucide-react';
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function AnalyticsView() {
-
     const [currentView, setCurrentView] = useState('dashboard');
     const [selectedCommunity, setSelectedCommunity] = useState<any>(null);
     const [showCommunityDropdown, setShowCommunityDropdown] = useState(false);
@@ -116,13 +115,14 @@ export default function AnalyticsView() {
         }
     ];
 
-
     return (
         <>
             <div className="flex-1 p-6 bg-gray-50">
                 <div className="max-w-6xl mx-auto">
                     <div className="mb-8">
-                        <h2 className="text-3xl font-bold text-gray-800 mb-2">Analytics & Insights</h2>
+                        <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                            Analytics & Insights
+                        </h2>
                         <p className="text-gray-600">
                             Track your community growth and engagement across all features
                         </p>
@@ -191,7 +191,9 @@ export default function AnalyticsView() {
                                 <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
                                     <div className="flex items-center space-x-3">
                                         <BookOpen className="w-4 h-4 text-green-500" />
-                                        <span className="font-medium">Advanced Marketing Course</span>
+                                        <span className="font-medium">
+                                            Advanced Marketing Course
+                                        </span>
                                     </div>
                                     <span className="text-sm text-gray-600">567 enrollments</span>
                                 </div>
@@ -216,8 +218,8 @@ export default function AnalyticsView() {
                                         </span>
                                     </div>
                                     <p className="text-sm text-blue-600">
-                                        Posts in your 'daily-tips' channel get 3x more engagement when
-                                        posted at 9 AM.
+                                        Posts in your 'daily-tips' channel get 3x more engagement
+                                        when posted at 9 AM.
                                     </p>
                                 </div>
 
@@ -252,5 +254,5 @@ export default function AnalyticsView() {
                 </div>
             </div>
         </>
-    )
+    );
 }

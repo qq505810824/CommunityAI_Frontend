@@ -38,7 +38,7 @@ function CalendarContainer() {
             });
             setProducts(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     useEffect(() => {

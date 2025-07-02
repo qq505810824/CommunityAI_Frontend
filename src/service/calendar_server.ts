@@ -1,4 +1,3 @@
-
 import { CalendarModel } from '@/models/Calendar';
 import { createClient } from '@supabase/supabase-js';
 

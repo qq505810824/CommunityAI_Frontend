@@ -1,15 +1,11 @@
-"use client"
+'use client';
 
-import AnalyticsView from "./AnalyticsView";
+import AnalyticsView from './AnalyticsView';
 
 export default function AnalyticsContainter() {
     return (
         <>
-            <AnalyticsView
-                {...{
-
-                }}
-            />
+            <AnalyticsView {...{}} />
         </>
-    )
+    );
 }

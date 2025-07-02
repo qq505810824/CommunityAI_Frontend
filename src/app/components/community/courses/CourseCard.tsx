@@ -1,19 +1,15 @@
-import { useAppDetailContext } from "@/app/(communityLayout)/communitys/[id]/detail-context";
-import { CourseModel } from "@/models/Course";
-import {
-    Star
-} from 'lucide-react';
-import { useRouter } from "next/navigation";
+import { useAppDetailContext } from '@/app/(communityLayout)/communitys/[id]/detail-context';
+import { CourseModel } from '@/models/Course';
+import { Star } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 interface ViewProps {
-    course: CourseModel
+    course: CourseModel;
 }
 
-export default function CourseCard({
-    course
-}: ViewProps) {
-    const router = useRouter()
-    const { activeTab, setActiveTab } = useAppDetailContext()
+export default function CourseCard({ course }: ViewProps) {
+    const router = useRouter();
+    const { activeTab, setActiveTab } = useAppDetailContext();
     return (
         <>
             <div
@@ -38,9 +34,7 @@ export default function CourseCard({
                         </div>
                     </div>
 
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                        {course.description}
-                    </p>
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">{course.description}</p>
 
                     <div className="space-y-2 mb-4">
                         <div className="flex justify-between text-sm text-gray-500">
@@ -87,5 +81,5 @@ export default function CourseCard({
                 </div>
             </div>
         </>
-    )
+    );
 }

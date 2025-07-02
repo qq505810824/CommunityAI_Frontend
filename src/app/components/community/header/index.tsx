@@ -1,16 +1,7 @@
-
-
-import {
-    Bell,
-    ChevronDown,
-    Home,
-    Plus,
-    Search
-} from 'lucide-react';
+import { Bell, ChevronDown, Home, Plus, Search } from 'lucide-react';
 import { useState } from 'react';
 
 export default function HeaderView() {
-
     const [selectedCommunity, setSelectedCommunity] = useState<any>(null);
     const [showCommunityDropdown, setShowCommunityDropdown] = useState(false);
     const [currentView, setCurrentView] = useState('dashboard');
@@ -56,7 +47,6 @@ export default function HeaderView() {
             events: 5
         }
     ];
-
 
     const NavBar = () => (
         <nav className="bg-white shadow-sm border-b px-6 py-4">
@@ -150,5 +140,5 @@ export default function HeaderView() {
         <>
             <NavBar />
         </>
-    )
+    );
 }

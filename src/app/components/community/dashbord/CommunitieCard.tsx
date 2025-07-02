@@ -1,27 +1,19 @@
-
-
-import { CommunityModel } from "@/models/Community";
-import { useRouter } from "next/navigation";
+import { CommunityModel } from '@/models/Community';
+import { useRouter } from 'next/navigation';
 
 interface ViewProps {
     community: CommunityModel;
 }
 
-export default function CommunitieCard({
-    community
-}: ViewProps) {
-
-    const router = useRouter()
+export default function CommunitieCard({ community }: ViewProps) {
+    const router = useRouter();
 
     const handleClickCommuity = (commuity: any) => {
-        router.push(`/communitys/${commuity?.id}`)
-    }
+        router.push(`/communitys/${commuity?.id}`);
+    };
     return (
         <>
-
-            <div
-                className="bg-white rounded-xl shadow-sm border p-6 hover:shadow-md transition-shadow cursor-pointer"
-            >
+            <div className="bg-white rounded-xl shadow-sm border p-6 hover:shadow-md transition-shadow cursor-pointer">
                 <div className="flex items-center space-x-3 mb-4">
                     <div
                         className={`w-12 h-12 bg-${community.theme}-100 rounded-full flex items-center justify-center text-xl`}
@@ -29,12 +21,8 @@ export default function CommunitieCard({
                         {community.logo}
                     </div>
                     <div>
-                        <h3 className="font-semibold text-gray-800">
-                            {community.name}
-                        </h3>
-                        <p className="text-sm text-gray-500">
-                            {community.accounts_count} members
-                        </p>
+                        <h3 className="font-semibold text-gray-800">{community.name}</h3>
+                        <p className="text-sm text-gray-500">{community.accounts_count} members</p>
                     </div>
                 </div>
 
@@ -78,7 +66,7 @@ export default function CommunitieCard({
                     onClick={() => {
                         // setSelectedCommunity(community);
                         // setCurrentView('community');
-                        handleClickCommuity(community)
+                        handleClickCommuity(community);
                     }}
                     className={`w-full mt-4 bg-${community.theme}-500 text-white py-2 rounded-lg hover:bg-${community.theme}-600 transition-colors`}
                 >
@@ -86,5 +74,5 @@ export default function CommunitieCard({
                 </button>
             </div>
         </>
-    )
+    );
 }

@@ -1,22 +1,15 @@
-
 import { useAppDetailContext } from '@/app/(communityLayout)/communitys/[id]/detail-context';
-import {
-    Hash,
-    Plus,
-    Shield
-} from 'lucide-react';
+import { Hash, Plus, Shield } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useState } from "react";
-
+import { useState } from 'react';
 
 export default function TextChannelsView() {
-
-    const router = useRouter()
+    const router = useRouter();
 
     const [selectedChannel, setSelectedChannel] = useState<any>(null);
     // const [activeTab, setActiveTab] = useState('discussions');
 
-    const { activeTab, setActiveTab } = useAppDetailContext()
+    const { activeTab, setActiveTab } = useAppDetailContext();
 
     const textChannels = [
         {
@@ -62,12 +55,12 @@ export default function TextChannelsView() {
     ];
 
     const handleClickChannel = (channel: any) => {
-        router.push(`/channels/${channel?.id}`)
-    }
+        router.push(`/channels/${channel?.id}`);
+    };
 
     const handleCreatChannel = () => {
-        router.push(`/channels/create`)
-    }
+        router.push(`/channels/create`);
+    };
 
     return (
         <div className="space-y-6">
@@ -80,7 +73,7 @@ export default function TextChannelsView() {
                 </div>
                 <button
                     onClick={() => {
-                        handleCreatChannel()
+                        handleCreatChannel();
                     }}
                     className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
                 >
@@ -124,10 +117,11 @@ export default function TextChannelsView() {
 
                         <div className="mt-3">
                             <span
-                                className={`px-2 py-1 rounded-full text-xs ${channel.isPrivate
-                                    ? 'bg-orange-100 text-orange-700'
-                                    : 'bg-green-100 text-green-700'
-                                    }`}
+                                className={`px-2 py-1 rounded-full text-xs ${
+                                    channel.isPrivate
+                                        ? 'bg-orange-100 text-orange-700'
+                                        : 'bg-green-100 text-green-700'
+                                }`}
                             >
                                 {channel.isPrivate ? `${channel.memberTier} only` : 'All members'}
                             </span>

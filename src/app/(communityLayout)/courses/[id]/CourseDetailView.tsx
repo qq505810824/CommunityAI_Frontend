@@ -1,4 +1,3 @@
-
 import { CourseModel } from '@/models/Course';
 import {
     ArrowLeft,
@@ -14,16 +13,11 @@ import {
 import { useAppDetailContext } from '../../communitys/[id]/detail-context';
 
 interface ViewProps {
-    course: CourseModel | undefined
+    course: CourseModel | undefined;
 }
 
-export default function CourseDetailView({
-    course
-}: ViewProps) {
-
-
-
-    const { activeTab, setActiveTab } = useAppDetailContext()
+export default function CourseDetailView({ course }: ViewProps) {
+    const { activeTab, setActiveTab } = useAppDetailContext();
 
     const courses = [
         {
@@ -144,9 +138,11 @@ export default function CourseDetailView({
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                     <button
-                        onClick={() => setActiveTab({
-                            name: 'courses'
-                        })}
+                        onClick={() =>
+                            setActiveTab({
+                                name: 'courses'
+                            })
+                        }
                         className="p-2 hover:bg-gray-100 rounded-lg"
                     >
                         <ArrowLeft className="w-5 h-5" />

@@ -1,4 +1,3 @@
-
 import CommunityItem from '@/app/components/admin/communitys/CommunityItem';
 import TableSheet from '@/app/components/base/table';
 import SearchInputView from '@/app/components/common/Views/SearchInputView';

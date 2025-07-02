@@ -1,13 +1,9 @@
-
-import {
-    ArrowLeft
-} from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function CourseCreateView() {
-    const router = useRouter()
-
+    const router = useRouter();
 
     const [selectedCommunity, setSelectedCommunity] = useState<any>(null);
     const [showCommunityDropdown, setShowCommunityDropdown] = useState(false);
@@ -27,7 +23,6 @@ export default function CourseCreateView() {
     const [newChannelName, setNewChannelName] = useState('');
     const [newChannelDescription, setNewChannelDescription] = useState('');
 
-
     return (
         <>
             <div className="flex-1  bg-gray-50">
@@ -44,7 +39,9 @@ export default function CourseCreateView() {
                         <h4 className="font-semibold mb-4">Create New Course</h4>
                         <div className="space-y-4">
                             <div>
-                                <label className="block text-sm font-medium mb-2">Course Title</label>
+                                <label className="block text-sm font-medium mb-2">
+                                    Course Title
+                                </label>
                                 <input
                                     type="text"
                                     value={newCourseTitle}
@@ -54,7 +51,9 @@ export default function CourseCreateView() {
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium mb-2">Description</label>
+                                <label className="block text-sm font-medium mb-2">
+                                    Description
+                                </label>
                                 <textarea
                                     placeholder="What will students learn?"
                                     rows={3}
@@ -63,7 +62,9 @@ export default function CourseCreateView() {
                             </div>
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-sm font-medium mb-2">Price ($)</label>
+                                    <label className="block text-sm font-medium mb-2">
+                                        Price ($)
+                                    </label>
                                     <input
                                         type="number"
                                         placeholder="0"
@@ -97,5 +98,5 @@ export default function CourseCreateView() {
                 </div>
             </div>
         </>
-    )
+    );
 }

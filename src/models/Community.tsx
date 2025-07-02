@@ -1,4 +1,4 @@
-import { AccountModel } from "./Account";
+import { AccountModel } from './Account';
 
 export type CommunityModel = {
     id: number;
@@ -6,7 +6,7 @@ export type CommunityModel = {
     description: string;
     region?: string;
     code: string;
-    owner: AccountModel
+    owner: AccountModel;
     logo?: string;
     unreadPosts?: number;
     revenue?: number;
@@ -26,4 +26,4 @@ export type CommunityModel = {
 
     created_at: string;
     updated_at: string;
-}
+};

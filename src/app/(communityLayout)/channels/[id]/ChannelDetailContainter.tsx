@@ -1,24 +1,21 @@
-"use client"
+'use client';
 
-import { usePostData } from "@/hooks/usePostData";
-import { ChannelModel } from "@/models/Channel";
-import { useEffect, useState } from "react";
-import ChannelDetailView from "./ChannelDetailView";
+import { usePostData } from '@/hooks/usePostData';
+import { ChannelModel } from '@/models/Channel';
+import { useEffect, useState } from 'react';
+import ChannelDetailView from './ChannelDetailView';
 
 interface ViewProps {
-    meta?: any
+    meta?: any;
 }
 
-export default function ChannelDetailContainter({
-    meta
-}: ViewProps) {
-    const [channel, setChannel] = useState<ChannelModel>()
+export default function ChannelDetailContainter({ meta }: ViewProps) {
+    const [channel, setChannel] = useState<ChannelModel>();
 
     const [filters, setFilters] = useState<any>({
         channel_id: ''
     });
     const { data, isLoading, isError, mutate } = usePostData(filters);
-
 
     useEffect(() => {
         if (meta) {
@@ -26,17 +23,16 @@ export default function ChannelDetailContainter({
             setFilters({
                 ...filters,
                 channel_id: meta?.channel?.id
-            })
-            setChannel(meta?.channel)
+            });
+            setChannel(meta?.channel);
         }
-    }, [meta])
+    }, [meta]);
 
     useEffect(() => {
         if (filters) {
-            mutate()
-
+            mutate();
         }
-    }, [filters])
+    }, [filters]);
     return (
         <>
             <ChannelDetailView
@@ -46,5 +42,5 @@ export default function ChannelDetailContainter({
                 }}
             />
         </>
-    )
+    );
 }

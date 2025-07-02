@@ -1,6 +1,4 @@
-import { CalendarModel } from "@/models/Calendar";
-
-
+import { CalendarModel } from '@/models/Calendar';
 
 interface ViewProps {
     product?: CalendarModel;

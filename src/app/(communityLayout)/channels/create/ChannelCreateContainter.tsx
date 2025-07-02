@@ -1,15 +1,11 @@
-"use client"
+'use client';
 
-import ChannelCreateView from "./ChannelCreateView";
+import ChannelCreateView from './ChannelCreateView';
 
 export default function ChannelCreateContainter() {
-
     return (
         <>
-            <ChannelCreateView
-                {...{
-                }}
-            />
+            <ChannelCreateView {...{}} />
         </>
-    )
+    );
 }

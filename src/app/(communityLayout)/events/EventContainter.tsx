@@ -38,15 +38,15 @@ function EventContainter() {
             });
             setProducts(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     useEffect(() => {
         if (filters) {
             console.log('filters', filters);
-            mutate()
+            mutate();
         }
-    }, [filters])
+    }, [filters]);
 
     // useEffect(() => {
     //     fetch(`/api/ipaddress`)

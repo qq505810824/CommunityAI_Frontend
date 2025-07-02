@@ -16,9 +16,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
                     <EventEmitterContextProvider>
                         <AlertProvider>
                             <LoadProvider>
-                                <ModalContextProvider>
-                                    {children}
-                                </ModalContextProvider>
+                                <ModalContextProvider>{children}</ModalContextProvider>
                                 <LoadModel />
                             </LoadProvider>
                             <AlertModel />
@@ -31,7 +29,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
 };
 
 export const metadata = {
-    title: 'Community AI',
+    title: 'Community AI'
 };
 
 export default Layout;

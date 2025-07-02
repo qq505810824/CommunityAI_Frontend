@@ -1,5 +1,5 @@
-import { AccountModel } from "./Account";
-import { CommunityModel } from "./Community";
+import { AccountModel } from './Account';
+import { CommunityModel } from './Community';
 
 export type ChannelModel = {
     id: number;
@@ -7,7 +7,7 @@ export type ChannelModel = {
     description: string;
     logo: string;
 
-    owner: AccountModel
+    owner: AccountModel;
 
     community: CommunityModel;
 
@@ -21,4 +21,4 @@ export type ChannelModel = {
 
     created_at: string;
     updated_at: string;
-}
+};

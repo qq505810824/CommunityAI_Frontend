@@ -1,4 +1,3 @@
-
 import { ChannelModel } from '@/models/Channel';
 import { createClient } from '@supabase/supabase-js';
 

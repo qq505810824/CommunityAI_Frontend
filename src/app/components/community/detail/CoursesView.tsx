@@ -1,16 +1,11 @@
-
 import { useAppDetailContext } from '@/app/(communityLayout)/communitys/[id]/detail-context';
-import {
-    Plus,
-    Star
-} from 'lucide-react';
+import { Plus, Star } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { useState } from "react";
+import { useState } from 'react';
 
 export default function CoursesView() {
-
-    const router = useRouter()
-    const { activeTab, setActiveTab } = useAppDetailContext()
+    const router = useRouter();
+    const { activeTab, setActiveTab } = useAppDetailContext();
     const [selectedCourse, setSelectedCourse] = useState<any>(null);
 
     const courses = [
@@ -128,12 +123,12 @@ export default function CoursesView() {
     ];
 
     const handleClickCourse = (course: any) => {
-        router.push(`/courses/${course?.id}`)
-    }
+        router.push(`/courses/${course?.id}`);
+    };
 
     const handleCreatCourse = () => {
-        router.push(`/courses/create`)
-    }
+        router.push(`/courses/create`);
+    };
 
     return (
         <div className="space-y-6">
@@ -146,7 +141,7 @@ export default function CoursesView() {
                 </div>
                 <button
                     onClick={() => {
-                        handleCreatCourse()
+                        handleCreatCourse();
                     }}
                     className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
                 >

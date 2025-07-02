@@ -1,9 +1,5 @@
 import { CommunityModel } from '@/models/Community';
-import {
-    BookOpen,
-    Calendar as CalendarIcon,
-    Hash
-} from 'lucide-react';
+import { BookOpen, Calendar as CalendarIcon, Hash } from 'lucide-react';
 import { useEffect } from 'react';
 import ChannelDetailContainter from '../../channels/[id]/ChannelDetailContainter';
 import ChannelContainter from '../../channels/ChannelContainter';
@@ -17,19 +13,15 @@ interface ViewProps {
     community: CommunityModel;
 }
 
-export default function CommunityDetailView({
-    community
-}: ViewProps) {
-
-    const { activeTab, setActiveTab } = useAppDetailContext()
+export default function CommunityDetailView({ community }: ViewProps) {
+    const { activeTab, setActiveTab } = useAppDetailContext();
     // const [activeTab, setActiveTab] = useState('discussions');
 
     useEffect(() => {
         if (community) {
             // console.log('community', community);
-
         }
-    }, [community])
+    }, [community]);
     const renderActiveTab = () => {
         switch (activeTab.name) {
             case 'channels':
@@ -98,5 +90,5 @@ export default function CommunityDetailView({
                 <div className="max-w-7xl mx-auto px-6 py-8">{renderActiveTab()}</div>
             </div>
         </>
-    )
+    );
 }

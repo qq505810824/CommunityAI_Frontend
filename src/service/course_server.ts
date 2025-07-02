@@ -1,4 +1,3 @@
-
 import { CourseModel } from '@/models/Course';
 import { createClient } from '@supabase/supabase-js';
 

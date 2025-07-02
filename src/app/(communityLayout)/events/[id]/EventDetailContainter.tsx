@@ -1,9 +1,8 @@
-"use client"
+'use client';
 
-import EventDetailView from "./EventDetailView";
+import EventDetailView from './EventDetailView';
 
 export default function EventDetailContainter() {
-
     const userCommunities = [
         {
             id: 1,
@@ -47,10 +46,7 @@ export default function EventDetailContainter() {
     ];
     return (
         <>
-            <EventDetailView
-                {...{
-                }}
-            />
+            <EventDetailView {...{}} />
         </>
-    )
+    );
 }
