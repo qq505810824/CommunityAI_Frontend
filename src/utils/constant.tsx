@@ -526,15 +526,15 @@ export const HotsFatherTags = [
 
 export const CalendarCategorys = [
     {
-        name: '全部',
+        name: 'All',
         value: ''
     },
     {
-        name: '課程',
+        name: 'Course',
         value: 'course'
     },
     {
-        name: '活動',
+        name: 'Activity',
         value: 'activity'
     }
 ];

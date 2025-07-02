@@ -53,7 +53,7 @@ export default function CommunityDetailView({ community }: ViewProps) {
                                 {community?.logo}
                             </div>
                             <div>
-                                <h1 className="text-3xl font-bold">{community?.name}</h1>
+                                <h1 className="text-xl sm:text-3xl font-bold">{community?.name}</h1>
                                 <p className="text-gray-500 text-opacity-90">
                                     {community?.accounts_count} members
                                 </p>

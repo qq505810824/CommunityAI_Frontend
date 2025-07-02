@@ -20,8 +20,8 @@ export default function ChannelView({ channels }: ViewProps) {
 
     return (
         <>
-            <div className="space-y-6">
-                <div className="flex justify-between items-center">
+            <div className="space-y-6 w-full">
+                <div className="flex justify-between items-center  flex-wrap space-y-2">
                     <div>
                         <h3 className="text-xl font-semibold">Text Channels</h3>
                         <p className="text-gray-600 text-sm">
@@ -32,7 +32,7 @@ export default function ChannelView({ channels }: ViewProps) {
                         onClick={() => {
                             handleCreatChannel();
                         }}
-                        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
+                        className="bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
                     >
                         <Plus className="w-4 h-4" />
                         <span>New Channel</span>
@@ -40,7 +40,7 @@ export default function ChannelView({ channels }: ViewProps) {
                 </div>
 
                 {/* Channel List */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
                     {channels?.map((channel) => (
                         <div
                             key={channel.id}
@@ -90,8 +90,15 @@ export default function ChannelView({ channels }: ViewProps) {
                                 </span> */}
                             </div>
                         </div>
-                    ))}
+                    ))
+                    }
                 </div>
+                {channels?.length == 0 &&
+                    <div className="w-full flex flex-col items-center justify-center py-16 text-gray-400">
+                        <div className="text-lg font-semibold mb-1">No channel yet</div>
+                        <div className="text-sm">Be the first to create a text channel in this community!</div>
+                    </div>
+                }
             </div>
         </>
     );

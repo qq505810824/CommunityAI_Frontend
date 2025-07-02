@@ -1,58 +1,32 @@
+import Modal from '@/app/components/base/modal';
+import PostFormView from '@/app/components/community/channels/posts/form';
 import PostItem from '@/app/components/community/channels/posts/PostItem';
+import { useAppContext } from '@/context/app-context';
 import { ChannelModel } from '@/models/Channel';
 import { PostModel } from '@/models/Post';
 import { ArrowLeft, Hash, Plus, Shield } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { useAppDetailContext } from '../../communitys/[id]/detail-context';
 
 interface ViewProps {
     channel: ChannelModel | undefined;
     posts: PostModel[];
+    handleRefresh: () => void
 }
 
-export default function ChannelDetailView({ channel, posts }: ViewProps) {
-    const { activeTab, setActiveTab } = useAppDetailContext();
+export default function ChannelDetailView({ channel, posts, handleRefresh }: ViewProps) {
 
-    const channelPosts = [
-        {
-            id: 1,
-            author: 'Sarah Chen',
-            role: 'Community Owner',
-            timestamp: '2 hours ago',
-            content:
-                "🎉 Exciting news! We're launching our new advanced SEO course next week. Premium members get early access starting Monday!",
-            type: 'text',
-            likes: 24,
-            attachments: []
-        },
-        {
-            id: 2,
-            author: 'Mike Rodriguez',
-            role: 'Moderator',
-            timestamp: '1 day ago',
-            content:
-                'Check out this amazing case study on email marketing automation that increased conversions by 300%! 📈',
-            type: 'text',
-            likes: 18,
-            attachments: [{ type: 'image', name: 'case-study-chart.png', url: '#' }]
-        },
-        {
-            id: 3,
-            author: 'Sarah Chen',
-            role: 'Community Owner',
-            timestamp: '3 days ago',
-            content:
-                "New resource alert! I've uploaded a comprehensive guide to social media content planning. Download it from the link below:",
-            type: 'text',
-            likes: 31,
-            attachments: [
-                {
-                    type: 'link',
-                    name: 'Social Media Planning Guide',
-                    url: 'https://example.com/guide'
-                }
-            ]
-        }
-    ];
+    const router = useRouter()
+    const { activeTab, setActiveTab } = useAppDetailContext();
+    const [visibleCreatePost, setVisibleCreatePost] = useState(false)
+    const { user_id } = useAppContext();
+
+    const handleClickNewPost = () => {
+        setVisibleCreatePost(true)
+        // router.push(`/channels/${channel?.id}/posts/create`)
+    }
+
 
     return (
         <>
@@ -80,17 +54,44 @@ export default function ChannelDetailView({ channel, posts }: ViewProps) {
                         </div>
                     </div>
 
-                    <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2">
+                    <button className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
+                        onClick={handleClickNewPost}>
                         <Plus className="w-4 h-4" />
                         <span>New Post</span>
                     </button>
                 </div>
 
                 {/* Channel Posts */}
-                <div className="space-y-4">
-                    {posts?.map((post, index) => <PostItem post={post} key={index} />)}
-                </div>
+                {posts && posts.length > 0 ? (
+                    <div className="space-y-4">
+                        {posts?.map((post, index) => <PostItem post={post} key={index} />)}
+                    </div>
+                ) : (
+                    <div className="flex flex-col items-center justify-center py-16 text-gray-400">
+                        <div className="text-lg font-semibold mb-1">No posts yet</div>
+                        <div className="text-sm">Be the first to create a post in this channel!</div>
+                    </div>
+                )}
             </div>
+            <Modal
+                isShow={visibleCreatePost}
+                className="!w-[480px] !max-w-[480px] !p-0 !rounded-2xl"
+                wrapperClassName="z-40"
+                onClose={() => { setVisibleCreatePost(false) }}
+            >
+                <PostFormView
+                    payload={{
+                        channel: channel?.id,
+                        owner: user_id
+                    }}
+                    cancel={() => { setVisibleCreatePost(false); }}
+                    submit={() => {
+                        handleRefresh()
+                        setVisibleCreatePost(false);
+
+                    }}
+                />
+            </Modal>
         </>
     );
 }

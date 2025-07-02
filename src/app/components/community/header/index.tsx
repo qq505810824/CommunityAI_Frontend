@@ -1,3 +1,6 @@
+import { toggleSidebar } from '@/utils/utils';
+import MenuIcon from '@mui/icons-material/Menu';
+import { GlobalStyles, IconButton, Sheet } from '@mui/joy';
 import { Bell, ChevronDown, Home, Plus, Search } from 'lucide-react';
 import { useState } from 'react';
 
@@ -49,91 +52,232 @@ export default function HeaderView() {
     ];
 
     const NavBar = () => (
-        <nav className="bg-white shadow-sm border-b px-6 py-4">
-            <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                    <h1 className="text-2xl font-bold text-gray-800">CommunityAI</h1>
-                    <div className="relative">
-                        <button
-                            onClick={() => setShowCommunityDropdown(!showCommunityDropdown)}
-                            className="flex items-center space-x-2 px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-                        >
-                            <span>
-                                {selectedCommunity ? selectedCommunity.name : 'All Communities'}
-                            </span>
-                            <ChevronDown className="w-4 h-4" />
-                        </button>
-                        {showCommunityDropdown && (
-                            <div className="absolute top-12 left-0 bg-white shadow-lg rounded-lg border min-w-64 z-50">
-                                <button
-                                    onClick={() => {
-                                        setSelectedCommunity(null);
-                                        setCurrentView('dashboard');
-                                        setShowCommunityDropdown(false);
-                                    }}
-                                    className="w-full text-left px-4 py-3 hover:bg-gray-50"
-                                >
-                                    <div className="flex items-center space-x-3">
-                                        <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
-                                            <Home className="w-4 h-4" />
-                                        </div>
-                                        <span>All Communities</span>
-                                    </div>
-                                </button>
-                                {userCommunities.map((community) => (
+
+        <Sheet
+            sx={{
+                display: { xs: 'flex', md: 'flex' },
+                alignItems: 'center',
+                justifyContent: { xs: 'space-between', md: 'flex-end' },
+                // position: 'fixed',
+                // top: 0,
+                // width: '100vw',
+                height: 'var(--Header-height)',
+                zIndex: 9995,
+                p: 2,
+                gap: 1,
+                borderBottom: '1px solid',
+                borderColor: 'background.level1',
+                boxShadow: 'sm'
+            }}
+        >
+            <GlobalStyles
+                styles={(theme) => ({
+                    ':root': {
+                        '--Header-height': '52px',
+                        [theme.breakpoints.up('md')]: {
+                            '--Header-height': 'auto'
+                        }
+                    }
+                })}
+            />
+            <div className="flex w-full  items-center">
+                <IconButton
+                    onClick={() => toggleSidebar()}
+                    variant="outlined"
+                    color="neutral"
+                    size="sm"
+                    sx={{
+                        display: { xs: 'flex', md: 'none' }
+                    }}
+                >
+                    <MenuIcon />
+                </IconButton>
+                <div className="w-full flex items-center justify-between px-4 py-0">
+
+                    <div className="flex items-center space-x-4">
+                        <h1 className="text-xl sm:text-2xl font-bold text-gray-800">CommunityAI</h1>
+                        <div className="relative hidden">
+                            <button
+                                onClick={() => setShowCommunityDropdown(!showCommunityDropdown)}
+                                className="flex items-center space-x-2 px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                            >
+                                <span>
+                                    {selectedCommunity ? selectedCommunity.name : 'All Communities'}
+                                </span>
+                                <ChevronDown className="w-4 h-4" />
+                            </button>
+                            {showCommunityDropdown && (
+                                <div className="absolute top-12 left-0 bg-white shadow-lg rounded-lg border min-w-64 z-50">
                                     <button
-                                        key={community.id}
                                         onClick={() => {
-                                            setSelectedCommunity(community);
-                                            setCurrentView('community');
+                                            setSelectedCommunity(null);
+                                            setCurrentView('dashboard');
                                             setShowCommunityDropdown(false);
                                         }}
                                         className="w-full text-left px-4 py-3 hover:bg-gray-50"
                                     >
                                         <div className="flex items-center space-x-3">
-                                            <div
-                                                className={`w-8 h-8 bg-${community.theme}-100 rounded-full flex items-center justify-center`}
-                                            >
-                                                <span>{community.logo}</span>
+                                            <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                                                <Home className="w-4 h-4" />
                                             </div>
-                                            <div>
-                                                <div className="font-medium">{community.name}</div>
-                                                <div className="text-sm text-gray-500">
-                                                    {community.members} members
-                                                </div>
-                                            </div>
-                                            {community.unreadPosts > 0 && (
-                                                <div className="bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                                                    {community.unreadPosts}
-                                                </div>
-                                            )}
+                                            <span>All Communities</span>
                                         </div>
                                     </button>
-                                ))}
-                            </div>
-                        )}
+                                    {userCommunities.map((community) => (
+                                        <button
+                                            key={community.id}
+                                            onClick={() => {
+                                                setSelectedCommunity(community);
+                                                setCurrentView('community');
+                                                setShowCommunityDropdown(false);
+                                            }}
+                                            className="w-full text-left px-4 py-3 hover:bg-gray-50"
+                                        >
+                                            <div className="flex items-center space-x-3">
+                                                <div
+                                                    className={`w-8 h-8 bg-${community.theme}-100 rounded-full flex items-center justify-center`}
+                                                >
+                                                    <span>{community.logo}</span>
+                                                </div>
+                                                <div>
+                                                    <div className="font-medium">{community.name}</div>
+                                                    <div className="text-sm text-gray-500">
+                                                        {community.members} members
+                                                    </div>
+                                                </div>
+                                                {community.unreadPosts > 0 && (
+                                                    <div className="bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                                                        {community.unreadPosts}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    <div className="flex items-center space-x-4 ">
+                        <div className="relative hidden">
+                            <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                            <input
+                                type="text"
+                                placeholder="Search communities..."
+                                className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                        </div>
+                        <button className="relative p-2 text-gray-600 hover:text-gray-800">
+                            <Bell className="w-5 h-5" />
+                            <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
+                        </button>
+                        <button className="p-2 text-gray-600 hover:text-gray-800">
+                            <Plus className="w-5 h-5" />
+                        </button>
                     </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                    <div className="relative">
-                        <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                        <input
-                            type="text"
-                            placeholder="Search communities..."
-                            className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                    </div>
-                    <button className="relative p-2 text-gray-600 hover:text-gray-800">
-                        <Bell className="w-5 h-5" />
-                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
-                    </button>
-                    <button className="p-2 text-gray-600 hover:text-gray-800">
-                        <Plus className="w-5 h-5" />
-                    </button>
-                </div>
             </div>
-        </nav>
+
+            <nav className="bg-white shadow-sm border-b px-6 py-4 w-full z-50 hidden">
+                <div className="flex items-center justify-between">
+
+                    <div className="flex items-center space-x-4">
+
+                        <IconButton
+                            onClick={() => toggleSidebar()}
+                            variant="outlined"
+                            color="neutral"
+                            size="sm"
+                            sx={{
+                                display: { xs: 'flex', md: 'none' }
+                            }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <h1 className="text-2xl font-bold text-gray-800">CommunityAI</h1>
+                        <div className="relative hidden">
+                            <button
+                                onClick={() => setShowCommunityDropdown(!showCommunityDropdown)}
+                                className="flex items-center space-x-2 px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
+                            >
+                                <span>
+                                    {selectedCommunity ? selectedCommunity.name : 'All Communities'}
+                                </span>
+                                <ChevronDown className="w-4 h-4" />
+                            </button>
+                            {showCommunityDropdown && (
+                                <div className="absolute top-12 left-0 bg-white shadow-lg rounded-lg border min-w-64 z-50">
+                                    <button
+                                        onClick={() => {
+                                            setSelectedCommunity(null);
+                                            setCurrentView('dashboard');
+                                            setShowCommunityDropdown(false);
+                                        }}
+                                        className="w-full text-left px-4 py-3 hover:bg-gray-50"
+                                    >
+                                        <div className="flex items-center space-x-3">
+                                            <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                                                <Home className="w-4 h-4" />
+                                            </div>
+                                            <span>All Communities</span>
+                                        </div>
+                                    </button>
+                                    {userCommunities.map((community) => (
+                                        <button
+                                            key={community.id}
+                                            onClick={() => {
+                                                setSelectedCommunity(community);
+                                                setCurrentView('community');
+                                                setShowCommunityDropdown(false);
+                                            }}
+                                            className="w-full text-left px-4 py-3 hover:bg-gray-50"
+                                        >
+                                            <div className="flex items-center space-x-3">
+                                                <div
+                                                    className={`w-8 h-8 bg-${community.theme}-100 rounded-full flex items-center justify-center`}
+                                                >
+                                                    <span>{community.logo}</span>
+                                                </div>
+                                                <div>
+                                                    <div className="font-medium">{community.name}</div>
+                                                    <div className="text-sm text-gray-500">
+                                                        {community.members} members
+                                                    </div>
+                                                </div>
+                                                {community.unreadPosts > 0 && (
+                                                    <div className="bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                                                        {community.unreadPosts}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    <div className="flex items-center space-x-4 ">
+                        <div className="relative hidden">
+                            <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                            <input
+                                type="text"
+                                placeholder="Search communities..."
+                                className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                        </div>
+                        <button className="relative p-2 text-gray-600 hover:text-gray-800">
+                            <Bell className="w-5 h-5" />
+                            <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
+                        </button>
+                        <button className="p-2 text-gray-600 hover:text-gray-800">
+                            <Plus className="w-5 h-5" />
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </Sheet>
     );
 
     return (

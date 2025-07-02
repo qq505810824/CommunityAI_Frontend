@@ -16,7 +16,7 @@ export default function PostItem({ post }: ViewProps) {
                 <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                         <span className="font-medium text-blue-700">
-                            {post.owner.name
+                            {post?.owner?.name
                                 .split(' ')
                                 .map((n) => n[0])
                                 .join('')}
@@ -25,10 +25,10 @@ export default function PostItem({ post }: ViewProps) {
 
                     <div className="flex-1">
                         <div className="flex items-center space-x-2 mb-2">
-                            <span className="font-semibold">{post.owner.name}</span>
-                            <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs">
+                            <span className="font-semibold">{post?.owner?.name}</span>
+                            {/* <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs">
                                 {post.role}
-                            </span>
+                            </span> */}
                             <span className="text-sm text-gray-500">
                                 {moment(post.created_at).fromNow()}
                             </span>

@@ -33,12 +33,17 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
             mutate();
         }
     }, [filters]);
+
+    const handleRefresh = () => {
+        mutate();
+    }
     return (
         <>
             <ChannelDetailView
                 {...{
                     channel,
-                    posts: data
+                    posts: data,
+                    handleRefresh
                 }}
             />
         </>
