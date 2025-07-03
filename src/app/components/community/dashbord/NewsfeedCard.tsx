@@ -27,7 +27,7 @@ export default function NewsfeedCard({ item }: ViewProps) {
                     </div>
                 ) : (
                     <div>
-                        <div className="flex items-center space-x-2 mb-3">
+                        <div className="flex items-center flex-wrap space-y-1 space-x-2 mb-3">
                             {item?.type === 'channel-post' && (
                                 <Hash className="w-4 h-4 text-blue-500" />
                             )}
@@ -37,7 +37,7 @@ export default function NewsfeedCard({ item }: ViewProps) {
                             {item?.type === 'event-reminder' && (
                                 <CalendarIcon className="w-4 h-4 text-purple-500" />
                             )}
-
+                            <Hash className="w-4 h-4 text-blue-500" />
                             <span className="font-medium text-gray-800">
                                 {item?.owner?.name || item?.community?.name}
                             </span>
