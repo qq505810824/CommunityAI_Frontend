@@ -56,11 +56,15 @@ export const useCommunityData = (options = {}) => {
 };
 
 export const useMyCommunityData = (options: any) => {
-    const { data, error, isLoading, mutate } = useSWR('communitys_' + options?.user_id, () => appsFetcher(options), {
-        revalidateOnFocus: false,
-        revalidateOnReconnect: false,
-        dedupingInterval: 60000 // 1分钟内不重复请求
-    });
+    const { data, error, isLoading, mutate } = useSWR(
+        'communitys_' + options?.user_id,
+        () => appsFetcher(options),
+        {
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false,
+            dedupingInterval: 60000 // 1分钟内不重复请求
+        }
+    );
 
     return {
         data: data as CommunityModel[],

@@ -6,7 +6,7 @@ import { useMyCommunityData } from '@/hooks/useCommunityData';
 import CommunityView from './CommunitysView';
 
 export default function CommunityContainter() {
-    const { user_id } = useAppContext()
+    const { user_id } = useAppContext();
     const { data, isLoading, isError, mutate } = useMyCommunityData({ user_id: user_id });
     const handleRefresh = () => {
         mutate();
