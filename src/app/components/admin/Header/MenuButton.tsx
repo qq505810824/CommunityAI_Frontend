@@ -36,13 +36,12 @@ function MenuButton(props: any) {
                             </div>
                         </Menu.Item>
                     </div>
-                    <div className="px-1">
+                    <div className="px-1 hidden">
                         <Menu.Item>
                             {({ active }) => (
                                 <button
-                                    className={`${
-                                        active ? 'bg-violet-100 text-violet-800' : 'text-gray-900'
-                                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                    className={`${active ? 'bg-violet-100 text-violet-800' : 'text-gray-900'
+                                        } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                     onClick={() => {
                                         router.push('/profile');
                                     }}
@@ -57,9 +56,8 @@ function MenuButton(props: any) {
                         <Menu.Item>
                             {({ active }) => (
                                 <button
-                                    className={`${
-                                        active ? 'bg-red-200 text-red-800' : 'text-gray-900'
-                                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                    className={`${active ? 'bg-red-200 text-red-800' : 'text-gray-900'
+                                        } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                                     onClick={() => {
                                         props?.logout && props?.logout();
                                     }}

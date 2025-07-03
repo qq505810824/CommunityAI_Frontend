@@ -32,6 +32,40 @@ export default function SignIn() {
                 email,
                 password
             });
+            // 2. 获取当前登录用户的ID
+            const userId = data.user?.id;
+            if (!userId) {
+                setLoading(false);
+                console.error('无法获取用户ID');
+                setError("郵箱或密碼錯誤!");
+                return
+            }
+
+            // 3. 查询用户的管理员状态
+            const { data: userData, error: queryError } = await supabase
+                .from('account')
+                .select('role')
+                .eq('id', userId)
+                .single();  // 确保只获取单条记录
+
+            if (queryError || !userData) {
+                setLoading(false);
+                await supabase.auth.signOut();
+                console.error('查询用户信息失败:', queryError?.message);
+                setError("無法驗證權限，請聯繫管理員");
+                return
+            }
+
+            // 4. 检查管理员标志
+            if (userData.role !== 'admin') {
+                console.warn(`非管理员尝试访问: ${email}`);
+                setLoading(false);
+                // 可选：强制登出非管理员用户
+                await supabase.auth.signOut();
+                setError("無法驗證權限，請聯繫管理員");
+                return
+            }
+
             // console.log('user data', data);
             if (data && data.user && data.user.id) {
                 localStorage?.setItem('admin_id', data.user.id);

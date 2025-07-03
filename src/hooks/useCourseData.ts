@@ -53,14 +53,11 @@ export const useCourseData = (options: any) => {
 };
 
 export const useAllCourseData = (options = {}) => {
-    const { data, error, isLoading, mutate } = useSWR('courses',
-        () => appsFetcher(options),
-        {
-            revalidateOnFocus: false,
-            revalidateOnReconnect: false,
-            dedupingInterval: 60000 // 1分钟内不重复请求
-        }
-    );
+    const { data, error, isLoading, mutate } = useSWR('courses', () => appsFetcher(options), {
+        revalidateOnFocus: false,
+        revalidateOnReconnect: false,
+        dedupingInterval: 60000 // 1分钟内不重复请求
+    });
 
     return {
         data: data as CourseModel[],

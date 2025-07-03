@@ -1,4 +1,3 @@
-
 import CourseItem from '@/app/components/admin/courses/CourseItem';
 import TableSheet from '@/app/components/base/table';
 import SearchInputView from '@/app/components/common/Views/SearchInputView';
