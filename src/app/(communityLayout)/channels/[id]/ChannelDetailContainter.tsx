@@ -13,7 +13,7 @@ interface ViewProps {
 
 export default function ChannelDetailContainter({ meta }: ViewProps) {
     const [channel, setChannel] = useState<ChannelModel>();
-    const { user_id } = useAppContext()
+    const { user_id } = useAppContext();
 
     const [filters, setFilters] = useState<any>({
         channel_id: '',

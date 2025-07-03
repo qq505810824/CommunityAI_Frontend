@@ -52,6 +52,25 @@ export const useChannelData = (options?: any) => {
     };
 };
 
+export const useAllChannelData = (options?: any) => {
+    const { data, error, isLoading, mutate } = useSWR(
+        'channels',
+        () => appsFetcher(options),
+        {
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false,
+            dedupingInterval: 60000 // 1分钟内不重复请求
+        }
+    );
+
+    return {
+        data: data as ChannelModel[],
+        isLoading,
+        isError: error,
+        mutate
+    };
+};
+
 // 自定义 hook 使用 SWR 获取所有应用
 export const randomChannelData = (options = {}) => {
     const { data, error, isLoading, mutate } = useSWR(() => options, getRandomApps, {

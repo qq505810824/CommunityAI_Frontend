@@ -1,28 +1,28 @@
 import { useModalContext } from '@/context/modal-context';
 import { usePromptOperations } from '@/hooks/usePromptData';
-import { CommunityModel } from '@/models/Community';
+import { CourseModel } from '@/models/Course';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { Tooltip } from '@mui/joy';
 import { useRouter } from 'next/navigation';
 interface ViewProps {
-    product: CommunityModel;
+    product: CourseModel;
     onDelete: () => void;
     onUpdataStatus: any;
 }
 
-export default function CommunityItem(props: ViewProps) {
+export default function CourseItem(props: ViewProps) {
     const { product, onDelete, onUpdataStatus } = props;
     const router = useRouter();
     const { updatePrompt } = usePromptOperations();
     const { setShowConfirmDelete } = useModalContext();
     const handleClick = () => {
         if (product) {
-            window.open(`/community/${product.id}`, '_blank');
+            window.open(`/Course/${product.id}`, '_blank');
         }
     };
 
     const handleEdit = () => {
-        if (product) router.push(`/admin/communitys/${product.id}/edit`);
+        if (product) router.push(`/admin/Courses/${product.id}/edit`);
     };
 
     const handleDelete = () => {
@@ -52,21 +52,21 @@ export default function CommunityItem(props: ViewProps) {
         <>
             <tr>
                 <td>
-                    <Tooltip title={product.name}>
+                    <Tooltip title={product.title}>
                         <div
                             className="text-ellipsis overflow-hidden text-blue-500 underline cursor-pointer"
                             onClick={handleClick}
                         >
-                            {product.name}
+                            {product.title}
                         </div>
                     </Tooltip>
                 </td>
-                {/* <td>{product.category}</td> */}
+                <td>{product.community?.name}</td>
 
-                <td>{product.channels_count}</td>
+                {/* <td>{product.channels_count}</td>
                 <td>{product.courses_count}</td>
                 <td>{product.events_count}</td>
-                <td>{product.publish ? '是' : '否'} </td>
+                // <td>{product.publish ? '是' : '否'} </td> */}
                 <td className={``}>{product?.owner?.name}</td>
                 <td>{product.updated_at}</td>
                 <td>

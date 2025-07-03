@@ -12,16 +12,16 @@ interface ViewProps {
 
 export default function PostItem({ post }: ViewProps) {
     const { activeTab, setActiveTab } = useAppDetailContext();
-    const { likePost } = usePostOperations()
-    const { user_id } = useAppContext()
-    const [isLike, setIsLike] = useState(post?.is_favorit)
-    const [likes, setLikes] = useState(post.favorit_count || 0)
+    const { likePost } = usePostOperations();
+    const { user_id } = useAppContext();
+    const [isLike, setIsLike] = useState(post?.is_favorit);
+    const [likes, setLikes] = useState(post.favorit_count || 0);
     const handleLike = async () => {
-        if (isLike) return
-        setLikes((likes: number) => likes + 1)
-        setIsLike(true)
-        const res = await likePost(post.id || 0, user_id)
-    }
+        if (isLike) return;
+        setLikes((likes: number) => likes + 1);
+        setIsLike(true);
+        const res = await likePost(post.id || 0, user_id);
+    };
 
     return (
         <>
@@ -75,8 +75,10 @@ export default function PostItem({ post }: ViewProps) {
                         )} */}
 
                         <div className="flex items-center space-x-4">
-                            <button className={`flex items-center space-x-2 text-gray-500 hover:text-red-500 ${isLike ? 'text-red-500' : 'text-gray-500'}`}
-                                onClick={handleLike}>
+                            <button
+                                className={`flex items-center space-x-2 text-gray-500 hover:text-red-500 ${isLike ? 'text-red-500' : 'text-gray-500'}`}
+                                onClick={handleLike}
+                            >
                                 <Heart className="w-4 h-4" />
                                 <span>{likes || 0}</span>
                             </button>

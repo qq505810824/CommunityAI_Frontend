@@ -11,7 +11,7 @@ export const getAllApps = async (options?: any) => {
     try {
         // console.log('options', options);
 
-        let query = supabase.from(db).select('*,owner(id,name)');
+        let query = supabase.from(db).select('*,owner(id,name),community(id,name)');
 
         if (options && options.community_id) {
             query = query.eq('community', options.community_id);
@@ -78,7 +78,7 @@ export const getAppDetail = async (id: number, accountId?: string) => {
         // 构建查询任务数组
         const tasks = [
             // supabase.rpc('increment_view', { row_id: id }),
-            supabase.from(db).select('*,owner(id,name)').eq('id', id).single()
+            supabase.from(db).select('*,owner(id,name),community(id,name)').eq('id', id).single()
         ];
 
         // 如果有用户ID，添加收藏状态查询
@@ -219,7 +219,7 @@ export const searchApp = async (options?: any) => {
             query = query.or(`status.like.%${options?.status || ''}`);
         }
         query = query.or(
-            `name.ilike.%${options?.keyword || ''}%,description.ilike.%${options?.keyword || ''}%`
+            `title.ilike.%${options?.keyword || ''}%,description.ilike.%${options?.keyword || ''}%`
         );
 
         const { data, error } = await query;

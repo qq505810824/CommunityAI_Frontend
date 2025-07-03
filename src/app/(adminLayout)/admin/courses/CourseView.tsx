@@ -1,7 +1,8 @@
-import CommunityItem from '@/app/components/admin/communitys/CommunityItem';
+
+import CourseItem from '@/app/components/admin/courses/CourseItem';
 import TableSheet from '@/app/components/base/table';
 import SearchInputView from '@/app/components/common/Views/SearchInputView';
-import { CommunityModel } from '@/models/Community';
+import { CourseModel } from '@/models/Course';
 import { Typography } from '@mui/joy';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -9,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 interface ViewProps {
     data: any;
     isLoading: any;
-    products: CommunityModel[];
+    products: CourseModel[];
     onClose: () => void;
     handleSearch: any;
     searching?: boolean;
@@ -17,7 +18,7 @@ interface ViewProps {
     onUpdataStatus: (id: number, status: string) => void;
 }
 
-function CommunityView(props: ViewProps) {
+function CourseView(props: ViewProps) {
     const { isLoading, products, onClose, handleSearch, searching, onDelete, onUpdataStatus } =
         props;
     const router = useRouter();
@@ -26,7 +27,7 @@ function CommunityView(props: ViewProps) {
     return (
         <React.Fragment>
             <div className="w-full flex justify-between items-center my-4">
-                <Typography level="h3">Community 列表</Typography>
+                <Typography level="h3">Course 列表</Typography>
                 {/* <Button
                     variant="solid"
                     color="primary"
@@ -52,11 +53,7 @@ function CommunityView(props: ViewProps) {
                     <thead>
                         <tr>
                             <th className="text-center w-[200px]">名稱</th>
-                            {/* <th className="text-center w-[60px]">類型</th> */}
-                            <th className="text-center w-[60px]">channels</th>
-                            <th className="text-center w-[60px]">courses</th>
-                            <th className="text-center w-[60px]">events</th>
-                            <th className="text-center w-[60px]">公开</th>
+                            <th className="text-center w-[60px]">community</th>
                             <th className="text-center w-[100px]">创建者</th>
                             <th className="text-center whitespace-nowrap w-[100px]">更新时间</th>
                             <th className="text-center whitespace-nowrap w-[200px]">操作</th>
@@ -64,7 +61,7 @@ function CommunityView(props: ViewProps) {
                     </thead>
                     <tbody>
                         {products?.map((row: any) => (
-                            <CommunityItem
+                            <CourseItem
                                 product={row}
                                 key={row.id}
                                 onDelete={() => onDelete(row.id)}
@@ -84,4 +81,4 @@ function CommunityView(props: ViewProps) {
     );
 }
 
-export default CommunityView;
+export default CourseView;

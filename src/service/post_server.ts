@@ -13,7 +13,9 @@ export const getAllApps = async (options?: any) => {
 
         let query = supabase
             .from(db)
-            .select('*,owner(id,name),channel(id,name),community(id,name),account_post:account_post(post_id,account_id)');
+            .select(
+                '*,owner(id,name),channel(id,name),community(id,name),account_post:account_post(post_id,account_id)'
+            );
 
         if (options?.account_id) {
             // 只查当前用户的 like 关系
@@ -62,10 +64,10 @@ export const getAllApps = async (options?: any) => {
 
         // 只返回 is_liked 字段
         const result = Array.isArray(data)
-            ? data.map(post => ({
-                ...post,
-                is_favorit: Array.isArray(post.account_post) && post.account_post.length > 0
-            }))
+            ? data.map((post) => ({
+                  ...post,
+                  is_favorit: Array.isArray(post.account_post) && post.account_post.length > 0
+              }))
             : [];
 
         return { data: result, error: null };
@@ -168,7 +170,9 @@ export const likeApp = async (id: number, accountId?: string) => {
     try {
         let result;
 
-        const { data, error } = await supabase.rpc('handle_like_post', { p_account_id: accountId, p_post_id: id }).single();
+        const { data, error } = await supabase
+            .rpc('handle_like_post', { p_account_id: accountId, p_post_id: id })
+            .single();
 
         if (error) throw error;
         result = { data, error: null };
@@ -192,7 +196,9 @@ export const updateApp = async (id: number, appData: Partial<PostModel>, account
             if (error) throw error;
             result = { data, error: null };
         } else if ('like' in appData) {
-            const { data, error } = await supabase.rpc('handle_like_post', { p_account_id: id, p_post_id: id }).single();
+            const { data, error } = await supabase
+                .rpc('handle_like_post', { p_account_id: id, p_post_id: id })
+                .single();
 
             if (error) throw error;
             result = { data, error: null };

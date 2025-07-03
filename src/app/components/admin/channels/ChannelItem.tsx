@@ -1,28 +1,28 @@
 import { useModalContext } from '@/context/modal-context';
 import { usePromptOperations } from '@/hooks/usePromptData';
-import { CommunityModel } from '@/models/Community';
+import { ChannelModel } from '@/models/Channel';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
 import { Tooltip } from '@mui/joy';
 import { useRouter } from 'next/navigation';
 interface ViewProps {
-    product: CommunityModel;
+    product: ChannelModel;
     onDelete: () => void;
     onUpdataStatus: any;
 }
 
-export default function CommunityItem(props: ViewProps) {
+export default function ChannelItem(props: ViewProps) {
     const { product, onDelete, onUpdataStatus } = props;
     const router = useRouter();
     const { updatePrompt } = usePromptOperations();
     const { setShowConfirmDelete } = useModalContext();
     const handleClick = () => {
         if (product) {
-            window.open(`/community/${product.id}`, '_blank');
+            window.open(`/Channel/${product.id}`, '_blank');
         }
     };
 
     const handleEdit = () => {
-        if (product) router.push(`/admin/communitys/${product.id}/edit`);
+        if (product) router.push(`/admin/Channels/${product.id}/edit`);
     };
 
     const handleDelete = () => {
@@ -61,12 +61,12 @@ export default function CommunityItem(props: ViewProps) {
                         </div>
                     </Tooltip>
                 </td>
-                {/* <td>{product.category}</td> */}
+                <td>{product.community?.name}</td>
 
-                <td>{product.channels_count}</td>
-                <td>{product.courses_count}</td>
+                {/* <td>{product.channels_count}</td>
+                <td>{product.Channels_count}</td>
                 <td>{product.events_count}</td>
-                <td>{product.publish ? '是' : '否'} </td>
+                // <td>{product.publish ? '是' : '否'} </td> */}
                 <td className={``}>{product?.owner?.name}</td>
                 <td>{product.updated_at}</td>
                 <td>

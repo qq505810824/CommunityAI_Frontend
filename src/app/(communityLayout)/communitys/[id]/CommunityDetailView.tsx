@@ -19,7 +19,7 @@ interface ViewProps {
 export default function CommunityDetailView({ community }: ViewProps) {
     const { activeTab, setActiveTab } = useAppDetailContext();
     const searchParams = useSearchParams();
-    const router = useRouter()
+    const router = useRouter();
     // const [activeTab, setActiveTab] = useState('discussions');
 
     useEffect(() => {
@@ -63,7 +63,6 @@ export default function CommunityDetailView({ community }: ViewProps) {
                     className={`bg-gradient-to-r from-${community?.theme}-500 to-${community?.theme}-600`}
                 >
                     <div className="max-w-7xl mx-auto px-2 py-4 sm:px-6 sm:py-8">
-
                         <div className="flex items-center space-x-2 mb-6">
                             <button
                                 onClick={() => router.back()}
