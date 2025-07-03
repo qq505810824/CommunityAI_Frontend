@@ -9,7 +9,7 @@ import DashbordView from './DashbordView';
 export default function DashbordContainer() {
     const { data, isLoading, isError, mutate } = useCommunityData();
 
-    const { data: logData, mutate: logmutate } = useAllPostData({});
+    const { data: logData, mutate: logmutate } = useAllPostData({ limit: 10 });
 
     useEffect(() => {
         console.log('logData', logData);

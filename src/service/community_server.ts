@@ -13,6 +13,10 @@ export const getAllApps = async (options?: any) => {
 
         let query = supabase.from(db).select('*,owner(id,name)');
 
+        if (options && options.user_id) {
+            query = query.eq('owner', options.user_id);
+        }
+
         if (options && options.category) {
             query = query.eq('category', options.category);
         }

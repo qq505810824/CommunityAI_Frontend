@@ -13,10 +13,14 @@ export const getAllApps = async (options?: any) => {
 
         let query = supabase
             .from(db)
-            .select('*,owner(id,name),channel(id,name),community(id,name)');
+            .select('*,owner(id,name),channel(id,name),community(id,name)')
 
         if (options && options.channel_id) {
             query = query.eq('channel', options.channel_id);
+        }
+
+        if (options && options.limit) {
+            query = query.limit(options.limit);
         }
 
         if (options && options.category) {

@@ -1,11 +1,13 @@
 'use client';
 
 import Loading from '@/app/components/base/loading';
-import { useCommunityData } from '@/hooks/useCommunityData';
+import { useAppContext } from '@/context/app-context';
+import { useMyCommunityData } from '@/hooks/useCommunityData';
 import CommunityView from './CommunitysView';
 
 export default function CommunityContainter() {
-    const { data, isLoading, isError, mutate } = useCommunityData();
+    const { user_id } = useAppContext()
+    const { data, isLoading, isError, mutate } = useMyCommunityData({ user_id: user_id });
     const handleRefresh = () => {
         mutate();
     };
