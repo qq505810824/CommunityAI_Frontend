@@ -132,13 +132,29 @@ export const getAppDetailById = async (id: number) => {
 
 export const createApp = async (appData: Omit<CourseModel, 'id'>) => {
     try {
-        const { data, error } = await supabase.from(db).insert([appData]).select();
+        const tasks = [
+            supabase.rpc('increment_community_course', { community_id: appData.community }),
+            supabase.from(db).insert([appData]).select()
+        ];
 
-        if (error) {
-            throw error;
-        }
+        const [detailResult, createResult] = await Promise.all(tasks);
+        // console.log('collectResult', collectResult);
 
-        return { success: true, data };
+        return {
+            success: true,
+            data: {
+                ...createResult.data
+            },
+            error: null
+        };
+
+        // const { data, error } = await supabase.from(db).insert([appData]).select();
+
+        // if (error) {
+        //     throw error;
+        // }
+
+        // return { success: true, data };
     } catch (error) {
         console.error('创建应用失败:', error);
         return { success: false, error };

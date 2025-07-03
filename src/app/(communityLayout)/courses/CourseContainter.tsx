@@ -1,5 +1,6 @@
 'use client';
 
+import Loading from '@/app/components/base/loading';
 import { useCourseData } from '@/hooks/useCourseData';
 import { useParams } from 'next/navigation';
 import { useEffect } from 'react';
@@ -15,6 +16,7 @@ export default function CourseContainter() {
         }
     }, [params]);
 
+    if (isLoading) return <Loading type="app" />;
     return (
         <>
             <CourseView

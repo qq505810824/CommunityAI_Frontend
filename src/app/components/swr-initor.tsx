@@ -14,11 +14,12 @@ const SwrInitor = ({ children }: SwrInitorProps) => {
     // const consoleToken = searchParams.get('console_token')
     const consoleTokenFromLocalStorage = localStorage?.getItem('authorization');
     const [init, setInit] = useState(false);
+    const user_id = localStorage?.getItem('user_id');
 
     useEffect(() => {
         // console.log('consoleToken', consoleToken);
         // console.log('consoleTokenFromLocalStorage', consoleTokenFromLocalStorage);
-
+        if (!user_id) router.replace('/signin');
         // if (!consoleTokenFromLocalStorage) router.replace('/signin');
 
         // if (consoleToken) {

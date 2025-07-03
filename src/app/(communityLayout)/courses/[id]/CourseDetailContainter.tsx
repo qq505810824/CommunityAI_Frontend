@@ -1,5 +1,6 @@
 'use client';
 
+import Loading from '@/app/components/base/loading';
 import { useCourseDetailData } from '@/hooks/useCourseData';
 import { ChannelModel } from '@/models/Channel';
 import { useEffect, useState } from 'react';
@@ -26,6 +27,8 @@ export default function CourseDetailContainter({ meta }: ViewProps) {
             mutate();
         }
     }, [course_id]);
+
+    if (isLoading) return <Loading type="app" />;
     return (
         <>
             <CourseDetailView

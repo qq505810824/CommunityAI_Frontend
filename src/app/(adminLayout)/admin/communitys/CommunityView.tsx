@@ -63,7 +63,7 @@ function CommunityView(props: ViewProps) {
                         </tr>
                     </thead>
                     <tbody>
-                        {products.map((row) => (
+                        {products?.map((row: any) => (
                             <CommunityItem
                                 product={row}
                                 key={row.id}

@@ -1,5 +1,6 @@
 'use client';
 
+import Loading from '@/app/components/base/loading';
 import { useChannelData } from '@/hooks/useChannelData';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -22,6 +23,7 @@ export default function ChannelContainter() {
         }
     }, [router]);
 
+    if (isLoading) return <Loading type="app" />;
     return (
         <>
             <ChannelView

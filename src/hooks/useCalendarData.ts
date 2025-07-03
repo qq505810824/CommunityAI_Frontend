@@ -93,7 +93,7 @@ const appDetailFetcher = async (id: number, accountId?: string) => {
 
 export const useCalendarDetailData = (id: number, accountId?: string, options = {}) => {
     const { data, error, isLoading, mutate } = useSWR(
-        'detail_calendar_' + id,
+        id ? 'detail_calendar_' + id : null,
         () => appDetailFetcher(id, accountId),
         {
             revalidateOnFocus: false,

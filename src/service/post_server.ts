@@ -11,7 +11,9 @@ export const getAllApps = async (options?: any) => {
     try {
         // console.log('options', options);
 
-        let query = supabase.from(db).select('*,owner(id,name)');
+        let query = supabase
+            .from(db)
+            .select('*,owner(id,name),channel(id,name),community(id,name)');
 
         if (options && options.channel_id) {
             query = query.eq('channel', options.channel_id);

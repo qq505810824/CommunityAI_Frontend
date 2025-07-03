@@ -33,7 +33,7 @@ const appsFetcher = async (options?: {}) => {
 };
 
 // 自定义 hook 使用 SWR 获取所有应用
-export const useChannelData = (options: any) => {
+export const useChannelData = (options?: any) => {
     const { data, error, isLoading, mutate } = useSWR(
         'channels_' + options?.community_id,
         () => appsFetcher(options),

@@ -1,6 +1,10 @@
+import { RefreshCcwIcon } from 'lucide-react';
 import NewsfeedCard from './NewsfeedCard';
-
-export default function NewsfeedLayout() {
+interface ViewProps {
+    newsfeeds: any[];
+    handleRefreshLogs: () => void;
+}
+export default function NewsfeedLayout({ newsfeeds, handleRefreshLogs }: ViewProps) {
     const newsfeedData = [
         {
             id: 1,
@@ -11,7 +15,7 @@ export default function NewsfeedLayout() {
             content:
                 '🎉 New advanced SEO course launching next week! Premium members get early access.',
             timestamp: '2 hours ago',
-            likes: 24,
+            likes: 0,
             isAIGenerated: false
         },
         {
@@ -46,14 +50,16 @@ export default function NewsfeedLayout() {
     return (
         <>
             <div className="bg-white rounded-xl shadow-sm border ">
-                <div className="p-6 border-b">
+                <div className="p-6 border-b flex items-center justify-between">
                     <h3 className="text-xl font-semibold text-gray-800">Community Updates</h3>
+                    <RefreshCcwIcon
+                        className="w-5 text-gray-500 cursor-pointer"
+                        onClick={handleRefreshLogs}
+                    />
                 </div>
 
                 <div className="divide-y">
-                    {newsfeedData.map((item, index) => (
-                        <NewsfeedCard item={item} key={index} />
-                    ))}
+                    {newsfeeds?.map((item, index) => <NewsfeedCard item={item} key={index} />)}
                 </div>
             </div>
         </>

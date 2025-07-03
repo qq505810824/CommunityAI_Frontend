@@ -187,9 +187,9 @@ export default function HeaderView() {
                             <Bell className="w-5 h-5" />
                             <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
                         </button>
-                        <button className="p-2 text-gray-600 hover:text-gray-800">
+                        {/* <button className="p-2 text-gray-600 hover:text-gray-800">
                             <Plus className="w-5 h-5" />
-                        </button>
+                        </button> */}
 
                         {userProfile?.id != '' ? (
                             <div className="flex justify-end items-center col-span-3 md:col-span-4">

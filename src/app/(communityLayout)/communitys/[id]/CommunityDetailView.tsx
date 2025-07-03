@@ -1,3 +1,4 @@
+import Loading from '@/app/components/base/loading';
 import { CommunityModel } from '@/models/Community';
 import { BookOpen, Calendar as CalendarIcon, Hash } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
@@ -46,11 +47,12 @@ export default function CommunityDetailView({ community }: ViewProps) {
             case 'events':
                 return <EventContainter />;
             case 'event-detail':
-                return <EventDetailContainter />;
+                return <EventDetailContainter meta={activeTab.meta} />;
             default:
                 return <ChannelContainter />;
         }
     };
+    if (!community) return <Loading type="app" />;
     return (
         <>
             <div className="flex-1  bg-gray-50">
@@ -61,10 +63,12 @@ export default function CommunityDetailView({ community }: ViewProps) {
                     <div className="max-w-7xl mx-auto px-6 py-8">
                         <div className="flex items-center space-x-4 mb-6">
                             <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-2xl">
-                                {community?.logo}
+                                {community?.logo || '💪'}
                             </div>
                             <div>
-                                <h1 className="text-xl sm:text-3xl font-bold">{community?.name}</h1>
+                                <h1 className="text-xl sm:text-3xl font-bold">
+                                    {community?.name || '--'}
+                                </h1>
                                 <p className="text-gray-500 text-opacity-90">
                                     {community?.accounts_count} members
                                 </p>

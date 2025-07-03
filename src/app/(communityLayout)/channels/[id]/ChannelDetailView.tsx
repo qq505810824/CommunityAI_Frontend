@@ -86,7 +86,8 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
                 <PostFormView
                     payload={{
                         channel: channel?.id,
-                        owner: user_id
+                        owner: user_id,
+                        community: channel?.community?.id
                     }}
                     cancel={() => {
                         setVisibleCreatePost(false);

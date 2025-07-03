@@ -12,11 +12,12 @@ import { useRouter } from 'next/navigation';
 import './style.css';
 
 interface ViewProps {
+    back?: any;
     product: CalendarModel | undefined;
 }
 
 function CalendarDetailView(props: ViewProps) {
-    const { product } = props;
+    const { back, product } = props;
     const router = useRouter();
 
     return (
@@ -26,7 +27,11 @@ function CalendarDetailView(props: ViewProps) {
                     <BackView
                         title="Back"
                         onClick={() => {
-                            router.push('/calendar');
+                            if (back) {
+                                back();
+                            } else {
+                                router.push('/calendar');
+                            }
                         }}
                     />
                     <div className="w-full  flex flex-col sm:flex-row justify-center space-y-4   sm:space-x-8 ">

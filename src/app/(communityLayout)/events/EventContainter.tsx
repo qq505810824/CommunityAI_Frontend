@@ -1,5 +1,6 @@
 'use client';
 
+import Loading from '@/app/components/base/loading';
 import useAlert from '@/hooks/useAlert';
 import {
     showCalendarValues,
@@ -43,7 +44,7 @@ function EventContainter() {
 
     useEffect(() => {
         if (filters) {
-            console.log('filters', filters);
+            // console.log('filters', filters);
             mutate();
         }
     }, [filters]);
@@ -101,6 +102,7 @@ function EventContainter() {
             setProducts(newData);
         }
     };
+    if (isLoading) return <Loading type="app" />;
     return (
         <EventView
             {...{

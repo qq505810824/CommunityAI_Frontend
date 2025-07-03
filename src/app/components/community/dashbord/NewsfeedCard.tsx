@@ -1,12 +1,5 @@
-import {
-    BookOpen,
-    Calendar as CalendarIcon,
-    Hash,
-    Heart,
-    MessageSquare,
-    Share2,
-    Zap
-} from 'lucide-react';
+import { BookOpen, Calendar as CalendarIcon, Hash, Heart, Zap } from 'lucide-react';
+import moment from 'moment';
 
 interface ViewProps {
     item: any;
@@ -28,51 +21,55 @@ export default function NewsfeedCard({ item }: ViewProps) {
                                     AI Generated
                                 </span>
                             </div>
-                            <p className="text-gray-700 mb-2">{item.content}</p>
-                            <span className="text-sm text-gray-500">{item.timestamp}</span>
+                            <p className="text-gray-700 mb-2">{item?.content}</p>
+                            <span className="text-sm text-gray-500">{item?.timestamp}</span>
                         </div>
                     </div>
                 ) : (
                     <div>
                         <div className="flex items-center space-x-2 mb-3">
-                            {item.type === 'channel-post' && (
+                            {item?.type === 'channel-post' && (
                                 <Hash className="w-4 h-4 text-blue-500" />
                             )}
-                            {item.type === 'course-update' && (
+                            {item?.type === 'course-update' && (
                                 <BookOpen className="w-4 h-4 text-green-500" />
                             )}
-                            {item.type === 'event-reminder' && (
+                            {item?.type === 'event-reminder' && (
                                 <CalendarIcon className="w-4 h-4 text-purple-500" />
                             )}
 
                             <span className="font-medium text-gray-800">
-                                {item.author || item.community}
+                                {item?.owner?.name || item?.community?.name}
                             </span>
                             <span className="text-gray-400">•</span>
-                            <span className="text-sm text-gray-500">{item.community}</span>
-                            {item.channel && (
+                            <span className="text-sm text-gray-500">{item?.community?.name}</span>
+                            {item?.channel && (
                                 <>
                                     <span className="text-gray-400">•</span>
-                                    <span className="text-sm text-gray-500">#{item.channel}</span>
+                                    <span className="text-sm text-gray-500">
+                                        #{item?.channel.name}
+                                    </span>
                                 </>
                             )}
                             <span className="text-gray-400">•</span>
-                            <span className="text-sm text-gray-500">{item.timestamp}</span>
+                            <span className="text-sm text-gray-500">
+                                {moment(item.created_at).fromNow()}
+                            </span>
                         </div>
-                        <p className="text-gray-700 mb-4">{item.content}</p>
+                        <p className="text-gray-700 mb-4">{item?.title}</p>
                         <div className="flex items-center space-x-6">
                             <button className="flex items-center space-x-2 text-gray-500 hover:text-red-500">
                                 <Heart className="w-4 h-4" />
-                                <span>{item.likes || 0}</span>
+                                <span>{item?.likes || 0}</span>
                             </button>
-                            <button className="flex items-center space-x-2 text-gray-500 hover:text-blue-500">
+                            {/* <button className="flex items-center space-x-2 text-gray-500 hover:text-blue-500">
                                 <MessageSquare className="w-4 h-4" />
                                 <span>Comment</span>
-                            </button>
-                            <button className="flex items-center space-x-2 text-gray-500 hover:text-green-500">
+                            </button> */}
+                            {/* <button className="flex items-center space-x-2 text-gray-500 hover:text-green-500">
                                 <Share2 className="w-4 h-4" />
                                 <span>Share</span>
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 )}

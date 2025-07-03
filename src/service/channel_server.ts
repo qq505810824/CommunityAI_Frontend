@@ -11,7 +11,7 @@ export const getAllApps = async (options?: any) => {
     try {
         // console.log('options', options);
 
-        let query = supabase.from(db).select('*,owner(id,name)');
+        let query = supabase.from(db).select('*,owner(id,name),community(id,name,logo)');
 
         if (options && options.community_id) {
             query = query.eq('community', options.community_id);
@@ -32,7 +32,7 @@ export const getAllApps = async (options?: any) => {
 
         // const { data, error } = await query;
         query = query.order(options?.order || 'created_at', {
-            ascending: options.direction == 'asc' ? true : false
+            ascending: options?.direction == 'asc' ? true : false
         });
 
         const { data, error } = await query;
@@ -132,13 +132,29 @@ export const getAppDetailById = async (id: number) => {
 
 export const createApp = async (appData: Omit<ChannelModel, 'id'>) => {
     try {
-        const { data, error } = await supabase.from(db).insert([appData]).select();
+        const tasks = [
+            supabase.rpc('increment_community_channel', { community_id: appData.community }),
+            supabase.from(db).insert([appData]).select()
+        ];
 
-        if (error) {
-            throw error;
-        }
+        const [detailResult, createResult] = await Promise.all(tasks);
+        // console.log('collectResult', collectResult);
 
-        return { success: true, data };
+        return {
+            success: true,
+            data: {
+                ...createResult.data
+            },
+            error: null
+        };
+
+        // const { data, error } = await supabase.from(db).insert([appData]).select();
+
+        // if (error) {
+        //     throw error;
+        // }
+
+        // return { success: true, data };
     } catch (error) {
         console.error('创建应用失败:', error);
         return { success: false, error };

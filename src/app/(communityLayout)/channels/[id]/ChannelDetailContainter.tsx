@@ -1,5 +1,6 @@
 'use client';
 
+import Loading from '@/app/components/base/loading';
 import { usePostData } from '@/hooks/usePostData';
 import { ChannelModel } from '@/models/Channel';
 import { useEffect, useState } from 'react';
@@ -37,6 +38,8 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
     const handleRefresh = () => {
         mutate();
     };
+
+    if (isLoading) return <Loading type="app" />;
     return (
         <>
             <ChannelDetailView

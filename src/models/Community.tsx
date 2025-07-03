@@ -1,11 +1,11 @@
 import { AccountModel } from './Account';
 
 export type CommunityModel = {
-    id: number;
+    id?: number;
     name: string;
     description: string;
     region?: string;
-    code: string;
+    code?: string;
     owner: AccountModel;
     logo?: string;
     unreadPosts?: number;
@@ -24,6 +24,6 @@ export type CommunityModel = {
 
     meta?: any;
 
-    created_at: string;
-    updated_at: string;
+    created_at?: string;
+    updated_at?: string;
 };

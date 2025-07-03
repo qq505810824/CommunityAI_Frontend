@@ -1,3 +1,4 @@
+import { useAppDetailContext } from '@/app/(communityLayout)/communitys/[id]/detail-context';
 import { useModalContext } from '@/context/modal-context';
 import { CalendarModel } from '@/models/Calendar';
 import { formatK } from '@/utils/stringUtil';
@@ -13,7 +14,7 @@ export default function CalendarCard(props: ViewProps) {
     const { product } = props;
     const router = useRouter();
     const { setShowConfirmDelete } = useModalContext();
-
+    const { activeTab, setActiveTab } = useAppDetailContext();
     const handleClick = () => {
         // if (user_id === '') {
         //     setShowConfirmDelete({
@@ -31,7 +32,8 @@ export default function CalendarCard(props: ViewProps) {
         // } else {
         //     router.push(`/calendar/${product.id}`);
         // }
-        router.push(`/calendar/${product.id}`);
+        // router.push(`/calendar/${product.id}`);
+        setActiveTab({ name: 'event-detail', meta: { calendar: product } });
     };
 
     return (
