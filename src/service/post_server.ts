@@ -13,7 +13,12 @@ export const getAllApps = async (options?: any) => {
 
         let query = supabase
             .from(db)
-            .select('*,owner(id,name),channel(id,name),community(id,name)');
+            .select('*,owner(id,name),channel(id,name),community(id,name),account_post:account_post(post_id,account_id)');
+
+        if (options?.account_id) {
+            // 只查当前用户的 like 关系
+            query = query.eq('account_post.account_id', options.account_id);
+        }
 
         if (options && options.channel_id) {
             query = query.eq('channel', options.channel_id);
@@ -55,7 +60,15 @@ export const getAllApps = async (options?: any) => {
             throw error;
         }
 
-        return { data, error: null };
+        // 只返回 is_liked 字段
+        const result = Array.isArray(data)
+            ? data.map(post => ({
+                ...post,
+                is_favorit: Array.isArray(post.account_post) && post.account_post.length > 0
+            }))
+            : [];
+
+        return { data: result, error: null };
     } catch (error) {
         console.error('获取应用列表失败:', error);
         return { data: null, error };
@@ -151,7 +164,23 @@ export const createApp = async (appData: Omit<PostModel, 'id'>) => {
     }
 };
 
-export const updateApp = async (id: number, appData: Partial<PostModel>) => {
+export const likeApp = async (id: number, accountId?: string) => {
+    try {
+        let result;
+
+        const { data, error } = await supabase.rpc('handle_like_post', { p_account_id: accountId, p_post_id: id }).single();
+
+        if (error) throw error;
+        result = { data, error: null };
+
+        return { success: true, data: result.data };
+    } catch (error) {
+        console.error('更新应用失败:', error);
+        return { success: false, error };
+    }
+};
+
+export const updateApp = async (id: number, appData: Partial<PostModel>, accountId?: string) => {
     try {
         let result;
         // 如果是更新 focus，使用 RPC
@@ -162,8 +191,8 @@ export const updateApp = async (id: number, appData: Partial<PostModel>) => {
 
             if (error) throw error;
             result = { data, error: null };
-        } else if ('copy' in appData) {
-            const { data, error } = await supabase.rpc('increment_copy', { row_id: id }).single();
+        } else if ('like' in appData) {
+            const { data, error } = await supabase.rpc('handle_like_post', { p_account_id: id, p_post_id: id }).single();
 
             if (error) throw error;
             result = { data, error: null };

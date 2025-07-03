@@ -6,6 +6,7 @@ import {
     getAppDetail,
     getAppDetailById,
     getRandomApps,
+    likeApp,
     searchApp,
     statisticsApp,
     updateApp
@@ -181,12 +182,18 @@ export const usePostOperations = () => {
         });
     };
 
+    const likePost = async (id: number, accountId: string) => {
+        return handleAppOperation(async () => {
+            return await likeApp(id, accountId);
+        });
+    };
+
     const mutate = async (options?: any) => {
         return handleAppOperation(async () => {
             return usePostData(options);
         });
     };
-    return { addPost, updatePost, deletePost, searchPost, mutate };
+    return { addPost, updatePost, deletePost, searchPost, likePost, mutate };
 };
 
 // 处理应用操作的通用函数

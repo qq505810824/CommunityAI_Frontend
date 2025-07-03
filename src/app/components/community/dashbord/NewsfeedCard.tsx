@@ -1,11 +1,24 @@
+import { useAppContext } from '@/context/app-context';
+import { usePostOperations } from '@/hooks/usePostData';
 import { BookOpen, Calendar as CalendarIcon, Hash, Heart, Zap } from 'lucide-react';
 import moment from 'moment';
+import { useState } from 'react';
 
 interface ViewProps {
     item: any;
 }
 
 export default function NewsfeedCard({ item }: ViewProps) {
+    const { likePost } = usePostOperations()
+    const { user_id } = useAppContext()
+    const [isLike, setIsLike] = useState(item?.is_favorit)
+    const [likes, setLikes] = useState(item.favorit_count)
+    const handleLike = async () => {
+        if (isLike) return
+        setLikes((likes: number) => likes + 1)
+        setIsLike(true)
+        const res = await likePost(item.id, user_id)
+    }
     return (
         <>
             <div className="p-6">
@@ -58,9 +71,10 @@ export default function NewsfeedCard({ item }: ViewProps) {
                         </div>
                         <p className="text-gray-700 mb-4">{item?.title}</p>
                         <div className="flex items-center space-x-6">
-                            <button className="flex items-center space-x-2 text-gray-500 hover:text-red-500">
+                            <button className={`flex items-center space-x-2 text-gray-500 hover:text-red-500 ${isLike ? 'text-red-500' : 'text-gray-500'}`}
+                                onClick={handleLike}>
                                 <Heart className="w-4 h-4" />
-                                <span>{item?.likes || 0}</span>
+                                <span>{likes || 0}</span>
                             </button>
                             {/* <button className="flex items-center space-x-2 text-gray-500 hover:text-blue-500">
                                 <MessageSquare className="w-4 h-4" />

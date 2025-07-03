@@ -6,7 +6,6 @@ import Box from '@mui/joy/Box';
 import CssBaseline from '@mui/joy/CssBaseline';
 import { CssVarsProvider } from '@mui/joy/styles';
 import HeaderView from '../components/community/header';
-import Sidebar from '../components/community/sidebar';
 
 function SimpleLayout(props: { children: React.ReactNode }) {
     return (
@@ -22,7 +21,7 @@ function SimpleLayout(props: { children: React.ReactNode }) {
             >
                 <HeaderView />
                 <div className="w-full flex   h-full ">
-                    <Sidebar />
+                    {/* <Sidebar /> */}
                     <div className="w-full h-full overflow-y-auto bg-gray-50 pb-12">
                         {props.children}
                     </div>

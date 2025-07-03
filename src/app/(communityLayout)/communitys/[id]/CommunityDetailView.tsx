@@ -1,7 +1,8 @@
 import Loading from '@/app/components/base/loading';
 import { CommunityModel } from '@/models/Community';
+import { ArrowBack } from '@mui/icons-material';
 import { BookOpen, Calendar as CalendarIcon, Hash } from 'lucide-react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import ChannelDetailContainter from '../../channels/[id]/ChannelDetailContainter';
 import ChannelContainter from '../../channels/ChannelContainter';
@@ -18,6 +19,7 @@ interface ViewProps {
 export default function CommunityDetailView({ community }: ViewProps) {
     const { activeTab, setActiveTab } = useAppDetailContext();
     const searchParams = useSearchParams();
+    const router = useRouter()
     // const [activeTab, setActiveTab] = useState('discussions');
 
     useEffect(() => {
@@ -60,9 +62,16 @@ export default function CommunityDetailView({ community }: ViewProps) {
                 <div
                     className={`bg-gradient-to-r from-${community?.theme}-500 to-${community?.theme}-600`}
                 >
-                    <div className="max-w-7xl mx-auto px-6 py-8">
-                        <div className="flex items-center space-x-4 mb-6">
-                            <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-2xl">
+                    <div className="max-w-7xl mx-auto px-2 py-4 sm:px-6 sm:py-8">
+
+                        <div className="flex items-center space-x-2 mb-6">
+                            <button
+                                onClick={() => router.back()}
+                                className="p-2 hover:bg-gray-100 rounded-lg"
+                            >
+                                <ArrowBack className="w-5 h-5" />
+                            </button>
+                            <div className="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-xl sm:text-2xl">
                                 {community?.logo || '💪'}
                             </div>
                             <div>

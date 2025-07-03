@@ -12,7 +12,7 @@ export default function DashbordContainer() {
     const { data: logData, mutate: logmutate } = useAllPostData({ limit: 10 });
 
     useEffect(() => {
-        // console.log('logData', logData);
+        console.log('logData', logData);
     }, [logData]);
     const handleRefresh = () => {
         mutate();

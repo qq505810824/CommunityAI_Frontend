@@ -53,7 +53,7 @@ export default function NewsfeedLayout({ newsfeeds, handleRefreshLogs }: ViewPro
                 <div className="p-6 border-b flex items-center justify-between">
                     <h3 className="text-xl font-semibold text-gray-800">Community Updates</h3>
                     <RefreshCcwIcon
-                        className="w-5 text-gray-500 cursor-pointer"
+                        className="w-5 text-gray-500 hover:text-gray-600 cursor-pointer"
                         onClick={handleRefreshLogs}
                     />
                 </div>

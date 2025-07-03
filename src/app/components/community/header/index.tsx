@@ -102,7 +102,7 @@ export default function HeaderView() {
                     color="neutral"
                     size="sm"
                     sx={{
-                        display: { xs: 'flex', md: 'none' }
+                        display: { xs: 'none', md: 'none' }
                     }}
                 >
                     <MenuIcon />
@@ -183,10 +183,10 @@ export default function HeaderView() {
                                 className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
                         </div>
-                        <button className="relative p-2 text-gray-600 hover:text-gray-800">
+                        {/* <button className="relative p-2 text-gray-600 hover:text-gray-800">
                             <Bell className="w-5 h-5" />
                             <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
-                        </button>
+                        </button> */}
                         {/* <button className="p-2 text-gray-600 hover:text-gray-800">
                             <Plus className="w-5 h-5" />
                         </button> */}
@@ -288,7 +288,7 @@ export default function HeaderView() {
                         </div>
                     </div>
 
-                    <div className="flex items-center space-x-4 ">
+                    <div className="flex items-center space-x-4 hidden ">
                         <div className="relative hidden">
                             <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                             <input

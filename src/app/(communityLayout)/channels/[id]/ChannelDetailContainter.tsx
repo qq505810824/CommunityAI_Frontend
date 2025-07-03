@@ -1,6 +1,7 @@
 'use client';
 
 import Loading from '@/app/components/base/loading';
+import { useAppContext } from '@/context/app-context';
 import { usePostData } from '@/hooks/usePostData';
 import { ChannelModel } from '@/models/Channel';
 import { useEffect, useState } from 'react';
@@ -12,9 +13,11 @@ interface ViewProps {
 
 export default function ChannelDetailContainter({ meta }: ViewProps) {
     const [channel, setChannel] = useState<ChannelModel>();
+    const { user_id } = useAppContext()
 
     const [filters, setFilters] = useState<any>({
-        channel_id: ''
+        channel_id: '',
+        account_id: user_id
     });
     const { data, isLoading, isError, mutate } = usePostData(filters);
 
@@ -28,6 +31,12 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
             setChannel(meta?.channel);
         }
     }, [meta]);
+
+    useEffect(() => {
+        if (data) {
+            console.log('post data', data);
+        }
+    }, [data]);
 
     useEffect(() => {
         if (filters) {

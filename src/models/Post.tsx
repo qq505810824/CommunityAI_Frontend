@@ -14,6 +14,8 @@ export type PostModel = {
     meta?: any;
     role?: string;
 
+    is_favorit?: boolean
+
     created_at?: string;
     updated_at?: string;
 };
