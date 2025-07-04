@@ -197,7 +197,8 @@ export const deleteApp = async (id: number, community_id?: number) => {
         if (community_id) {
             const tasks = [
                 supabase.rpc('decrement_community_course', { community_id: community_id }),
-                supabase.from(db).delete().eq('id', id)]
+                supabase.from(db).delete().eq('id', id)
+            ];
 
             const [detailResult, createResult] = await Promise.all(tasks);
             // console.log('collectResult', collectResult);
@@ -210,8 +211,6 @@ export const deleteApp = async (id: number, community_id?: number) => {
                 error: null
             };
         } else {
-
-
             const { data, error } = await supabase.from(db).delete().eq('id', id);
 
             if (error) {

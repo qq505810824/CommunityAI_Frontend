@@ -13,19 +13,19 @@ export default function JoinCommunityView({ payload, submit, cancel }: ViewProps
     const { joinCommunity, searchCommunity } = useCommunityOperations();
     const { user_id } = useAppContext();
     const [submitting, setSubmitting] = useState(false);
-    const [code, setCode] = useState("")
-    const [error, setError] = useState("")
+    const [code, setCode] = useState('');
+    const [error, setError] = useState('');
 
     const onSubmit = async (e: React.FormEvent) => {
         e.preventDefault(); // 阻止表单自动跳转和刷新
         setSubmitting(true);
-        const res = await searchCommunity({ code: code })
+        const res = await searchCommunity({ code: code });
         if (res.data && res.data.length == 0) {
             setSubmitting(false);
-            setError("Not found")
-            return
+            setError('Not found');
+            return;
         }
-        const community = res.data[0] as CommunityModel
+        const community = res.data[0] as CommunityModel;
         // console.log('res', res);
 
         const joinRes = await joinCommunity({
@@ -36,17 +36,15 @@ export default function JoinCommunityView({ payload, submit, cancel }: ViewProps
         setSubmitting(false);
         // console.log('joinRes', joinRes);
         if (joinRes.error) {
-            setError(joinRes.error.toString())
-            return
+            setError(joinRes.error.toString());
+            return;
         }
 
         submit();
-
     };
 
     return (
         <>
-
             <div className="bg-white border rounded-lg p-6">
                 <h4 className="font-semibold  mb-4">Join an Community</h4>
                 <form onSubmit={onSubmit} className=" ">
@@ -58,13 +56,16 @@ export default function JoinCommunityView({ payload, submit, cancel }: ViewProps
                                 value={code}
                                 name={'code'}
                                 required={true}
-                                onChange={(e) => { setError(""); setCode(e.target.value) }}
+                                onChange={(e) => {
+                                    setError('');
+                                    setCode(e.target.value);
+                                }}
                                 placeholder="code"
                                 className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
                         </div>
                         <div>
-                            {error && <label className=' text-red-500 text-sm'>*{error}</label>}
+                            {error && <label className=" text-red-500 text-sm">*{error}</label>}
                         </div>
                         <div className="flex justify-end space-x-3">
                             <button
@@ -87,5 +88,5 @@ export default function JoinCommunityView({ payload, submit, cancel }: ViewProps
                 </form>
             </div>
         </>
-    )
+    );
 }

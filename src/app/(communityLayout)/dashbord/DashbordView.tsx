@@ -25,7 +25,6 @@ export default function DashbordView({
         setVisibleCreateCommunity(true);
     };
 
-
     const handleJoinCommunity = () => {
         setVisibleJoinCommunity(true);
     };
@@ -40,7 +39,7 @@ export default function DashbordView({
                                 Here's what's happening in your communities
                             </p>
                         </div>
-                        <div className='flex flex-row items-center space-x-2'>
+                        <div className="flex flex-row items-center space-x-2">
                             <button
                                 onClick={() => {
                                     handleCreatCommunity();

@@ -57,6 +57,42 @@ export const getAllApps = async (options?: any) => {
     }
 };
 
+export const getJoinApps = async (options?: any) => {
+    try {
+        // console.log('options', options);
+
+        let query = supabase.from("account_community").select('*,account(*),community(*)');
+
+        if (options && options.user_id) {
+            query = query.eq('account', options.user_id);
+        }
+
+        // const { data, error } = await query;
+        query = query.order(options?.order || 'created_at', {
+            ascending: options.direction == 'asc' ? true : false
+        });
+
+        const { data, error } = await query;
+
+        // const { data, error } = await supabase
+        //     .from(db)
+        //     .select('*')
+        //     .or(`status.like.%${options?.status || ''}`)
+        //     .order(options?.order || 'created_at', {
+        //         ascending: options.direction == 'asc' ? true : false
+        //     });
+
+        if (error) {
+            throw error;
+        }
+
+        return { data, error: null };
+    } catch (error) {
+        console.error('获取应用列表失败:', error);
+        return { data: null, error };
+    }
+};
+
 export const getRandomApps = async (options?: any) => {
     try {
         // console.log('options', options);
@@ -225,17 +261,24 @@ export const searchApp = async (options?: any) => {
 
 export const joinApp = async (appData: any) => {
     if (appData?.account == appData?.owner) {
-        return { success: false, error: "You have joined!" };
+        return { success: false, error: 'You have joined!' };
     }
     try {
-        const { data: detailData } = await supabase.from("account_community").select('*').eq('account', appData?.account).eq('community', appData?.community);
+        const { data: detailData } = await supabase
+            .from('account_community')
+            .select('*')
+            .eq('account', appData?.account)
+            .eq('community', appData?.community);
         if (detailData && detailData.length > 0) {
-            return { success: false, error: "You have joined!" };
+            return { success: false, error: 'You have joined!' };
         }
 
         const tasks = [
             supabase.rpc('increment_community_account', { community_id: appData?.community }),
-            supabase.from("account_community").insert([_.omit(appData, "owner")]).select()
+            supabase
+                .from('account_community')
+                .insert([_.omit(appData, 'owner')])
+                .select()
         ];
 
         // 并行执行所有操作

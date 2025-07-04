@@ -109,7 +109,14 @@ export default function HeaderView() {
                 </IconButton>
                 <div className="w-full flex items-center justify-between px-4 py-0">
                     <div className="flex items-center space-x-4">
-                        <h1 className="text-xl sm:text-2xl font-bold text-gray-800 cursor-pointer" onClick={() => { router.push('/') }}>CommunityAI</h1>
+                        <h1
+                            className="text-xl sm:text-2xl font-bold text-gray-800 cursor-pointer"
+                            onClick={() => {
+                                router.push('/');
+                            }}
+                        >
+                            CommunityAI
+                        </h1>
                         <div className="relative hidden">
                             <button
                                 onClick={() => setShowCommunityDropdown(!showCommunityDropdown)}
@@ -223,7 +230,14 @@ export default function HeaderView() {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <h1 className="text-2xl font-bold text-gray-800 cursor-pointer" onClick={() => { router.push('/') }}>CommunityAI</h1>
+                        <h1
+                            className="text-2xl font-bold text-gray-800 cursor-pointer"
+                            onClick={() => {
+                                router.push('/');
+                            }}
+                        >
+                            CommunityAI
+                        </h1>
                         <div className="relative hidden">
                             <button
                                 onClick={() => setShowCommunityDropdown(!showCommunityDropdown)}

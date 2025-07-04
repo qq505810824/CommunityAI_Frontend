@@ -5,6 +5,7 @@ import {
     getAllApps,
     getAppDetail,
     getAppDetailById,
+    getJoinApps,
     getRandomApps,
     joinApp,
     searchApp,
@@ -40,9 +41,30 @@ const appsFetcher = async (options?: {}) => {
     return data || [];
 };
 
+const appsJoinFetcher = async (options?: {}) => {
+    const { data, error } = await getJoinApps(options);
+    if (error) throw error;
+    return data || [];
+};
+
 // 自定义 hook 使用 SWR 获取所有应用
 export const useCommunityData = (options = {}) => {
     const { data, error, isLoading, mutate } = useSWR('communitys', () => appsFetcher(options), {
+        revalidateOnFocus: false,
+        revalidateOnReconnect: false,
+        dedupingInterval: 60000 // 1分钟内不重复请求
+    });
+
+    return {
+        data: data as CommunityModel[],
+        isLoading,
+        isError: error,
+        mutate
+    };
+};
+
+export const useJoinCommunityData = (options = {}) => {
+    const { data, error, isLoading, mutate } = useSWR('join_communitys', () => appsJoinFetcher(options), {
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
         dedupingInterval: 60000 // 1分钟内不重复请求
@@ -200,7 +222,14 @@ export const useCommunityOperations = () => {
             return useCommunityData(options);
         });
     };
-    return { addCommunity, updateCommunity, deleteCommunity, searchCommunity, mutate, joinCommunity };
+    return {
+        addCommunity,
+        updateCommunity,
+        deleteCommunity,
+        searchCommunity,
+        mutate,
+        joinCommunity
+    };
 };
 
 // 处理应用操作的通用函数
