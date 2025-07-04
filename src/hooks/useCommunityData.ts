@@ -6,6 +6,7 @@ import {
     getAppDetail,
     getAppDetailById,
     getRandomApps,
+    joinApp,
     searchApp,
     statisticsApp,
     updateApp
@@ -172,6 +173,12 @@ export const useCommunityOperations = () => {
         });
     };
 
+    const joinCommunity = async (data: any) => {
+        return handleAppOperation(async () => {
+            return await joinApp(data);
+        });
+    };
+
     const updateCommunity = async (id: number, updatedData: Partial<CommunityModel>) => {
         return handleAppOperation(async () => {
             return await updateApp(id, updatedData);
@@ -193,7 +200,7 @@ export const useCommunityOperations = () => {
             return useCommunityData(options);
         });
     };
-    return { addCommunity, updateCommunity, deleteCommunity, searchCommunity, mutate };
+    return { addCommunity, updateCommunity, deleteCommunity, searchCommunity, mutate, joinCommunity };
 };
 
 // 处理应用操作的通用函数

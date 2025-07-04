@@ -1,5 +1,6 @@
 import { CommunityModel } from '@/models/Community';
 import { createClient } from '@supabase/supabase-js';
+import _ from 'lodash';
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -199,6 +200,9 @@ export const searchApp = async (options?: any) => {
         if (options && options.category) {
             query = query.eq('category', options.category);
         }
+        if (options && options.code) {
+            query = query.eq('code', options.code);
+        }
         if (options && options.status) {
             query = query.or(`status.like.%${options?.status || ''}`);
         }
@@ -216,6 +220,43 @@ export const searchApp = async (options?: any) => {
     } catch (error) {
         console.error('获取应用列表失败:', error);
         return { data: null, error };
+    }
+};
+
+export const joinApp = async (appData: any) => {
+    if (appData?.account == appData?.owner) {
+        return { success: false, error: "You have joined!" };
+    }
+    try {
+        const { data: detailData } = await supabase.from("account_community").select('*').eq('account', appData?.account).eq('community', appData?.community);
+        if (detailData && detailData.length > 0) {
+            return { success: false, error: "You have joined!" };
+        }
+
+        const tasks = [
+            supabase.rpc('increment_community_account', { community_id: appData?.community }),
+            supabase.from("account_community").insert([_.omit(appData, "owner")]).select()
+        ];
+
+        // 并行执行所有操作
+        const [, collectResult] = await Promise.all(tasks);
+        // console.log('collectResult', collectResult);
+
+        return {
+            data: {
+                ...collectResult.data
+            },
+            error: null
+        };
+
+        // const { data, error } = await supabase.from("account_community").insert([_.omit(appData, "owner")]).select();
+        // if (error) {
+        //     throw error;
+        // }
+        // return { success: true, data };
+    } catch (error) {
+        console.error('创建应用失败:', error);
+        return { success: false, error };
     }
 };
 
