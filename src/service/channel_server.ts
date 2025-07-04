@@ -192,15 +192,40 @@ export const updateApp = async (id: number, appData: Partial<ChannelModel>) => {
     }
 };
 
-export const deleteApp = async (id: number) => {
+export const deleteApp = async (id: number, community_id?: number) => {
     try {
-        const { data, error } = await supabase.from(db).delete().eq('id', id);
+        // const tasks = [
+        //     supabase.rpc('decrement_community_channel', { community_id: appData.community }),
+        //     supabase.from(db).delete().eq('id', id);
+        // ];
 
-        if (error) {
-            throw error;
+        if (community_id) {
+            const tasks = [
+                supabase.rpc('decrement_community_channel', { community_id: community_id }),
+                supabase.from(db).delete().eq('id', id)]
+
+            const [detailResult, createResult] = await Promise.all(tasks);
+            // console.log('collectResult', collectResult);
+
+            return {
+                success: true,
+                data: {
+                    ...createResult.data
+                },
+                error: null
+            };
+
+        } else {
+            const { data, error } = await supabase.from(db).delete().eq('id', id);
+
+            if (error) {
+                throw error;
+            }
+
+            return { success: true };
         }
 
-        return { success: true };
+
     } catch (error) {
         console.error('删除应用失败:', error);
         return { success: false, error };

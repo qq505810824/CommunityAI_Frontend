@@ -32,7 +32,7 @@ function ChannelContainer() {
             });
             setProducts(newData);
         }
-        return () => {};
+        return () => { };
     }, [data]);
 
     const handleSearch = async (value: string) => {
@@ -51,8 +51,8 @@ function ChannelContainer() {
             setProducts(newData);
         }
     };
-    const handleDelete = async (id: number) => {
-        const res: any = await deleteChannel(id);
+    const handleDelete = async (id: number, community_id: number) => {
+        const res: any = await deleteChannel(id, community_id);
         console.log('res', res);
         if (res.success) {
             mutate();

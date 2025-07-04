@@ -32,7 +32,7 @@ function CourseContainer() {
             });
             setProducts(newData);
         }
-        return () => {};
+        return () => { };
     }, [data]);
 
     const handleSearch = async (value: string) => {
@@ -51,8 +51,8 @@ function CourseContainer() {
             setProducts(newData);
         }
     };
-    const handleDelete = async (id: number) => {
-        const res: any = await deleteCourse(id);
+    const handleDelete = async (id: number, community_id: number) => {
+        const res: any = await deleteCourse(id, community_id);
         console.log('res', res);
         if (res.success) {
             mutate();

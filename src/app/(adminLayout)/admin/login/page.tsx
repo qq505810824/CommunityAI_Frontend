@@ -37,8 +37,8 @@ export default function SignIn() {
             if (!userId) {
                 setLoading(false);
                 console.error('无法获取用户ID');
-                setError("郵箱或密碼錯誤!");
-                return
+                setError('郵箱或密碼錯誤!');
+                return;
             }
 
             // 3. 查询用户的管理员状态
@@ -46,14 +46,14 @@ export default function SignIn() {
                 .from('account')
                 .select('role')
                 .eq('id', userId)
-                .single();  // 确保只获取单条记录
+                .single(); // 确保只获取单条记录
 
             if (queryError || !userData) {
                 setLoading(false);
                 await supabase.auth.signOut();
                 console.error('查询用户信息失败:', queryError?.message);
-                setError("無法驗證權限，請聯繫管理員");
-                return
+                setError('無法驗證權限，請聯繫管理員');
+                return;
             }
 
             // 4. 检查管理员标志
@@ -62,8 +62,8 @@ export default function SignIn() {
                 setLoading(false);
                 // 可选：强制登出非管理员用户
                 await supabase.auth.signOut();
-                setError("無法驗證權限，請聯繫管理員");
-                return
+                setError('無法驗證權限，請聯繫管理員');
+                return;
             }
 
             // console.log('user data', data);

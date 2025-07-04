@@ -171,8 +171,8 @@ export const useCourseOperations = () => {
         });
     };
 
-    const deleteCourse = async (id: number) => {
-        return await deleteApp(id);
+    const deleteCourse = async (id: number, community_id?: number) => {
+        return await deleteApp(id, community_id);
     };
 
     const searchCourse = async (options?: any) => {

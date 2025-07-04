@@ -13,7 +13,7 @@ interface ViewProps {
     onClose: () => void;
     handleSearch: any;
     searching?: boolean;
-    onDelete: (id: number) => void;
+    onDelete: (id: number, community_id: number) => void;
     onUpdataStatus: (id: number, status: string) => void;
 }
 
@@ -59,11 +59,11 @@ function CourseView(props: ViewProps) {
                         </tr>
                     </thead>
                     <tbody>
-                        {products?.map((row: any) => (
+                        {products?.map((row: CourseModel) => (
                             <CourseItem
                                 product={row}
                                 key={row.id}
-                                onDelete={() => onDelete(row.id)}
+                                onDelete={() => onDelete(row.id || 0, row?.community?.id || 0)}
                                 onUpdataStatus={onUpdataStatus}
                             />
                         ))}

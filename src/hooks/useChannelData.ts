@@ -171,8 +171,8 @@ export const useChannelOperations = () => {
         });
     };
 
-    const deleteChannel = async (id: number) => {
-        return await deleteApp(id);
+    const deleteChannel = async (id: number, community_id?: number) => {
+        return await deleteApp(id, community_id);
     };
 
     const searchChannel = async (options?: any) => {
