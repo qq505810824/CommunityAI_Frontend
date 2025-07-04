@@ -61,7 +61,7 @@ export const getJoinApps = async (options?: any) => {
     try {
         // console.log('options', options);
 
-        let query = supabase.from("account_community").select('*,account(*),community(*)');
+        let query = supabase.from('account_community').select('*,account(*),community(*)');
 
         if (options && options.user_id) {
             query = query.eq('account', options.user_id);
@@ -264,33 +264,51 @@ export const joinApp = async (appData: any) => {
         return { success: false, error: 'You have joined!' };
     }
     try {
-        const { data: detailData } = await supabase
-            .from('account_community')
-            .select('*')
-            .eq('account', appData?.account)
-            .eq('community', appData?.community);
-        if (detailData && detailData.length > 0) {
-            return { success: false, error: 'You have joined!' };
+
+        const { data, error } = await supabase
+            .rpc('join_community', {
+                p_account: appData.account,
+                p_community: appData.community,
+                p_owner: appData.owner,
+                p_data: _.omit(appData, 'owner') // 或 _.omit(appData, 'owner')
+            });
+        // console.log('data', data);
+
+        if (error) {
+            return { success: false, error }
         }
+        // data 是数组，取第一个元素作为对象返回
+        if (Array.isArray(data) && data.length > 0) {
+            return data[0];
+        }
+        return { success: true, data };
+        // const { data: detailData } = await supabase
+        //     .from('account_community')
+        //     .select('*')
+        //     .eq('account', appData?.account)
+        //     .eq('community', appData?.community);
+        // if (detailData && detailData.length > 0) {
+        //     return { success: false, error: 'You have joined!' };
+        // }
 
-        const tasks = [
-            supabase.rpc('increment_community_account', { community_id: appData?.community }),
-            supabase
-                .from('account_community')
-                .insert([_.omit(appData, 'owner')])
-                .select()
-        ];
+        // const tasks = [
+        //     supabase.rpc('increment_community_account', { community_id: appData?.community }),
+        //     supabase
+        //         .from('account_community')
+        //         .insert([_.omit(appData, 'owner')])
+        //         .select()
+        // ];
 
-        // 并行执行所有操作
-        const [, collectResult] = await Promise.all(tasks);
-        // console.log('collectResult', collectResult);
+        // // 并行执行所有操作
+        // const [, collectResult] = await Promise.all(tasks);
+        // // console.log('collectResult', collectResult);
 
-        return {
-            data: {
-                ...collectResult.data
-            },
-            error: null
-        };
+        // return {
+        //     data: {
+        //         ...collectResult.data
+        //     },
+        //     error: null
+        // };
 
         // const { data, error } = await supabase.from("account_community").insert([_.omit(appData, "owner")]).select();
         // if (error) {

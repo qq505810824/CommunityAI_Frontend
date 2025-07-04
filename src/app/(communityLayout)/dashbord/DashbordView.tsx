@@ -44,7 +44,7 @@ export default function DashbordView({
                                 onClick={() => {
                                     handleCreatCommunity();
                                 }}
-                                className="bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
+                                className="hidden bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
                             >
                                 <Plus className="w-4 h-4" />
                                 <span>New Community</span>
@@ -53,7 +53,7 @@ export default function DashbordView({
                                 onClick={() => {
                                     handleJoinCommunity();
                                 }}
-                                className="hidden bg-green-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-green-600 flex items-center space-x-2 whitespace-nowrap"
+                                className=" bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
                             >
                                 <Plus className="w-4 h-4" />
                                 <span>Join Community</span>
@@ -61,7 +61,7 @@ export default function DashbordView({
                         </div>
                     </div>
                     {/* Enhanced Community Overview Cards */}
-                    <CommunitiesLayout communities={communities} />
+                    <CommunitiesLayout communities={communities} handleRefresh={handleRefresh} />
 
                     {/* Enhanced Newsfeed */}
                     <NewsfeedLayout newsfeeds={newsfeeds} handleRefreshLogs={handleRefreshLogs} />
