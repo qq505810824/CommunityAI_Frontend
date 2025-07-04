@@ -27,7 +27,7 @@ export default function DashbordContainer() {
         // 合并并去重（按 id）
         const allCommunities = [...myCommunities, ...joinCommunities];
         const uniqueCommunities = allCommunities.filter(
-            (c, idx, arr) => c && arr.findIndex(cc => cc.id === c.id) === idx
+            (c, idx, arr) => c && arr.findIndex((cc) => cc.id === c.id) === idx
         );
 
         setCommunities(uniqueCommunities);
@@ -41,7 +41,7 @@ export default function DashbordContainer() {
     // }, [data]);
 
     const handleRefresh = () => {
-        mymutate()
+        mymutate();
         mutate();
     };
     const handleRefreshLogs = () => {

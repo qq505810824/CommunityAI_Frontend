@@ -162,7 +162,7 @@ export default function CommunityFormView({ payload, submit, cancel }: ViewProps
                                 disabled={submitting}
                                 className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
                             >
-                                Confrim
+                                Comfirm
                             </button>
                         </div>
                     </div>

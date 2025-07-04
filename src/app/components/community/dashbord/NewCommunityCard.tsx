@@ -40,9 +40,7 @@ const NewAssignment: FC<IProps> = ({ data = false, handleRefresh }) => {
                         <PlusIcon className="w-8 h-8 text-blue-600" />
                     </motion.div>
                     <h3 className="text-lg font-bold text-gray-900 mb-2">Create New Community</h3>
-                    <p className="text-sm text-gray-500 max-w-xs">
-                        Start creating a new community
-                    </p>
+                    <p className="text-sm text-gray-500 max-w-xs">Start creating a new community</p>
                 </div>
             </motion.div>
 

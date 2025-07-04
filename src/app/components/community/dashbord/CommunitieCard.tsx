@@ -15,11 +15,10 @@ interface ViewProps {
 export default function CommunitieCard({ community }: ViewProps) {
     const router = useRouter();
     const { notify } = useContext(ToastContext);
-    const { user_id } = useAppContext()
+    const { user_id } = useAppContext();
     const [isCopied, setIsCopied] = useState(false);
     const handleClickCommuity = (commuity: any) => {
         router.push(`/communitys/${commuity?.id}`);
-
     };
 
     const handleCopyCode = () => {
@@ -30,8 +29,8 @@ export default function CommunitieCard({ community }: ViewProps) {
     };
 
     const isOwner = () => {
-        return community.owner.id == user_id
-    }
+        return community.owner.id == user_id;
+    };
 
     return (
         <>
@@ -48,13 +47,17 @@ export default function CommunitieCard({ community }: ViewProps) {
                             {community.logo}
                         </div>
                         <div>
-                            <h3 className="font-semibold text-gray-800 ">{community.name}
-                                {isOwner() &&
+                            <h3 className="font-semibold text-gray-800 ">
+                                {community.name}
+                                {isOwner() && (
                                     <span className="bg-purple-100 text-purple-700 ml-2 px-2 py-1 rounded-full text-xs">
                                         {'owner'}
                                     </span>
-                                }</h3>
-                            <p className="text-sm text-gray-500">{community.accounts_count} members</p>
+                                )}
+                            </h3>
+                            <p className="text-sm text-gray-500">
+                                {community.accounts_count} members
+                            </p>
                         </div>
                     </div>
 
@@ -104,10 +107,11 @@ export default function CommunitieCard({ community }: ViewProps) {
                             </div>
                             <motion.button
                                 whileTap={{ scale: 0.95 }}
-                                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${isCopied
-                                    ? 'bg-green-100 text-green-700'
-                                    : 'bg-violet-100 text-violet-700 hover:bg-violet-200'
-                                    }`}
+                                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
+                                    isCopied
+                                        ? 'bg-green-100 text-green-700'
+                                        : 'bg-violet-100 text-violet-700 hover:bg-violet-200'
+                                }`}
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     handleCopyCode();
@@ -128,7 +132,6 @@ export default function CommunitieCard({ community }: ViewProps) {
                     >
                         Enter Community
                     </button>
-
                 </div>
             </motion.div>
         </>

@@ -264,18 +264,16 @@ export const joinApp = async (appData: any) => {
         return { success: false, error: 'You have joined!' };
     }
     try {
-
-        const { data, error } = await supabase
-            .rpc('join_community', {
-                p_account: appData.account,
-                p_community: appData.community,
-                p_owner: appData.owner,
-                p_data: _.omit(appData, 'owner') // 或 _.omit(appData, 'owner')
-            });
+        const { data, error } = await supabase.rpc('join_community', {
+            p_account: appData.account,
+            p_community: appData.community,
+            p_owner: appData.owner,
+            p_data: _.omit(appData, 'owner') // 或 _.omit(appData, 'owner')
+        });
         // console.log('data', data);
 
         if (error) {
-            return { success: false, error }
+            return { success: false, error };
         }
         // data 是数组，取第一个元素作为对象返回
         if (Array.isArray(data) && data.length > 0) {
