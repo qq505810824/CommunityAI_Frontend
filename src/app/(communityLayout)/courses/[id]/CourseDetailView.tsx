@@ -6,7 +6,6 @@ import {
     BookOpen,
     CheckCircle,
     Clock,
-    PlayCircle,
     Share2,
     Star,
     Users
@@ -141,6 +140,31 @@ export default function CourseDetailView({ course }: ViewProps) {
         });
     };
 
+
+    // 判断是否为 YouTube 链接
+    function isYouTubeUrl(url: string) {
+        return /youtube\.com|youtu\.be/.test(url);
+    }
+
+    // 获取 YouTube 视频的 embed 链接
+    function getYouTubeEmbedUrl(url: string) {
+        const match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]+)/);
+        return match ? `https://www.youtube.com/embed/${match[1]}` : url;
+    }
+
+    // 判断是否为图片
+    function isImageUrl(url: string) {
+        return /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(url);
+    }
+
+    // 判断是否为video
+    function isVideoUrl(url: string) {
+        return /\.(mp4)$/i.test(url);
+    }
+    // 你的资源地址
+    const mediaUrl = course?.file_url || "";
+
+
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between">
@@ -176,7 +200,19 @@ export default function CourseDetailView({ course }: ViewProps) {
                 <div className="lg:col-span-2">
                     <div className="bg-white border rounded-lg p-6 mb-6">
                         <div className="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg flex items-center justify-center mb-4">
-                            <PlayCircle className="w-16 h-16 text-blue-500" />
+                            {isYouTubeUrl(mediaUrl) ? (
+                                <iframe
+                                    src={getYouTubeEmbedUrl(mediaUrl)}
+                                    title="YouTube Video"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                    className="w-full h-full rounded-lg"
+                                />
+                            ) : isVideoUrl(mediaUrl) ? (
+                                <video src={mediaUrl} controls className="w-full h-full rounded-lg" />
+                            ) : (
+                                <img src={mediaUrl} alt="Course Media" className=" object-cover w-full h-full rounded-lg" />
+                            )}
                         </div>
                         <h4 className="font-semibold text-lg mb-2">{course?.title}</h4>
                         <p className="text-gray-600 mb-4">{course?.description}</p>

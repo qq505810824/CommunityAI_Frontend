@@ -16,7 +16,8 @@ export default function CourseCreateView({ submitting, handleSubmit }: ViewProps
         rating: 1,
         duration: '1h',
         lessons: 0,
-        is_free: true
+        is_free: true,
+        file_url: ''
     });
 
     const onSubmit = (e: React.FormEvent) => {
@@ -63,6 +64,19 @@ export default function CourseCreateView({ submitting, handleSubmit }: ViewProps
                                     onChange={(e) =>
                                         setData({ ...data, description: e.target.value })
                                     }
+                                    className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">
+                                    Media Link
+                                </label>
+                                <input
+                                    type="text"
+                                    required={true}
+                                    value={data.file_url}
+                                    onChange={(e) => setData({ ...data, file_url: e.target.value })}
+                                    placeholder="link"
                                     className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
                             </div>
