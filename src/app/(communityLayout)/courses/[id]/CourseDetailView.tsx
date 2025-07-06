@@ -162,7 +162,7 @@ export default function CourseDetailView({ course }: ViewProps) {
         return /\.(mp4)$/i.test(url);
     }
     // 你的资源地址
-    const mediaUrl = course?.file_url || "";
+    const mediaUrl = course?.video_url || "";
 
 
     return (
@@ -215,7 +215,7 @@ export default function CourseDetailView({ course }: ViewProps) {
                             )}
                         </div>
                         <h4 className="font-semibold text-lg mb-2">{course?.title}</h4>
-                        <p className="text-gray-600 mb-4">{course?.description}</p>
+                        <p className="text-gray-600 mb-4">{course?.description.replace(/<[^>]*>/g, '')}</p>
 
                         <div className="flex items-center space-x-6 text-sm text-gray-500 mb-4">
                             <span className="flex items-center space-x-1">

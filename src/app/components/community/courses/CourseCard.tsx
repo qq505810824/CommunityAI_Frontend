@@ -34,7 +34,20 @@ export default function CourseCard({ course }: ViewProps) {
                         </div>
                     </div>
 
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">{course.description}</p>
+                    <p
+                        className="text-gray-600 text-sm mb-4 line-clamp-2"
+                        style={{
+                            display: '-webkit-box',
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden',
+                            WebkitLineClamp: 1,
+                            height: '1.5em' // 根据行高设置最大高度
+                        }}
+                    >
+                        {course.description.replace(/<[^>]*>/g, '')}
+                    </p>
+
+                    {/* <p className="text-gray-600 text-sm mb-4 line-clamp-2">{course.description}</p> */}
 
                     <div className="space-y-2 mb-4">
                         <div className="flex justify-between text-sm text-gray-500">

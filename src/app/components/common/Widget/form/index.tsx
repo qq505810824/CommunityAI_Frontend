@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { Button, ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from '@chakra-ui/theme-utils';
 import Form from '@rjsf/chakra-ui';
@@ -14,13 +15,14 @@ const theme = extendTheme({});
 
 interface ViewProps {
     formData: any;
+    className?: any;
     disabled?: boolean;
     onSubmit: any;
     storageName?: string;
 }
 
 export default function FormDetailView(props: ViewProps) {
-    const { formData, disabled, onSubmit, storageName } = props;
+    const { className, formData, disabled, onSubmit, storageName } = props;
     const [uploadFiles, setUploadFiles] = useState<File[]>([]);
 
     function flattenObjectFields(obj: any) {
@@ -58,7 +60,7 @@ export default function FormDetailView(props: ViewProps) {
                 isLoading={props.disabled}
                 className="my-custom-submit"
             >
-                {props.children || '提交'}
+                {props.children || 'Submit'}
             </Button>
         </div>
     );
@@ -71,7 +73,7 @@ export default function FormDetailView(props: ViewProps) {
 
     return (
         <ChakraProvider theme={theme}>
-            <div className=" bg-white p-2 rounded-md">
+            <div className={cn(" bg-white p-2 rounded-md", className)}>
                 {formData && (
                     <Form
                         schema={formData.json_schema}

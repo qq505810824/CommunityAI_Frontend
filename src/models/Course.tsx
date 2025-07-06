@@ -5,10 +5,11 @@ export interface CourseModel {
     id?: number;
     title: string;
     description: string;
-    cover_url?: string;
-    file_url?: string;
+    cover_url: string;
+    files_url: string;
+    video_url: string;
 
-    category?: string;
+    category: string;
 
     owner?: AccountModel;
     community?: CommunityModel;
@@ -25,6 +26,8 @@ export interface CourseModel {
 
     enroll_start_at?: string;
     enroll_end_at?: string;
+
+    uploadFiles?: File[];
 
     created_at?: string;
     updated_at?: string;

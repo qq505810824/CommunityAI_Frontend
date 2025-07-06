@@ -1,12 +1,15 @@
+import CourseEditForm from '@/app/components/courses/edit/form';
 import { CourseModel } from '@/models/Course';
 import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 interface ViewProps {
+    product: CourseModel | null;
     submitting: boolean;
+    setSubmitting?: any;
     handleSubmit: (data: CourseModel) => void;
 }
-export default function CourseCreateView({ submitting, handleSubmit }: ViewProps) {
+export default function CourseCreateView({ product, submitting, setSubmitting, handleSubmit }: ViewProps) {
     const router = useRouter();
 
     const [data, setData] = useState<CourseModel>({
@@ -17,7 +20,10 @@ export default function CourseCreateView({ submitting, handleSubmit }: ViewProps
         duration: '1h',
         lessons: 0,
         is_free: true,
-        file_url: ''
+        files_url: '',
+        category: '',
+        cover_url: '',
+        video_url: ''
     });
 
     const onSubmit = (e: React.FormEvent) => {
@@ -37,7 +43,15 @@ export default function CourseCreateView({ submitting, handleSubmit }: ViewProps
                             <ArrowLeft className="w-5 h-5" />
                         </button>
                     </div>
-                    <form className="bg-white border rounded-lg p-6" onSubmit={onSubmit}>
+                    <CourseEditForm
+                        {...{
+                            product,
+                            submitting,
+                            setSubmitting,
+                            submit: handleSubmit
+                        }}
+                    />
+                    {/* <form className="bg-white border rounded-lg p-6" onSubmit={onSubmit}>
                         <h4 className="font-semibold mb-4">Create New Course</h4>
                         <div className="space-y-4">
                             <div>
@@ -74,8 +88,8 @@ export default function CourseCreateView({ submitting, handleSubmit }: ViewProps
                                 <input
                                     type="text"
                                     required={true}
-                                    value={data.file_url}
-                                    onChange={(e) => setData({ ...data, file_url: e.target.value })}
+                                    value={data.files_url}
+                                    onChange={(e) => setData({ ...data, files_url: e.target.value })}
                                     placeholder="link"
                                     className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                 />
@@ -152,7 +166,7 @@ export default function CourseCreateView({ submitting, handleSubmit }: ViewProps
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> */}
                 </div>
             </div>
         </>

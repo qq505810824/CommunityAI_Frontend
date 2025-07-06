@@ -128,3 +128,109 @@ export const CalendarFormData = {
         form_url: { 'ui:widget': 'text' }
     }
 };
+
+
+export const CourseFormData = {
+    json_schema: {
+        type: 'object',
+        title: 'New Course',
+        description: '',
+        required: [
+            'title',
+        ],
+        properties: {
+            // cover_url: {
+            //     type: 'string',
+            //     title: '封面'
+            // },
+            title: {
+                type: 'string',
+                title: 'Title'
+            },
+            category: {
+                type: 'string',
+                title: 'Category'
+            },
+            description: {
+                type: 'string',
+                title: 'Description'
+            },
+            video_url: {
+                type: 'string',
+                title: 'Video Link'
+            },
+            price: {
+                type: 'integer',
+                title: 'Price'
+            },
+            duration: {
+                type: 'string',
+                title: 'Duration'
+            },
+            lessons: {
+                type: 'integer',
+                title: 'Lessons'
+            },
+            rating: {
+                type: 'integer',
+                title: 'Rating'
+            },
+            // is_free: {
+            //     type: 'string',
+            //     title: '描述'
+            // },
+
+            files_url: {
+                type: 'string',
+                title: 'Files'
+            }
+        }
+    },
+    ui_schema: {
+        cover_url: {
+            'ui:widget': 'image'
+        },
+        title: {
+            'ui:widget': 'text'
+        },
+        category: {
+            'ui:widget': 'text'
+        },
+        description: {
+            'ui:widget': 'editor'
+        },
+        files_url: {
+            'ui:widget': 'files'
+        },
+        price: {
+            'ui:widget': 'updown'
+        },
+        // is_free: {
+        //     'ui:widget': 'date'
+        // },
+        video_url: {
+            'ui:widget': 'text'
+        },
+        duration: {
+            'ui:widget': 'text'
+        },
+        lessons: {
+            'ui:widget': 'updown'
+        },
+        rating: {
+            'ui:widget': 'updown'
+        }
+    },
+    form_data: {
+        title: '',
+        category: '',
+        cover_url: '',
+        description: '',
+        duration: '1h',
+        price: 0,
+        lessons: 0,
+        rating: 0,
+        files_url: '',
+        video_url: ''
+    }
+};
