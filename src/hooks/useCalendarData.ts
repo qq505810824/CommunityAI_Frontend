@@ -173,8 +173,8 @@ export const useCalendarOperations = () => {
         });
     };
 
-    const deleteCalendar = async (id: number) => {
-        return await deleteApp(id);
+    const deleteCalendar = async (id: number, community_id?: number) => {
+        return await deleteApp(id, community_id);
     };
 
     const searchCalendar = async (options?: any) => {

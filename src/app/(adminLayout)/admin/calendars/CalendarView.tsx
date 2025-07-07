@@ -13,7 +13,7 @@ interface ViewProps {
     onClose: () => void;
     handleSearch: any;
     searching?: boolean;
-    onDelete: (id: number) => void;
+    onDelete: (id: number, community_id: number) => void;
     onUpdataStatus: (id: number, status: string) => void;
 }
 
@@ -59,6 +59,7 @@ function CalendarView(props: ViewProps) {
                             <th className="text-center whitespace-nowrap w-[100px]">報名時間</th>
                             <th className="text-center whitespace-nowrap w-[100px]">活動時間</th>
                             <th className="text-center whitespace-nowrap w-[100px]">更新时间</th>
+                            <th className="text-center w-[60px]">創建者</th>
                             <th className="text-center whitespace-nowrap w-[200px]">操作</th>
                         </tr>
                     </thead>
@@ -67,7 +68,7 @@ function CalendarView(props: ViewProps) {
                             <CalendarItem
                                 product={row}
                                 key={row.id}
-                                onDelete={() => onDelete(row.id)}
+                                onDelete={() => onDelete(row.id || 0, row?.community?.id || 0)}
                                 onUpdataStatus={onUpdataStatus}
                             />
                         ))}

@@ -1,3 +1,6 @@
+import { AccountModel } from "./Account";
+import { CommunityModel } from "./Community";
+
 export interface CalendarModel {
     id: number;
     name: string;
@@ -16,6 +19,9 @@ export interface CalendarModel {
     updated_at: string;
     region: string;
     form_url: string;
+
+    owner?: AccountModel
+    community?: CommunityModel
 
     is_collected?: boolean;
     uploadFiles?: File[];
@@ -82,15 +88,15 @@ export const CalendarFormData = {
                 ]
             },
             form_url: {
-                type: 'string',
+                type: ['string', 'null'],
                 title: '報名表單連結'
             },
             reference_url: {
-                type: 'string',
+                type: ['string', 'null'],
                 title: '相關網址'
             },
             files_url: {
-                type: 'string',
+                type: ['string', 'null'],
                 title: '相關文件'
             }
         }

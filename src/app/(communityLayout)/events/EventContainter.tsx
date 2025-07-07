@@ -1,6 +1,7 @@
 'use client';
 
 import Loading from '@/app/components/base/loading';
+import { useAppContext } from '@/context/app-context';
 import useAlert from '@/hooks/useAlert';
 import {
     showCalendarValues,
@@ -9,7 +10,7 @@ import {
 } from '@/hooks/useCalendarData';
 import useLoad from '@/hooks/useLoad';
 import { CalendarModel } from '@/models/Calendar';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import EventView from './EventView';
 
@@ -17,6 +18,8 @@ function EventContainter() {
     const { setAlert } = useAlert();
     const { setLoad } = useLoad();
     const router = useRouter();
+    const { user_id } = useAppContext()
+    const params = useParams();
 
     const [products, setProducts] = useState<any[]>([]);
     const { searchCalendar } = useCalendarOperations();
@@ -27,7 +30,9 @@ function EventContainter() {
         order: 'created_at',
         direction: 'desc',
         status: 'success',
-        region: ''
+        region: '',
+        user_id: user_id,
+        community_id: params['id']
     });
 
     const { data, isLoading, isError, mutate } = useCalendarData({ ...filters });
@@ -39,7 +44,7 @@ function EventContainter() {
             });
             setProducts(newData);
         }
-        return () => {};
+        return () => { };
     }, [router, data]);
 
     useEffect(() => {

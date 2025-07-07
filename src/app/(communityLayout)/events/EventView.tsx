@@ -1,9 +1,8 @@
 import CalendarCard from '@/app/components/calendar/CalendarCard';
 import { CalendarModel } from '@/models/Calendar';
 import { CalendarCategorys } from '@/utils/constant';
-import { Typography } from '@mui/joy';
 import { Plus } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 interface ViewProps {
@@ -34,14 +33,15 @@ function EventView(props: ViewProps) {
 
     const [menu, setMenu] = useState('');
     const [keyword, setKeyword] = useState('');
+    const params = useParams();
 
     const switchMenu = (value: string) => {
         setMenu(value);
         // onSwitchCategory(value);
     };
 
-    const handleCreatCourse = () => {
-        router.push(`/courses/create`);
+    const handleCreatEvent = () => {
+        router.push(`/events/create?community_id=${params['id']}`);
     };
 
     return (
@@ -56,9 +56,9 @@ function EventView(props: ViewProps) {
                     </div>
                     <button
                         onClick={() => {
-                            handleCreatCourse();
+                            handleCreatEvent();
                         }}
-                        className="hidden bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
+                        className="bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
                     >
                         <Plus className="w-4 h-4" />
                         <span>New Event</span>
@@ -86,17 +86,20 @@ function EventView(props: ViewProps) {
                     })}
                 </div>
 
-                {/* {(isLoading || searching) && <LoadView />} */}
-                {products.length == 0 && !isLoading && !searching && (
-                    <Typography level="h4" sx={{ padding: 10 }}>
-                        No Data.
-                    </Typography>
-                )}
                 <div className="flex-row   pb-10  grid  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 w-full sm:max-w-7xl">
                     {products?.map((product, index) => (
                         <CalendarCard product={product} key={index} />
                     ))}
                 </div>
+
+                {products?.length == 0 && (
+                    <div className="w-full flex flex-col items-center justify-center py-16 text-gray-400">
+                        <div className="text-lg font-semibold mb-1">No event yet</div>
+                        <div className="text-sm">
+                            Be the first to create a event in this community!
+                        </div>
+                    </div>
+                )}
             </div>
         </>
     );

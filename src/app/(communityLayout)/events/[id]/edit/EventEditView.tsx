@@ -1,28 +1,17 @@
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-
 import CalendarEditForm from '@/app/components/calendar/edit/form';
 import { CalendarModel } from '@/models/Calendar';
 import { ArrowLeft } from 'lucide-react';
-
+import { useRouter } from 'next/navigation';
 
 interface ViewProps {
     product: CalendarModel | null;
-    submitting?: boolean;
-    setSubmitting?: any;
+    submitting: boolean;
     handleSubmit: (formData: CalendarModel) => void;
 }
 
-
-export default function EventCreateView(props: ViewProps) {
-    const { product, submitting, setSubmitting, handleSubmit } = props;
-
-    const router = useRouter();
-    const [showCreateForm, setShowCreateForm] = useState(false);
-    const [newEventTitle, setNewEventTitle] = useState('');
-    const [eventDate, setEventDate] = useState('');
-    const [eventTime, setEventTime] = useState('');
-
+function EventEditView(props: ViewProps) {
+    const { product, submitting, handleSubmit } = props;
+    const router = useRouter()
     return (
         <>
             <div className="flex-1  bg-gray-50">
@@ -39,7 +28,6 @@ export default function EventCreateView(props: ViewProps) {
                         {...{
                             product,
                             submitting,
-                            setSubmitting,
                             submit: handleSubmit
                         }}
                     />
@@ -48,3 +36,5 @@ export default function EventCreateView(props: ViewProps) {
         </>
     );
 }
+
+export default EventEditView;

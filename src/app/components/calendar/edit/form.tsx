@@ -39,7 +39,7 @@ function CalendarEditForm(props: ViewProps) {
 
     return (
         <>
-            <FormDetailView formData={formData} disabled={submitting} onSubmit={submit} />
+            <FormDetailView className={"p-4 sm:p-6 border rounded-lg"} formData={formData} disabled={submitting} onSubmit={submit} />
         </>
     );
 }

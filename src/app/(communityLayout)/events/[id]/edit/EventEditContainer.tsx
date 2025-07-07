@@ -1,29 +1,35 @@
 'use client';
 
 import { UploadFilesToAzure } from '@/app/components/common/Widget/run-batch';
-import { useAppContext } from '@/context/app-context';
 import useAlert from '@/hooks/useAlert';
-import { useCalendarOperations } from '@/hooks/useCalendarData';
+import { useCalendarDetailByIdData, useCalendarOperations } from '@/hooks/useCalendarData';
 import { CalendarModel } from '@/models/Calendar';
 import _ from 'lodash';
-import { useParams, useRouter } from 'next/navigation';
-import { useState } from 'react';
-import CalendarCreateEditView from './CalendarCreateEditView';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import EventEditView from './EventEditView';
 
-const CalendarCreateContainer = () => {
+const EventEditContainer = () => {
     const params = useParams();
-    const token = localStorage.getItem('authorization');
-    const email = localStorage.getItem('email');
     const [product, setProduct] = useState<CalendarModel | null>(null);
     const [submitting, setSubmitting] = useState(false);
     const { setAlert } = useAlert();
-    const { addCalendar } = useCalendarOperations();
-    const { user_id } = useAppContext();
+    const { updateCalendar } = useCalendarOperations();
     const router = useRouter();
+    const searchParams = useSearchParams();
+
+    const { data, isLoading, isError } = useCalendarDetailByIdData(Number(params['id']));
+
+    useEffect(() => {
+        if (data) {
+            setProduct(data);
+        }
+    }, [data]);
 
     const handleSubmit = async (formData: CalendarModel) => {
         // 处理表单提交
-        console.log(formData);
+        const communityId = searchParams.get('community_id');
+
         setSubmitting(true);
         let upload_file_urls = '';
         if (formData?.uploadFiles && formData?.uploadFiles.length > 0) {
@@ -31,55 +37,56 @@ const CalendarCreateContainer = () => {
         }
         // console.log('upload_file_urls', upload_file_urls);
         const newFormData = {
+            ...product,
             ...formData,
-            status: 'draft',
-            files_url: upload_file_urls,
-            owner: user_id
-            // owner: {
-            //     token: token || '',
-            //     email: email || '',
-            //     id: user_id || ''
-            // }
+            files_url:
+                formData?.uploadFiles && formData?.uploadFiles.length > 0
+                    ? upload_file_urls
+                    : formData?.files_url
             // user: localStorage?.getItem('user_id') || null
         };
-        console.log(_.omit(newFormData, 'uploadFiles'));
+
+        // console.log(newFormData);
 
         try {
-            const { data, error } = await addCalendar(_.omit(newFormData, 'uploadFiles'));
+            const { data, error } = await updateCalendar(
+                Number(params['id']),
+                _.omit(newFormData, 'uploadFiles')
+            );
             if (error) {
-                console.error('發佈錯誤:', error);
+                console.error('更新文章错误:', error);
                 setAlert({
-                    title: '發佈錯誤！',
+                    title: '更新失敗',
                     type: 'error'
                 });
             } else {
-                router.push(`/`);
                 setAlert({
-                    title: '發佈成功，請等待審核通過',
+                    title: '更新成功！',
                     type: 'success'
                 });
+                router.push(`/communitys/${communityId}?activeTab=events`);
+                // router.back()
             }
         } catch (error) {
             setAlert({
-                title: '發佈錯誤！',
+                title: '更新失敗！',
                 type: 'error'
             });
-            console.error('發佈錯誤！:', error);
+            console.error('更新文章错误:', error);
         } finally {
             setSubmitting(false);
         }
     };
 
     return (
-        <CalendarCreateEditView
+        <EventEditView
             {...{
                 product,
                 submitting,
-                setSubmitting,
                 handleSubmit
             }}
         />
     );
 };
 
-export default CalendarCreateContainer;
+export default EventEditContainer;

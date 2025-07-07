@@ -47,7 +47,7 @@ export default function OperationView(props: ViewProps) {
     const handleClickShare = () => {
         setShowShareQRcode({
             payload: {
-                link: `https://hkcalendar.vercel.app/share/calendars/${product?.id}`,
+                link: `https://comunitys-ai.vercel.app/share/calendars/${product?.id}`,
                 name: product?.name
             }
         });

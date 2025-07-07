@@ -11,7 +11,15 @@ export const getAllApps = async (options?: any) => {
     try {
         // console.log('options', options);
 
-        let query = supabase.from(db).select('*');
+        let query = supabase.from(db).select('*,owner(id,name),community(id,name)');
+
+        // if (options && options.user_id) {
+        //     query = query.eq('owner', options.user_id);
+        // }
+
+        if (options && options.community_id) {
+            query = query.eq('community', options.community_id);
+        }
 
         if (options && options.category) {
             query = query.eq('category', options.category);
@@ -74,7 +82,7 @@ export const getAppDetail = async (id: number, accountId?: string) => {
         // 构建查询任务数组
         const tasks = [
             supabase.rpc('increment_view', { row_id: id }),
-            supabase.from(db).select('*').eq('id', id).single()
+            supabase.from(db).select('*,owner(id,name),community(id,name)').eq('id', id).single()
         ];
 
         // 如果有用户ID，添加收藏状态查询
@@ -128,13 +136,21 @@ export const getAppDetailById = async (id: number) => {
 
 export const createApp = async (appData: Omit<CalendarModel, 'id'>) => {
     try {
-        const { data, error } = await supabase.from(db).insert([appData]).select();
+        const tasks = [
+            supabase.rpc('increment_community_event', { community_id: appData.community }),
+            supabase.from(db).insert([appData]).select()
+        ];
 
-        if (error) {
-            throw error;
-        }
+        const [detailResult, createResult] = await Promise.all(tasks);
+        // console.log('collectResult', collectResult);
 
-        return { success: true, data };
+        return {
+            success: true,
+            data: {
+                ...createResult.data
+            },
+            error: null
+        };
     } catch (error) {
         console.error('创建应用失败:', error);
         return { success: false, error };
@@ -172,14 +188,31 @@ export const updateApp = async (id: number, appData: Partial<CalendarModel>) => 
     }
 };
 
-export const deleteApp = async (id: number) => {
+export const deleteApp = async (id: number, community_id?: number) => {
     try {
-        const { data, error } = await supabase.from(db).delete().eq('id', id);
+        if (community_id) {
+            const tasks = [
+                supabase.rpc('decrement_community_event', { community_id: community_id }),
+                supabase.from(db).delete().eq('id', id)
+            ];
 
-        if (error) {
-            throw error;
+            const [detailResult, createResult] = await Promise.all(tasks);
+            // console.log('collectResult', collectResult);
+
+            return {
+                success: true,
+                data: {
+                    ...createResult.data
+                },
+                error: null
+            };
+        } else {
+            const { data, error } = await supabase.from(db).delete().eq('id', id);
+
+            if (error) {
+                throw error;
+            }
         }
-
         return { success: true };
     } catch (error) {
         console.error('删除应用失败:', error);

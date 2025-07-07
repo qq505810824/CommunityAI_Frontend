@@ -31,7 +31,7 @@ function CalendarContainer() {
             });
             setProducts(newData);
         }
-        return () => {};
+        return () => { };
     }, [data]);
 
     const handleSearch = async (value: string) => {
@@ -50,8 +50,8 @@ function CalendarContainer() {
             setProducts(newData);
         }
     };
-    const handleDelete = async (id: number) => {
-        const res: any = await deleteCalendar(id);
+    const handleDelete = async (id: number, community_id: number) => {
+        const res: any = await deleteCalendar(id, community_id);
         console.log('res', res);
         if (res.success) {
             mutate();

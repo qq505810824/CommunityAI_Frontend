@@ -77,6 +77,7 @@ export default function CalendarItem(props: ViewProps) {
                     {product.from_date} - {product.to_date}
                 </td>
                 <td>{product.updated_at}</td>
+                <td>{product.owner?.name}</td>
                 <td>
                     <div className="flex flex-row items-center overflow-hidden space-x-2">
                         <label
