@@ -76,19 +76,19 @@ export default function ChannelView({ channels }: ViewProps) {
                             </div>
 
                             <div className="flex justify-between items-center text-sm text-gray-500">
-                                {/* <span>{channel.postCount} posts</span>
-                                <span>Last post: {channel.lastPost}</span> */}
+                                <div><span className='text-black'>{channel.posts_count || 0} </span>posts</div>
+                                {channel?.last_post && <span className='max-w-[200px] truncate block"'>Last post: {channel?.last_post?.title}</span>}
                             </div>
 
                             <div className="mt-3">
-                                {/* <span
-                                    className={`px-2 py-1 rounded-full text-xs ${channel.isPrivate
+                                <span
+                                    className={`px-2 py-1 rounded-full text-xs ${!channel.publish
                                         ? 'bg-orange-100 text-orange-700'
                                         : 'bg-green-100 text-green-700'
                                         }`}
                                 >
-                                    {channel.isPrivate ? `${channel.memberTier} only` : 'All members'}
-                                </span> */}
+                                    {!channel.publish ? `${channel.tier} only` : 'All members'}
+                                </span>
                             </div>
                         </div>
                     ))}

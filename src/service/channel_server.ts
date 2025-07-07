@@ -7,11 +7,34 @@ const supabase = createClient(
 );
 
 const db = 'channels';
+
+// CREATE VIEW channel_with_last_post AS
+// SELECT
+//   c.*,
+//   (SELECT COUNT(*) FROM posts p WHERE p.channel = c.id) AS posts_count,
+//   (
+//     SELECT row_to_json(p)
+//     FROM posts p
+//     WHERE p.channel = c.id
+//     ORDER BY p.created_at DESC
+//     LIMIT 1
+//   ) AS last_post
+// FROM channels c;
+
 export const getAllApps = async (options?: any) => {
     try {
         // console.log('options', options);
 
-        let query = supabase.from(db).select('*,owner(id,name),community(id,name,logo)');
+        // let query = supabase
+        //     .from(db)
+        //     .select(`
+        //         *,
+        //         owner(id,name),
+        //         community(id,name,logo), 
+
+        //     `);
+
+        let query = supabase.from('channel_with_last_post').select('*')
 
         if (options && options.community_id) {
             query = query.eq('community', options.community_id);
@@ -36,14 +59,6 @@ export const getAllApps = async (options?: any) => {
         });
 
         const { data, error } = await query;
-
-        // const { data, error } = await supabase
-        //     .from(db)
-        //     .select('*')
-        //     .or(`status.like.%${options?.status || ''}`)
-        //     .order(options?.order || 'created_at', {
-        //         ascending: options.direction == 'asc' ? true : false
-        //     });
 
         if (error) {
             throw error;

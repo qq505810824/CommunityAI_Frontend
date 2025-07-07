@@ -82,7 +82,7 @@ export default function PostItem({ post }: ViewProps) {
                                 <Heart className="w-4 h-4" />
                                 <span>{likes || 0}</span>
                             </button>
-                            <button className="flex items-center space-x-2 text-gray-500 hover:text-blue-500">
+                            <button className="hidden flex items-center space-x-2 text-gray-500 hover:text-blue-500">
                                 <Share2 className="w-4 h-4" />
                                 <span>Share</span>
                             </button>

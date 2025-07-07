@@ -1,5 +1,6 @@
 import { AccountModel } from './Account';
 import { CommunityModel } from './Community';
+import { PostModel } from './Post';
 
 export type ChannelModel = {
     id?: number;
@@ -14,8 +15,10 @@ export type ChannelModel = {
     category?: string;
 
     publish: boolean;
+    tier?: 'basic' | 'premium' | 'all';
 
     posts_count?: number;
+    last_post?: PostModel;
 
     meta?: any;
 
