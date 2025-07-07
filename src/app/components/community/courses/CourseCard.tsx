@@ -22,7 +22,14 @@ export default function CourseCard({ course }: ViewProps) {
                 className="bg-white border rounded-lg overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
             >
                 <div className="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                    <div className="text-4xl">{course.cover_url}</div>
+                    {/* <div className="text-4xl">{course.cover_url}</div> */}
+                    {course.cover_url &&
+                        <img
+                            src={course.cover_url}
+                            alt="Course Media"
+                            className=" object-cover w-full h-full rounded-lg"
+                        />
+                    }
                 </div>
 
                 <div className="p-6">

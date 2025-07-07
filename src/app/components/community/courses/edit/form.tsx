@@ -2,7 +2,7 @@ import { CourseModel } from '@/models/Course';
 import { CourseFormData } from '@/utils/formData';
 import { createClient } from '@supabase/supabase-js';
 import { useEffect, useState } from 'react';
-import FormDetailView from '../../common/Widget/form';
+import FormDetailView from '../../../common/Widget/form';
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -41,7 +41,7 @@ function CourseEditForm(props: ViewProps) {
     return (
         <>
             <FormDetailView
-                className={"p-6 border rounded-lg"}
+                className={'p-6 border rounded-lg'}
                 formData={formData}
                 disabled={submitting}
                 onSubmit={submit}

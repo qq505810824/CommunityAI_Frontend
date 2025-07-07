@@ -1,4 +1,6 @@
 import Toast from '@/app/components/base/toast';
+import ReferenceFilesView from '@/app/components/community/courses/detail/ReferenceFilesView';
+import { useAppContext } from '@/context/app-context';
 import { CourseModel } from '@/models/Course';
 import {
     ArrowLeft,
@@ -6,10 +8,12 @@ import {
     BookOpen,
     CheckCircle,
     Clock,
+    Edit,
     Share2,
     Star,
     Users
 } from 'lucide-react';
+import { useParams, useRouter } from 'next/navigation';
 import { useAppDetailContext } from '../../communitys/[id]/detail-context';
 
 interface ViewProps {
@@ -18,6 +22,9 @@ interface ViewProps {
 
 export default function CourseDetailView({ course }: ViewProps) {
     const { activeTab, setActiveTab } = useAppDetailContext();
+    const router = useRouter()
+    const { user_id } = useAppContext()
+    const params = useParams();
 
     const courses = [
         {
@@ -140,7 +147,6 @@ export default function CourseDetailView({ course }: ViewProps) {
         });
     };
 
-
     // 判断是否为 YouTube 链接
     function isYouTubeUrl(url: string) {
         return /youtube\.com|youtu\.be/.test(url);
@@ -148,7 +154,9 @@ export default function CourseDetailView({ course }: ViewProps) {
 
     // 获取 YouTube 视频的 embed 链接
     function getYouTubeEmbedUrl(url: string) {
-        const match = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]+)/);
+        const match = url.match(
+            /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]+)/
+        );
         return match ? `https://www.youtube.com/embed/${match[1]}` : url;
     }
 
@@ -162,8 +170,19 @@ export default function CourseDetailView({ course }: ViewProps) {
         return /\.(mp4)$/i.test(url);
     }
     // 你的资源地址
-    const mediaUrl = course?.video_url || "";
+    const mediaUrl = course?.video_url || course?.cover_url || '';
 
+    const handleClickEditCourse = () => {
+        router.push(`/courses/${course?.id}/edit?community_id=${params['id']}`)
+    }
+
+    const showEditButton = () => {
+        return isOwner()
+    }
+
+    const isOwner = () => {
+        return course?.owner?.id == user_id
+    }
 
     return (
         <div className="space-y-6">
@@ -185,20 +204,33 @@ export default function CourseDetailView({ course }: ViewProps) {
                     </div>
                 </div>
 
-                <div className="flex items-center space-x-3 hidden">
-                    <button className="p-2 hover:bg-gray-100 rounded-lg">
+                <div className="flex items-center space-x-3 ">
+                    <button className="hidden p-2 hover:bg-gray-100 rounded-lg">
                         <Bookmark className="w-5 h-5" />
                     </button>
-                    <button className="p-2 hover:bg-gray-100 rounded-lg">
+                    <button className="hidden p-2 hover:bg-gray-100 rounded-lg">
                         <Share2 className="w-5 h-5" />
                     </button>
+
+                    {showEditButton() && <div>
+                        <button
+                            onClick={() => {
+                                handleClickEditCourse()
+                            }}
+                            className="bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
+                        >
+                            <Edit className="w-4 h-4" />
+                            <span>Edit Course</span>
+                        </button>
+                    </div>
+                    }
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8">
                 {/* Course Content */}
                 <div className="lg:col-span-2">
-                    <div className="bg-white border rounded-lg p-6 mb-6">
+                    <div className="bg-white border rounded-lg p-4  sm:p-6 mb-6">
                         <div className="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg flex items-center justify-center mb-4">
                             {isYouTubeUrl(mediaUrl) ? (
                                 <iframe
@@ -209,13 +241,23 @@ export default function CourseDetailView({ course }: ViewProps) {
                                     className="w-full h-full rounded-lg"
                                 />
                             ) : isVideoUrl(mediaUrl) ? (
-                                <video src={mediaUrl} controls className="w-full h-full rounded-lg" />
+                                <video
+                                    src={mediaUrl}
+                                    controls
+                                    className="w-full h-full rounded-lg"
+                                />
                             ) : (
-                                <img src={mediaUrl} alt="Course Media" className=" object-cover w-full h-full rounded-lg" />
+                                <img
+                                    src={mediaUrl}
+                                    alt="Course Media"
+                                    className=" object-contain w-full h-full rounded-lg"
+                                />
                             )}
                         </div>
                         <h4 className="font-semibold text-lg mb-2">{course?.title}</h4>
-                        <p className="text-gray-600 mb-4">{course?.description.replace(/<[^>]*>/g, '')}</p>
+                        <p className="text-gray-600 mb-4">
+                            {course?.description.replace(/<[^>]*>/g, '')}
+                        </p>
 
                         <div className="flex items-center space-x-6 text-sm text-gray-500 mb-4">
                             <span className="flex items-center space-x-1">
@@ -232,24 +274,24 @@ export default function CourseDetailView({ course }: ViewProps) {
                             </span>
                         </div>
 
-                        {/* {selectedCourse?.progress > 0 && (
+                        {course?.progress && course?.progress > 0 && (
                             <div className="mb-4">
                                 <div className="flex justify-between text-sm mb-2">
                                     <span>Your Progress</span>
-                                    <span>{selectedCourse.progress}%</span>
+                                    <span>{course.progress}%</span>
                                 </div>
                                 <div className="w-full bg-gray-200 rounded-full h-2">
                                     <div
                                         className="bg-blue-500 h-2 rounded-full"
-                                        style={{ width: `${selectedCourse.progress}%` }}
+                                        style={{ width: `${course.progress}%` }}
                                     ></div>
                                 </div>
                             </div>
-                        )} */}
+                        )}
                     </div>
 
                     {/* Course Modules */}
-                    <div className="bg-white border rounded-lg p-6 hidden">
+                    <div className="bg-white border rounded-lg p-4 sm:p-6 hidden">
                         <h4 className="font-semibold text-lg mb-4">Course Content</h4>
                         <div className="space-y-3">
                             {/* {selectedCourse?.modules.map((module: any, index: number) => (
@@ -279,20 +321,21 @@ export default function CourseDetailView({ course }: ViewProps) {
                             ))} */}
                         </div>
                     </div>
+                    <ReferenceFilesView product={course} />
                 </div>
 
                 {/* Course Sidebar */}
                 <div className="space-y-6 ">
-                    <div className="bg-white border rounded-lg p-6">
+                    <div className="bg-white border rounded-lg p-4 sm:p-6">
                         <div className="text-center mb-4">
                             <div className="text-3xl font-bold text-green-600 mb-1">
                                 {course?.price === 0 ? 'Free' : `$${course?.price || ''}`}
                             </div>
-                            {/* {selectedCourse?.tier !== 'all' && (
+                            {course?.tier !== 'all' && (
                                 <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
-                                    {selectedCourse?.tier} members only
+                                    {course?.tier} members only
                                 </span>
-                            )} */}
+                            )}
                         </div>
 
                         <button
@@ -301,8 +344,7 @@ export default function CourseDetailView({ course }: ViewProps) {
                                 handleEnroll();
                             }}
                         >
-                            {/* {selectedCourse?.progress > 0 ? 'Continue Learning' : 'Enroll Now'} */}
-                            Enroll Now
+                            {course?.progress && course?.progress > 0 ? 'Continue Learning' : 'Enroll Now'}
                         </button>
 
                         <div className="space-y-3 text-sm">
@@ -328,25 +370,15 @@ export default function CourseDetailView({ course }: ViewProps) {
                         </div>
                     </div>
 
-                    <div className="bg-white border rounded-lg p-6">
+                    <div className="bg-white border rounded-lg p-4 sm:p-6">
                         <h5 className="font-semibold mb-4">What you'll learn</h5>
                         <ul className="space-y-2 text-sm">
-                            <li className="flex items-start space-x-2">
-                                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                <span>Master advanced techniques and strategies</span>
-                            </li>
-                            <li className="flex items-start space-x-2">
-                                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                <span>Apply practical skills to real-world scenarios</span>
-                            </li>
-                            <li className="flex items-start space-x-2">
-                                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                <span>Get access to exclusive resources and templates</span>
-                            </li>
-                            <li className="flex items-start space-x-2">
-                                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                                <span>Join a community of like-minded learners</span>
-                            </li>
+                            {course?.learns?.map((learn, index) => (
+                                <li key={index} className="flex items-start space-x-2">
+                                    <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                    <span>{learn}</span>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>

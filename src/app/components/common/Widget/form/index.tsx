@@ -73,7 +73,7 @@ export default function FormDetailView(props: ViewProps) {
 
     return (
         <ChakraProvider theme={theme}>
-            <div className={cn(" bg-white p-2 rounded-md", className)}>
+            <div className={cn(' bg-white p-2 rounded-md', className)}>
                 {formData && (
                     <Form
                         schema={formData.json_schema}

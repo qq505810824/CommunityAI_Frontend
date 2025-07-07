@@ -1,4 +1,4 @@
-import CourseEditForm from '@/app/components/courses/edit/form';
+import CourseEditForm from '@/app/components/community/courses/edit/form';
 import { CourseModel } from '@/models/Course';
 import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -9,7 +9,12 @@ interface ViewProps {
     setSubmitting?: any;
     handleSubmit: (data: CourseModel) => void;
 }
-export default function CourseCreateView({ product, submitting, setSubmitting, handleSubmit }: ViewProps) {
+export default function CourseCreateView({
+    product,
+    submitting,
+    setSubmitting,
+    handleSubmit
+}: ViewProps) {
     const router = useRouter();
 
     const [data, setData] = useState<CourseModel>({

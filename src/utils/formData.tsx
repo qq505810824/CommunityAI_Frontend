@@ -129,20 +129,17 @@ export const CalendarFormData = {
     }
 };
 
-
 export const CourseFormData = {
     json_schema: {
         type: 'object',
-        title: 'New Course',
+        title: 'Edit Course',
         description: '',
-        required: [
-            'title',
-        ],
+        required: ['title'],
         properties: {
-            // cover_url: {
-            //     type: 'string',
-            //     title: '封面'
-            // },
+            cover_url: {
+                type: 'string',
+                title: '封面'
+            },
             title: {
                 type: 'string',
                 title: 'Title'
@@ -161,7 +158,7 @@ export const CourseFormData = {
             },
             price: {
                 type: 'integer',
-                title: 'Price'
+                title: 'Price ($)'
             },
             duration: {
                 type: 'string',
@@ -171,10 +168,19 @@ export const CourseFormData = {
                 type: 'integer',
                 title: 'Lessons'
             },
-            rating: {
-                type: 'integer',
-                title: 'Rating'
+            tier: {
+                type: "string",
+                title: 'Access Level',
+                oneOf: [
+                    { title: "All Members", const: "all" },
+                    { title: "Basic Tier", const: "basic" },
+                    { title: "Premium Tier", const: "premium" }
+                ]
             },
+            // rating: {
+            //     type: 'integer',
+            //     title: 'Rating'
+            // },
             // is_free: {
             //     type: 'string',
             //     title: '描述'
@@ -183,7 +189,15 @@ export const CourseFormData = {
             files_url: {
                 type: 'string',
                 title: 'Files'
-            }
+            },
+            learns: {
+                "type": "array",
+                "title": "Learns",
+                "items": {
+                    "type": "string",
+                    "default": ""
+                }
+            },
         }
     },
     ui_schema: {
@@ -229,7 +243,7 @@ export const CourseFormData = {
         duration: '1h',
         price: 0,
         lessons: 0,
-        rating: 0,
+        rating: 1,
         files_url: '',
         video_url: ''
     }

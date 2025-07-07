@@ -110,7 +110,7 @@ export default function CommunityDetailView({ community }: ViewProps) {
                 </div>
 
                 {/* Community Content */}
-                <div className="max-w-7xl mx-auto px-6 py-8">{renderActiveTab()}</div>
+                <div className="max-w-7xl mx-auto px-2 py-4 sm:px-6 sm:py-8">{renderActiveTab()}</div>
             </div>
         </>
     );
