@@ -11,7 +11,7 @@ interface ViewProps {
 
 function EventEditView(props: ViewProps) {
     const { product, submitting, handleSubmit } = props;
-    const router = useRouter()
+    const router = useRouter();
     return (
         <>
             <div className="flex-1  bg-gray-50">

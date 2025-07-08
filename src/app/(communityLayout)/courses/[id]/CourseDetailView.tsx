@@ -22,8 +22,8 @@ interface ViewProps {
 
 export default function CourseDetailView({ course }: ViewProps) {
     const { activeTab, setActiveTab } = useAppDetailContext();
-    const router = useRouter()
-    const { user_id } = useAppContext()
+    const router = useRouter();
+    const { user_id } = useAppContext();
     const params = useParams();
 
     const courses = [
@@ -173,16 +173,16 @@ export default function CourseDetailView({ course }: ViewProps) {
     const mediaUrl = course?.video_url || course?.cover_url || '';
 
     const handleClickEditCourse = () => {
-        router.push(`/courses/${course?.id}/edit?community_id=${params['id']}`)
-    }
+        router.push(`/courses/${course?.id}/edit?community_id=${params['id']}`);
+    };
 
     const showEditButton = () => {
-        return isOwner()
-    }
+        return isOwner();
+    };
 
     const isOwner = () => {
-        return course?.owner?.id == user_id
-    }
+        return course?.owner?.id == user_id;
+    };
 
     return (
         <div className="space-y-6">
@@ -212,18 +212,19 @@ export default function CourseDetailView({ course }: ViewProps) {
                         <Share2 className="w-5 h-5" />
                     </button>
 
-                    {showEditButton() && <div>
-                        <button
-                            onClick={() => {
-                                handleClickEditCourse()
-                            }}
-                            className="bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
-                        >
-                            <Edit className="w-4 h-4" />
-                            <span>Edit Course</span>
-                        </button>
-                    </div>
-                    }
+                    {showEditButton() && (
+                        <div>
+                            <button
+                                onClick={() => {
+                                    handleClickEditCourse();
+                                }}
+                                className="bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
+                            >
+                                <Edit className="w-4 h-4" />
+                                <span>Edit Course</span>
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -344,7 +345,9 @@ export default function CourseDetailView({ course }: ViewProps) {
                                 handleEnroll();
                             }}
                         >
-                            {course?.progress && course?.progress > 0 ? 'Continue Learning' : 'Enroll Now'}
+                            {course?.progress && course?.progress > 0
+                                ? 'Continue Learning'
+                                : 'Enroll Now'}
                         </button>
 
                         <div className="space-y-3 text-sm">

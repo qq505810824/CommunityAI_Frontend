@@ -43,13 +43,13 @@ export default function CalendarCard(props: ViewProps) {
                 onClick={handleClick}
             >
                 <div className="w-full h-[250px] bg-gradient-to-br from-blue-100 to-purple-100">
-                    {product.image_url &&
+                    {product.image_url && (
                         <img
                             src={product.image_url}
                             className="w-full h-full object-cover rounded-t-3xlmd"
                             alt=""
                         />
-                    }
+                    )}
                 </div>
                 <div className="p-2">
                     <div className="flex flex-row space-x-2 justify-between ">

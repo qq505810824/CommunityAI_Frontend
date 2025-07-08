@@ -40,7 +40,7 @@ export const usePostData = (options: any) => {
         () => appsFetcher(options),
         {
             revalidateOnFocus: true,
-            revalidateOnReconnect: true,
+            revalidateOnReconnect: true
             // dedupingInterval: 60000 // 1分钟内不重复请求
         }
     );

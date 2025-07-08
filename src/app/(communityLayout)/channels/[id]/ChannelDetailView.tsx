@@ -49,15 +49,17 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
                                         <Shield className="w-4 h-4 text-orange-500" />
                                     )}
                                 </h3>
-                                <div className='flex flex-row items-center text-gray-500'>
-                                    {channel?.owner?.name}   <span className='ml-2'>{moment(channel?.created_at).fromNow()}</span>
+                                <div className="flex flex-row items-center text-gray-500">
+                                    {channel?.owner?.name}{' '}
+                                    <span className="ml-2">
+                                        {moment(channel?.created_at).fromNow()}
+                                    </span>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                     <button
-                        className="hidden bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
+                        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
                         onClick={handleClickNewPost}
                     >
                         <Plus className="w-4 h-4" />
@@ -65,10 +67,10 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
                     </button>
                 </div>
                 <ContentView content={channel?.description || ''} />
-                <div className=''>
-                    <p className='text-md font-semibold'>Post {channel?.posts_count || 0}</p>
+                <div className="">
+                    <p className="text-md font-semibold">Post {channel?.posts_count || 0}</p>
                 </div>
-                <div>
+                <div className="hidden">
                     <PostFormView
                         payload={{
                             channel: channel?.id,

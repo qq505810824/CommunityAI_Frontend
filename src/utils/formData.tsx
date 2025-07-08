@@ -169,12 +169,12 @@ export const CourseFormData = {
                 title: 'Lessons'
             },
             tier: {
-                type: "string",
+                type: 'string',
                 title: 'Access Level',
                 oneOf: [
-                    { title: "All Members", const: "all" },
-                    { title: "Basic Tier", const: "basic" },
-                    { title: "Premium Tier", const: "premium" }
+                    { title: 'All Members', const: 'all' },
+                    { title: 'Basic Tier', const: 'basic' },
+                    { title: 'Premium Tier', const: 'premium' }
                 ]
             },
             // rating: {
@@ -191,13 +191,13 @@ export const CourseFormData = {
                 title: 'Files'
             },
             learns: {
-                "type": "array",
-                "title": "Learns",
-                "items": {
-                    "type": "string",
-                    "default": ""
+                type: 'array',
+                title: 'Learns',
+                items: {
+                    type: 'string',
+                    default: ''
                 }
-            },
+            }
         }
     },
     ui_schema: {

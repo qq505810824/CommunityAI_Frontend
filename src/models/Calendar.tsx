@@ -1,5 +1,5 @@
-import { AccountModel } from "./Account";
-import { CommunityModel } from "./Community";
+import { AccountModel } from './Account';
+import { CommunityModel } from './Community';
 
 export interface CalendarModel {
     id: number;
@@ -20,8 +20,8 @@ export interface CalendarModel {
     region: string;
     form_url: string;
 
-    owner?: AccountModel
-    community?: CommunityModel
+    owner?: AccountModel;
+    community?: CommunityModel;
 
     is_collected?: boolean;
     uploadFiles?: File[];

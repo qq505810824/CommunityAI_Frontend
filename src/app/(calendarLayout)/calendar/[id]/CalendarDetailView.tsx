@@ -22,20 +22,20 @@ function CalendarDetailView(props: ViewProps) {
     const { back, product } = props;
     const router = useRouter();
     const { activeTab, setActiveTab } = useAppDetailContext();
-    const { user_id } = useAppContext()
+    const { user_id } = useAppContext();
     const params = useParams();
 
     const handleClickEditEvent = () => {
-        router.push(`/events/${product?.id}/edit?community_id=${params['id']}`)
-    }
+        router.push(`/events/${product?.id}/edit?community_id=${params['id']}`);
+    };
 
     const showEditButton = () => {
-        return isOwner()
-    }
+        return isOwner();
+    };
 
     const isOwner = () => {
-        return product?.owner?.id == user_id
-    }
+        return product?.owner?.id == user_id;
+    };
 
     return (
         <>
@@ -74,18 +74,19 @@ function CalendarDetailView(props: ViewProps) {
                                 <Share2 className="w-5 h-5" />
                             </button>
 
-                            {showEditButton() && <div>
-                                <button
-                                    onClick={() => {
-                                        handleClickEditEvent()
-                                    }}
-                                    className="bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
-                                >
-                                    <Edit className="w-4 h-4" />
-                                    <span>Edit Event</span>
-                                </button>
-                            </div>
-                            }
+                            {showEditButton() && (
+                                <div>
+                                    <button
+                                        onClick={() => {
+                                            handleClickEditEvent();
+                                        }}
+                                        className="bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
+                                    >
+                                        <Edit className="w-4 h-4" />
+                                        <span>Edit Event</span>
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     </div>
 

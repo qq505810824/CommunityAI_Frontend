@@ -20,7 +20,10 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
         channel_id: '',
         account_id: user_id
     });
-    const { data: channelData, mutate: channelMutate } = useChannelDetailData(meta?.channel?.id, user_id)
+    const { data: channelData, mutate: channelMutate } = useChannelDetailData(
+        meta?.channel?.id,
+        user_id
+    );
     const { data, isLoading, isError, mutate } = usePostData(filters);
 
     useEffect(() => {
@@ -53,7 +56,7 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
     }, [filters]);
 
     const handleRefresh = () => {
-        channelMutate()
+        channelMutate();
         mutate();
     };
 

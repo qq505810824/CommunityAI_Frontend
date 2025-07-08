@@ -16,7 +16,7 @@ export default function ReferenceFilesView(props: ViewProps) {
     const router = useRouter();
 
     const showFilesView = () => {
-        return true
+        return true;
         // return user_id !== '' || isShare;
     };
 

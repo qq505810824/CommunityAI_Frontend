@@ -1,4 +1,3 @@
-
 interface ViewProps {
     content: string;
 }

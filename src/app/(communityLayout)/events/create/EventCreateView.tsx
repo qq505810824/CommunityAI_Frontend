@@ -5,14 +5,12 @@ import CalendarEditForm from '@/app/components/calendar/edit/form';
 import { CalendarModel } from '@/models/Calendar';
 import { ArrowLeft } from 'lucide-react';
 
-
 interface ViewProps {
     product: CalendarModel | null;
     submitting?: boolean;
     setSubmitting?: any;
     handleSubmit: (formData: CalendarModel) => void;
 }
-
 
 export default function EventCreateView(props: ViewProps) {
     const { product, submitting, setSubmitting, handleSubmit } = props;

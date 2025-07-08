@@ -20,7 +20,7 @@ export interface CourseModel {
 
     tier?: 'basic' | 'premium' | 'all';
     progress?: number;
-    learns?: string[]
+    learns?: string[];
 
     duration: string;
     lessons: number;

@@ -30,11 +30,11 @@ export const getAllApps = async (options?: any) => {
         //     .select(`
         //         *,
         //         owner(id,name),
-        //         community(id,name,logo), 
+        //         community(id,name,logo),
 
         //     `);
 
-        let query = supabase.from('channel_with_last_post').select('*,owner(id,name)')
+        let query = supabase.from('channel_with_last_post').select('*,owner(id,name)');
 
         if (options && options.community_id) {
             query = query.eq('community', options.community_id);
@@ -119,7 +119,7 @@ export const getAppDetail = async (id: number, accountId?: string) => {
         return {
             data: {
                 ...detailResult.data,
-                posts_count: detailResult.data?.posts && detailResult.data?.posts[0]?.count || 0,
+                posts_count: (detailResult.data?.posts && detailResult.data?.posts[0]?.count) || 0,
                 is_collected: collectResult ? collectResult?.data?.length > 0 : false
             },
             error: null

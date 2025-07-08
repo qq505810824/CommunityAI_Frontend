@@ -18,7 +18,7 @@ function EventContainter() {
     const { setAlert } = useAlert();
     const { setLoad } = useLoad();
     const router = useRouter();
-    const { user_id } = useAppContext()
+    const { user_id } = useAppContext();
     const params = useParams();
 
     const [products, setProducts] = useState<any[]>([]);
@@ -44,7 +44,7 @@ function EventContainter() {
             });
             setProducts(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     useEffect(() => {

@@ -10,7 +10,6 @@ import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import EventCreateView from './EventCreateView';
 
-
 export default function EventCreateContainter() {
     const params = useParams();
     const token = localStorage.getItem('authorization');
@@ -69,12 +68,14 @@ export default function EventCreateContainter() {
     };
     return (
         <>
-            <EventCreateView {...{
-                product,
-                submitting,
-                setSubmitting,
-                handleSubmit
-            }} />
+            <EventCreateView
+                {...{
+                    product,
+                    submitting,
+                    setSubmitting,
+                    handleSubmit
+                }}
+            />
         </>
     );
 }
