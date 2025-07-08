@@ -5,6 +5,7 @@ import { BookOpen, Calendar as CalendarIcon, Hash } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import ChannelDetailContainter from '../../channels/[id]/ChannelDetailContainter';
+import PostDetailContainter from '../../channels/[id]/posts/[pid]/PostDetailContainter';
 import ChannelContainter from '../../channels/ChannelContainter';
 import CourseDetailContainter from '../../courses/[id]/CourseDetailContainter';
 import CourseContainter from '../../courses/CourseContainter';
@@ -42,6 +43,8 @@ export default function CommunityDetailView({ community }: ViewProps) {
                 return <ChannelContainter />;
             case 'channel-detail':
                 return <ChannelDetailContainter meta={activeTab.meta} />;
+            case 'post-detail':
+                return <PostDetailContainter meta={activeTab.meta} />;
             case 'courses':
                 return <CourseContainter />;
             case 'course-detail':

@@ -31,15 +31,15 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
     return (
         <>
             <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
+                <div className="flex items-center justify-between flex-wrap">
+                    <div className="flex items-center space-x-2">
                         <button
                             onClick={() => setActiveTab({ name: 'channels' })}
                             className="p-2 hover:bg-gray-100 rounded-lg"
                         >
                             <ArrowLeft className="w-5 h-5" />
                         </button>
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-2">
                             <div className="text-2xl">{channel?.logo}</div>
                             <div>
                                 <h3 className="text-xl font-semibold flex items-center space-x-2">
@@ -59,7 +59,7 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
                         </div>
                     </div>
                     <button
-                        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
+                        className="bg-blue-500 text-white px-4 py-1 text-sm sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
                         onClick={handleClickNewPost}
                     >
                         <Plus className="w-4 h-4" />

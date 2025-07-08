@@ -66,7 +66,7 @@ export default function PostFormView({ payload, submit, cancel }: ViewProps) {
                 <form onSubmit={onSubmit}>
                     <div className="space-y-4">
                         <div>
-                            <label className="block text-sm font-medium mb-2">Post Name</label>
+                            <label className="block text-sm font-medium mb-2">Post Content</label>
                             <input
                                 type="text"
                                 value={data.title}

@@ -1,4 +1,4 @@
-import { PostModel } from '@/models/Post';
+import { CommentModel } from '@/models/Comment';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
@@ -6,42 +6,28 @@ const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
-const db = 'posts';
+const db = 'comments';
 export const getAllApps = async (options?: any) => {
     try {
         // console.log('options', options);
 
-        let query = supabase
-            .from(db)
-            .select(
-                '*,owner(id,name),channel(id,name),community(id,name),account_post:account_post(post_id,account_id),comments(count)'
-            );
+        let query = supabase.from(db).select('*,owner(id,name)');
 
         if (options?.account_id) {
             // 只查当前用户的 like 关系
-            query = query.eq('account_post.account_id', options.account_id);
+            // query = query.eq('account_comment.account_id', options.account_id);
         }
 
-        if (options && options.channel_id) {
-            query = query.eq('channel', options.channel_id);
+        if (options && options.post_id) {
+            query = query.eq('post', options.post_id);
         }
 
         if (options && options.limit) {
             query = query.limit(options.limit);
         }
-
-        if (options && options.category) {
-            query = query.eq('category', options.category);
-        }
-        if (options && options.status) {
-            query = query.or(`status.like.%${options?.status || ''}`);
-        }
-        if (options && options.region) {
-            query = query.eq(`region`, options.region);
-        }
-        query = query.or(
-            `title.ilike.%${options?.keyword || ''}%,description.ilike.%${options?.keyword || ''}%`
-        );
+        // query = query.or(
+        //     `content.ilike.%${options?.keyword || ''}%,description.ilike.%${options?.keyword || ''}%`
+        // );
 
         // const { data, error } = await query;
         query = query.order(options?.order || 'created_at', {
@@ -64,10 +50,10 @@ export const getAllApps = async (options?: any) => {
 
         // 只返回 is_liked 字段
         const result = Array.isArray(data)
-            ? data.map((post) => ({
-                  ...post,
-                  comment_count: (post?.comments && post?.comments[0]?.count) || 0,
-                  is_favorit: Array.isArray(post.account_post) && post.account_post.length > 0
+            ? data.map((Comment) => ({
+                  ...Comment,
+                  is_favorit:
+                      Array.isArray(Comment.account_Comment) && Comment.account_Comment.length > 0
               }))
             : [];
 
@@ -82,7 +68,7 @@ export const getRandomApps = async (options?: any) => {
     try {
         // console.log('options', options);
 
-        let query = supabase.rpc('random_posts', options);
+        let query = supabase.rpc('random_comments', options);
         const { data, error } = await query;
         if (error) {
             throw error;
@@ -100,16 +86,16 @@ export const getAppDetail = async (id: number, accountId?: string) => {
         // 构建查询任务数组
         const tasks = [
             // supabase.rpc('increment_view', { row_id: id }),
-            supabase.from(db).select('*,owner(id,name),comments(count)').eq('id', id).single()
+            supabase.from(db).select('*').eq('id', id).single()
         ];
 
         // 如果有用户ID，添加收藏状态查询
         if (accountId) {
             // tasks.push(
             //     supabase
-            //         .from('account_Post')
+            //         .from('account_Comment')
             //         .select('*')
-            //         .eq('Post_id', id)
+            //         .eq('Comment_id', id)
             //         .eq('account_id', accountId)
             //     // .single()
             // );
@@ -126,8 +112,6 @@ export const getAppDetail = async (id: number, accountId?: string) => {
         return {
             data: {
                 ...detailResult.data,
-                comment_count:
-                    (detailResult.data?.comments && detailResult.data?.comments[0]?.count) || 0,
                 is_collected: collectResult ? collectResult?.data?.length > 0 : false
             },
             error: null
@@ -154,7 +138,7 @@ export const getAppDetailById = async (id: number) => {
     }
 };
 
-export const createApp = async (appData: Omit<PostModel, 'id'>) => {
+export const createApp = async (appData: Omit<CommentModel, 'id'>) => {
     try {
         const { data, error } = await supabase.from(db).insert([appData]).select();
 
@@ -174,7 +158,7 @@ export const likeApp = async (id: number, accountId?: string) => {
         let result;
 
         const { data, error } = await supabase
-            .rpc('handle_like_post', { p_account_id: accountId, p_post_id: id })
+            .rpc('handle_like_Comment', { p_account_id: accountId, p_Comment_id: id })
             .single();
 
         if (error) throw error;
@@ -187,7 +171,7 @@ export const likeApp = async (id: number, accountId?: string) => {
     }
 };
 
-export const updateApp = async (id: number, appData: Partial<PostModel>, accountId?: string) => {
+export const updateApp = async (id: number, appData: Partial<CommentModel>, accountId?: string) => {
     try {
         let result;
         // 如果是更新 focus，使用 RPC
@@ -200,7 +184,7 @@ export const updateApp = async (id: number, appData: Partial<PostModel>, account
             result = { data, error: null };
         } else if ('like' in appData) {
             const { data, error } = await supabase
-                .rpc('handle_like_post', { p_account_id: id, p_post_id: id })
+                .rpc('handle_like_Comment', { p_account_id: id, p_Comment_id: id })
                 .single();
 
             if (error) throw error;

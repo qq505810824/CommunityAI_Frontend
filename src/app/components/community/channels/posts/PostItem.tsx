@@ -30,42 +30,17 @@ export default function PostItem({ post }: ViewProps) {
         // const res = await likePost(post.id || 0, user_id);
     };
 
+    const handleClickPost = () => {
+        setActiveTab({ name: 'post-detail', meta: { post, channel: post.channel } });
+    };
+
     return (
         <>
-            <div className="w-full flex flex-row space-x-2 hidden">
-                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="font-medium text-blue-700">
-                        {post?.owner?.name
-                            .split(' ')
-                            .map((n) => n[0])
-                            .join('')}
-                    </span>
-                </div>
-                <div className="flex flex-col space-y-2 w-full">
-                    <span className="text-gray-500 ">{post?.owner?.name}</span>
-                    <p className=" ">{post.title}</p>
-                    <div className="flex flex-row items-center justify-between">
-                        <span className="text-sm text-gray-500">
-                            {moment(post.created_at).fromNow()}
-                        </span>
-                        <div className="flex items-center space-x-4">
-                            <button
-                                className={`flex items-center space-x-2 text-gray-500 hover:text-red-500 ${isLike ? 'text-red-500' : 'text-gray-500'}`}
-                                onClick={handleLike}
-                            >
-                                <Heart className="w-4 h-4" />
-                                <span>{likes || 0}</span>
-                            </button>
-                            <button className="hidden flex items-center space-x-2 text-gray-500 hover:text-blue-500">
-                                <Share2 className="w-4 h-4" />
-                                <span>Share</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="bg-white border rounded-lg p-6  cursor-pointer">
-                <div className="flex items-start space-x-4">
+            <div
+                className="bg-white border rounded-lg p-2 sm:p-4  cursor-pointer"
+                onClick={handleClickPost}
+            >
+                <div className="flex items-start space-x-2">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                         <span className="font-medium text-blue-700">
                             {post?.owner?.name
@@ -75,8 +50,8 @@ export default function PostItem({ post }: ViewProps) {
                         </span>
                     </div>
 
-                    <div className="flex-1">
-                        <div className="flex items-center space-x-2 mb-2">
+                    <div className="flex-1 space-y-2">
+                        <div className="flex items-center space-x-2 mb-2 space-y-1 flex-wrap">
                             <span className="font-semibold">{post?.owner?.name}</span>
                             {/* <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs">
                                 {post.role}
@@ -86,7 +61,7 @@ export default function PostItem({ post }: ViewProps) {
                             </span>
                         </div>
 
-                        <p className="text-gray-700 mb-4">{post.title}</p>
+                        <p className="text-gray-700 text-sm">{post.title}</p>
 
                         {/* Attachments */}
                         {/* {post?.attachments && post?.attachments?.length > 0 && (
@@ -126,7 +101,7 @@ export default function PostItem({ post }: ViewProps) {
                                 onClick={handleComment}
                             >
                                 <MessageSquare className="w-4 h-4" />
-                                <span>{likes || 0}</span>
+                                <span>{post.comment_count || 0}</span>
                             </button>
 
                             <button className="hidden flex items-center space-x-2 text-gray-500 hover:text-blue-500">

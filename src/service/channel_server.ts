@@ -34,7 +34,9 @@ export const getAllApps = async (options?: any) => {
 
         //     `);
 
-        let query = supabase.from('channel_with_last_post').select('*,owner(id,name)');
+        let query = supabase
+            .from('channel_with_last_post')
+            .select('*,owner(id,name),community(id,name)');
 
         if (options && options.community_id) {
             query = query.eq('community', options.community_id);

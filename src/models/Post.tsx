@@ -9,6 +9,7 @@ export type PostModel = {
     owner?: AccountModel;
     channel?: ChannelModel;
     favorit_count?: number;
+    comment_count?: number;
     attachments?: [];
 
     meta?: any;

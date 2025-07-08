@@ -2,52 +2,51 @@
 
 import Loading from '@/app/components/base/loading';
 import { useAppContext } from '@/context/app-context';
-import { useChannelDetailData } from '@/hooks/useChannelData';
-import { usePostData } from '@/hooks/usePostData';
+import { useCommentData } from '@/hooks/useCommentData';
+import { usePostDetailData } from '@/hooks/usePostData';
 import { ChannelModel } from '@/models/Channel';
+import { PostModel } from '@/models/Post';
 import { useEffect, useState } from 'react';
-import ChannelDetailView from './ChannelDetailView';
+import ChannelDetailView from './PostDetailView';
 
 interface ViewProps {
     meta?: any;
 }
 
-export default function ChannelDetailContainter({ meta }: ViewProps) {
+export default function PostDetailContainter({ meta }: ViewProps) {
+    const [post, setPost] = useState<PostModel>();
     const [channel, setChannel] = useState<ChannelModel>();
     const { user_id } = useAppContext();
 
     const [filters, setFilters] = useState<any>({
-        channel_id: '',
+        post_id: '',
         account_id: user_id
     });
-    const { data: channelData, mutate: channelMutate } = useChannelDetailData(
-        meta?.channel?.id,
-        user_id
-    );
-    const { data, isLoading, isError, mutate } = usePostData(filters);
+    const { data: postData, mutate: postMutate } = usePostDetailData(meta?.post?.id, user_id);
+    const { data, isLoading, isError, mutate } = useCommentData(filters);
 
     useEffect(() => {
-        if (meta && channelData) {
-            // console.log('meta', meta);
+        if (meta && postData) {
             setFilters({
                 ...filters,
-                channel_id: meta?.channel?.id
+                post_id: meta?.post?.id
             });
-            setChannel(channelData || meta?.channel);
+            setPost(postData || meta?.post);
+            setChannel(meta?.channel);
         }
-    }, [meta, channelData]);
+    }, [meta, postData]);
 
     useEffect(() => {
         if (data) {
-            // console.log('post data', data);
+            // console.log('comment data', data);
         }
     }, [data]);
 
     useEffect(() => {
-        if (channelData) {
+        if (postData) {
             // console.log('channel data', channelData);
         }
-    }, [channelData]);
+    }, [postData]);
 
     useEffect(() => {
         if (filters) {
@@ -56,7 +55,7 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
     }, [filters]);
 
     const handleRefresh = () => {
-        channelMutate();
+        postMutate();
         mutate();
     };
 
@@ -66,7 +65,8 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
             <ChannelDetailView
                 {...{
                     channel,
-                    posts: data,
+                    post,
+                    comments: data,
                     handleRefresh
                 }}
             />
