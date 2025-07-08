@@ -34,7 +34,7 @@ export const getAllApps = async (options?: any) => {
 
         //     `);
 
-        let query = supabase.from('channel_with_last_post').select('*')
+        let query = supabase.from('channel_with_last_post').select('*,owner(id,name)')
 
         if (options && options.community_id) {
             query = query.eq('community', options.community_id);
@@ -93,7 +93,7 @@ export const getAppDetail = async (id: number, accountId?: string) => {
         // 构建查询任务数组
         const tasks = [
             // supabase.rpc('increment_view', { row_id: id }),
-            supabase.from(db).select('*').eq('id', id).single()
+            supabase.from(db).select('*,owner(id,name),posts(count)').eq('id', id).single()
         ];
 
         // 如果有用户ID，添加收藏状态查询
@@ -119,6 +119,7 @@ export const getAppDetail = async (id: number, accountId?: string) => {
         return {
             data: {
                 ...detailResult.data,
+                posts_count: detailResult.data?.posts && detailResult.data?.posts[0]?.count || 0,
                 is_collected: collectResult ? collectResult?.data?.length > 0 : false
             },
             error: null

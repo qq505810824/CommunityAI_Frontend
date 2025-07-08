@@ -1,10 +1,12 @@
 import Modal from '@/app/components/base/modal';
+import ContentView from '@/app/components/common/Views/ContentView';
 import PostFormView from '@/app/components/community/channels/posts/form';
 import PostItem from '@/app/components/community/channels/posts/PostItem';
 import { useAppContext } from '@/context/app-context';
 import { ChannelModel } from '@/models/Channel';
 import { PostModel } from '@/models/Post';
 import { ArrowLeft, Hash, Plus, Shield } from 'lucide-react';
+import moment from 'moment';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useAppDetailContext } from '../../communitys/[id]/detail-context';
@@ -28,7 +30,7 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
 
     return (
         <>
-            <div className="space-y-6">
+            <div className="space-y-4">
                 <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                         <button
@@ -47,20 +49,41 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
                                         <Shield className="w-4 h-4 text-orange-500" />
                                     )}
                                 </h3>
-                                <p className="text-gray-600 text-sm">{channel?.description}</p>
+                                <div className='flex flex-row items-center text-gray-500'>
+                                    {channel?.owner?.name}   <span className='ml-2'>{moment(channel?.created_at).fromNow()}</span>
+                                </div>
+
                             </div>
                         </div>
                     </div>
-
                     <button
-                        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
+                        className="hidden bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
                         onClick={handleClickNewPost}
                     >
                         <Plus className="w-4 h-4" />
                         <span>New Post</span>
                     </button>
                 </div>
-
+                <ContentView content={channel?.description || ''} />
+                <div className=''>
+                    <p className='text-md font-semibold'>Post {channel?.posts_count || 0}</p>
+                </div>
+                <div>
+                    <PostFormView
+                        payload={{
+                            channel: channel?.id,
+                            owner: user_id,
+                            community: channel?.community?.id
+                        }}
+                        cancel={() => {
+                            setVisibleCreatePost(false);
+                        }}
+                        submit={() => {
+                            handleRefresh();
+                            setVisibleCreatePost(false);
+                        }}
+                    />
+                </div>
                 {/* Channel Posts */}
                 {posts && posts.length > 0 ? (
                     <div className="space-y-4">

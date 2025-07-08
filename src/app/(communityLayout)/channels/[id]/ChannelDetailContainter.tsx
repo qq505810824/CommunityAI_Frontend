@@ -2,6 +2,7 @@
 
 import Loading from '@/app/components/base/loading';
 import { useAppContext } from '@/context/app-context';
+import { useChannelDetailData } from '@/hooks/useChannelData';
 import { usePostData } from '@/hooks/usePostData';
 import { ChannelModel } from '@/models/Channel';
 import { useEffect, useState } from 'react';
@@ -19,6 +20,7 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
         channel_id: '',
         account_id: user_id
     });
+    const { data: channelData, mutate: channelMutate } = useChannelDetailData(meta?.channel?.id, user_id)
     const { data, isLoading, isError, mutate } = usePostData(filters);
 
     useEffect(() => {
@@ -28,15 +30,21 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
                 ...filters,
                 channel_id: meta?.channel?.id
             });
-            setChannel(meta?.channel);
+            setChannel(channelData || meta?.channel);
         }
-    }, [meta]);
+    }, [meta, channelData]);
 
     useEffect(() => {
         if (data) {
-            console.log('post data', data);
+            // console.log('post data', data);
         }
     }, [data]);
+
+    useEffect(() => {
+        if (channelData) {
+            // console.log('channel data', channelData);
+        }
+    }, [channelData]);
 
     useEffect(() => {
         if (filters) {
@@ -45,6 +53,7 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
     }, [filters]);
 
     const handleRefresh = () => {
+        channelMutate()
         mutate();
     };
 

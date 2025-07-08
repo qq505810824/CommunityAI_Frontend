@@ -25,7 +25,40 @@ export default function PostItem({ post }: ViewProps) {
 
     return (
         <>
-            <div className="bg-white border rounded-lg p-6">
+            <div className='w-full flex flex-row space-x-2'>
+                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                    <span className="font-medium text-blue-700">
+                        {post?.owner?.name
+                            .split(' ')
+                            .map((n) => n[0])
+                            .join('')}
+                    </span>
+                </div>
+                <div className='flex flex-col space-y-2 w-full'>
+                    <span className="text-gray-500 ">{post?.owner?.name}</span>
+                    <p className=" ">{post.title}</p>
+                    <div className='flex flex-row items-center justify-between'>
+                        <span className="text-sm text-gray-500">
+                            {moment(post.created_at).fromNow()}
+                        </span>
+                        <div className="flex items-center space-x-4">
+                            <button
+                                className={`flex items-center space-x-2 text-gray-500 hover:text-red-500 ${isLike ? 'text-red-500' : 'text-gray-500'}`}
+                                onClick={handleLike}
+                            >
+                                <Heart className="w-4 h-4" />
+                                <span>{likes || 0}</span>
+                            </button>
+                            <button className="hidden flex items-center space-x-2 text-gray-500 hover:text-blue-500">
+                                <Share2 className="w-4 h-4" />
+                                <span>Share</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div className="bg-white border rounded-lg p-6 hidden">
                 <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                         <span className="font-medium text-blue-700">

@@ -1,5 +1,6 @@
 import { usePostOperations } from '@/hooks/usePostData';
 import { PostModel } from '@/models/Post';
+import { UserCircleIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
 interface ViewProps {
@@ -27,6 +28,8 @@ export default function PostFormView({ payload, submit, cancel }: ViewProps) {
             ...data
         });
 
+        setData({ title: '', description: '' })
+
         setSubmitting(false);
         submit();
         console.log('res', res);
@@ -34,7 +37,35 @@ export default function PostFormView({ payload, submit, cancel }: ViewProps) {
 
     return (
         <>
-            <div className="bg-white border rounded-lg p-6">
+            <form onSubmit={onSubmit}>
+                <div className='w-full flex flex-row  space-x-2'>
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center">
+                        <UserCircleIcon
+                            className="h-10 w-10 text-gray-500 "
+                            aria-hidden="true"
+                        />
+                    </div>
+                    <div className='w-full relative'>
+                        <textarea
+                            rows={3}
+                            placeholder="e.g. announcements"
+                            className='w-full p-2 border bg-gray-100 rounded-sm'
+                            value={data.title}
+                            required={true}
+                            onChange={(e) => setData({ ...data, title: e.target.value })}>
+
+                        </textarea>
+                        <button
+                            type="submit"
+                            disabled={submitting}
+                            className=" absolute bottom-3 right-3 bg-blue-500 text-white px-2 py-1 text-sm rounded-md hover:bg-blue-600"
+                        >
+                            Confrim
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div className="bg-white border rounded-lg p-6 hidden">
                 <h4 className="font-semibold mb-4">Create Post</h4>
                 <form onSubmit={onSubmit}>
                     <div className="space-y-4">

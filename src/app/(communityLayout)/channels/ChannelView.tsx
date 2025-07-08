@@ -1,5 +1,6 @@
+import ChannelItem from '@/app/components/community/channels/ChannelItem';
 import { ChannelModel } from '@/models/Channel';
-import { Hash, Plus, Shield } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useAppDetailContext } from '../communitys/[id]/detail-context';
@@ -41,56 +42,9 @@ export default function ChannelView({ channels }: ViewProps) {
                 </div>
 
                 {/* Channel List */}
-                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {channels?.map((channel) => (
-                        <div
-                            key={channel.id}
-                            onClick={() => {
-                                // handleClickChannel(channel)
-                                setSelectedChannel(channel);
-                                setActiveTab({
-                                    name: 'channel-detail',
-                                    meta: {
-                                        channel: channel
-                                    }
-                                });
-                            }}
-                            className="bg-white border rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer"
-                        >
-                            <div className="flex items-start justify-between mb-4">
-                                <div className="flex items-center space-x-3">
-                                    <div className="text-2xl">{channel.logo || '💡'}</div>
-                                    <div>
-                                        <h4 className="font-semibold flex items-center space-x-2">
-                                            <Hash className="w-4 h-4 text-gray-500" />
-                                            <span>{channel.name}</span>
-                                            {!channel.publish && (
-                                                <Shield className="w-4 h-4 text-orange-500" />
-                                            )}
-                                        </h4>
-                                        <p className="text-sm text-gray-600">
-                                            {channel.description}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="flex justify-between items-center text-sm text-gray-500">
-                                <div><span className='text-black'>{channel.posts_count || 0} </span>posts</div>
-                                {channel?.last_post && <span className='max-w-[200px] truncate block"'>Last post: {channel?.last_post?.title}</span>}
-                            </div>
-
-                            <div className="mt-3">
-                                <span
-                                    className={`px-2 py-1 rounded-full text-xs ${!channel.publish
-                                        ? 'bg-orange-100 text-orange-700'
-                                        : 'bg-green-100 text-green-700'
-                                        }`}
-                                >
-                                    {!channel.publish ? `${channel.tier} only` : 'All members'}
-                                </span>
-                            </div>
-                        </div>
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    {channels?.map((channel, index) => (
+                        <ChannelItem key={index} channel={channel} />
                     ))}
                 </div>
                 {channels?.length == 0 && (

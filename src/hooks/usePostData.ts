@@ -39,9 +39,9 @@ export const usePostData = (options: any) => {
         options?.channel_id ? 'posts_' + options.channel_id : null,
         () => appsFetcher(options),
         {
-            revalidateOnFocus: false,
-            revalidateOnReconnect: false,
-            dedupingInterval: 60000 // 1分钟内不重复请求
+            revalidateOnFocus: true,
+            revalidateOnReconnect: true,
+            // dedupingInterval: 60000 // 1分钟内不重复请求
         }
     );
 
