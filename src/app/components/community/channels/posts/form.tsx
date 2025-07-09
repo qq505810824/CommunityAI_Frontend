@@ -1,42 +1,67 @@
-import { usePostOperations } from '@/hooks/usePostData';
+import FormDetailView from '@/app/components/common/Widget/form';
 import { PostModel } from '@/models/Post';
-import { UserCircleIcon } from '@heroicons/react/24/outline';
-import { useState } from 'react';
+import { PostFormData } from '@/utils/formData';
+import { useEffect, useState } from 'react';
 
 interface ViewProps {
-    payload: any;
-    submit: () => void;
-    cancel: any;
+    product: PostModel | null;
+    submitting?: boolean;
+    setSubmitting?: any;
+    submit: (formData: PostModel) => void;
+
+    // payload: any;
+    // submit: () => void;
+    // cancel: any;
 }
 
-export default function PostFormView({ payload, submit, cancel }: ViewProps) {
-    const { addPost } = usePostOperations();
-    const [submitting, setSubmitting] = useState(false);
+export default function PostFormView(props: ViewProps) {
+    const { product, submitting, setSubmitting, submit } = props;
+    const [formData, setFormData] = useState(PostFormData);
+    useEffect(() => {
+        if (product) {
+            console.log('product', product);
+            setFormData({
+                ...formData,
+                form_data: product
+            });
+        }
+    }, [product]); // 添加依赖项
 
-    const [data, setData] = useState<PostModel>({
-        title: '',
-        description: ''
-    });
 
-    const onSubmit = async (e: React.FormEvent) => {
-        e.preventDefault(); // 阻止表单自动跳转和刷新
-        console.log('data', data);
-        console.log('payload', payload);
-        setSubmitting(true);
-        const res = await addPost({
-            ...payload,
-            ...data
-        });
+    // const { addPost } = usePostOperations();
+    // const [submitting, setSubmitting] = useState(false);
 
-        setData({ title: '', description: '' });
+    // const [data, setData] = useState<PostModel>({
+    //     title: '',
+    //     description: ''
+    // });
 
-        setSubmitting(false);
-        submit();
-        console.log('res', res);
-    };
+    // const onSubmit = async (e: React.FormEvent) => {
+    //     e.preventDefault(); // 阻止表单自动跳转和刷新
+    //     console.log('data', data);
+    //     console.log('payload', payload);
+    //     setSubmitting(true);
+    //     const res = await addPost({
+    //         ...payload,
+    //         ...data
+    //     });
+
+    //     setData({ title: '', description: '' });
+
+    //     setSubmitting(false);
+    //     submit();
+    //     console.log('res', res);
+    // };
 
     return (
         <>
+            <FormDetailView
+                className={'p-4 sm:p-6 border rounded-lg'}
+                formData={formData}
+                disabled={submitting}
+                onSubmit={submit}
+            />
+            {/* 
             <form onSubmit={onSubmit}>
                 <div className="w-full flex flex-row  space-x-2 hidden">
                     <div className="w-10 h-10 rounded-full flex items-center justify-center">
@@ -61,7 +86,7 @@ export default function PostFormView({ payload, submit, cancel }: ViewProps) {
                     </div>
                 </div>
             </form>
-            <div className="bg-white border rounded-lg p-6 ">
+            <div className="hidden bg-white border rounded-lg p-6 ">
                 <h4 className="font-semibold mb-4">Create Post</h4>
                 <form onSubmit={onSubmit}>
                     <div className="space-y-4">
@@ -107,7 +132,7 @@ export default function PostFormView({ payload, submit, cancel }: ViewProps) {
                         </div>
                     </div>
                 </form>
-            </div>
+            </div> */}
         </>
     );
 }

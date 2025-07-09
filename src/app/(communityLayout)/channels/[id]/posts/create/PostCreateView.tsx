@@ -1,15 +1,23 @@
 import PostFormView from '@/app/components/community/channels/posts/form';
-import { ChannelModel } from '@/models/Channel';
+import { PostModel } from '@/models/Post';
 import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useAppDetailContext } from '../../../../communitys/[id]/detail-context';
 
 interface ViewProps {
-    channels: ChannelModel[];
+    product: PostModel | null;
+    submitting: boolean;
+    setSubmitting?: any;
+    handleSubmit: (data: PostModel) => void;
 }
 
-export default function PostCreateView({ channels }: ViewProps) {
+export default function PostCreateView({
+    product,
+    submitting,
+    setSubmitting,
+    handleSubmit
+}: ViewProps) {
     const router = useRouter();
 
     const { activeTab, setActiveTab } = useAppDetailContext();
@@ -33,12 +41,14 @@ export default function PostCreateView({ channels }: ViewProps) {
                     </div>
 
                     <PostFormView
-                        payload={undefined}
-                        cancel={undefined}
-                        submit={function (): {} {
-                            throw new Error('Function not implemented.');
+                        {...{
+                            product,
+                            submitting,
+                            setSubmitting,
+                            submit: handleSubmit
                         }}
                     />
+
                 </div>
             </div>
         </>

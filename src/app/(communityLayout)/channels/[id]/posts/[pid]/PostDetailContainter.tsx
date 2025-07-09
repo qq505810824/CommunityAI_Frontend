@@ -6,6 +6,7 @@ import { useCommentData } from '@/hooks/useCommentData';
 import { usePostDetailData } from '@/hooks/usePostData';
 import { ChannelModel } from '@/models/Channel';
 import { PostModel } from '@/models/Post';
+import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import ChannelDetailView from './PostDetailView';
 
@@ -16,13 +17,15 @@ interface ViewProps {
 export default function PostDetailContainter({ meta }: ViewProps) {
     const [post, setPost] = useState<PostModel>();
     const [channel, setChannel] = useState<ChannelModel>();
+    const searchParams = useSearchParams();
     const { user_id } = useAppContext();
 
     const [filters, setFilters] = useState<any>({
         post_id: '',
         account_id: user_id
     });
-    const { data: postData, mutate: postMutate } = usePostDetailData(meta?.post?.id, user_id);
+    const { data: postData, isLoading: postLoading, mutate: postMutate } = usePostDetailData(
+        meta?.post?.id || searchParams.get('post_id'), user_id);
     const { data, isLoading, isError, mutate } = useCommentData(filters);
 
     useEffect(() => {
@@ -35,6 +38,17 @@ export default function PostDetailContainter({ meta }: ViewProps) {
             setChannel(meta?.channel);
         }
     }, [meta, postData]);
+
+    useEffect(() => {
+        if (!meta && searchParams.get('post_id') && postData) {
+            console.log('meta', meta);
+            setFilters({
+                ...filters,
+                post_id: searchParams.get('post_id')
+            });
+            setPost(postData);
+        }
+    }, [postData, searchParams]);
 
     useEffect(() => {
         if (data) {
@@ -50,7 +64,7 @@ export default function PostDetailContainter({ meta }: ViewProps) {
 
     useEffect(() => {
         if (filters) {
-            mutate();
+            // mutate();
         }
     }, [filters]);
 
@@ -59,7 +73,7 @@ export default function PostDetailContainter({ meta }: ViewProps) {
         mutate();
     };
 
-    if (isLoading) return <Loading type="app" />;
+    if (isLoading || postLoading) return <Loading type="app" />;
     return (
         <>
             <ChannelDetailView

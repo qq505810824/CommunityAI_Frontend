@@ -10,12 +10,13 @@ export type PostModel = {
     channel?: ChannelModel;
     favorit_count?: number;
     comment_count?: number;
-    attachments?: [];
-
     meta?: any;
     role?: string;
 
     is_favorit?: boolean;
+
+    uploadFiles?: File[]
+    files_url?: any;
 
     created_at?: string;
     updated_at?: string;

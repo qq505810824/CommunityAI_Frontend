@@ -63,6 +63,20 @@ export default function PostDetailView({ channel, post, comments, handleRefresh 
                     </div>
                 </div>
                 <ContentView content={post?.description || ''} />
+                <div className="grid sm:grid-cols-2 md:grid-cols-3 space-x-2">
+                    {post?.files_url && post?.files_url?.split(",").map((file: any, index: number) => (
+                        <div
+                            key={index}
+                            className="flex items-center justify-center overflow-hidden rounded mb-2"
+                        >
+                            <img
+                                src={file}
+                                alt=""
+                                className="object-cover w-full h-full"
+                            />
+                        </div>
+                    ))}
+                </div>
                 <div className="">
                     <p className="text-md font-semibold">Comment {post?.comment_count || 0}</p>
                 </div>

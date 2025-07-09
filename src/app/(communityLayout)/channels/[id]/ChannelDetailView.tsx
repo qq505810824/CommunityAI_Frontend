@@ -1,6 +1,4 @@
-import Modal from '@/app/components/base/modal';
 import ContentView from '@/app/components/common/Views/ContentView';
-import PostFormView from '@/app/components/community/channels/posts/form';
 import PostItem from '@/app/components/community/channels/posts/PostItem';
 import { useAppContext } from '@/context/app-context';
 import { ChannelModel } from '@/models/Channel';
@@ -24,8 +22,8 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
     const { user_id } = useAppContext();
 
     const handleClickNewPost = () => {
-        setVisibleCreatePost(true);
-        // router.push(`/channels/${channel?.id}/posts/create`)
+        // setVisibleCreatePost(true);
+        router.push(`/channels/${channel?.id}/posts/create?community_id=${channel?.community}`)
     };
 
     return (
@@ -70,22 +68,6 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
                 <div className="">
                     <p className="text-md font-semibold">Post {channel?.posts_count || 0}</p>
                 </div>
-                <div className="hidden">
-                    <PostFormView
-                        payload={{
-                            channel: channel?.id,
-                            owner: user_id,
-                            community: channel?.community?.id
-                        }}
-                        cancel={() => {
-                            setVisibleCreatePost(false);
-                        }}
-                        submit={() => {
-                            handleRefresh();
-                            setVisibleCreatePost(false);
-                        }}
-                    />
-                </div>
                 {/* Channel Posts */}
                 {posts && posts.length > 0 ? (
                     <div className="space-y-4">
@@ -100,7 +82,7 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
                     </div>
                 )}
             </div>
-            <Modal
+            {/* <Modal
                 isShow={visibleCreatePost}
                 className="!w-[480px] !max-w-[480px] !p-0 !rounded-2xl"
                 wrapperClassName="z-40"
@@ -122,7 +104,7 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
                         setVisibleCreatePost(false);
                     }}
                 />
-            </Modal>
+            </Modal> */}
         </>
     );
 }

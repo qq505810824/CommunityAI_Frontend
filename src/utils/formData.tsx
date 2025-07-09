@@ -248,3 +248,41 @@ export const CourseFormData = {
         video_url: ''
     }
 };
+
+
+export const PostFormData = {
+    json_schema: {
+        type: 'object',
+        title: 'Edit Post',
+        description: '',
+        required: ['title'],
+        properties: {
+            title: {
+                type: 'string',
+                title: 'Title'
+            },
+            description: {
+                type: 'string',
+                title: 'Description'
+            },
+            files_url: {
+                type: 'string',
+                title: 'Files'
+            }
+        }
+    },
+    ui_schema: {
+        title: {
+            'ui:widget': 'text'
+        },
+        description: {
+            'ui:widget': 'editor'
+        },
+        files_url: {
+            'ui:widget': 'files'
+        }
+    },
+    form_data: {
+
+    }
+};
