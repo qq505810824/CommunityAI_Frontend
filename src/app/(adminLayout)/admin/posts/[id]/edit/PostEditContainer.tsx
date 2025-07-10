@@ -2,22 +2,22 @@
 
 import { UploadFilesToAzure } from '@/app/components/common/Widget/run-batch';
 import useAlert from '@/hooks/useAlert';
-import { useCalendarDetailByIdData, useCalendarOperations } from '@/hooks/useCalendarData';
-import { CalendarModel } from '@/models/Calendar';
+import { usePostDetailByIdData, usePostOperations } from '@/hooks/usePostData';
+import { PostModel } from '@/models/Post';
 import _ from 'lodash';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import CalendarEditView from './CalendarEditView';
+import PostEditView from './PostEditView';
 
-const CalendarEditContainer = () => {
+const PostEditContainer = () => {
     const params = useParams();
-    const [product, setProduct] = useState<CalendarModel | null>(null);
+    const [product, setProduct] = useState<PostModel | null>(null);
     const [submitting, setSubmitting] = useState(false);
     const { setAlert } = useAlert();
-    const { updateCalendar } = useCalendarOperations();
+    const { updatePost } = usePostOperations();
     const router = useRouter();
 
-    const { data, isLoading, isError } = useCalendarDetailByIdData(Number(params['id']));
+    const { data, isLoading, isError } = usePostDetailByIdData(Number(params['id']));
 
     useEffect(() => {
         if (data) {
@@ -25,7 +25,7 @@ const CalendarEditContainer = () => {
         }
     }, [data]);
 
-    const handleSubmit = async (formData: CalendarModel) => {
+    const handleSubmit = async (formData: PostModel) => {
         // 处理表单提交
 
         setSubmitting(true);
@@ -47,7 +47,7 @@ const CalendarEditContainer = () => {
         // console.log(newFormData);
 
         try {
-            const { data, error } = await updateCalendar(
+            const { data, error } = await updatePost(
                 Number(params['id']),
                 _.omit(newFormData, 'uploadFiles')
             );
@@ -62,7 +62,7 @@ const CalendarEditContainer = () => {
                     title: '更新成功！',
                     type: 'success'
                 });
-                router.push('/admin/calendars');
+                router.push('/admin/posts');
                 // router.back()
             }
         } catch (error) {
@@ -77,7 +77,7 @@ const CalendarEditContainer = () => {
     };
 
     return (
-        <CalendarEditView
+        <PostEditView
             {...{
                 product,
                 submitting,
@@ -87,4 +87,4 @@ const CalendarEditContainer = () => {
     );
 };
 
-export default CalendarEditContainer;
+export default PostEditContainer;

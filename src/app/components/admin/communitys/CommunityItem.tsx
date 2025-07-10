@@ -72,7 +72,7 @@ export default function CommunityItem(props: ViewProps) {
                 <td>
                     <div className="flex flex-row items-center overflow-hidden space-x-2">
                         <label
-                            className="hidden flex flex-row items-center text-blue-500 cursor-pointer whitespace-nowrap px-2 py-1 rounded-md bg-blue-100 hover:bg-blue-200 text-xs"
+                            className="flex flex-row items-center text-blue-500 cursor-pointer whitespace-nowrap px-2 py-1 rounded-md bg-blue-100 hover:bg-blue-200 text-xs"
                             onClick={handleEdit}
                         >
                             <PencilIcon className="w-3 h-3 mr-1" /> 编辑

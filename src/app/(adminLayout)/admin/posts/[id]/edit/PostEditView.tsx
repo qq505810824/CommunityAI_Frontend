@@ -1,19 +1,19 @@
 import BackView from '@/app/components/base/back/BackView';
-import CalendarEditForm from '@/app/components/calendar/edit/form';
-import { CalendarModel } from '@/models/Calendar';
+import PostFormView from '@/app/components/community/channels/posts/form';
+import { PostModel } from '@/models/Post';
 
 interface ViewProps {
-    product: CalendarModel | null;
+    product: PostModel | null;
     submitting: boolean;
-    handleSubmit: (formData: CalendarModel) => void;
+    handleSubmit: (formData: PostModel) => void;
 }
 
-function CalendarEditView(props: ViewProps) {
+function PostEditView(props: ViewProps) {
     const { product, submitting, handleSubmit } = props;
     return (
         <>
             <BackView title="Back" />
-            <CalendarEditForm
+            <PostFormView
                 {...{
                     product,
                     submitting,
@@ -24,4 +24,4 @@ function CalendarEditView(props: ViewProps) {
     );
 }
 
-export default CalendarEditView;
+export default PostEditView;

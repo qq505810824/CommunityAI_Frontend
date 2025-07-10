@@ -1,28 +1,27 @@
 import { useModalContext } from '@/context/modal-context';
 import { usePromptOperations } from '@/hooks/usePromptData';
-import { ChannelModel } from '@/models/Channel';
+import { CommentModel } from '@/models/Comment';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/outline';
-import { Tooltip } from '@mui/joy';
 import { useRouter } from 'next/navigation';
 interface ViewProps {
-    product: ChannelModel;
+    product: CommentModel;
     onDelete: () => void;
     onUpdataStatus: any;
 }
 
-export default function ChannelItem(props: ViewProps) {
+export default function CommentItem(props: ViewProps) {
     const { product, onDelete, onUpdataStatus } = props;
     const router = useRouter();
     const { updatePrompt } = usePromptOperations();
     const { setShowConfirmDelete } = useModalContext();
     const handleClick = () => {
         if (product) {
-            window.open(`/channel/${product.id}`, '_blank');
+            window.open(`/Comment/${product.id}`, '_blank');
         }
     };
 
     const handleEdit = () => {
-        if (product) router.push(`/admin/channels/${product.id}/edit`);
+        if (product) router.push(`/admin/Comments/${product.id}/edit`);
     };
 
     const handleDelete = () => {
@@ -51,28 +50,13 @@ export default function ChannelItem(props: ViewProps) {
     return (
         <>
             <tr>
-                <td>
-                    <Tooltip title={product.name}>
-                        <div
-                            className="text-ellipsis overflow-hidden text-blue-500 underline cursor-pointer"
-                            onClick={handleClick}
-                        >
-                            {product.name}
-                        </div>
-                    </Tooltip>
-                </td>
-                <td>{product.community?.name}</td>
-
-                {/* <td>{product.channels_count}</td>
-                <td>{product.Channels_count}</td>
-                <td>{product.events_count}</td>
-                // <td>{product.publish ? '是' : '否'} </td> */}
+                <td>{product.content}</td>
                 <td className={``}>{product?.owner?.name}</td>
-                <td>{product.updated_at}</td>
+                <td>{product.created_at}</td>
                 <td>
                     <div className="flex flex-row items-center overflow-hidden space-x-2">
                         <label
-                            className="flex flex-row items-center text-blue-500 cursor-pointer whitespace-nowrap px-2 py-1 rounded-md bg-blue-100 hover:bg-blue-200 text-xs"
+                            className="hidden flex flex-row items-center text-blue-500 cursor-pointer whitespace-nowrap px-2 py-1 rounded-md bg-blue-100 hover:bg-blue-200 text-xs"
                             onClick={handleEdit}
                         >
                             <PencilIcon className="w-3 h-3 mr-1" /> 编辑

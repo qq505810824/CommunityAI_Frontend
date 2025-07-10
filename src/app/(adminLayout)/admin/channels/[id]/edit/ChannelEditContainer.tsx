@@ -1,23 +1,22 @@
 'use client';
 
-import { UploadFilesToAzure } from '@/app/components/common/Widget/run-batch';
 import useAlert from '@/hooks/useAlert';
-import { useCalendarDetailByIdData, useCalendarOperations } from '@/hooks/useCalendarData';
-import { CalendarModel } from '@/models/Calendar';
+import { useChannelDetailByIdData, useChannelOperations } from '@/hooks/useChannelData';
+import { ChannelModel } from '@/models/Channel';
 import _ from 'lodash';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import CalendarEditView from './CalendarEditView';
+import ChannelEditView from './ChannelEditView';
 
-const CalendarEditContainer = () => {
+const ChannelEditContainer = () => {
     const params = useParams();
-    const [product, setProduct] = useState<CalendarModel | null>(null);
+    const [product, setProduct] = useState<ChannelModel | null>(null);
     const [submitting, setSubmitting] = useState(false);
     const { setAlert } = useAlert();
-    const { updateCalendar } = useCalendarOperations();
+    const { updateChannel } = useChannelOperations();
     const router = useRouter();
 
-    const { data, isLoading, isError } = useCalendarDetailByIdData(Number(params['id']));
+    const { data, isLoading, isError } = useChannelDetailByIdData(Number(params['id']));
 
     useEffect(() => {
         if (data) {
@@ -25,29 +24,33 @@ const CalendarEditContainer = () => {
         }
     }, [data]);
 
-    const handleSubmit = async (formData: CalendarModel) => {
+    const handleSubmit = async (formData: ChannelModel) => {
         // 处理表单提交
 
         setSubmitting(true);
-        let upload_file_urls = '';
-        if (formData?.uploadFiles && formData?.uploadFiles.length > 0) {
-            upload_file_urls = await UploadFilesToAzure(formData?.uploadFiles);
-        }
-        // console.log('upload_file_urls', upload_file_urls);
-        const newFormData = {
-            ...product,
-            ...formData,
-            files_url:
-                formData?.uploadFiles && formData?.uploadFiles.length > 0
-                    ? upload_file_urls
-                    : formData?.files_url
-            // user: localStorage?.getItem('user_id') || null
-        };
+        // let upload_file_urls = '';
+        // if (formData?.uploadFiles && formData?.uploadFiles.length > 0) {
+        //     upload_file_urls = await UploadFilesToAzure(formData?.uploadFiles);
+        // }
+        // // console.log('upload_file_urls', upload_file_urls);
+        // const newFormData = {
+        //     ...product,
+        //     ...formData,
+        //     files_url:
+        //         formData?.uploadFiles && formData?.uploadFiles.length > 0
+        //             ? upload_file_urls
+        //             : formData?.files_url
+        //     // user: localStorage?.getItem('user_id') || null
+        // };
 
         // console.log(newFormData);
 
+        const newFormData = {
+            ...product,
+            ...formData,
+        }
         try {
-            const { data, error } = await updateCalendar(
+            const { data, error } = await updateChannel(
                 Number(params['id']),
                 _.omit(newFormData, 'uploadFiles')
             );
@@ -62,7 +65,7 @@ const CalendarEditContainer = () => {
                     title: '更新成功！',
                     type: 'success'
                 });
-                router.push('/admin/calendars');
+                router.push('/admin/channels');
                 // router.back()
             }
         } catch (error) {
@@ -77,7 +80,7 @@ const CalendarEditContainer = () => {
     };
 
     return (
-        <CalendarEditView
+        <ChannelEditView
             {...{
                 product,
                 submitting,
@@ -87,4 +90,4 @@ const CalendarEditContainer = () => {
     );
 };
 
-export default CalendarEditContainer;
+export default ChannelEditContainer;

@@ -391,6 +391,12 @@ export const AdminMeuns = [
         items: []
     },
     {
+        name: 'Post列表',
+        href: '/admin/posts',
+        icon: <DvrIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,
+        items: []
+    },
+    {
         name: 'Course列表',
         href: '/admin/courses',
         icon: <DvrIcon sx={{ color: '#eeeeee' }} className="w-5 text-[#eeeeee]" />,

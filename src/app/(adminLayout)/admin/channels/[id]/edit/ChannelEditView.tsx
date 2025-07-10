@@ -1,19 +1,19 @@
 import BackView from '@/app/components/base/back/BackView';
-import CalendarEditForm from '@/app/components/calendar/edit/form';
-import { CalendarModel } from '@/models/Calendar';
+import ChannelEditForm from '@/app/components/community/channels/edit/form';
+import { ChannelModel } from '@/models/Channel';
 
 interface ViewProps {
-    product: CalendarModel | null;
+    product: ChannelModel | null;
     submitting: boolean;
-    handleSubmit: (formData: CalendarModel) => void;
+    handleSubmit: (formData: ChannelModel) => void;
 }
 
-function CalendarEditView(props: ViewProps) {
+function ChannelEditView(props: ViewProps) {
     const { product, submitting, handleSubmit } = props;
     return (
         <>
             <BackView title="Back" />
-            <CalendarEditForm
+            <ChannelEditForm
                 {...{
                     product,
                     submitting,
@@ -24,4 +24,4 @@ function CalendarEditView(props: ViewProps) {
     );
 }
 
-export default CalendarEditView;
+export default ChannelEditView;

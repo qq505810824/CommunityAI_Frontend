@@ -1,0 +1,94 @@
+'use client';
+
+import useAlert from '@/hooks/useAlert';
+import { useCommunityDetailByIdData, useCommunityOperations } from '@/hooks/useCommunityData';
+import { CommunityModel } from '@/models/Community';
+import _ from 'lodash';
+import { useParams, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import CommunityEditView from './CommunityEditView';
+
+const CommunityEditContainer = () => {
+    const params = useParams();
+    const [product, setProduct] = useState<CommunityModel | null>(null);
+    const [submitting, setSubmitting] = useState(false);
+    const { setAlert } = useAlert();
+    const { updateCommunity } = useCommunityOperations();
+    const router = useRouter();
+
+    const { data, isLoading, isError } = useCommunityDetailByIdData(Number(params['id']));
+
+    useEffect(() => {
+        if (data) {
+            setProduct(data);
+        }
+    }, [data]);
+
+    const handleSubmit = async (formData: CommunityModel) => {
+        // 处理表单提交
+
+        setSubmitting(true);
+        // let upload_file_urls = '';
+        // if (formData?.uploadFiles && formData?.uploadFiles.length > 0) {
+        //     upload_file_urls = await UploadFilesToAzure(formData?.uploadFiles);
+        // }
+        // console.log('upload_file_urls', upload_file_urls);
+        // const newFormData = {
+        //     ...product,
+        //     ...formData,
+        //     files_url:
+        //         formData?.uploadFiles && formData?.uploadFiles.length > 0
+        //             ? upload_file_urls
+        //             : formData?.files_url
+        //     // user: localStorage?.getItem('user_id') || null
+        // };
+
+        const newFormData = {
+            ...product,
+            ...formData,
+        };
+
+        // console.log(newFormData);
+
+        try {
+            const { data, error } = await updateCommunity(
+                Number(params['id']),
+                _.omit(newFormData, 'uploadFiles')
+            );
+            if (error) {
+                console.error('更新文章错误:', error);
+                setAlert({
+                    title: '更新失敗',
+                    type: 'error'
+                });
+            } else {
+                setAlert({
+                    title: '更新成功！',
+                    type: 'success'
+                });
+                router.push('/admin/communitys');
+                // router.back()
+            }
+        } catch (error) {
+            setAlert({
+                title: '更新失敗！',
+                type: 'error'
+            });
+            console.error('更新文章错误:', error);
+        } finally {
+            setSubmitting(false);
+        }
+    };
+
+    return (
+        <CommunityEditView
+            {...{
+                product,
+                submitting,
+                handleSubmit
+            }}
+        />
+    );
+};
+
+export default CommunityEditContainer;

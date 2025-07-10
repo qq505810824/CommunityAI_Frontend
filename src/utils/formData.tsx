@@ -249,6 +249,65 @@ export const CourseFormData = {
     }
 };
 
+export const CommunityFormData = {
+    json_schema: {
+        type: 'object',
+        title: 'Edit Community',
+        description: '',
+        required: ['name'],
+        properties: {
+            name: {
+                type: 'string',
+                title: 'Name'
+            },
+            description: {
+                type: 'string',
+                title: 'Description'
+            },
+        }
+    },
+    ui_schema: {
+        title: {
+            'ui:widget': 'text'
+        },
+        description: {
+            'ui:widget': 'editor'
+        }
+    },
+    form_data: {
+
+    }
+};
+
+export const ChannelFormData = {
+    json_schema: {
+        type: 'object',
+        title: 'Edit Channel',
+        description: '',
+        required: ['name'],
+        properties: {
+            name: {
+                type: 'string',
+                title: 'Name'
+            },
+            description: {
+                type: 'string',
+                title: 'Description'
+            },
+        }
+    },
+    ui_schema: {
+        title: {
+            'ui:widget': 'text'
+        },
+        description: {
+            'ui:widget': 'editor'
+        }
+    },
+    form_data: {
+
+    }
+};
 
 export const PostFormData = {
     json_schema: {
