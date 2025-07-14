@@ -1,4 +1,3 @@
-
 import FormDetailView from '@/app/components/common/Widget/form';
 import { CommunityModel } from '@/models/Community';
 import { CommunityFormData } from '@/utils/formData';

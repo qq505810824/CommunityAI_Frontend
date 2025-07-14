@@ -48,7 +48,6 @@ export default function PostCreateView({
                             submit: handleSubmit
                         }}
                     />
-
                 </div>
             </div>
         </>

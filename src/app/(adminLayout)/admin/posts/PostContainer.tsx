@@ -32,7 +32,7 @@ function PostContainer() {
             });
             setProducts(newData);
         }
-        return () => { };
+        return () => {};
     }, [data]);
 
     const handleSearch = async (value: string) => {

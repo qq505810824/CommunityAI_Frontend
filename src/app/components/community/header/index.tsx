@@ -21,6 +21,7 @@ export default function HeaderView() {
         localStorage.setItem('email', '');
         localStorage?.setItem('user_id', '');
         localStorage.setItem('supabase_user', '');
+        localStorage.setItem('account', '');
         const res = await supabase.auth.signOut();
         router.push(`/signin?redirect=${window.location.href}`);
     };
@@ -200,7 +201,11 @@ export default function HeaderView() {
 
                         {userProfile?.id != '' ? (
                             <div className="flex justify-end items-center col-span-3 md:col-span-4">
-                                <MenuButton email={userProfile?.email} logout={logout} />
+                                <MenuButton
+                                    avatar={userProfile?.avatar}
+                                    email={userProfile?.email}
+                                    logout={logout}
+                                />
                             </div>
                         ) : (
                             <div className="flex flex-row gap-8 items-center justify-end col-span-3">

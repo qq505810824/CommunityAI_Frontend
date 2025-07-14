@@ -60,7 +60,7 @@ function AccountView(props: ViewProps) {
                             <AccountItem
                                 account={row}
                                 key={row.id}
-                                onDelete={() => onDelete(row.id)}
+                                onDelete={() => onDelete(row.id || '')}
                             />
                         ))}
                     </tbody>

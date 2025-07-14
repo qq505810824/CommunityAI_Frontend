@@ -109,6 +109,19 @@ const UnlessForm = () => {
                 });
                 setError(error.message);
             } else {
+                const { data: accountData, error } = await supabase
+                    .from('account')
+                    .select('*')
+                    .eq('id', data.user.id)
+                    .single();
+
+                if (error) {
+                    console.error('Error fetching account data:', error);
+                } else if (accountData) {
+                    console.log('accountData', accountData);
+                    localStorage.setItem('account', JSON.stringify(accountData));
+                }
+
                 router.push(redirect || '/'); // 登录成功后跳转到仪表板页面
                 router.refresh();
             }

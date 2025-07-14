@@ -15,7 +15,7 @@ export type PostModel = {
 
     is_favorit?: boolean;
 
-    uploadFiles?: File[]
+    uploadFiles?: File[];
     files_url?: any;
 
     created_at?: string;

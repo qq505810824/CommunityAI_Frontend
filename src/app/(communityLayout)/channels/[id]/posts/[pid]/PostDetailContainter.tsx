@@ -24,8 +24,11 @@ export default function PostDetailContainter({ meta }: ViewProps) {
         post_id: '',
         account_id: user_id
     });
-    const { data: postData, isLoading: postLoading, mutate: postMutate } = usePostDetailData(
-        meta?.post?.id || searchParams.get('post_id'), user_id);
+    const {
+        data: postData,
+        isLoading: postLoading,
+        mutate: postMutate
+    } = usePostDetailData(meta?.post?.id || searchParams.get('post_id'), user_id);
     const { data, isLoading, isError, mutate } = useCommentData(filters);
 
     useEffect(() => {

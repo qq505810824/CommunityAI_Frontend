@@ -14,7 +14,7 @@ function CommentContainer() {
     const { setAlert } = useAlert();
     const { setLoad } = useLoad();
     const router = useRouter();
-    const param = useParams()
+    const param = useParams();
 
     const [products, setProducts] = useState<CommentModel[]>([]);
     const { searchComment, deleteComment, updateComment } = useCommentOperations();
@@ -27,12 +27,12 @@ function CommentContainer() {
             const newData = data?.map((item) => {
                 return {
                     ...item,
-                    created_at: moment(item.created_at).format('YYYY-MM-DD HH:mm'),
+                    created_at: moment(item.created_at).format('YYYY-MM-DD HH:mm')
                 };
             });
             setProducts(newData);
         }
-        return () => { };
+        return () => {};
     }, [data]);
 
     const handleSearch = async (value: string) => {

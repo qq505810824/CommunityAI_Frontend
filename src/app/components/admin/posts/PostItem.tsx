@@ -23,7 +23,7 @@ export default function PostItem(props: ViewProps) {
 
     const handleShowComments = () => {
         if (product) router.push(`/admin/posts/${product.id}/comments`);
-    }
+    };
 
     const handleEdit = () => {
         if (product) router.push(`/admin/posts/${product.id}/edit`);

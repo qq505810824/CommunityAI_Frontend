@@ -22,10 +22,11 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
         channel_id: '',
         account_id: user_id
     });
-    const { data: channelData, isLoading: channelLoading, mutate: channelMutate } = useChannelDetailData(
-        meta?.channel?.id || searchParams.get('channel_id'),
-        user_id
-    );
+    const {
+        data: channelData,
+        isLoading: channelLoading,
+        mutate: channelMutate
+    } = useChannelDetailData(meta?.channel?.id || searchParams.get('channel_id'), user_id);
     const { data, isLoading, isError, mutate } = usePostData(filters);
 
     useEffect(() => {
@@ -38,7 +39,6 @@ export default function ChannelDetailContainter({ meta }: ViewProps) {
             setChannel(channelData || meta?.channel);
         }
     }, [meta, channelData]);
-
 
     useEffect(() => {
         if (!meta && searchParams.get('channel_id') && channelData) {

@@ -12,7 +12,7 @@ interface ViewProps {
 export default function NewsfeedCard({ item }: ViewProps) {
     const { likePost } = usePostOperations();
     const { user_id } = useAppContext();
-    const router = useRouter()
+    const router = useRouter();
     const [isLike, setIsLike] = useState(item?.is_favorit);
     const [likes, setLikes] = useState(item.favorit_count);
     const handleLike = async () => {
@@ -23,8 +23,10 @@ export default function NewsfeedCard({ item }: ViewProps) {
     };
 
     const handleClick = () => {
-        router.push(`/communitys/${item?.community?.id}?activeTab=post-detail&channel_id=${item.channel?.id}&post_id=${item?.id}`);
-    }
+        router.push(
+            `/communitys/${item?.community?.id}?activeTab=post-detail&channel_id=${item.channel?.id}&post_id=${item?.id}`
+        );
+    };
     return (
         <>
             <div className="p-6">
@@ -45,7 +47,7 @@ export default function NewsfeedCard({ item }: ViewProps) {
                         </div>
                     </div>
                 ) : (
-                    <div className=' cursor-pointer' onClick={handleClick}>
+                    <div className=" cursor-pointer" onClick={handleClick}>
                         <div className="flex items-center flex-wrap space-y-1 space-x-2 mb-3">
                             {item?.type === 'channel-post' && (
                                 <Hash className="w-4 h-4 text-blue-500" />
@@ -79,7 +81,7 @@ export default function NewsfeedCard({ item }: ViewProps) {
                         <div className="w-full flex flex-row items-center space-x-2">
                             {item?.files_url &&
                                 item?.files_url
-                                    .split(",")
+                                    .split(',')
                                     .slice(0, 3)
                                     .map((file: any, index: number) => (
                                         <div
@@ -104,7 +106,7 @@ export default function NewsfeedCard({ item }: ViewProps) {
                             </button>
                             <button className="flex items-center space-x-2 text-gray-500 hover:text-blue-500">
                                 <MessageSquare className="w-4 h-4" />
-                                <span>{item?.comments && item?.comments[0].count || 0}</span>
+                                <span>{(item?.comments && item?.comments[0].count) || 0}</span>
                             </button>
                             {/* <button className="flex items-center space-x-2 text-gray-500 hover:text-green-500">
                                 <Share2 className="w-4 h-4" />

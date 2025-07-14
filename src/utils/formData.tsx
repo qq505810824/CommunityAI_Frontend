@@ -263,7 +263,7 @@ export const CommunityFormData = {
             description: {
                 type: 'string',
                 title: 'Description'
-            },
+            }
         }
     },
     ui_schema: {
@@ -274,9 +274,7 @@ export const CommunityFormData = {
             'ui:widget': 'editor'
         }
     },
-    form_data: {
-
-    }
+    form_data: {}
 };
 
 export const ChannelFormData = {
@@ -293,7 +291,7 @@ export const ChannelFormData = {
             description: {
                 type: 'string',
                 title: 'Description'
-            },
+            }
         }
     },
     ui_schema: {
@@ -304,9 +302,7 @@ export const ChannelFormData = {
             'ui:widget': 'editor'
         }
     },
-    form_data: {
-
-    }
+    form_data: {}
 };
 
 export const PostFormData = {
@@ -341,7 +337,86 @@ export const PostFormData = {
             'ui:widget': 'files'
         }
     },
-    form_data: {
+    form_data: {}
+};
 
-    }
+export const UserFormData = {
+    json_schema: {
+        type: 'object',
+        title: 'Edit Profile',
+        description: '',
+        required: ['name'],
+        properties: {
+            avatar: {
+                type: 'string',
+                title: 'Avatar'
+            },
+            name: {
+                type: 'string',
+                title: 'Name'
+            },
+            email: {
+                type: 'string',
+                title: 'Email'
+            },
+            nickname: {
+                type: 'string',
+                title: 'Nick Name'
+            },
+            age: {
+                type: 'integer',
+                title: 'Age',
+                default: 0
+            },
+            sex: {
+                type: 'string',
+                title: 'Sex',
+                oneOf: [
+                    { title: 'Male', const: 'male' },
+                    { title: 'Female', const: 'female' }
+                ],
+                default: 'male'
+            },
+            password: {
+                type: 'string',
+                title: 'Password',
+                minLength: 6
+            },
+            confirmPassword: {
+                type: 'string',
+                title: 'Confirm Password',
+                minLength: 6
+            }
+        }
+    },
+    ui_schema: {
+        name: {
+            'ui:widget': 'text'
+        },
+        nickname: {
+            'ui:widget': 'text'
+        },
+        age: {
+            'ui:widget': 'updown'
+        },
+
+        email: {
+            // "ui:disabled": true,
+            'ui:widget': 'text',
+            'ui:readonly': true
+        },
+        sex: {
+            'ui:widget': 'select'
+        },
+        avatar: {
+            'ui:widget': 'image'
+        },
+        password: {
+            'ui:widget': 'password'
+        },
+        confirmPassword: {
+            'ui:widget': 'password'
+        }
+    },
+    form_data: {}
 };

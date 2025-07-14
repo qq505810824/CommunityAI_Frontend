@@ -1,4 +1,3 @@
-
 import FormDetailView from '@/app/components/common/Widget/form';
 import { ChannelModel } from '@/models/Channel';
 import { ChannelFormData } from '@/utils/formData';

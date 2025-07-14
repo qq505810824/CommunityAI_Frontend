@@ -23,7 +23,6 @@ export default function PostCreateContainter() {
     const { user_id } = useAppContext();
     const { setAlert } = useAlert();
 
-
     useEffect(() => {
         if (params) {
             // mutate()
@@ -55,7 +54,9 @@ export default function PostCreateContainter() {
                     type: 'error'
                 });
             } else {
-                router.push(`/communitys/${communityId}?activeTab=channel-detail&channel_id=${params['id']}`);
+                router.push(
+                    `/communitys/${communityId}?activeTab=channel-detail&channel_id=${params['id']}`
+                );
                 setAlert({
                     title: 'Successful',
                     type: 'success'

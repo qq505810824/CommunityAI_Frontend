@@ -31,9 +31,9 @@ const Layout = ({ children }: { children: ReactNode }) => {
     );
 };
 
-export const metadata = {
-    title: 'Career calendar/Outreach Calendar',
-    keywords: 'Career,calendar,Outreach,Calendar',
-    description: 'Career calendar/Outreach Calendar'
-};
+// export const metadata = {
+//     title: 'Career calendar/Outreach Calendar',
+//     keywords: 'Career,calendar,Outreach,Calendar',
+//     description: 'Career calendar/Outreach Calendar'
+// };
 export default Layout;

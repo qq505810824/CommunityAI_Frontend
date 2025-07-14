@@ -47,8 +47,8 @@ const ChannelEditContainer = () => {
 
         const newFormData = {
             ...product,
-            ...formData,
-        }
+            ...formData
+        };
         try {
             const { data, error } = await updateChannel(
                 Number(params['id']),

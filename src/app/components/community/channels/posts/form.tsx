@@ -27,7 +27,6 @@ export default function PostFormView(props: ViewProps) {
         }
     }, [product]); // 添加依赖项
 
-
     // const { addPost } = usePostOperations();
     // const [submitting, setSubmitting] = useState(false);
 

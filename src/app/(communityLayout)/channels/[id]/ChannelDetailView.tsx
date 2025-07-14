@@ -23,7 +23,7 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
 
     const handleClickNewPost = () => {
         // setVisibleCreatePost(true);
-        router.push(`/channels/${channel?.id}/posts/create?community_id=${channel?.community}`)
+        router.push(`/channels/${channel?.id}/posts/create?community_id=${channel?.community}`);
     };
 
     return (

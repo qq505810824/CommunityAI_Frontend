@@ -45,7 +45,7 @@ const CommunityEditContainer = () => {
 
         const newFormData = {
             ...product,
-            ...formData,
+            ...formData
         };
 
         // console.log(newFormData);

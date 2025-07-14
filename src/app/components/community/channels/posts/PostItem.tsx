@@ -53,13 +53,10 @@ export default function PostItem({ post }: ViewProps) {
                     <div className="flex-1 space-y-2">
                         <p className="text-md font-semibold">{post.title}</p>
 
-
-
-
                         <div className="w-full flex flex-row items-center space-x-2">
                             {post?.files_url &&
                                 post?.files_url
-                                    .split(",")
+                                    .split(',')
                                     .slice(0, 3)
                                     .map((file: any, index: number) => (
                                         <div
@@ -85,7 +82,9 @@ export default function PostItem({ post }: ViewProps) {
                                             .join('')}
                                     </span>
                                 </div>
-                                <span className=" text-gray-500 text-sm font-medium">{post?.owner?.name}</span>
+                                <span className=" text-gray-500 text-sm font-medium">
+                                    {post?.owner?.name}
+                                </span>
                                 {/* <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs">
                                 {post.role}
                             </span> */}
