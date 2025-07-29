@@ -30,7 +30,7 @@ export interface CalendarModel {
 export const CalendarFormData = {
     json_schema: {
         type: 'object',
-        title: '活動資料',
+        title: 'Edit Event',
         description: '',
         required: [
             'name',
@@ -42,19 +42,19 @@ export const CalendarFormData = {
         properties: {
             image_url: {
                 type: 'string',
-                title: '封面'
+                title: 'Avatar'
             },
             name: {
                 type: 'string',
-                title: '活動名稱'
+                title: 'Name'
             },
             description: {
                 type: 'string',
-                title: '描述'
+                title: 'Description'
             },
             category: {
                 type: 'string',
-                title: '类型',
+                title: 'Category',
                 oneOf: [
                     { const: 'course', title: '課程' },
                     { const: 'activity', title: '活動' }
@@ -75,13 +75,13 @@ export const CalendarFormData = {
             //         "pre_to_date": { "type": "string", title: "報名結束日期" }
             //     }
             // },
-            from_date: { type: ['string', 'null'], title: '活動開始日期' },
-            to_date: { type: ['string', 'null'], title: '活動結束日期' },
-            pre_from_date: { type: ['string', 'null'], title: '報名開始日期' },
-            pre_to_date: { type: ['string', 'null'], title: '報名結束日期' },
+            from_date: { type: ['string', 'null'], title: 'Start Date' },
+            to_date: { type: ['string', 'null'], title: 'End Date' },
+            pre_from_date: { type: ['string', 'null'], title: 'Enroll Start Date' },
+            pre_to_date: { type: ['string', 'null'], title: 'Enroll End Date' },
             region: {
                 type: 'string',
-                title: '地區',
+                title: 'Region',
                 oneOf: [
                     { const: 'hk', title: '香港' },
                     { const: 'mo', title: '澳門' }
@@ -89,15 +89,15 @@ export const CalendarFormData = {
             },
             form_url: {
                 type: ['string', 'null'],
-                title: '報名表單連結'
+                title: 'Form Link'
             },
             reference_url: {
                 type: ['string', 'null'],
-                title: '相關網址'
+                title: 'Reference Link'
             },
             files_url: {
                 type: ['string', 'null'],
-                title: '相關文件'
+                title: 'Files'
             }
         }
     },

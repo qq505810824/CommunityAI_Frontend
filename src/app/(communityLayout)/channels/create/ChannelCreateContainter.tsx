@@ -3,6 +3,7 @@
 import { useAppContext } from '@/context/app-context';
 import { useChannelOperations } from '@/hooks/useChannelData';
 import { ChannelModel } from '@/models/Channel';
+import _ from 'lodash';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import ChannelCreateView from './ChannelCreateView';
@@ -16,9 +17,12 @@ export default function ChannelCreateContainter() {
 
     const handleSubmit = async (data: ChannelModel) => {
         setSubmitting(true);
+        const newFormData = {
+            ..._.omit(data, 'uploadFiles')
+        };
         const communityId = searchParams.get('community_id');
         const res = await addChannel({
-            ...data,
+            ...newFormData,
             owner: user_id,
             community: communityId ? (communityId as any) : undefined // Replace 'as any' with the actual CommunityModel shape if available
         });

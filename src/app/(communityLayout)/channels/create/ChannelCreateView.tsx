@@ -1,3 +1,4 @@
+import ChannelEditForm from '@/app/components/community/channels/edit/form';
 import { ChannelModel } from '@/models/Channel';
 import { ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -17,7 +18,7 @@ export default function ChannelCreateView({ submitting, handleSubmit }: ViewProp
 
     const onSubmit = (e: React.FormEvent) => {
         e.preventDefault(); // 阻止表单自动跳转和刷新
-        console.log('data', data);
+        // console.log('data', data);
         handleSubmit(data);
     };
     return (
@@ -33,7 +34,15 @@ export default function ChannelCreateView({ submitting, handleSubmit }: ViewProp
                         </button>
                     </div>
 
-                    <form className="bg-white border rounded-lg p-6" onSubmit={onSubmit}>
+                    <ChannelEditForm
+                        {...{
+                            product: null,
+                            submitting,
+                            submit: handleSubmit
+                        }}
+                    />
+
+                    <form className="hidden bg-white border rounded-lg p-6" onSubmit={onSubmit}>
                         <h4 className="font-semibold mb-4">Create New Channel</h4>
                         <div className="space-y-4">
                             <div>

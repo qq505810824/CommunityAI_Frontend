@@ -280,7 +280,7 @@ export const CommunityFormData = {
 export const ChannelFormData = {
     json_schema: {
         type: 'object',
-        title: 'Edit Channel',
+        title: 'Edit Text Channel',
         description: '',
         required: ['name'],
         properties: {
