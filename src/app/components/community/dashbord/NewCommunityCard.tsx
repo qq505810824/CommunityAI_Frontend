@@ -24,7 +24,7 @@ const NewAssignment: FC<IProps> = ({ data = false, handleRefresh }) => {
             <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
-                className="flex justify-center w-full bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-dashed border-gray-300"
+                className="flex justify-center w-full bg-gray-800 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-dashed border-gold-400/20"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
@@ -39,8 +39,8 @@ const NewAssignment: FC<IProps> = ({ data = false, handleRefresh }) => {
                     >
                         <PlusIcon className="w-8 h-8 text-blue-600" />
                     </motion.div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Create New Community</h3>
-                    <p className="text-sm text-gray-500 max-w-xs">Start creating a new community</p>
+                    <h3 className="text-lg font-bold   mb-2">Create New Community</h3>
+                    <p className="text-sm text-gray-400 max-w-xs">Start creating a new community</p>
                 </div>
             </motion.div>
 

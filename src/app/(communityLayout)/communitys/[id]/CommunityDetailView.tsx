@@ -60,7 +60,7 @@ export default function CommunityDetailView({ community }: ViewProps) {
     if (!community) return <Loading type="app" />;
     return (
         <>
-            <div className="flex-1  bg-gray-50">
+            <div className="flex-1   p-6 ">
                 {/* Community Header */}
                 <div
                     className={`bg-gradient-to-r from-${community?.theme}-500 to-${community?.theme}-600`}
@@ -69,9 +69,9 @@ export default function CommunityDetailView({ community }: ViewProps) {
                         <div className="flex items-center space-x-2 mb-6">
                             <button
                                 onClick={() => router.push('/')}
-                                className="p-2 hover:bg-gray-100 rounded-lg"
+                                className="p-2 rounded-lg"
                             >
-                                <ArrowBack className="w-5 h-5" />
+                                <ArrowBack className="w-5 h-5 hover:text-gold-400  " />
                             </button>
                             <div className="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-xl sm:text-2xl">
                                 {community?.logo || '💪'}
@@ -80,32 +80,32 @@ export default function CommunityDetailView({ community }: ViewProps) {
                                 <h1 className="text-xl sm:text-3xl font-bold">
                                     {community?.name || '--'}
                                 </h1>
-                                <p className="text-gray-500 text-opacity-90">
+                                <p className="text-gray-400 text-opacity-90">
                                     {community?.accounts_count} members
                                 </p>
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-black">
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-white">
                             <button
                                 onClick={() => setActiveTab({ name: 'channels' })}
-                                className={`shadow-sm border  rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab?.name?.includes('channel') ? 'bg-white' : 'bg-gray-100'}`}
+                                className={`shadow-sm border border-gold-400/20 rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab?.name?.includes('channel') ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-800'}`}
                             >
-                                <Hash className="w-6 h-6 mx-auto mb-2" />
+                                <Hash className="w-6 h-6 mx-auto mb-2 text-gold-400" />
                                 <span className="text-sm">Channels</span>
                             </button>
                             <button
                                 onClick={() => setActiveTab({ name: 'courses' })}
-                                className={` shadow-sm border   rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab?.name?.includes('course') ? 'bg-white' : 'bg-gray-100'}`}
+                                className={` shadow-sm border border-gold-400/20  rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab?.name?.includes('course') ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-800'}`}
                             >
-                                <BookOpen className="w-6 h-6 mx-auto mb-2" />
+                                <BookOpen className="w-6 h-6 mx-auto mb-2 text-gold-400" />
                                 <span className="text-sm">Courses</span>
                             </button>
                             <button
                                 onClick={() => setActiveTab({ name: 'events' })}
-                                className={` shadow-sm border  rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab?.name?.includes('event') ? 'bg-white' : 'bg-gray-100'}`}
+                                className={` shadow-sm border border-gold-400/20 rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab?.name?.includes('event') ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-800'}`}
                             >
-                                <CalendarIcon className="w-6 h-6 mx-auto mb-2" />
+                                <CalendarIcon className="w-6 h-6 mx-auto mb-2 text-gold-400" />
                                 <span className="text-sm">Events</span>
                             </button>
                         </div>

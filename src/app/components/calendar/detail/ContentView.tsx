@@ -46,7 +46,7 @@ export default function ContentView(props: ViewProps) {
         <>
             <div className="break-words">
                 <div
-                    className="prose max-w-none"
+                    className="prose max-w-none text-gray-400"
                     dangerouslySetInnerHTML={{
                         __html: processHtml(product?.description || '')
                     }}

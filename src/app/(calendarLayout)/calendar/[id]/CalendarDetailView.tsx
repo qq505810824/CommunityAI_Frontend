@@ -60,9 +60,9 @@ function CalendarDetailView(props: ViewProps) {
                                         name: 'events'
                                     })
                                 }
-                                className="p-2 hover:bg-gray-100 rounded-lg"
+                                className="p-2  rounded-lg"
                             >
-                                <ArrowLeft className="w-5 h-5" />
+                                <ArrowLeft className="w-5 h-5 hover:text-gold-100" />
                             </button>
                         </div>
 
@@ -92,11 +92,12 @@ function CalendarDetailView(props: ViewProps) {
 
                     <div className="w-full  flex flex-col sm:flex-row justify-center space-y-4   sm:space-x-8 ">
                         <div className="w-full md:w-3/4 space-y-4  overflow-x-auto">
-                            <div className="flex items-center justify-between space-x-2 flex-row ">
+                            <div className="flex items-center justify-between space-x-2 flex-row text-white">
                                 <Typography
                                     sx={{
                                         fontWeight: 'bold',
-                                        fontSize: { xs: '22px', sm: '24px', md: '26px' }
+                                        fontSize: { xs: '22px', sm: '24px', md: '26px' },
+                                        color: '#ffffff'
                                     }}
                                 >
                                     {product?.name}

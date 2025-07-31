@@ -33,21 +33,21 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
                     <div className="flex items-center space-x-2">
                         <button
                             onClick={() => setActiveTab({ name: 'channels' })}
-                            className="p-2 hover:bg-gray-100 rounded-lg"
+                            className="p-2 rounded-lg"
                         >
-                            <ArrowLeft className="w-5 h-5" />
+                            <ArrowLeft className="w-5 h-5 hover:text-gold-400" />
                         </button>
                         <div className="flex items-center space-x-2">
                             <div className="text-2xl">{channel?.logo}</div>
                             <div>
                                 <h3 className="text-xl font-semibold flex items-center space-x-2">
-                                    <Hash className="w-5 h-5 text-gray-500" />
+                                    <Hash className="w-5 h-5 text-gold-400" />
                                     <span>{channel?.name}</span>
                                     {!channel?.publish && (
                                         <Shield className="w-4 h-4 text-orange-500" />
                                     )}
                                 </h3>
-                                <div className="flex flex-row items-center text-gray-500">
+                                <div className="flex flex-row items-center text-gray-400">
                                     {channel?.owner?.name}{' '}
                                     <span className="ml-2">
                                         {moment(channel?.created_at).fromNow()}
@@ -57,7 +57,7 @@ export default function ChannelDetailView({ channel, posts, handleRefresh }: Vie
                         </div>
                     </div>
                     <button
-                        className="bg-blue-500 text-white px-4 py-1 text-sm sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2"
+                        className="bg-gold-500 text-white px-4 py-1 text-sm sm:px-4 sm:py-2 rounded-lg hover:bg-gold-600 flex items-center space-x-2"
                         onClick={handleClickNewPost}
                     >
                         <Plus className="w-4 h-4" />

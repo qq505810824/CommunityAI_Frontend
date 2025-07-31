@@ -194,13 +194,13 @@ export default function CourseDetailView({ course }: ViewProps) {
                                 name: 'courses'
                             })
                         }
-                        className="p-2 hover:bg-gray-100 rounded-lg"
+                        className="p-2 rounded-lg"
                     >
-                        <ArrowLeft className="w-5 h-5" />
+                        <ArrowLeft className="w-5 h-5 hover:text-gold-400 " />
                     </button>
                     <div>
                         <h3 className="text-xl font-semibold">{course?.title}</h3>
-                        <p className="text-gray-600 text-sm">by {course?.owner?.name}</p>
+                        <p className="text-gray-400 text-sm">by {course?.owner?.name}</p>
                     </div>
                 </div>
 
@@ -218,7 +218,7 @@ export default function CourseDetailView({ course }: ViewProps) {
                                 onClick={() => {
                                     handleClickEditCourse();
                                 }}
-                                className="bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
+                                className="bg-gold-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-gold-600 flex items-center space-x-2 whitespace-nowrap"
                             >
                                 <Edit className="w-4 h-4" />
                                 <span>Edit Course</span>
@@ -231,7 +231,7 @@ export default function CourseDetailView({ course }: ViewProps) {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-8">
                 {/* Course Content */}
                 <div className="lg:col-span-2">
-                    <div className="bg-white border rounded-lg p-4  sm:p-6 mb-6">
+                    <div className="bg-gray-800 border border-gold-400/20 rounded-lg p-4  sm:p-6 mb-6">
                         <div className="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg flex items-center justify-center mb-4">
                             {isYouTubeUrl(mediaUrl) ? (
                                 <iframe
@@ -256,11 +256,11 @@ export default function CourseDetailView({ course }: ViewProps) {
                             )}
                         </div>
                         <h4 className="font-semibold text-lg mb-2">{course?.title}</h4>
-                        <p className="text-gray-600 mb-4">
+                        <p className="text-gray-400 mb-4">
                             {course?.description.replace(/<[^>]*>/g, '')}
                         </p>
 
-                        <div className="flex items-center space-x-6 text-sm text-gray-500 mb-4">
+                        <div className="flex items-center space-x-6 text-sm text-gray-400 mb-4">
                             <span className="flex items-center space-x-1">
                                 <Clock className="w-4 h-4" />
                                 <span>{course?.duration || 0}</span>
@@ -292,7 +292,7 @@ export default function CourseDetailView({ course }: ViewProps) {
                     </div>
 
                     {/* Course Modules */}
-                    <div className="bg-white border rounded-lg p-4 sm:p-6 hidden">
+                    <div className="bg-gray-800 border border-gold-400/20 rounded-lg p-4 sm:p-6 hidden">
                         <h4 className="font-semibold text-lg mb-4">Course Content</h4>
                         <div className="space-y-3">
                             {/* {selectedCourse?.modules.map((module: any, index: number) => (
@@ -327,7 +327,7 @@ export default function CourseDetailView({ course }: ViewProps) {
 
                 {/* Course Sidebar */}
                 <div className="space-y-6 ">
-                    <div className="bg-white border rounded-lg p-4 sm:p-6">
+                    <div className="bg-gray-800 border border-gold-400/20 rounded-lg p-4 sm:p-6">
                         <div className="text-center mb-4">
                             <div className="text-3xl font-bold text-green-600 mb-1">
                                 {course?.price === 0 ? 'Free' : `$${course?.price || ''}`}
@@ -340,7 +340,7 @@ export default function CourseDetailView({ course }: ViewProps) {
                         </div>
 
                         <button
-                            className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 font-medium mb-4"
+                            className="w-full bg-gold-500 text-white py-3 rounded-lg hover:bg-gold-600 font-medium mb-4"
                             onClick={() => {
                                 handleEnroll();
                             }}
@@ -352,19 +352,19 @@ export default function CourseDetailView({ course }: ViewProps) {
 
                         <div className="space-y-3 text-sm">
                             <div className="flex justify-between">
-                                <span className="text-gray-600">Duration</span>
+                                <span className="text-gray-400">Duration</span>
                                 <span className="font-medium">{course?.duration || 0}</span>
                             </div>
                             <div className="flex justify-between">
-                                <span className="text-gray-600">Lessons</span>
+                                <span className="text-gray-400">Lessons</span>
                                 <span className="font-medium">{course?.lessons || 0}</span>
                             </div>
                             <div className="flex justify-between">
-                                <span className="text-gray-600">Students</span>
+                                <span className="text-gray-400">Students</span>
                                 <span className="font-medium">{course?.enrolled_count || 0}</span>
                             </div>
                             <div className="flex justify-between">
-                                <span className="text-gray-600">Rating</span>
+                                <span className="text-gray-400">Rating</span>
                                 <div className="flex items-center space-x-1">
                                     <Star className="w-4 h-4 text-yellow-500 fill-current" />
                                     <span className="font-medium">{course?.rating || 1}</span>
@@ -373,10 +373,10 @@ export default function CourseDetailView({ course }: ViewProps) {
                         </div>
                     </div>
 
-                    <div className="bg-white border rounded-lg p-4 sm:p-6">
+                    <div className="bg-gray-800 border border-gold-400/20 rounded-lg p-4 sm:p-6">
                         <h5 className="font-semibold mb-4">What you'll learn</h5>
                         <ul className="space-y-2 text-sm">
-                            {course?.learns?.map((learn, index) => (
+                            {course?.learns?.map((learn: any, index: number) => (
                                 <li key={index} className="flex items-start space-x-2">
                                     <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
                                     <span>{learn}</span>

@@ -102,13 +102,13 @@ export default function EventDetailView() {
                                 name: 'events'
                             })
                         }
-                        className="p-2 hover:bg-gray-100 rounded-lg"
+                        className="p-2  rounded-lg"
                     >
-                        <ArrowLeft className="w-5 h-5" />
+                        <ArrowLeft className="w-5 h-5 hover:text-gold-100" />
                     </button>
                     <div>
                         <h3 className="text-xl font-semibold">{selectedEvent?.title}</h3>
-                        <p className="text-gray-600 text-sm">Hosted by {selectedEvent?.host}</p>
+                        <p className="text-gray-400 text-sm">Hosted by {selectedEvent?.host}</p>
                     </div>
                 </div>
 
@@ -131,7 +131,7 @@ export default function EventDetailView() {
                         </div>
 
                         <h4 className="font-semibold text-lg mb-4">About This Event</h4>
-                        <p className="text-gray-700 mb-6">{selectedEvent?.description}</p>
+                        <p className="text-gray-400 mb-6">{selectedEvent?.description}</p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-4">
@@ -221,11 +221,10 @@ export default function EventDetailView() {
                                 {selectedEvent?.price === 0 ? 'Free' : `$${selectedEvent?.price}`}
                             </div>
                             <span
-                                className={`px-3 py-1 rounded-full text-sm ${
-                                    selectedEvent?.status === 'upcoming'
+                                className={`px-3 py-1 rounded-full text-sm ${selectedEvent?.status === 'upcoming'
                                         ? 'bg-green-100 text-green-700'
                                         : 'bg-gray-100 text-gray-700'
-                                }`}
+                                    }`}
                             >
                                 {selectedEvent?.status}
                             </span>

@@ -30,12 +30,12 @@ export default function DashbordView({
     };
     return (
         <>
-            <div className="flex-1 p-6 bg-gray-50 ">
+            <div className="flex-1 p-6  ">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex justify-between items-center  flex-wrap space-y-2 mb-8">
                         <div className=" ">
-                            <h2 className="text-3xl font-bold text-gray-800 mb-2">Welcome back!</h2>
-                            <p className="text-gray-600">
+                            <h2 className="text-3xl font-bold text-gold-400 mb-2">Welcome back!</h2>
+                            <p className="">
                                 Here's what's happening in your communities
                             </p>
                         </div>
@@ -44,7 +44,7 @@ export default function DashbordView({
                                 onClick={() => {
                                     handleCreatCommunity();
                                 }}
-                                className="hidden bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
+                                className="hidden bg-gold-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-gold-600 flex items-center space-x-2 whitespace-nowrap"
                             >
                                 <Plus className="w-4 h-4" />
                                 <span>New Community</span>
@@ -53,7 +53,7 @@ export default function DashbordView({
                                 onClick={() => {
                                     handleJoinCommunity();
                                 }}
-                                className=" bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
+                                className=" bg-gold-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-gold-600 flex items-center space-x-2 whitespace-nowrap"
                             >
                                 <Plus className="w-4 h-4" />
                                 <span>Join Community</span>

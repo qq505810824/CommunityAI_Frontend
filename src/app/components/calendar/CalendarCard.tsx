@@ -39,7 +39,7 @@ export default function CalendarCard(props: ViewProps) {
     return (
         <>
             <div
-                className="border rounded-md space-y-2 hover:shadow-lg cursor-pointer bg-white"
+                className="bg-gray-800 border border-gold-400/20 rounded-md space-y-2 hover:shadow-lg cursor-pointer  "
                 onClick={handleClick}
             >
                 <div className="w-full h-[250px] bg-gradient-to-br from-blue-100 to-purple-100">
@@ -66,7 +66,7 @@ export default function CalendarCard(props: ViewProps) {
                             >
                                 {product.name}
                             </p>
-                            <div className="text-sm text-orange-500 flex flex-row items-center">
+                            <div className="text-sm text-gold-500 flex flex-row items-center">
                                 <CalendarIcon className="w-4 mr-2" />
                                 {product.from_date} - {product.to_date}
                             </div>
@@ -86,7 +86,7 @@ export default function CalendarCard(props: ViewProps) {
                     </div>
 
                     <div className="flex flex-row   my-1 justify-between items-center">
-                        <label className="text-sm font-semibold text-orange-600">
+                        <label className="text-sm font-semibold text-gold-500">
                             {product.status}
                         </label>
                         <Typography

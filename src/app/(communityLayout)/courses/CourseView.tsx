@@ -22,7 +22,7 @@ export default function CourseView({ courses }: ViewProps) {
                 <div className="flex justify-between items-center  flex-wrap space-y-2">
                     <div>
                         <h3 className="text-xl font-semibold">Courses</h3>
-                        <p className="text-gray-600 text-sm">
+                        <p className="text-gray-400 text-sm">
                             Admin-only Courses for announcements and updates
                         </p>
                     </div>
@@ -30,7 +30,7 @@ export default function CourseView({ courses }: ViewProps) {
                         onClick={() => {
                             handleCreatCourse();
                         }}
-                        className="bg-blue-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-blue-600 flex items-center space-x-2 whitespace-nowrap"
+                        className="bg-gold-500 text-white px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-gold-600 flex items-center space-x-2 whitespace-nowrap"
                     >
                         <Plus className="w-4 h-4" />
                         <span>New Course</span>

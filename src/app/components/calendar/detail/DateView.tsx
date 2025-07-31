@@ -15,12 +15,12 @@ export default function DateView(props: ViewProps) {
         <>
             <div className=" flex flex-row items-start justify-between">
                 <div className=" space-y-2">
-                    <p className="text-sm font-semibold flex flex-row items-center text-orange-500">
+                    <p className="text-sm font-semibold flex flex-row items-center text-gold-500">
                         <CalendarIcon className="w-4 mr-2" />
                         {product?.from_date} - {product?.to_date}
                     </p>
-                    <p className="text-sm font-semibold flex flex-row items-center text-orange-500 ">
-                        <AccessTimeOutlinedIcon sx={{ fontSize: 16, color: '#f97316', mr: 1 }} />
+                    <p className="text-sm font-semibold flex flex-row items-center text-gold-500 ">
+                        <AccessTimeOutlinedIcon sx={{ fontSize: 16, color: '#b8860b', mr: 1 }} />
                         {product?.pre_from_date} - {product?.pre_to_date}
                     </p>
                 </div>

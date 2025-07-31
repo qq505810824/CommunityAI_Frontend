@@ -59,7 +59,7 @@ export default function OperationView(props: ViewProps) {
                 {showCollectView() && (
                     <Tooltip title={!collect ? '收藏' : '取消收藏'} placement="top">
                         <IconButton onClick={handleCollect}>
-                            {collect && <StarIcon sx={{ width: '20px', color: 'red' }} />}
+                            {collect && <StarIcon sx={{ width: '20px', color: '#b8860b' }} />}
                             {!collect && <StarBorderOutlinedIcon sx={{ width: '20px' }} />}
                         </IconButton>
                     </Tooltip>
@@ -67,7 +67,7 @@ export default function OperationView(props: ViewProps) {
                 <Tooltip title={'分享'} placement="top">
                     <IconButton onClick={handleClickShare}>
                         <Share2Icon
-                            className=" text-[#f97316] text-md hover:text-orange-600 cursor-pointer w-[20px]"
+                            className=" text-gold-500 text-md hover:text-gold-600 cursor-pointer w-[20px]"
                             onClick={handleClickShare}
                         />
                     </IconButton>

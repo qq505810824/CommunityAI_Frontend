@@ -37,7 +37,7 @@ export default function PostItem({ post }: ViewProps) {
     return (
         <>
             <div
-                className="bg-white border rounded-lg p-2 sm:p-4  cursor-pointer"
+                className="bg-gray-800 border border-gold-400/20 rounded-lg p-2 sm:p-4  cursor-pointer"
                 onClick={handleClickPost}
             >
                 <div className="flex items-start space-x-2">
@@ -82,32 +82,32 @@ export default function PostItem({ post }: ViewProps) {
                                             .join('')}
                                     </span>
                                 </div>
-                                <span className=" text-gray-500 text-sm font-medium">
+                                <span className=" text-gray-400 text-sm font-medium">
                                     {post?.owner?.name}
                                 </span>
                                 {/* <span className="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs">
                                 {post.role}
                             </span> */}
-                                <span className="text-sm text-gray-500">
+                                <span className="text-sm text-gray-400">
                                     {moment(post.created_at).fromNow()}
                                 </span>
                             </div>
                             <button
-                                className={`flex items-center space-x-2 text-gray-500 hover:text-red-500 ${isLike ? 'text-red-500' : 'text-gray-500'}`}
+                                className={`flex items-center space-x-2 text-gray-400 hover:text-red-400 ${isLike ? 'text-red-400' : 'text-gray-400'}`}
                                 onClick={handleLike}
                             >
                                 <Heart className="w-4 h-4" />
                                 <span>{likes || 0}</span>
                             </button>
                             <button
-                                className={`flex items-center space-x-2 text-gray-500 hover:text-red-500 `}
+                                className={`flex items-center space-x-2 text-gray-400 hover:text-gold-400 `}
                                 onClick={handleComment}
                             >
                                 <MessageSquare className="w-4 h-4" />
                                 <span>{post.comment_count || 0}</span>
                             </button>
 
-                            <button className="hidden flex items-center space-x-2 text-gray-500 hover:text-blue-500">
+                            <button className="hidden flex items-center space-x-2 text-gray-400 hover:text-gold-400">
                                 <Share2 className="w-4 h-4" />
                                 <span>Share</span>
                             </button>

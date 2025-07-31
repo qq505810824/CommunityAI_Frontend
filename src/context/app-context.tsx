@@ -65,7 +65,7 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
     const [userProfile, setUserProfile] = useState<AccountModel | null>(null);
     const user_id = localStorage.getItem('user_id');
 
-    useEffect(() => {}, []);
+    useEffect(() => { }, []);
 
     useEffect(() => {
         // 从本地存储中获取用户信息
@@ -142,7 +142,7 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
                 useSelector
             }}
         >
-            <div className="flex flex-col">
+            <div className="flex flex-col bg-gray-900">
                 <div ref={pageContainerRef} className="">
                     {children}
                 </div>

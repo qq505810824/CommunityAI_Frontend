@@ -49,16 +49,16 @@ export default function NewsfeedLayout({ newsfeeds, handleRefreshLogs }: ViewPro
 
     return (
         <>
-            <div className="bg-white rounded-xl shadow-sm border ">
-                <div className="p-6 border-b flex items-center justify-between">
-                    <h3 className="text-xl font-semibold text-gray-800">Community Updates</h3>
+            <div className="bg-gray-800 rounded-xl shadow-sm border border-gold-400/20">
+                <div className="p-6 border-b border-b-gold-400/20 flex items-center justify-between">
+                    <h3 className="text-xl font-semibold text-gold-400">Community Updates</h3>
                     <RefreshCcwIcon
-                        className="w-5 text-gray-500 hover:text-gray-600 cursor-pointer"
+                        className="w-5 text-gold-400 hover:text-gray-600 cursor-pointer"
                         onClick={handleRefreshLogs}
                     />
                 </div>
 
-                <div className="divide-y">
+                <div className="divide-y divide-gray-400/20 ">
                     {newsfeeds?.map((item, index) => <NewsfeedCard item={item} key={index} />)}
                 </div>
             </div>

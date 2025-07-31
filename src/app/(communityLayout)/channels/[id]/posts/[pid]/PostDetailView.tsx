@@ -43,16 +43,16 @@ export default function PostDetailView({ channel, post, comments, handleRefresh 
                                     }
                                 });
                             }}
-                            className="p-2 hover:bg-gray-100 rounded-lg"
+                            className="p-2 rounded-lg"
                         >
-                            <ArrowLeft className="w-5 h-5" />
+                            <ArrowLeft className="w-5 h-5 hover:text-gold-400 " />
                         </button>
                         <div className="flex items-center space-x-2">
                             <div>
                                 <h3 className="text-xl font-semibold flex items-center space-x-2">
                                     <span>{post?.title}</span>
                                 </h3>
-                                <div className="flex flex-row items-center text-gray-500">
+                                <div className="flex flex-row items-center text-gray-400">
                                     {post?.owner?.name}{' '}
                                     <span className="ml-2">
                                         {moment(post?.created_at).fromNow()}

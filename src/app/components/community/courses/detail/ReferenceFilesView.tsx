@@ -60,7 +60,7 @@ export default function ReferenceFilesView(props: ViewProps) {
     return (
         <>
             {product?.files_url && (
-                <div className="bg-white border rounded-lg p-6">
+                <div className="bg-gray-800 border border-gold-400/20 rounded-lg p-6">
                     <p className="text-md font-semibold">Files:</p>
                     {showFilesView() ? (
                         <>

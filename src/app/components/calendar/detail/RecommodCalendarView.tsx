@@ -1,9 +1,10 @@
+import { useAppDetailContext } from '@/app/(communityLayout)/communitys/[id]/detail-context';
 import { randomCalendarData, showCalendarValues } from '@/hooks/useCalendarData';
 import { CalendarModel } from '@/models/Calendar';
 import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-interface ViewProps {}
+interface ViewProps { }
 
 export default function RecommodCalendarView(props: ViewProps) {
     const router = useRouter();
@@ -15,6 +16,8 @@ export default function RecommodCalendarView(props: ViewProps) {
     });
     const { data, isLoading, isError, mutate } = randomCalendarData({ ...filters });
 
+    const { activeTab, setActiveTab } = useAppDetailContext();
+
     useEffect(() => {
         if (data) {
             // console.log('data', data);
@@ -24,23 +27,24 @@ export default function RecommodCalendarView(props: ViewProps) {
             });
             setProducts(newData);
         }
-        return () => {};
+        return () => { };
     }, [router, data]);
 
     const handleClick = (product: CalendarModel) => {
-        router.push(`/calendar/${product.id}`);
+        // router.push(`/calendar/${product.id}`);
+        setActiveTab({ name: 'event-detail', meta: { calendar: product } });
     };
 
     return (
         <>
-            <div className="mt-10 w-full flex items-center rounded-md text-white text-sm font-medium bg-orange-500 p-2 ">
+            <div className="mt-10 w-full flex items-center rounded-md text-white text-sm font-medium bg-gold-400 p-2 ">
                 <LocalFireDepartmentOutlinedIcon sx={{ color: 'white' }} /> 其他精彩活動
             </div>
             <div className="flex-col  space-y-1  my-2  w-full ">
                 {products?.map((product, index) => (
                     <div
                         key={index}
-                        className="border-l-4 rounded-l-md border-l-orange-500 rounded-md space-y-4 hover:bg-gray-200 cursor-pointer bg-white"
+                        className="border-l-4 rounded-l-md border-l-gold-500 rounded-md space-y-4   cursor-pointer bg-gray-800 hover:bg-gray-700"
                         onClick={() => handleClick(product)}
                     >
                         <div className="p-2">

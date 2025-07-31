@@ -42,42 +42,42 @@ export default function NewsfeedCard({ item }: ViewProps) {
                                     AI Generated
                                 </span>
                             </div>
-                            <p className="text-gray-700 mb-2">{item?.content}</p>
-                            <span className="text-sm text-gray-500">{item?.timestamp}</span>
+                            <p className="text-gray-400 mb-2">{item?.content}</p>
+                            <span className="text-sm text-gray-400">{item?.timestamp}</span>
                         </div>
                     </div>
                 ) : (
                     <div className=" cursor-pointer" onClick={handleClick}>
                         <div className="flex items-center flex-wrap space-y-1 space-x-2 mb-3">
                             {item?.type === 'channel-post' && (
-                                <Hash className="w-4 h-4 text-blue-500" />
+                                <Hash className="w-4 h-4 text-gold-400" />
                             )}
                             {item?.type === 'course-update' && (
-                                <BookOpen className="w-4 h-4 text-green-500" />
+                                <BookOpen className="w-4 h-4 text-gold-400" />
                             )}
                             {item?.type === 'event-reminder' && (
-                                <CalendarIcon className="w-4 h-4 text-purple-500" />
+                                <CalendarIcon className="w-4 h-4 text-gold-400" />
                             )}
-                            <Hash className="w-4 h-4 text-blue-500" />
-                            <span className="font-medium text-gray-800">
+                            <Hash className="w-4 h-4 text-gold-400" />
+                            <span className="font-medium text-gray-400">
                                 {item?.owner?.name || item?.community?.name}
                             </span>
                             <span className="text-gray-400">•</span>
-                            <span className="text-sm text-gray-500">{item?.community?.name}</span>
+                            <span className="text-sm text-gray-400">{item?.community?.name}</span>
                             {item?.channel && (
                                 <>
                                     <span className="text-gray-400">•</span>
-                                    <span className="text-sm text-gray-500">
+                                    <span className="text-sm text-gray-400">
                                         #{item?.channel.name}
                                     </span>
                                 </>
                             )}
                             <span className="text-gray-400">•</span>
-                            <span className="text-sm text-gray-500">
+                            <span className="text-sm text-gray-400">
                                 {moment(item.created_at).fromNow()}
                             </span>
                         </div>
-                        <p className="text-gray-700 mb-4">{item?.title}</p>
+                        <p className="mb-4">{item?.title}</p>
                         <div className="w-full flex flex-row items-center space-x-2">
                             {item?.files_url &&
                                 item?.files_url
@@ -98,13 +98,13 @@ export default function NewsfeedCard({ item }: ViewProps) {
                         </div>
                         <div className="flex items-center space-x-6">
                             <button
-                                className={`flex items-center space-x-2 text-gray-500 hover:text-red-500 ${isLike ? 'text-red-500' : 'text-gray-500'}`}
+                                className={`flex items-center space-x-2 text-gray-400 hover:text-red-500 ${isLike ? 'text-red-500' : 'text-gray-400'}`}
                                 onClick={handleLike}
                             >
                                 <Heart className="w-4 h-4" />
                                 <span>{likes || 0}</span>
                             </button>
-                            <button className="flex items-center space-x-2 text-gray-500 hover:text-blue-500">
+                            <button className="flex items-center space-x-2 text-gray-400 hover:text-gold-400">
                                 <MessageSquare className="w-4 h-4" />
                                 <span>{(item?.comments && item?.comments[0].count) || 0}</span>
                             </button>

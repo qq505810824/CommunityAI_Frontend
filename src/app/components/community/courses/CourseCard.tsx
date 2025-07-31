@@ -19,9 +19,10 @@ export default function CourseCard({ course }: ViewProps) {
                     // setSelectedCourse(course);
                     setActiveTab({ name: 'course-detail', meta: { course } });
                 }}
-                className="bg-white border rounded-lg overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                className="bg-gray-800 card-hover border border-gold-400/20 rounded-lg overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
             >
                 <div className="aspect-video bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+                    {/* bg-gradient-to-br from-blue-100 to-purple-100  */}
                     {/* <div className="text-4xl">{course.cover_url}</div> */}
                     {course.cover_url && (
                         <img
@@ -37,12 +38,12 @@ export default function CourseCard({ course }: ViewProps) {
                         <h4 className="font-semibold text-lg">{course.title}</h4>
                         <div className="flex items-center space-x-1">
                             <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                            <span className="text-sm text-gray-600">{course.rating || 1}</span>
+                            <span className="text-sm text-gray-400">{course.rating || 1}</span>
                         </div>
                     </div>
 
                     <p
-                        className="text-gray-600 text-sm mb-4 line-clamp-2"
+                        className="text-gray-400 text-sm mb-4 line-clamp-2"
                         style={{
                             display: '-webkit-box',
                             WebkitBoxOrient: 'vertical',
@@ -57,11 +58,11 @@ export default function CourseCard({ course }: ViewProps) {
                     {/* <p className="text-gray-600 text-sm mb-4 line-clamp-2">{course.description}</p> */}
 
                     <div className="space-y-2 mb-4">
-                        <div className="flex justify-between text-sm text-gray-500">
+                        <div className="flex justify-between text-sm text-gray-400">
                             <span>{course.lessons || 0} lessons</span>
                             <span>{course.duration}</span>
                         </div>
-                        <div className="flex justify-between text-sm text-gray-500">
+                        <div className="flex justify-between text-sm text-gray-400">
                             <span>{course.enrolled_count || 0} enrolled</span>
                             <span>by {course?.owner?.name}</span>
                         </div>
@@ -93,7 +94,7 @@ export default function CourseCard({ course }: ViewProps) {
                                         </span>
                                     )} */}
                         </div>
-                        <button className="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600">
+                        <button className="bg-gold-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-gold-600">
                             {/* {course.progress > 0 ? 'Continue' : 'Start'} */}
                             Start
                         </button>

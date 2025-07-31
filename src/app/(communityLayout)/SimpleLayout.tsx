@@ -5,9 +5,18 @@ import * as React from 'react';
 import Box from '@mui/joy/Box';
 import CssBaseline from '@mui/joy/CssBaseline';
 import { CssVarsProvider } from '@mui/joy/styles';
-import HeaderView from '../components/community/header';
+import GoldHeaderView from '../components/community/header/GoldHeaderView';
 
 function SimpleLayout(props: { children: React.ReactNode }) {
+
+    const [section, setSection] = React.useState('dashboard');
+
+    const links = [
+        { label: 'Community', href: '/' },
+        { label: 'Campagin', href: '/marketplace' },
+        { label: 'Network Portfolio', href: '/events' },
+    ];
+
     return (
         <CssVarsProvider disableTransitionOnChange>
             <CssBaseline />
@@ -16,13 +25,22 @@ function SimpleLayout(props: { children: React.ReactNode }) {
                     display: 'flex',
                     flexDirection: 'column',
                     height: '100dvh',
-                    paddingBottom: 4
+                    paddingBottom: 2
                 }}
             >
-                <HeaderView />
+                {/* <HeaderView /> */}
+
+                <GoldHeaderView
+                    {...{
+                        title: 'AIIcon Ultra Networking',
+                        links,
+                        section,
+                        setSection
+                    }}
+                />
                 <div className="w-full flex   h-full ">
                     {/* <Sidebar /> */}
-                    <div className="w-full h-full overflow-y-auto bg-gray-50 pb-12">
+                    <div className="w-full h-full overflow-y-auto text-white bg-gray-900 pb-12">
                         {props.children}
                     </div>
                 </div>
