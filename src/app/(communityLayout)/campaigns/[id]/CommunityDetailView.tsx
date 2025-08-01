@@ -89,21 +89,21 @@ export default function CommunityDetailView({ community }: ViewProps) {
                         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-white">
                             <button
                                 onClick={() => setActiveTab({ name: 'channels' })}
-                                className={`shadow-sm border border-gold-400/20 rounded-lg p-4 text-center hover:bg-gray-700 transition-colors ${activeTab?.name?.includes('channel') ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-800'}`}
+                                className={`shadow-sm border border-gold-400/20 rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab?.name?.includes('channel') ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-800'}`}
                             >
                                 <Hash className="w-6 h-6 mx-auto mb-2 text-gold-400" />
                                 <span className="text-sm">Channels</span>
                             </button>
                             <button
                                 onClick={() => setActiveTab({ name: 'courses' })}
-                                className={` shadow-sm border border-gold-400/20  rounded-lg p-4 text-center hover:bg-gray-700 placeholder:transition-colors ${activeTab?.name?.includes('course') ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-800'}`}
+                                className={` shadow-sm border border-gold-400/20  rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab?.name?.includes('course') ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-800'}`}
                             >
                                 <BookOpen className="w-6 h-6 mx-auto mb-2 text-gold-400" />
                                 <span className="text-sm">Courses</span>
                             </button>
                             <button
                                 onClick={() => setActiveTab({ name: 'events' })}
-                                className={` shadow-sm border border-gold-400/20 rounded-lg p-4 text-center hover:bg-gray-700 transition-colors ${activeTab?.name?.includes('event') ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-800'}`}
+                                className={` shadow-sm border border-gold-400/20 rounded-lg p-4 text-center hover:bg-opacity-30 transition-colors ${activeTab?.name?.includes('event') ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-800'}`}
                             >
                                 <CalendarIcon className="w-6 h-6 mx-auto mb-2 text-gold-400" />
                                 <span className="text-sm">Events</span>

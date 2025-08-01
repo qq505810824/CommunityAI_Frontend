@@ -1,18 +1,20 @@
 import Modal from '@/app/components/base/modal';
-import CommunitiesLayout from '@/app/components/community/dashbord/CommunitiesLayout';
+import CampaignsLayout from '@/app/components/community/campaigns/CampaignsLayout';
 import CommunityFormView from '@/app/components/community/form';
-import { CommunityModel } from '@/models/Community';
+import { CampaignModel } from '@/models/Campaign';
 import { Plus } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 interface ViewProps {
     handleRefresh: () => void;
-    communities: CommunityModel[];
+    campaigns: CampaignModel[];
 }
 
-export default function CommunityView({ handleRefresh, communities }: ViewProps) {
+export default function CampaignsView({ handleRefresh, campaigns }: ViewProps) {
+    const router = useRouter()
     const [visibleCreateCommunity, setVisibleCreateCommunity] = useState(false);
     const handleCreatCommunity = () => {
-        setVisibleCreateCommunity(true);
+        router.push(`/campaigns/create`)
     };
     return (
         <>
@@ -21,10 +23,10 @@ export default function CommunityView({ handleRefresh, communities }: ViewProps)
                     <div className="flex justify-between items-center  flex-wrap space-y-2 mb-8">
                         <div className=" ">
                             <h2 className="text-3xl font-luxury  font-bold text-gold-400 mb-2">
-                                My Communities
+                                Campaign Management
                             </h2>
-                            <p className="text-gray-400">
-                                Here's what's happening in your communities
+                            <p className="text-gray-300">
+                                Create and manage your PR campaigns
                             </p>
                         </div>
                         <button
@@ -34,15 +36,10 @@ export default function CommunityView({ handleRefresh, communities }: ViewProps)
                             className="bg-gold-500 text-white text-sm px-2 py-1 sm:px-4 sm:py-2 rounded-lg hover:bg-gold-600 flex items-center space-x-2 whitespace-nowrap"
                         >
                             <Plus className="w-4 h-4" />
-                            <span>New Community</span>
+                            <span>New Campaign</span>
                         </button>
                     </div>
-
-                    {/* Enhanced Community Overview Cards */}
-                    <CommunitiesLayout communities={communities} />
-
-                    {/* Enhanced Newsfeed */}
-                    {/* <NewsfeedLayout /> */}
+                    <CampaignsLayout campaigns={campaigns} />
                 </div>
             </div>
             <Modal

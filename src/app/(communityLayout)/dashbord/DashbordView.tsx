@@ -34,8 +34,8 @@ export default function DashbordView({
                 <div className="max-w-7xl mx-auto">
                     <div className="flex justify-between items-center  flex-wrap space-y-2 mb-8">
                         <div className=" ">
-                            <h2 className="text-3xl font-bold text-gold-400 mb-2">Welcome back!</h2>
-                            <p className="">
+                            <h2 className="text-3xl font-luxury  font-bold text-gold-400 mb-2">Welcome back!</h2>
+                            <p className="text-gray-300">
                                 Here's what's happening in your communities
                             </p>
                         </div>

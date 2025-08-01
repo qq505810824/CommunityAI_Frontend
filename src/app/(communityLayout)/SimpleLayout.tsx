@@ -13,8 +13,8 @@ function SimpleLayout(props: { children: React.ReactNode }) {
 
     const links = [
         { label: 'Community', href: '/' },
-        { label: 'Campagin', href: '/marketplace' },
-        { label: 'Network Portfolio', href: '/events' },
+        { label: 'Campaign', href: '/campaigns' },
+        { label: 'Network Portfolio', href: '/networks' },
     ];
 
     return (
@@ -32,7 +32,7 @@ function SimpleLayout(props: { children: React.ReactNode }) {
 
                 <GoldHeaderView
                     {...{
-                        title: 'AIIcon Ultra Networking',
+                        title: 'AIIcon Ultra',
                         links,
                         section,
                         setSection

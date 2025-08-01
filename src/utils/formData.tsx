@@ -420,3 +420,91 @@ export const UserFormData = {
     },
     form_data: {}
 };
+
+
+export const CampaignFormData = {
+    json_schema: {
+        type: 'object',
+        title: 'Edit Campaign',
+        description: '',
+        required: ['name'],
+        properties: {
+            name: {
+                type: 'string',
+                title: 'Campaign Name'
+            },
+            description: {
+                type: 'string',
+                title: 'Description'
+            },
+            category: {
+                type: 'string',
+                title: 'Campaign Type',
+                oneOf: [
+                    { title: 'Press Release', const: 'press_release' },
+                    { title: 'Product Launch', const: 'product_aunch' },
+                    { title: 'Event Announcement', const: 'event_announcement' },
+                    { title: 'Crisis Management', const: 'crisis_management' },
+                    { title: 'Brand Awareness', const: 'crand_awareness' }
+                ]
+            },
+            people: {
+                type: 'integer',
+                title: 'Projected reach'
+            },
+            location: {
+                type: 'string',
+                title: 'Location'
+            },
+            start_at: {
+                type: 'string',
+                title: 'Start Date'
+            },
+            end_at: {
+                type: 'string',
+                title: 'End Date'
+            },
+
+            press_release: {
+                type: 'string',
+                title: 'Press Release'
+            },
+            files_url: {
+                type: 'string',
+                title: 'Images'
+            }
+        }
+    },
+    ui_schema: {
+        name: {
+            'ui:widget': 'text'
+        },
+        description: {
+            'ui:widget': 'textarea'
+        },
+        press_release: {
+            'ui:widget': 'editor'
+        },
+        files_url: {
+            'ui:widget': 'files'
+        },
+        people: {
+            'ui:widget': 'updown'
+        },
+        category: {
+            'ui:widget': 'select'
+        },
+        start_at: {
+            'ui:widget': 'date'
+        },
+        end_at: {
+            'ui:widget': 'date'
+        },
+    },
+    form_data: {
+        name: '',
+        category: '',
+        description: '',
+        people: 0,
+    }
+};
