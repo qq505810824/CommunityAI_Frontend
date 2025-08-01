@@ -421,7 +421,6 @@ export const UserFormData = {
     form_data: {}
 };
 
-
 export const CampaignFormData = {
     json_schema: {
         type: 'object',
@@ -499,12 +498,12 @@ export const CampaignFormData = {
         },
         end_at: {
             'ui:widget': 'date'
-        },
+        }
     },
     form_data: {
         name: '',
         category: '',
         description: '',
-        people: 0,
+        people: 0
     }
 };

@@ -17,10 +17,7 @@ function CourseEditView(props: ViewProps) {
             <div className="flex-1 ">
                 <div className="max-w-7xl mx-auto px-6 py-8">
                     <div className="flex items-center space-x-3">
-                        <button
-                            onClick={() => router.back()}
-                            className="p-2   rounded-lg"
-                        >
+                        <button onClick={() => router.back()} className="p-2   rounded-lg">
                             <ArrowLeft className="w-5 h-5 hover:text-gold-400" />
                         </button>
                     </div>

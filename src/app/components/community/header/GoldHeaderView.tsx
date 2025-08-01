@@ -23,7 +23,6 @@ export default function GoldHeaderView(props: ViewProps) {
     const [isMenuOpen, setIsMenuOpen] = useState(false); // 移動端選單狀態
     const pathname = usePathname(); // 獲取當前路徑
 
-
     const [selectedCommunity, setSelectedCommunity] = useState<any>(null);
     const [showCommunityDropdown, setShowCommunityDropdown] = useState(false);
     const [currentView, setCurrentView] = useState('dashboard');
@@ -34,7 +33,7 @@ export default function GoldHeaderView(props: ViewProps) {
 
     const showSection = (section: string) => {
         setSection(section);
-        router.push(section)
+        router.push(section);
     };
 
     const logout = async () => {
@@ -110,7 +109,9 @@ export default function GoldHeaderView(props: ViewProps) {
                                     )}
                                 </svg>
                             </button>
-                            <div className="text-2xl font-luxury font-bold text-gold-400">{title}</div>
+                            <div className="text-2xl font-luxury font-bold text-gold-400">
+                                {title}
+                            </div>
                             <nav className="hidden md:flex space-x-6 ml-8">
                                 {links.map((link) => {
                                     return (
@@ -127,7 +128,6 @@ export default function GoldHeaderView(props: ViewProps) {
                                 })}
                             </nav>
                         </div>
-
 
                         <div className="flex items-center space-x-4">
                             <div className="relative hidden">

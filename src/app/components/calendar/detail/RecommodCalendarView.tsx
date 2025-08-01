@@ -4,7 +4,7 @@ import { CalendarModel } from '@/models/Calendar';
 import LocalFireDepartmentOutlinedIcon from '@mui/icons-material/LocalFireDepartmentOutlined';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-interface ViewProps { }
+interface ViewProps {}
 
 export default function RecommodCalendarView(props: ViewProps) {
     const router = useRouter();
@@ -27,7 +27,7 @@ export default function RecommodCalendarView(props: ViewProps) {
             });
             setProducts(newData);
         }
-        return () => { };
+        return () => {};
     }, [router, data]);
 
     const handleClick = (product: CalendarModel) => {

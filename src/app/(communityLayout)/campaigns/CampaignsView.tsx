@@ -11,10 +11,10 @@ interface ViewProps {
 }
 
 export default function CampaignsView({ handleRefresh, campaigns }: ViewProps) {
-    const router = useRouter()
+    const router = useRouter();
     const [visibleCreateCommunity, setVisibleCreateCommunity] = useState(false);
     const handleCreatCommunity = () => {
-        router.push(`/campaigns/create`)
+        router.push(`/campaigns/create`);
     };
     return (
         <>
@@ -25,9 +25,7 @@ export default function CampaignsView({ handleRefresh, campaigns }: ViewProps) {
                             <h2 className="text-3xl font-luxury  font-bold text-gold-400 mb-2">
                                 Campaign Management
                             </h2>
-                            <p className="text-gray-300">
-                                Create and manage your PR campaigns
-                            </p>
+                            <p className="text-gray-300">Create and manage your PR campaigns</p>
                         </div>
                         <button
                             onClick={() => {

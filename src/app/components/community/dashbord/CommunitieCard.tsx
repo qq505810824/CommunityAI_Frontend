@@ -107,10 +107,11 @@ export default function CommunitieCard({ community }: ViewProps) {
                             </div>
                             <motion.button
                                 whileTap={{ scale: 0.95 }}
-                                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${isCopied
-                                    ? 'bg-green-100 text-green-700'
-                                    : 'bg-violet-100 text-violet-700 hover:bg-violet-200'
-                                    }`}
+                                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
+                                    isCopied
+                                        ? 'bg-green-100 text-green-700'
+                                        : 'bg-violet-100 text-violet-700 hover:bg-violet-200'
+                                }`}
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     handleCopyCode();

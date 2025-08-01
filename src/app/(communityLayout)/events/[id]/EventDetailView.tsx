@@ -221,10 +221,11 @@ export default function EventDetailView() {
                                 {selectedEvent?.price === 0 ? 'Free' : `$${selectedEvent?.price}`}
                             </div>
                             <span
-                                className={`px-3 py-1 rounded-full text-sm ${selectedEvent?.status === 'upcoming'
+                                className={`px-3 py-1 rounded-full text-sm ${
+                                    selectedEvent?.status === 'upcoming'
                                         ? 'bg-green-100 text-green-700'
                                         : 'bg-gray-100 text-gray-700'
-                                    }`}
+                                }`}
                             >
                                 {selectedEvent?.status}
                             </span>

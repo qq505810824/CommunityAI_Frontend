@@ -67,10 +67,7 @@ export default function CommunityDetailView({ community }: ViewProps) {
                 >
                     <div className="max-w-7xl mx-auto px-2 py-4 sm:px-6 sm:py-8">
                         <div className="flex items-center space-x-2 mb-6">
-                            <button
-                                onClick={() => router.push('/')}
-                                className="p-2 rounded-lg"
-                            >
+                            <button onClick={() => router.push('/')} className="p-2 rounded-lg">
                                 <ArrowBack className="w-5 h-5 hover:text-gold-400  " />
                             </button>
                             <div className="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center text-xl sm:text-2xl">

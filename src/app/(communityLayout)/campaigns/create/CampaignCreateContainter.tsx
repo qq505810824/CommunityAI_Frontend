@@ -27,7 +27,7 @@ export default function CampaignCreateContainter() {
         const newFormData = {
             ...formData,
             files_url: upload_file_urls,
-            owner: user_id,
+            owner: user_id
         };
 
         console.log('newFormData', newFormData);
@@ -42,7 +42,6 @@ export default function CampaignCreateContainter() {
                 });
             } else {
                 router.push(`/campaigns`);
-
             }
         } catch (error) {
             setAlert({

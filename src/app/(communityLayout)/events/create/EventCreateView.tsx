@@ -28,7 +28,7 @@ export default function EventCreateView(props: ViewProps) {
                     <div className="flex items-center space-x-3">
                         <button
                             onClick={() => {
-                                router.back()
+                                router.back();
                             }}
                             className="p-2  rounded-lg"
                         >

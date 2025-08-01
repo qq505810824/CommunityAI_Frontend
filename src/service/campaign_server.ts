@@ -132,9 +132,7 @@ export const getAppDetailById = async (id: number) => {
 
 export const createApp = async (appData: Omit<CampaignModel, 'id'>) => {
     try {
-        const tasks = [
-            supabase.from(db).insert([appData]).select()
-        ];
+        const tasks = [supabase.from(db).insert([appData]).select()];
 
         const [createResult] = await Promise.all(tasks);
         // console.log('collectResult', collectResult);
