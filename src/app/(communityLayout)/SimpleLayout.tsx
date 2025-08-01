@@ -22,6 +22,7 @@ function SimpleLayout(props: { children: React.ReactNode }) {
                 <HeaderView />
                 <div className="w-full flex   h-full ">
                     {/* <Sidebar /> */}
+
                     <div className="w-full h-full overflow-y-auto bg-gray-50 pb-12">
                         {props.children}
                     </div>
