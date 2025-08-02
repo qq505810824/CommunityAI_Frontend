@@ -1,6 +1,5 @@
 import Modal from '@/app/components/base/modal';
 import CommunitiesLayout from '@/app/components/community/dashbord/CommunitiesLayout';
-import NewsfeedLayout from '@/app/components/community/dashbord/NewsfeedLayout';
 import CommunityFormView from '@/app/components/community/form';
 import JoinCommunityView from '@/app/components/community/join';
 import { CommunityModel } from '@/models/Community';
@@ -64,7 +63,7 @@ export default function DashbordView({
                     <CommunitiesLayout communities={communities} handleRefresh={handleRefresh} />
 
                     {/* Enhanced Newsfeed */}
-                    <NewsfeedLayout newsfeeds={newsfeeds} handleRefreshLogs={handleRefreshLogs} />
+                    {/* <NewsfeedLayout newsfeeds={newsfeeds} handleRefreshLogs={handleRefreshLogs} /> */}
                 </div>
             </div>
             <Modal

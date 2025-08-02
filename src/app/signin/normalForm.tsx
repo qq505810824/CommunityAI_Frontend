@@ -2,11 +2,18 @@
 import Button from '@/app/components/base/button';
 import I18n from '@/context/i18n';
 import { login } from '@/service/common';
+import { createClient } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 import { useReducer, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useContext } from 'use-context-selector';
 import Toast from '../components/base/toast';
+
+const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+);
+
 
 const validEmailReg = /^[\w\.-]+@([\w-]+\.)+[\w-]{2,}$/;
 
@@ -18,12 +25,12 @@ type IState = {
 
 type IAction = {
     type:
-        | 'login'
-        | 'login_failed'
-        | 'github_login'
-        | 'github_login_failed'
-        | 'google_login'
-        | 'google_login_failed';
+    | 'login'
+    | 'login_failed'
+    | 'github_login'
+    | 'github_login_failed'
+    | 'google_login'
+    | 'google_login_failed';
 };
 
 function reducer(state: IState, action: IAction) {
@@ -91,9 +98,9 @@ const NormalForm = () => {
             setIsLoading(true);
 
             const res = await login({
-                url: '/users/sign_in.json',
+                url: '/general_users/sign_in.json',
                 body: {
-                    user: {
+                    general_user: {
                         email,
                         password
                     }
@@ -101,9 +108,74 @@ const NormalForm = () => {
             });
             const data = await res.json();
             if (data.success) {
+
                 const token = res.headers.get('authorization');
                 localStorage.setItem('authorization', token);
+                localStorage?.setItem('email', email || '');
+
+                const { data: exist } = await supabase
+                    .from('account')
+                    .select('*')
+                    .eq('email', email)
+                    .maybeSingle();
+
+                if (exist) {
+                    localStorage.setItem('account', JSON.stringify(exist));
+                    localStorage?.setItem('user_id', exist.id);
+                    return router.replace('/');
+                }
+
+                // 1. 进行认证注册
+                const {
+                    data: { user },
+                    error: signUpError
+                } = await supabase.auth.signUp({
+                    email,
+                    password,
+                    options: {
+                        emailRedirectTo: undefined,
+                        data: {
+                            email_confirmed: false
+                        }
+                    }
+                });
+
+                if (signUpError) {
+                    throw signUpError;
+                }
+
+                if (user) {
+                    // 2. 使用 supabase client 创建 profile
+                    const { data, error: profileError } = await supabase
+                        .from('account')
+                        .insert([
+                            {
+                                id: user.id,
+                                email: email,
+                                name: email,
+                                token: token,
+                                nickname: email,
+                                user_metadata: { form: 'aienglish' }
+                            }
+                        ])
+                        .select()
+                        .single();
+
+                    if (profileError) {
+                        console.error('Profile creation error:', profileError);
+                        await supabase.auth.signOut();
+                        throw new Error('创建用户档案失败，请重试');
+                    }
+                    localStorage?.setItem('user_id', data.id);
+                    // console.log('data', data);
+
+                }
                 router.replace('/');
+                // const token = res.headers.get('authorization');
+                // localStorage.setItem('authorization', token);
+                // localStorage?.setItem('email', email || '');
+                // localStorage?.setItem('user_id', '');
+                // router.replace('/');
             } else {
                 Toast.notify({
                     type: 'error',
@@ -124,7 +196,7 @@ const NormalForm = () => {
 
             <div className="w-full mx-auto mt-8">
                 <div className="bg-white ">
-                    <form onSubmit={() => {}}>
+                    <form onSubmit={() => { }}>
                         <div className="mb-5">
                             <label
                                 htmlFor="email"

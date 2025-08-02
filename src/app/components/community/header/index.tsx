@@ -22,7 +22,8 @@ export default function HeaderView() {
         localStorage?.setItem('user_id', '');
         localStorage.setItem('supabase_user', '');
         localStorage.setItem('account', '');
-        const res = await supabase.auth.signOut();
+        localStorage.setItem('authorization', '');
+        // const res = await supabase.auth.signOut();
         router.push(`/signin?redirect=${window.location.href}`);
     };
 

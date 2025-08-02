@@ -2,7 +2,7 @@
 import { useSearchParams } from 'next/navigation';
 
 import cn from 'classnames';
-import UnlessForm from './UnlessForm';
+import NormalForm from './normalForm';
 
 const Forms = () => {
     const searchParams = useSearchParams();
@@ -11,8 +11,8 @@ const Forms = () => {
     const getForm = () => {
         switch (step) {
             default:
-                return <UnlessForm />;
-            // return <NormalForm />;
+                // return <UnlessForm />;
+                return <NormalForm />;
         }
     };
     return (
